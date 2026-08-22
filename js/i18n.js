@@ -396,7 +396,6 @@ const EN_TABLE = {
   'a11y.progress': 'Progress',
   'a11y.settings': 'Settings',
   'a11y.expandDetails': 'Show details',
-  'sw.updateReady': 'New version ready — tap to reload',
 
   // === v1.03: remote vocabulary updates ================================
   'update.checking': 'Checking for vocabulary updates…',
@@ -410,6 +409,12 @@ const EN_TABLE = {
   'set.contentBundled': 'Content version: built-in',
   'set.lastChecked': 'Last checked: %s',
   'set.neverChecked': 'Not checked yet',
+
+  // === v1.03.1: update bar =============================================
+  'update.appReady': 'New app version ready.',
+  'update.vocabReady': 'New vocabulary ready.',
+  'update.reload': 'Reload',
+  'update.dismiss': 'Dismiss',
 };
 
 const ZH_TABLE = {
@@ -691,7 +696,6 @@ const ZH_TABLE = {
   'a11y.progress': '进度',
   'a11y.settings': '设置',
   'a11y.expandDetails': '显示详情',
-  'sw.updateReady': '有新版本 — 点击刷新',
 
   // === v1.03: remote vocabulary updates ================================
   'update.checking': '正在检查词库更新…',
@@ -705,6 +709,12 @@ const ZH_TABLE = {
   'set.contentBundled': '词库版本：内置',
   'set.lastChecked': '上次检查：%s',
   'set.neverChecked': '尚未检查',
+
+  // === v1.03.1: update bar =============================================
+  'update.appReady': '有新版本应用。',
+  'update.vocabReady': '新词库已就绪。',
+  'update.reload': '刷新',
+  'update.dismiss': '关闭',
 };
 
 // Now that the tables exist, set the default language.

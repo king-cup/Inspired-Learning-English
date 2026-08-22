@@ -249,6 +249,41 @@ export function toast(msg, ms = 3400) {
   toastTimer = setTimeout(() => { toastEl.classList.remove('show'); }, ms);
 }
 
+// ------------------------------------------------- update bar (v1.03.1)
+//
+// One persistent, dismissible bar used for BOTH kinds of update: new app code
+// (service worker) and new vocabulary (remote content). Deliberately not a
+// dialog -- it never blocks the screen or steals focus, so it cannot interrupt a
+// Cards/Practice/Test run. Ignoring it is always safe: app code applies on the
+// next launch, vocabulary applies on the next navigation out of a session.
+
+let updateBarEl = null;
+
+/** Remove the update bar if one is showing. */
+export function hideUpdateBar() {
+  if (updateBarEl) { updateBarEl.remove(); updateBarEl = null; }
+  document.body.classList.remove('has-updbar');
+}
+
+/**
+ * Show the update bar. A second call replaces the current one, so an app-code
+ * update and a vocabulary update never stack.
+ *   kind: 'app' | 'vocab' (only affects the id used for styling/testing)
+ */
+export function showUpdateBar({ message, actionLabel, onAction, kind = 'app' }) {
+  hideUpdateBar();
+  const action = press(h('button.updbar-action', { type: 'button', onclick: onAction }, cn(actionLabel)));
+  const dismiss = press(h('button.updbar-x', {
+    type: 'button', 'aria-label': i18n.t('update.dismiss'), onclick: hideUpdateBar,
+  }, '×'));
+  updateBarEl = h('div.updbar', { id: 'updbar', 'data-kind': kind, role: 'status' },
+    h('span.updbar-msg', null, cn(message)), action, dismiss);
+  document.body.append(updateBarEl);
+  document.body.classList.add('has-updbar');
+  announce(message);
+  return updateBarEl;
+}
+
 // --------------------------------------------------- accessible dialog (§8)
 
 const dialogStack = [];

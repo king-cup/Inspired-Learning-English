@@ -596,6 +596,38 @@ body.standalone #tabwarn { display: none; }
 .toast.cn, .toast .cn { text-transform: none; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 @media (prefers-reduced-motion: reduce) { .toast { transition: opacity .18s ease; } }
+/* Lift the toast above the update bar so the two never overlap. */
+body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
+
+/* --- update bar (v1.03.1) ------------------------------------------------
+   Fixed to the bottom, above content but below dialogs. Never blocks input:
+   it is a strip, not an overlay. */
+.updbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 52;
+  display: flex; align-items: center; gap: 10px;
+  background: var(--ink); color: var(--paper);
+  border-top: 2px solid var(--paper);
+  padding: 10px calc(env(safe-area-inset-right) + 12px)
+           calc(env(safe-area-inset-bottom) + 10px) calc(env(safe-area-inset-left) + 12px);
+}
+.updbar .updbar-msg {
+  flex: 1; min-width: 0;
+  font: bold 11px/1.35 var(--mono); letter-spacing: 1px; text-transform: uppercase;
+}
+.updbar .updbar-msg .cn { text-transform: none; letter-spacing: normal; }
+.updbar .updbar-action {
+  flex: none; min-height: 44px; padding: 0 16px;
+  background: var(--paper); color: var(--ink); border: 2px solid var(--paper);
+  font: bold 11px var(--mono); letter-spacing: 1.5px; text-transform: uppercase;
+}
+.updbar .updbar-action.is-pressed { background: var(--ink); color: var(--paper); }
+.updbar .updbar-x {
+  flex: none; min-width: 44px; min-height: 44px;
+  background: none; color: var(--paper); border: 2px solid var(--paper);
+  font: 20px/1 var(--mono);
+}
+.updbar .updbar-x.is-pressed { background: var(--paper); color: var(--ink); }
+.updbar :focus-visible { outline-color: var(--paper); }
 
 /* ======================================================================
    iPad layouts (§11). Phone (single column) is the default; these engage at

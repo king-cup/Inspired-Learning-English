@@ -11,7 +11,8 @@
 // vocab.json / audio-index.json stay in the shell as EMERGENCY offline fallback
 // only -- the live vocabulary now comes from content/ (see js/content.js), which
 // this worker deliberately does not touch. js/content.js is added below.
-const SHELL = 'vd-shell-v5';
+// v6: v1.03.1 adds the shared update bar (app-code + vocabulary).
+const SHELL = 'vd-shell-v6';
 
 const PRECACHE = [
   './',

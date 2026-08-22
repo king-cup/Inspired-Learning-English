@@ -14,8 +14,8 @@ import * as learn from './screens/learn.js';
 import * as test from './screens/test.js';
 import * as settings from './screens/settings.js';
 import * as onboarding from './screens/onboarding.js';
-import { runUpdateCheck } from './updates.js';
-import { h, clear, cn, button, closeAllDialogs } from './ui.js';
+import { runUpdateCheck, showVocabUpdateBar } from './updates.js';
+import { h, clear, cn, button, closeAllDialogs, showUpdateBar as showBar, hideUpdateBar } from './ui.js';
 
 // Only look for new vocabulary on foreground if it has been a while, so
 // re-focusing the app does not hammer the network.
@@ -97,7 +97,16 @@ async function route() {
   // that we are navigating to a NON-session screen (§4). Never mid-session.
   const goingToSession = parts[0] === 'u' && parts[1]
     && (parts[2] === 'cards' || parts[2] === 'practice' || parts[2] === 'learn' || parts[2] === 'test');
-  if (!goingToSession && D.hasPending()) { try { await D.applyPendingIfReady(); } catch (e) {} }
+  if (D.hasPending()) {
+    if (goingToSession) {
+      // Can't swap under a live session: leave the bar up so the student knows
+      // new words are waiting and can reload if they want them now.
+      showVocabUpdateBar();
+    } else {
+      try { await D.applyPendingIfReady(); } catch (e) {}
+      hideUpdateBar();
+    }
+  }
 
   if (parts[0] === 'settings') { settings.render(root); afterRoute(); return; }
 
@@ -193,7 +202,7 @@ async function registerServiceWorker() {
         if (!sw) return;
         sw.addEventListener('statechange', () => {
           // Never skipWaiting unprompted: it can swap modules mid-Practice.
-          if (sw.state === 'installed' && navigator.serviceWorker.controller) showUpdateBar(sw);
+          if (sw.state === 'installed' && navigator.serviceWorker.controller) showAppUpdateBar(sw);
         });
       });
     } catch (err) {
@@ -202,20 +211,14 @@ async function registerServiceWorker() {
   }
 }
 
-function showUpdateBar(sw) {
-  if (document.getElementById('updbar')) return;
-  const reload = () => { sw.postMessage({ type: 'SKIP_WAITING' }); };
-  const bar = h('button', {
-    id: 'updbar', type: 'button',
-    style: {
-      position: 'fixed', left: '0', right: '0', bottom: '0', zIndex: '50',
-      background: '#000', color: '#fff', padding: '12px calc(env(safe-area-inset-bottom) + 12px)',
-      font: 'bold 11px var(--mono)', letterSpacing: '2px', textTransform: 'uppercase',
-      textAlign: 'center', cursor: 'pointer', width: '100%', border: 'none',
-    },
-    onclick: reload,
-  }, cn(i18n.t('sw.updateReady')));
-  document.body.append(bar);
+/** New app CODE is waiting in the service worker. */
+function showAppUpdateBar(sw) {
+  showBar({
+    kind: 'app',
+    message: i18n.t('update.appReady'),
+    actionLabel: i18n.t('update.reload'),
+    onAction: () => { sw.postMessage({ type: 'SKIP_WAITING' }); },
+  });
   navigator.serviceWorker.addEventListener('controllerchange', () => location.reload());
 }
 

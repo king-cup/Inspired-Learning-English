@@ -5,11 +5,26 @@
 
 import * as D from './data.js';
 import * as i18n from './i18n.js';
-import { toast } from './ui.js';
+import { toast, showUpdateBar } from './ui.js';
 
 /** A Cards/Practice/Test run is on screen: never swap the list under it. */
 export const sessionActive = () =>
   /#\/u\/[^/]+\/(cards|practice|test)\b/.test(location.hash);
+
+/**
+ * Persistent bar for a vocabulary version that is downloaded and waiting. The
+ * action reloads: on the next start, load() promotes the pending version before
+ * anything renders. Ignoring the bar is equally safe -- it applies by itself on
+ * the next navigation out of the session.
+ */
+export function showVocabUpdateBar() {
+  showUpdateBar({
+    kind: 'vocab',
+    message: i18n.t('update.vocabReady'),
+    actionLabel: i18n.t('update.reload'),
+    onAction: () => location.reload(),
+  });
+}
 
 /**
  * Check for a new published version.
@@ -28,8 +43,15 @@ export async function runUpdateCheck({ manual = false, onApplied } = {}) {
   if (!r.ok) { if (manual) toast(i18n.t('update.failed')); return r; }
   if (r.upToDate) { if (manual) toast(i18n.t('update.upToDate')); return r; }
   if (r.updated) {
-    if (r.appliedNow) { toast(i18n.t('update.updated')); if (onApplied) { try { onApplied(); } catch (e) {} } }
-    else { toast(i18n.t('update.downloaded')); }   // stored as pending; applied on next safe navigation
+    if (r.appliedNow) {
+      toast(i18n.t('update.updated'));
+      if (onApplied) { try { onApplied(); } catch (e) {} }
+    } else {
+      // Downloaded mid-session: a transient toast is easy to miss, so also raise
+      // the persistent bar. It applies on its own at the next safe navigation.
+      toast(i18n.t('update.downloaded'));
+      showVocabUpdateBar();
+    }
     return r;
   }
   // ok, not up-to-date, but nothing installed -> the download failed.

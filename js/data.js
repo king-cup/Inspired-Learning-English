@@ -12,7 +12,7 @@
 
 import * as C from './content.js';
 
-export const APP_VERSION = '1.03';
+export const APP_VERSION = '1.03.1';
 
 let bundle = { types: [], data: {} };
 let cleanTypes = [];
