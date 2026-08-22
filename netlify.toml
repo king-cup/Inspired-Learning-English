@@ -1,0 +1,10 @@
+[build]
+  publish = "."
+  command = ""
+
+# .m4a is not in every mime table; pin it so Safari does not refuse the clips.
+[[headers]]
+  for = "/audio/*"
+  [headers.values]
+    Content-Type = "audio/mp4"
+    Cache-Control = "public, max-age=31536000, immutable"

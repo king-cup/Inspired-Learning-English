@@ -1,0 +1,17 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Tooling / local
+node_modules/
+.netlify/
+*.log
+.tmp-*.json
+
+# Design-critique scratch (not part of the deployed app)
+.impeccable/
+
+# NOTE: audio/, vocab.json, audio-index.json and content/ ARE committed on
+# purpose — they are the app's data and Netlify serves them directly.

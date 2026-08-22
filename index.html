@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- viewport-fit=cover is what lets the paper bleed under the notch; the
+     safe-area padding in app.css is what makes that survivable, not optional. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Without this, Safari renders form controls dark and inverts the paper. -->
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Inspired English Vocab App</title>
+
+<!-- iOS home-screen install. The manifest covers 15.4+; these cover the rest.
+     The home-screen label is the SHORT name -- iOS truncates around 12 chars
+     under an icon, so the full title would clip mid-word (6.9). -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Inspired Vocab">
+<link rel="apple-touch-icon" href="icons/icon-180-inspire.png">
+<link rel="icon" href="icons/icon-192-inspire.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<!-- Set the invert-colours theme BEFORE the stylesheet paints, so a student who
+     uses dark mode never sees a white flash on launch. Mirrors js/theme.js. -->
+<script>
+  try {
+    var p = JSON.parse(localStorage.getItem('vd.profile.v1') || '{}');
+    if (p && p.inverted) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      var cs = document.querySelector('meta[name="color-scheme"]');
+      if (cs) cs.setAttribute('content', 'dark');
+    }
+  } catch (e) {}
+</script>
+
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<!-- Shown only when running in a Safari tab. iOS caps script-writable storage
+     at 7 days of no interaction for tabs; installed home-screen apps are
+     exempt. A student who practises in a tab loses everything, silently. There
+     is no beforeinstallprompt on iOS, so this hand-written sheet is the only
+     install affordance available. -->
+<div id="tabwarn" hidden>
+  <div class="tabwarn-in">
+    <b>ADD THIS TO YOUR HOME SCREEN</b>
+    <p>You are using this in a browser tab. <strong>iPhone deletes browser data
+    after a week</strong> — your progress will disappear.</p>
+    <p class="steps"><span>1</span> Tap <b>Share</b> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l4 4h-3v9h-2V7H8l4-4zM5 14v6h14v-6h2v8H3v-8h2z"/></svg> at the bottom
+       &nbsp;·&nbsp; <span>2</span> Tap <b>Add to Home Screen</b></p>
+    <p class="fine">Then open it from the icon, not from here.</p>
+  </div>
+</div>
+
+<!-- No app-wide aria-live: live announcements go through dedicated status/alert
+     regions created in js/ui.js (§8). tabindex=-1 lets the router move focus
+     here on navigation so screen readers announce the new screen. -->
+<main id="app" tabindex="-1"></main>
+
+<!-- ONE audio element for the app's whole life. iOS unlocks the element, not
+     the call site: once this has been played inside a user gesture, later
+     play() calls succeed even after an await. See js/audio.js. -->
+<audio id="clip" playsinline preload="auto"></audio>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

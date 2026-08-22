@@ -1,0 +1,631 @@
+/* ============================================================================
+   The Vocab Drill — student web client.
+
+   The design system is the same brutalist exam paper as the desktop drill board
+   and the printed homework: serif for content, Courier-ish monospace in wide
+   caps for every label, hard rules, no rounded corners, no shadows, and no
+   colour except the two marking tints.
+
+   Compose sp/dp map 1:1 to CSS px at default text scale, so the values here are
+   lifted straight from ui/Theme.kt and ui/Components.kt in the Android app.
+   ========================================================================== */
+
+:root {
+  --ink: #000;
+  --paper: #fff;
+  --hover: #e8e8e8;
+  --rule: #999;
+  --shade: #eee;
+  --rt: #e9f5ec;          /* right / known */
+  --rt-edge: #1c7a3e;
+  --wr: #fdeceb;          /* wrong / unknown */
+  --wr-edge: #b3261e;
+
+  /* iOS has neither Noto Serif nor Noto Serif CJK. The CJK face must be in the
+     stack or every Chinese gloss falls back to a sans-serif system font. */
+  --serif: Georgia, 'Times New Roman', 'Songti SC', 'Songti TC', 'PingFang SC', serif;
+  --mono: 'Courier New', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --pad: 14px;
+  --shell: 720px;
+
+  color-scheme: light;
+}
+
+/* Invert colours (6.7). NOT a naive inversion: #e9f5ec is a near-white green
+   that reads as a grey smear on black, so dark mode gets its own pair for each
+   marking tint. Every colour in this file already goes through a variable, so
+   flipping data-theme on <html> re-skins the whole app with no call-site change.
+   Values lifted from Ink.apply(dark = true) in ui/Theme.kt. */
+:root[data-theme="dark"] {
+  --ink: #fff;
+  --paper: #000;
+  --hover: #2a2a2a;
+  --rule: #666;
+  --shade: #1a1a1a;
+  --rt: #10301c;
+  --rt-edge: #4ade80;
+  --wr: #3a1412;
+  --wr-edge: #ff7a70;
+
+  color-scheme: dark;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+  /* Kills the rubber-band overscroll that makes a fixed layout feel broken. */
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.45;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Nothing in this design is ever rounded or shadowed. Stated once, globally,
+   so a stray UA default cannot soften an edge. */
+*, *::before, *::after { border-radius: 0 !important; box-shadow: none !important; }
+
+button, input { font: inherit; color: inherit; background: none; border: none; }
+button { cursor: pointer; }
+
+#app {
+  max-width: var(--shell);
+  margin: 0 auto;
+  /* black-translucent status bar means the page runs under it; these insets are
+     what keep the header off the notch and the buttons off the home indicator. */
+  padding:
+    calc(env(safe-area-inset-top) + var(--pad))
+    calc(env(safe-area-inset-right) + var(--pad))
+    calc(env(safe-area-inset-bottom) + var(--pad))
+    calc(env(safe-area-inset-left) + var(--pad));
+}
+
+/* --------------------------------------------------------------- typography */
+
+.k    { font-family: var(--mono); text-transform: uppercase; }
+.k-8  { font: 8px/1.4 var(--mono); letter-spacing: 2px; text-transform: uppercase; }
+.k-9  { font: 9px/1.4 var(--mono); letter-spacing: 2px; text-transform: uppercase; }
+.k-10 { font: bold 10px/1.4 var(--mono); letter-spacing: 1.5px; text-transform: uppercase; }
+.k-11 { font: bold 11px/1.4 var(--mono); letter-spacing: 1.5px; text-transform: uppercase; }
+.k-13 { font: bold 13px/1.4 var(--mono); letter-spacing: 2px; text-transform: uppercase; }
+.dim  { opacity: .65; }
+
+/* ------------------------------------------------------- the header sheet */
+
+.paper-head { position: relative; border: 3px solid var(--ink); padding: 13px 18px 11px; }
+.paper-head::after {
+  content: ""; position: absolute; inset: 3px;
+  border: 1px solid var(--ink); pointer-events: none;
+}
+.paper-head .kick { font: 9px/1.4 var(--mono); letter-spacing: 3px; text-transform: uppercase; }
+.paper-head h1 {
+  font-family: var(--serif); font-size: 27px; line-height: 29px;
+  letter-spacing: 1px; font-weight: 900; text-transform: uppercase;
+  /* The app title "Inspired English Vocab App" is 25 chars and wraps to two or
+     three lines; let it break by words rather than overflow the ruled box. */
+  overflow-wrap: break-word;
+}
+/* On the narrowest phones, shrink the title so a long name never becomes four
+   cramped lines. Unit labels are short and unaffected. */
+@media (max-width: 360px) {
+  .paper-head h1 { font-size: 23px; line-height: 26px; }
+}
+.paper-head .band { height: 2px; background: var(--ink); margin-top: 9px; }
+.paper-head .feet {
+  display: flex; justify-content: space-between; gap: 10px;
+  padding-top: 6px; font: 9px/1.4 var(--mono); letter-spacing: 2px; text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------- black bar */
+
+.bar {
+  display: flex; justify-content: space-between; gap: 10px; align-items: center;
+  background: var(--ink); color: var(--paper);
+  padding: 6px 12px;
+  font: 9px/1.4 var(--mono); letter-spacing: 2px; text-transform: uppercase;
+}
+
+.box { border: 2px solid var(--ink); }
+.hr  { height: 1.5px; background: var(--ink); }
+.hr.thin { height: 1px; background: var(--rule); }
+
+/* ---------------------------------------------------------------- buttons */
+
+/* :active is unreliable on iOS, so the whole invert-on-press language is driven
+   from pointer events instead. See ui.js press(). */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font: bold 11px/1.4 var(--mono); letter-spacing: 1.5px; text-transform: uppercase;
+  background: var(--paper); color: var(--ink);
+  padding: 10px 15px; text-align: center;
+  -webkit-user-select: none; user-select: none;
+}
+.btn.is-pressed, .btn.on { background: var(--ink); color: var(--paper); }
+.btn[disabled] { opacity: .3; }
+.btn.ruled  { border: 2px solid var(--ink); }
+.btn.thin   { border: 1.5px solid var(--ink); }
+.btn.wide   { width: 100%; }
+.btn.sm     { font-size: 10px; padding: 8px 11px; letter-spacing: 1px; }
+.btn.lg     { font-size: 13px; padding: 13px 16px; letter-spacing: 2px; }
+
+.btn.good { background: var(--rt); color: var(--rt-edge); border-color: var(--rt-edge); }
+.btn.bad  { background: var(--wr); color: var(--wr-edge); border-color: var(--wr-edge); }
+.btn.good.is-pressed, .btn.bad.is-pressed { background: var(--ink); color: var(--paper); }
+
+/* big two-line action block on the unit page */
+.block { display: block; width: 100%; border: 2px solid var(--ink); padding: 14px 16px; text-align: left; }
+.block .t { font: bold 16px/1.2 var(--mono); letter-spacing: 2.5px; text-transform: uppercase; }
+.block .c { font-family: var(--serif); font-size: 13px; margin-top: 4px; opacity: .85; }
+.block.is-pressed { background: var(--ink); color: var(--paper); }
+.block.is-pressed .c { opacity: .9; }
+
+/* ------------------------------------------------------- rules and tags */
+
+.rulebar { border: 1.5px solid var(--ink); height: 13px; overflow: hidden; }
+.rulebar > i { display: block; height: 100%; background: var(--ink); transition: width .25s linear; }
+.rulebar.sm { height: 10px; }
+.rulebar.lg { height: 16px; }
+
+.tag {
+  display: inline-block; border: 1px solid var(--ink);
+  font: bold 9px/1.4 var(--mono); letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 2px 6px;
+}
+.tag.inv { background: var(--ink); color: var(--paper); }
+
+.pill {
+  display: inline-block; border: 1.5px solid var(--ink);
+  font: bold 8px/1.4 var(--mono); letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 3px 7px;
+}
+.pill.good { border-color: var(--rt-edge); background: var(--rt); color: var(--rt-edge); }
+.pill.bad  { border-color: var(--wr-edge); background: var(--wr); color: var(--wr-edge); }
+
+.note { border: 2px solid var(--ink); padding: 11px 13px; }
+.note.good { border-color: var(--rt-edge); background: var(--rt); }
+.note.bad  { border-color: var(--wr-edge); background: var(--wr); }
+
+/* ------------------------------------------------------------ top strip */
+
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+
+.row { display: flex; align-items: center; gap: 10px; }
+.grow { flex: 1; min-width: 0; }
+.stack > * + * { margin-top: 10px; }
+.stack-sm > * + * { margin-top: 6px; }
+.mt  { margin-top: 12px; }
+.mt2 { margin-top: 18px; }
+
+.scroll-x { display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.scroll-x::-webkit-scrollbar { display: none; }
+.scroll-x > .btn { flex: none; }
+.vr { width: 1.5px; background: var(--ink); align-self: stretch; flex: none; }
+
+/* ------------------------------------------------------------- library */
+
+.unit-row { display: flex; align-items: center; gap: 12px; width: 100%; padding: 11px 13px; text-align: left; background: var(--paper); }
+.unit-row.is-pressed { background: var(--shade); }
+.unit-row .label { font-family: var(--serif); font-size: 15px; font-weight: bold; }
+.unit-row .meta { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+.unit-row .rulebar { width: 120px; flex: none; }
+.unit-row .chev { font: 20px var(--mono); }
+
+/* ---------------------------------------------------------------- study */
+
+.find { display: flex; align-items: center; border: 2px solid var(--ink); }
+.find .lbl { background: var(--ink); color: var(--paper); padding: 11px; font: 9px var(--mono); letter-spacing: 2px; }
+/* Safari zooms the page on focus for anything under 16px. Never use
+   user-scalable=no to dodge this; just do not go below 16. */
+.find input { flex: 1; min-width: 0; padding: 11px; font: 16px var(--mono); }
+
+.word-row { display: flex; align-items: center; width: 100%; background: var(--paper); }
+.word-row.known { background: var(--rt); }
+.word-row .n { width: 38px; flex: none; padding-left: 11px; font: bold 10px var(--mono); letter-spacing: 1px; }
+.word-row .body { flex: 1; min-width: 0; padding: 11px 0; text-align: left; background: none; }
+.word-row .body.is-pressed { opacity: .5; }
+.word-row .w { font-family: var(--serif); font-size: 18px; font-weight: bold; }
+.word-row .c { font-family: var(--serif); font-size: 14px; margin-top: 2px; }
+.word-row .exp { padding: 14px; font: 18px var(--mono); flex: none; }
+.word-detail { background: var(--shade); padding: 12px 14px; }
+.word-detail b { font-weight: bold; }
+
+.glyph {
+  display: inline-block; border: 1.2px solid currentColor;
+  font: 10px/1 var(--mono); padding: 4px 5px; vertical-align: middle;
+}
+
+/* ---------------------------------------------------------------- cards */
+
+/* Fixed, non-scrolling layout. 100dvh so the collapsing Safari toolbar cannot
+   crop the deck; the -webkit-fill-available fallback covers older iOS. */
+.cards-screen { display: flex; flex-direction: column; }
+/* Sized, not stretched. The deck must never depend on owning the whole
+   viewport -- the tab-mode warning above it would push the controls off. */
+.cards-screen > .deck-wrap {
+  position: relative;
+  height: min(56vh, 440px);
+  min-height: 280px;
+}
+@media (orientation: landscape) and (max-height: 520px) {
+  .cards-screen > .deck-wrap { height: 62vh; min-height: 220px; }
+}
+
+/* An iOS drag that starts within ~20px of the left edge is claimed by the
+   system for back-navigation and preventDefault does not reliably stop it.
+   These transparent strips sit above the card and swallow those touches. */
+.edge-guard { position: fixed; top: 0; bottom: 0; width: 24px; z-index: 5; touch-action: none; }
+.edge-guard.l { left: 0; }
+.edge-guard.r { right: 0; }
+
+.deck { position: absolute; inset: 0 20px; }   /* >=20px inset keeps every card pixel out of the edge zone */
+.deck .ghost { position: absolute; inset: 6px -6px -8px 6px; border: 1.5px solid var(--rule); }
+
+.card {
+  position: absolute; inset: 0;
+  border: 2.5px solid var(--ink); background: var(--paper);
+  display: flex; flex-direction: column;
+  touch-action: none;                      /* we own the gesture */
+  -webkit-user-select: none; user-select: none;
+  -webkit-touch-callout: none;             /* no long-press callout mid-drag */
+  will-change: transform;
+}
+.card.settling { transition: transform .2s ease-out; }
+.card.flipping { transition: transform .16s linear; }
+.card.good { border-color: var(--rt-edge); background: var(--rt); }
+.card.bad  { border-color: var(--wr-edge); background: var(--wr); }
+
+.card-front { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 22px; text-align: center; }
+.card-front .w { font-family: var(--serif); font-size: 40px; line-height: 46px; font-weight: bold; }
+.card-back { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 20px; }
+.card-back .w { font-family: var(--serif); font-size: 24px; font-weight: bold; }
+.card-back .c { font-family: var(--serif); font-size: 22px; line-height: 30px; margin-top: 12px; }
+.card-back .ex { font-family: var(--serif); font-size: 14px; line-height: 21px; }
+
+.stamp {
+  position: absolute; top: 18px; font: 900 20px var(--mono); letter-spacing: 4px;
+  text-transform: uppercase; border: 3px solid currentColor; padding: 4px 10px;
+  pointer-events: none;
+}
+.stamp.l { left: 18px; color: var(--rt-edge); transform: rotate(-12deg); }
+.stamp.r { right: 18px; color: var(--wr-edge); transform: rotate(12deg); }
+
+/* Landscape (iPad, and anyone who rotates) — a full-height card is a letterbox. */
+@media (orientation: landscape) and (min-width: 640px) {
+  .deck { inset: 0 20px; max-width: 520px; margin: 0 auto; }
+  .card-front .w { font-size: 34px; line-height: 40px; }
+}
+
+/* ---------------------------------------------------------------- learn */
+
+.dots { display: flex; gap: 4px; }
+.dots > i { flex: 1; height: 6px; border: 1px solid var(--ink); }
+.dots > i.y { background: var(--rt-edge); }
+.dots > i.n { background: var(--wr-edge); }
+
+.opt { display: flex; align-items: stretch; width: 100%; border: 2px solid var(--ink); background: var(--paper); text-align: left; }
+.opt .ltr { width: 38px; flex: none; display: flex; align-items: center; justify-content: center; background: var(--ink); color: var(--paper); font: bold 13px var(--mono); letter-spacing: 1px; }
+.opt .txt { flex: 1; min-width: 0; padding: 12px 13px; font-family: var(--serif); font-size: 17px; line-height: 23px; }
+.opt.is-pressed { background: var(--shade); }
+.opt.right { border-color: var(--rt-edge); background: var(--rt); }
+.opt.right .ltr { background: var(--rt-edge); }
+.opt.wrong { border-color: var(--wr-edge); background: var(--wr); }
+.opt.wrong .ltr { background: var(--wr-edge); }
+
+.marks { display: flex; gap: 8px; }
+.marks > i { flex: 1; height: 46px; border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; font: 20px var(--mono); }
+.marks > i.y { border-color: var(--rt-edge); background: var(--rt); color: var(--rt-edge); }
+.marks > i.n { border-color: var(--wr-edge); background: var(--wr); color: var(--wr-edge); }
+.marks > i.blank { border: none; }
+
+/* Keep Continue reachable without scrolling on a short phone in a tab. */
+.sticky-foot { position: sticky; bottom: calc(env(safe-area-inset-bottom) + 4px); background: var(--paper); padding-top: 8px; }
+
+/* ------------------------------------------------------ tab-mode warning */
+
+#tabwarn { background: var(--wr); border-bottom: 3px solid var(--wr-edge); color: var(--wr-edge); }
+#tabwarn .tabwarn-in { max-width: var(--shell); margin: 0 auto; padding: calc(env(safe-area-inset-top) + 10px) 14px 12px; }
+#tabwarn b { font: bold 11px var(--mono); letter-spacing: 2px; text-transform: uppercase; }
+#tabwarn p { font-family: var(--serif); font-size: 13px; line-height: 1.5; margin-top: 5px; }
+#tabwarn .steps { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; font-size: 13px; }
+#tabwarn .steps span { display: inline-block; width: 17px; height: 17px; line-height: 17px; text-align: center; background: var(--wr-edge); color: var(--paper); font: bold 10px var(--mono); }
+#tabwarn svg { width: 15px; height: 15px; fill: currentColor; vertical-align: -2px; }
+#tabwarn .fine { font-size: 12px; opacity: .8; border: none; padding: 0; }
+body.standalone #tabwarn { display: none; }
+
+/* ---------------------------------------------------------------- misc */
+
+.centre { display: flex; align-items: center; justify-content: center; min-height: 60vh; text-align: center; }
+.hidden { display: none !important; }
+#clip { display: none; }
+
+.dl { display: flex; align-items: center; gap: 10px; }
+.dl .rulebar { flex: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card.settling, .card.flipping, .rulebar > i { transition: none !important; }
+}
+
+/* ======================================================================
+   v1.01 additions
+   ====================================================================== */
+
+/* --------------------------------------------------------- dropdowns (6.3) */
+
+.dd-head {
+  display: flex; align-items: center; width: 100%;
+  background: var(--paper); color: var(--ink);
+  padding: 12px 13px; text-align: left;
+}
+.dd-head .dd-val { flex: 1; min-width: 0; font: bold 12px var(--mono); letter-spacing: 1px; text-transform: uppercase; }
+.dd-head .dd-caret { font: 14px var(--mono); transition: transform .12s linear; }
+.dd-head.open .dd-caret { transform: rotate(180deg); }
+.dd-head.is-pressed { background: var(--shade); }
+
+.dd-menu { border-top: 2px solid var(--ink); }
+.dd-item {
+  display: block; width: 100%; text-align: left;
+  padding: 11px 13px; background: var(--paper); color: var(--ink);
+  font: bold 11px var(--mono); letter-spacing: 1px; text-transform: uppercase;
+}
+.dd-item + .dd-item { border-top: 1px solid var(--rule); }
+.dd-item.on { background: var(--ink); color: var(--paper); }
+.dd-item.is-pressed { background: var(--shade); }
+.dd-item.on.is-pressed { background: var(--ink); color: var(--paper); }
+
+/* ----------------------------------------------------------- toggle rows */
+
+.toggle-row {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  padding: 13px; text-align: left; background: var(--paper); color: var(--ink);
+}
+.toggle-row.is-pressed { background: var(--shade); }
+.toggle-help { font-family: var(--serif); font-size: 13px; margin-top: 3px; opacity: .75; }
+.toggle {
+  flex: none; border: 2px solid var(--ink); background: var(--paper); color: var(--ink);
+  padding: 8px 13px; font: bold 11px var(--mono); letter-spacing: 1.5px; text-transform: uppercase;
+}
+.toggle.on { background: var(--ink); color: var(--paper); }
+
+/* ------------------------------------------------------ text fields */
+
+.txtfield {
+  width: 100%; border: 1.5px solid var(--ink); background: var(--paper); color: var(--ink);
+  padding: 13px 12px; font: 16px var(--mono);   /* >=16px or Safari zooms on focus */
+}
+.txtfield.warn { border-color: var(--wr-edge); }
+.field-help { font-family: var(--serif); font-size: 13px; margin-top: 8px; opacity: .75; }
+.field-help.warn { color: var(--wr-edge); opacity: 1; }
+.name-static { display: flex; align-items: center; gap: 12px; }
+.name-static .val { flex: 1; min-width: 0; font-family: var(--serif); font-size: 20px; font-weight: bold; }
+
+/* the two big language buttons on onboarding / settings */
+.lang-row { display: flex; gap: 10px; }
+.lang-row > .btn { flex: 1; padding-top: 16px; padding-bottom: 16px; }
+
+/* -------------------------------------------------- test: setup + asking */
+
+/* Selected, NOT marked. Nothing on the test screen reveals correctness until
+   the student presses Complete. */
+.opt.sel { background: var(--shade); }
+.opt .selmark {
+  flex: none; align-self: center; margin: 0 12px;
+  background: var(--ink); color: var(--paper);
+  font: 12px var(--mono); padding: 4px 7px;
+}
+.test-nav { display: flex; gap: 8px; }
+.test-nav > .btn.grow { flex: 1; }
+
+/* --------------------------------------------------------- grade block */
+
+.grade { border: 3px solid var(--ink); padding: 26px 18px; text-align: center; }
+.grade.good { border-color: var(--rt-edge); background: var(--rt); }
+.grade.bad  { border-color: var(--wr-edge); background: var(--wr); }
+.grade-pct { font: 900 76px/1 var(--mono); }
+.grade.good .grade-pct, .grade.good .grade-score { color: var(--rt-edge); }
+.grade.bad  .grade-pct, .grade.bad  .grade-score { color: var(--wr-edge); }
+.grade-score { font: bold 13px var(--mono); letter-spacing: 3px; text-transform: uppercase; margin-top: 4px; }
+.grade-msg { font-family: var(--serif); font-size: 17px; margin-top: 14px; }
+
+/* ----------------------------------------------- unit: missed + history */
+
+.miss-row { display: flex; align-items: center; gap: 10px; padding: 5px 13px; }
+.miss-row .w { flex: 1; min-width: 0; font-family: var(--serif); font-size: 14px; }
+.miss-row .n { flex: none; font: bold 9px var(--mono); letter-spacing: 1px; text-transform: uppercase; color: var(--wr-edge); }
+.panel-empty { font-family: var(--serif); font-size: 14px; opacity: .7; padding: 13px; }
+
+.hist-row { display: flex; align-items: center; gap: 10px; padding: 9px 13px; }
+.hist-row .grow { min-width: 0; }
+.hist-row .a { font: bold 10px var(--mono); letter-spacing: 1.5px; text-transform: uppercase; }
+.hist-row .d { font: 9px var(--mono); letter-spacing: 1px; text-transform: uppercase; opacity: .7; margin-top: 2px; }
+.hist-row .pct { font: bold 15px var(--mono); }
+.hist-row .verdict { flex: none; border: 1.5px solid; padding: 3px 7px; font: bold 9px var(--mono); letter-spacing: 1.5px; text-transform: uppercase; }
+.hist-row.pass .pct, .hist-row.pass .verdict { color: var(--rt-edge); }
+.hist-row.pass .verdict { border-color: var(--rt-edge); background: var(--rt); }
+.hist-row.fail .pct, .hist-row.fail .verdict { color: var(--wr-edge); }
+.hist-row.fail .verdict { border-color: var(--wr-edge); background: var(--wr); }
+
+.statcells { display: flex; justify-content: space-between; margin-top: 10px; }
+.statcells .k-8 { opacity: 1; }
+.statcells .v { font: bold 16px var(--mono); }
+
+/* --------------------------------------------------- card back layouts */
+
+/* Reversed cards (6.11): front shows Chinese, so it needs the big-answer size. */
+.card-front .w.cn { font-size: 34px; line-height: 44px; }
+
+/* Centred back, used for the reversed direction (answer = English word). */
+.card-back.centre {
+  overflow-y: auto; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 14px; text-align: center;
+}
+.card-back.centre .w { font-family: var(--serif); font-size: 40px; line-height: 46px; font-weight: bold; }
+
+/* Forward direction back layout (6.10): the Chinese is the ANSWER, so it gets
+   the centre of the card at large size; the English shrinks to a dimmed header
+   with the POS tag and speak button; the example moves to the foot. */
+.card-back.fwd { display: flex; flex-direction: column; }
+.card-back .cb-head { display: flex; align-items: center; gap: 8px; }
+.card-back .cb-head .w { flex: 1; min-width: 0; font-family: var(--serif); font-size: 19px; font-weight: bold; opacity: .7; }
+.card-back .cb-mid { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center; padding: 16px 0; }
+.card-back .cb-mid .cn { font-family: var(--serif); font-size: 34px; line-height: 46px; font-weight: bold; }
+.card-back .cb-pair { display: flex; gap: 18px; }
+.card-back .cb-pair .col { display: flex; flex-direction: column; align-items: center; }
+.card-back .cb-foot .ex { font-family: var(--serif); font-size: 13px; line-height: 20px; margin-top: 4px; }
+
+/* ======================================================================
+   v1.02 additions
+   ====================================================================== */
+
+/* --- Chinese content: bold TT SongTi (§3) ---------------------------------
+   No licensed TT SongTi webfont is bundled, so the stack falls through to the
+   system Songti faces. Exact TT SongTi rendering therefore depends on the
+   device having it installed; every listed fallback is a genuine SongTi/CJK
+   serif so Chinese never lands on a thin sans fallback. */
+:root { --cn: 'TT SongTi', 'Songti SC', 'Songti TC', 'STSong', 'Noto Serif CJK SC', 'Songti', serif; }
+.cn { font-family: var(--cn); font-weight: 700; text-transform: none; letter-spacing: normal; }
+
+/* --- accessibility helpers (§8) ------------------------------------------ */
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+:focus { outline: none; }
+:focus-visible {
+  outline: 3px solid var(--ink); outline-offset: 2px;
+}
+/* On solid-ink surfaces an ink outline would vanish; use paper there. */
+.btn.on:focus-visible, .btn.is-pressed:focus-visible, .dd-item.on:focus-visible,
+.toggle-row[aria-checked="true"] .toggle:focus-visible { outline-color: var(--paper); }
+
+/* --- larger interface labels (§10) --------------------------------------- */
+.k-8  { font-size: 11px; letter-spacing: 1px; }
+.k-9  { font-size: 11px; letter-spacing: 1.25px; }
+.k-10 { font-size: 11px; letter-spacing: 1.25px; }
+.bar  { font-size: 11px; letter-spacing: 1.5px; }
+.paper-head .kick { font-size: 11px; letter-spacing: 2px; }
+.paper-head .feet { font-size: 11px; letter-spacing: 1.25px; }
+#tabwarn .steps span { width: 18px; height: 18px; line-height: 18px; font-size: 11px; }
+.hist-row .a { font-size: 11px; }
+.hist-row .d { font-size: 10px; letter-spacing: .5px; }
+.hist-row .verdict { font-size: 10px; }
+.miss-row .n { font-size: 11px; }
+.dd-item { font-size: 11px; }
+.tag { font-size: 10px; }
+
+/* --- expanded POS tags (§2) ---------------------------------------------- */
+.tag.pos { font-size: 11px; letter-spacing: .5px; padding: 2px 6px; white-space: normal; text-align: center; }
+.tag.pos.cn { font-family: var(--cn); font-weight: 700; text-transform: none; letter-spacing: normal; font-size: 12px; padding: 1px 6px; }
+
+/* --- accessible dialog (§8) ---------------------------------------------- */
+.dlg-overlay {
+  position: fixed; inset: 0; z-index: 60; background: rgba(0, 0, 0, .5);
+  display: flex; align-items: center; justify-content: center;
+  padding: calc(env(safe-area-inset-top) + 20px) 20px calc(env(safe-area-inset-bottom) + 20px);
+}
+.dlg-panel {
+  background: var(--paper); color: var(--ink); border: 3px solid var(--ink);
+  width: 100%; max-width: 460px; max-height: 100%; overflow-y: auto;
+}
+.dlg-body { padding: 14px; }
+.dlg-text { font-family: var(--serif); font-size: 14px; line-height: 1.5; }
+.dlg-actions { display: flex; gap: 8px; padding: 0 14px 14px; }
+.dlg-actions > .btn { flex: 1; min-height: 44px; }
+
+/* --- comfortable touch targets (§8) -------------------------------------- */
+.topbar .btn { min-height: 44px; }
+.word-row .exp { min-width: 56px; min-height: 44px; }
+.find .btn { min-height: 44px; }
+
+/* --- Study: Details control reads as text (§10) -------------------------- */
+.word-row .exp { display: flex; align-items: center; justify-content: center; gap: 4px; font: bold 10px var(--mono); letter-spacing: 1px; text-transform: uppercase; padding: 0 12px; }
+
+/* --- enlarged Test navigation (§5) --------------------------------------- */
+.test-nav .navbtn {
+  min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
+  border: 2px solid var(--ink); background: var(--paper); color: var(--ink);
+  font-family: var(--mono); font-size: 23px; font-weight: 900; line-height: 1;
+  -webkit-user-select: none; user-select: none;
+}
+.test-nav .navbtn.grow { flex: 1; }
+.test-nav .navbtn.is-pressed { background: var(--ink); color: var(--paper); }
+.test-nav .navbtn[disabled] { opacity: .3; }
+
+/* --- Cards: real next-card preview (§1) ---------------------------------- */
+/* The next card sits underneath, inset in the paper-stack style, partially
+   visible at rest and revealed as the top card is dragged away. */
+.deck .card.preview {
+  z-index: 0;
+  transform-origin: center;
+  transform: scale(.955) translateY(9px);
+  transition: transform .2s ease-out;
+  pointer-events: none;
+}
+.deck .card { z-index: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .deck .card.preview { transition: none; }
+}
+
+/* --- leaf mark (§10) ----------------------------------------------------- */
+.leaf { display: block; width: 44px; height: 44px; }
+.brandmark { display: flex; align-items: center; gap: 12px; }
+.brandmark .leaf { flex: none; }
+
+/* --- softer rules on secondary panels (§10) ------------------------------ */
+.box.soft { border-width: 1.5px; }
+
+/* --- backup / report rows (§7) ------------------------------------------- */
+.set-line { font-family: var(--serif); font-size: 13px; opacity: .8; padding: 0 13px 10px; }
+
+/* --- non-modal toast (v1.03 update feedback) ----------------------------- */
+.toast {
+  position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom) + 18px);
+  transform: translate(-50%, 12px); z-index: 55; pointer-events: none;
+  max-width: min(92vw, 420px); text-align: center;
+  background: var(--ink); color: var(--paper);
+  border: 2px solid var(--paper);
+  padding: 10px 16px; font: bold 11px/1.4 var(--mono); letter-spacing: 1px; text-transform: uppercase;
+  opacity: 0; transition: opacity .18s ease, transform .18s ease;
+}
+.toast.cn, .toast .cn { text-transform: none; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) { .toast { transition: opacity .18s ease; } }
+
+/* ======================================================================
+   iPad layouts (§11). Phone (single column) is the default; these engage at
+   tablet widths. The shell widens so two columns have room, but focused
+   single-task screens (cards / practice / test / settings / onboarding) cap
+   their own content width so they never sprawl.
+   ====================================================================== */
+@media (min-width: 768px) {
+  :root { --shell: 940px; }
+
+  .col-narrow { max-width: 640px; margin-left: auto; margin-right: auto; }
+
+  .lib-cols   { display: grid; grid-template-columns: 320px 1fr; gap: 18px; align-items: start; }
+  .unit-cols  { display: grid; grid-template-columns: 1fr 340px; gap: 18px; align-items: start; }
+  .study-cols { display: grid; grid-template-columns: 360px 1fr; gap: 18px; align-items: start; }
+
+  /* Master/detail Study: the list scrolls, the detail stays put. */
+  .study-cols .study-list { max-height: calc(100vh - 220px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .study-detail { position: sticky; top: 12px; }
+}
+@media (min-width: 1100px) {
+  :root { --shell: 1060px; }
+}
+
+/* Study detail pane (iPad) + empty state */
+.study-detail .sd-word { font-family: var(--serif); font-size: 34px; line-height: 40px; font-weight: bold; }
+.study-detail .sd-empty { font-family: var(--serif); opacity: .7; padding: 24px 4px; }
+.study-detail .sd-block { margin-top: 14px; }
+.study-row.sel { background: var(--shade); }
+
+/* Selected-word marker in the master list */
+.study-cols .word-row.sel { background: var(--shade); }
+.card-back .cb-foot { margin-top: auto; }
