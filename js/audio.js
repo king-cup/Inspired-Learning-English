@@ -14,7 +14,7 @@
 //    It is the last resort, reached only when a word has no clip. The decision
 //    is made synchronously from an in-memory Set so the gesture is not spent.
 
-import { hasClip, audioUrl } from './data.js';
+import { hasClip, audioUrl, audioPacks, urlForSlug, audioSuffix } from './data.js';
 
 const CACHE = 'vd-audio-v1';
 const SILENT_WAV = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=';
@@ -165,28 +165,199 @@ export async function cachedCount(urls) {
  * Warm the cache. Fire-and-forget for a unit (median 106 KB), or awaited with
  * onProgress for the explicit "download everything" button.
  */
+/**
+ * Work out which packs to fetch for a set of wanted slugs.
+ *
+ * Greedy set cover: take the pack that covers the most still-wanted clips, and
+ * on a tie take the SMALLER one. That one tiebreak is what makes this do the
+ * right thing at both ends without a special case — asking for one unit picks
+ * that unit's 120 KB pack rather than its book's 4 MB one (both cover it
+ * fully), while asking for a whole book picks the book pack (it covers far
+ * more than any single unit pack).
+ *
+ * A pack is only worth a request if it brings several clips; below that the
+ * individual files are cheaper than the bytes we would waste.
+ */
+const MIN_PACK_GAIN = 3;
+
+/**
+ * A pack is only worth its bytes if most of what it carries is wanted.
+ * Without this, three stray new words scattered across three units of one book
+ * would pull that book's 2.6 MB pack for ~15 KB of audio. ~10x the average
+ * 5.7 KB clip; a healthy unit or book request runs about 4 KB per new clip, so
+ * this never fires on a real request -- only on the pathological tail.
+ */
+const MAX_BYTES_PER_NEW_CLIP = 60000;
+
+/** slug -> pack ids, built once per pack index. Without it the greedy loop
+ *  rescans every pack's clip list every round: ~900ms to plan a full download
+ *  on a laptop, and that is main-thread time on a student's phone. */
+const revMaps = new WeakMap();
+function reverseMap(packIndex) {
+  let m = revMaps.get(packIndex);
+  if (m) return m;
+  m = new Map();
+  for (const id of Object.keys(packIndex.packs || {})) {
+    for (const sl of Object.keys(packIndex.packs[id].clips)) {
+      const a = m.get(sl);
+      if (a) a.push(id); else m.set(sl, [id]);
+    }
+  }
+  revMaps.set(packIndex, m);
+  return m;
+}
+
+function planPacks(packIndex, wantedSlugs) {
+  const packs = packIndex.packs || {};
+  const bySlug = reverseMap(packIndex);
+  const want = new Set(wantedSlugs);
+  const chosen = [];
+
+  while (want.size > 0) {
+    const gain = new Map();
+    for (const sl of want) {
+      const ids = bySlug.get(sl);
+      if (!ids) continue;
+      for (const id of ids) gain.set(id, (gain.get(id) || 0) + 1);
+    }
+    let best = null, bestGain = 0, bestBytes = Infinity;
+    for (const [id, g] of gain) {
+      const b = packs[id].bytes || 0;
+      // Screened BEFORE the comparison: a wasteful pack that wins on gain would
+      // otherwise shut out the thrifty candidates behind it and take the round.
+      if (b > MAX_BYTES_PER_NEW_CLIP * g) continue;
+      if (g > bestGain || (g === bestGain && b < bestBytes)) { best = id; bestGain = g; bestBytes = b; }
+    }
+    if (!best || bestGain < MIN_PACK_GAIN) break;
+    chosen.push(best);
+    for (const sl of Object.keys(packs[best].clips)) want.delete(sl);
+  }
+  return { packIds: chosen, leftover: [...want] };
+}
+
+/**
+ * Fetch one pack and file every clip it carries into the normal per-clip cache
+ * entries.
+ *
+ * A pack is the original .m4a files concatenated with no framing, so a slice at
+ * the recorded offset IS a complete, valid MP4 — byte-identical to the file
+ * that would have been downloaded on its own. That is why nothing downstream
+ * has to know packs exist: after this runs, the cache looks exactly as it would
+ * have after 40 individual fetches.
+ */
+async function fetchPack(cache, pack, wanted) {
+  // The cache-buster matters here as much as it does for a clip: _headers marks
+  // everything under /audio/ immutable for a year, and packs live there too, so
+  // a pack rebuilt at the same path after an audio replacement would otherwise
+  // be served stale. The pack INDEX needs no suffix -- its filename already
+  // carries the content version.
+  const res = await fetch(pack.url + audioSuffix(), { cache: 'force-cache' });
+  if (!res.ok) throw new Error('pack HTTP ' + res.status);
+  const buf = await res.arrayBuffer();
+  if (typeof pack.bytes === 'number' && buf.byteLength !== pack.bytes) {
+    throw new Error('pack ' + pack.url + ' is ' + buf.byteLength + ' bytes, expected ' + pack.bytes);
+  }
+  let filed = 0;
+  for (const sl of Object.keys(pack.clips)) {
+    if (wanted && !wanted.has(sl)) continue;
+    const [off, len] = pack.clips[sl];
+    if (off + len > buf.byteLength) continue;          // index/pack mismatch
+    const blob = new Blob([buf.slice(off, off + len)], { type: 'audio/mp4' });
+    await cache.put(urlForSlug(sl), new Response(blob, {
+      headers: { 'Content-Type': 'audio/mp4', 'Content-Length': String(len) },
+    }));
+    filed++;
+  }
+  return filed;
+}
+
+const slugFromUrl = (u) => {
+  const m = /(?:^|\/)audio\/([^/?]+)\.m4a/.exec(u);
+  return m ? m[1] : null;
+};
+
+/**
+ * Download clips for [urls], preferring packs.
+ *
+ * Same signature and same return shape as the pre-1.04 per-file version, so
+ * every call site improved without being touched. Falls back to per-file
+ * fetching for anything packs cannot cover, and for a publish that has no
+ * packs at all.
+ */
 export async function prefetch(urls, { concurrency = 6, onProgress } = {}) {
   let cache;
   try { cache = await caches.open(CACHE); } catch (e) { return { done: 0, failed: urls.length, failedUrls: urls.slice() }; }
 
-  let i = 0, done = 0, failed = 0;
+  const total = urls.length;
+  let done = 0, failed = 0;
   const failedUrls = [];
+  const report = () => { onProgress && onProgress(done + failed, total); };
+
+  // 1. Anything already on the device costs nothing.
+  const missing = [];
+  for (const url of urls) {
+    try {
+      if (await cache.match(url)) { done++; continue; }
+    } catch (e) { /* treat as missing */ }
+    missing.push(url);
+  }
+  report();
+  if (!missing.length) return { done, failed, failedUrls };
+
+  // 2. Cover as much as possible with packs.
+  let perFile = missing;
+  let index = null;
+  try { index = await audioPacks(); } catch (e) { index = null; }
+
+  if (index) {
+    const bySlug = new Map();
+    for (const url of missing) {
+      const sl = slugFromUrl(url);
+      if (sl) bySlug.set(sl, url);
+    }
+    const { packIds, leftover } = planPacks(index, [...bySlug.keys()]);
+    const wanted = new Set(bySlug.keys());
+
+    let k = 0;
+    const packWorker = async () => {
+      while (k < packIds.length) {
+        const id = packIds[k++];
+        const pack = index.packs[id];
+        const covered = Object.keys(pack.clips).filter((sl) => wanted.has(sl));
+        try {
+          await fetchPack(cache, pack, wanted);
+          done += covered.length;
+        } catch (e) {
+          // One bad pack must not lose the words it covered -- hand them back
+          // to the per-file path rather than reporting them failed.
+          for (const sl of covered) leftover.push(sl);
+        }
+        report();
+      }
+    };
+    await Promise.all(Array.from({ length: Math.min(concurrency, packIds.length) }, packWorker));
+
+    perFile = leftover.map((sl) => bySlug.get(sl)).filter(Boolean);
+  }
+
+  // 3. Whatever packs did not cover, fetch the old way.
+  let i = 0;
   const worker = async () => {
-    while (i < urls.length) {
-      const url = urls[i++];
+    while (i < perFile.length) {
+      const url = perFile[i++];
       try {
-        if (await cache.match(url)) {
-          done++;                                   // already on the device
-        } else {
+        if (await cache.match(url)) { done++; }
+        else {
           const res = await fetch(url, { cache: 'force-cache' });
           if (res.ok) { await cache.put(url, res.clone()); done++; }
           else { failed++; failedUrls.push(url); }
         }
       } catch (e) { failed++; failedUrls.push(url); }
-      onProgress && onProgress(done + failed, urls.length);
+      report();
     }
   };
-  await Promise.all(Array.from({ length: Math.min(concurrency, urls.length) }, worker));
+  await Promise.all(Array.from({ length: Math.min(concurrency, perFile.length) }, worker));
+
   // failedUrls lets the UI offer "Retry failed downloads" (§9) instead of
   // silently resetting to 0/N.
   return { done, failed, failedUrls };

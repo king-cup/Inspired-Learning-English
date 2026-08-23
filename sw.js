@@ -13,7 +13,10 @@
 // this worker deliberately does not touch. js/content.js is added below.
 // v6: v1.03.1 adds the shared update bar (app-code + vocabulary).
 // v7: Reading Explorer + Prepare Level 5 added to GROUP_ORDER in js/data.js.
-const SHELL = 'vd-shell-v7';
+// v8: v1.04 audio packs. audio/packs/*.pack is NOT precached and NOT handled
+//     here -- like every other clip, packs are fetched by js/audio.js straight
+//     into vd-audio-v1, for the Range-request reason at the top of this file.
+const SHELL = 'vd-shell-v8';
 
 const PRECACHE = [
   './',

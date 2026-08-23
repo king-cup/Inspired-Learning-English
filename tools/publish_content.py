@@ -38,6 +38,7 @@ import tempfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VOCAB_SRC = os.path.join(ROOT, "vocab.json")
 AUDIO_SRC = os.path.join(ROOT, "audio-index.json")
+PACKS_SRC = os.path.join(ROOT, "audio-packs.json")
 CONTENT_DIR = os.path.join(ROOT, "content")
 MANIFEST_PATH = os.path.join(CONTENT_DIR, "manifest.json")
 
@@ -280,15 +281,35 @@ def main():
     if not errors:
         audio_consistency(vocab, index, warnings)
 
+    # audio packs are OPTIONAL: an older publish has none, and a client that
+    # does not understand them ignores the manifest field and falls back to
+    # fetching clips one at a time. Build them with tools/build_audio_packs.py.
+    packs = None
+    packs_problem = None
+    if os.path.exists(PACKS_SRC):
+        try:
+            packs = load_json(PACKS_SRC)
+        except Exception as e:  # noqa: BLE001
+            errors.append(f"could not read/parse audio-packs.json: {e}")
+        else:
+            if not isinstance(packs, dict) or not isinstance(packs.get("packs"), dict):
+                errors.append("audio-packs.json is not a pack index")
+                packs = None
+    else:
+        packs_problem = "audio-packs.json not found — publishing without packs"
+
     # output paths
     vocab_name = f"vocab-{args.version}.json"
     index_name = f"audio-index-{args.version}.json"
+    packs_name = f"audio-packs-{args.version}.json"
     vocab_out = os.path.join(CONTENT_DIR, vocab_name)
     index_out = os.path.join(CONTENT_DIR, index_name)
+    packs_out = os.path.join(CONTENT_DIR, packs_name)
 
     # 14. refuse to overwrite
     if not args.force and not args.dry_run:
-        for p in (vocab_out, index_out):
+        outs = [vocab_out, index_out] + ([packs_out] if packs else [])
+        for p in outs:
             if os.path.exists(p):
                 errors.append(f"{os.path.relpath(p, ROOT)} already exists — bump --version or pass --force")
 
@@ -325,12 +346,20 @@ def main():
         "audioVersion": audio_version,
         "publishedAt": published_at,
     }
+    # NOT a schemaVersion bump. Clients validate schemaVersion with an exact
+    # ==1, so raising it would make every v1.03 phone reject this manifest and
+    # sit on its old content forever. An unknown extra KEY is ignored by them
+    # and used by v1.04+, which is exactly the behaviour wanted.
+    if packs:
+        manifest["audioPacksUrl"] = f"content/{packs_name}"
 
     # 11-13. write versioned files, then the manifest LAST
     if not args.dry_run:
         os.makedirs(CONTENT_DIR, exist_ok=True)
         write_json_atomic(vocab_out, vocab)
         write_json_atomic(index_out, index)
+        if packs:
+            write_json_atomic(packs_out, packs)
         write_json_atomic(MANIFEST_PATH, manifest)
 
     # 16. summary
@@ -343,11 +372,23 @@ def main():
     print(f"  units           : {unit_count}")
     print(f"  words           : {word_count}")
     print(f"  audio clips     : {clip_count}")
+    if packs:
+        n_unit = sum(1 for k in packs.get("units", {}))
+        n_book = sum(1 for k in packs.get("books", {}))
+        total = sum(p.get("bytes", 0) for p in packs["packs"].values())
+        print(f"  audio packs     : {len(packs['packs'])} ({n_unit} unit, {n_book} book), "
+              f"{total / 1048576.0:.1f} MB")
+        if str(packs.get("audioVersion")) != audio_version:
+            print(f"  ** WARNING: audio-packs.json was built against audioVersion "
+                  f"{packs.get('audioVersion')} but this publish is {audio_version}. "
+                  f"Re-run tools/build_audio_packs.py or students will slice stale packs. **")
+    elif packs_problem:
+        print(f"  audio packs     : none  ({packs_problem})")
     if prev_manifest:
         print(f"  previous version: {prev_manifest.get('contentVersion')}")
     print(f"  published at    : {published_at}")
     print("  files:")
-    for p in (vocab_out, index_out, MANIFEST_PATH):
+    for p in ([vocab_out, index_out] + ([packs_out] if packs else []) + [MANIFEST_PATH]):
         print(f"    {'(would write) ' if args.dry_run else ''}{os.path.relpath(p, ROOT)}")
     if warnings:
         print(f"\n  {len(warnings)} warning(s):")

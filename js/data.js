@@ -12,12 +12,15 @@
 
 import * as C from './content.js';
 
-export const APP_VERSION = '1.03.1';
+export const APP_VERSION = '1.04';
 
 let bundle = { types: [], data: {} };
 let cleanTypes = [];
 let clipSlugs = new Set();
 let audioVer = '1';
+let activeManifest = null;
+let packIndex = null;         // lazily loaded; null = not loaded or unavailable
+let packPromise = null;
 let lastStatus = { activeVersion: null, installedNew: false, usedBundled: false, updateFailed: false, updateAvailable: false, appliedPending: false };
 
 /**
@@ -48,7 +51,7 @@ export const slug = (word) =>
 // path forces a re-download past the year-long immutable cache. Version "1" adds
 // NO query, so students upgrading from v1.02 keep their already-cached clips
 // instead of re-downloading 24 MB. Only a real audio replacement bumps this.
-const audioSuffix = () => (audioVer && audioVer !== '1') ? ('?v=' + audioVer) : '';
+export const audioSuffix = () => (audioVer && audioVer !== '1') ? ('?v=' + audioVer) : '';
 export const audioUrl = (word) => 'audio/' + slug(word) + '.m4a' + audioSuffix();
 export const audioVersion = () => audioVer;
 
@@ -70,6 +73,33 @@ function applyBundle(vocab, index, manifest) {
   clipSlugs = new Set(index || []);
   audioVer = (manifest && typeof manifest.audioVersion === 'string' && manifest.audioVersion) ? manifest.audioVersion : '1';
   cleanTypes = buildCleanTypes(bundle);
+  // Packs belong to one published version. Swapping content invalidates them,
+  // and slicing a pack built for different audio would produce silence.
+  activeManifest = manifest || null;
+  packIndex = null;
+  packPromise = null;
+}
+
+/**
+ * The audio pack index for the ACTIVE version, or null if this publish has no
+ * packs / they could not be fetched. Loaded once, on first use.
+ */
+export function audioPacks() {
+  if (packIndex) return Promise.resolve(packIndex);
+  if (!activeManifest || !activeManifest.audioPacksUrl) return Promise.resolve(null);
+  if (!packPromise) {
+    packPromise = C.loadPacks(activeManifest).then((p) => {
+      // A pack set built against different audio would slice to the wrong
+      // bytes. Refuse it rather than cache silence under every clip URL.
+      if (p && String(p.audioVersion || '1') !== String(audioVer)) {
+        console.warn('audio packs are for audioVersion', p.audioVersion, 'but content is', audioVer);
+        return null;
+      }
+      packIndex = p;
+      return p;
+    }).catch(() => null);
+  }
+  return packPromise;
 }
 
 // --------------------------------------------------------------- loading
@@ -238,6 +268,11 @@ export function clipUrlsFor(unitId) {
   }
   return [...seen];
 }
+
+/** slug -> clip URL, so the pack slicer can file each slice where the player
+ *  will look for it. Keeping this in one place is what lets packs stay entirely
+ *  invisible to the playback path. */
+export const urlForSlug = (s) => 'audio/' + s + '.m4a' + audioSuffix();
 
 export function allClipUrls() {
   return [...clipSlugs].map((s) => 'audio/' + s + '.m4a' + audioSuffix());

@@ -150,6 +150,48 @@ export async function loadFromCache(manifest) {
   } catch (e) { return null; }
 }
 
+/**
+ * Audio packs (v1.04) — OPTIONAL and lazy.
+ *
+ * The index is ~180 KB gzipped, which is not worth adding to every content
+ * update for a student who never downloads audio. It is fetched the first time
+ * a prefetch actually needs it and then cached alongside the version it belongs
+ * to. A publish with no audioPacksUrl, a failed fetch, or a malformed index all
+ * degrade to the pre-1.04 behaviour of fetching clips one at a time.
+ */
+export function validatePacks(p) {
+  if (!p || typeof p !== 'object' || Array.isArray(p)) return false;
+  if (!p.packs || typeof p.packs !== 'object' || Array.isArray(p.packs)) return false;
+  for (const k of Object.keys(p.packs)) {
+    const e = p.packs[k];
+    if (!e || typeof e !== 'object') return false;
+    if (typeof e.url !== 'string' || !e.url.startsWith('audio/')) return false;
+    if (!e.clips || typeof e.clips !== 'object') return false;
+  }
+  return true;
+}
+
+export async function loadPacks(manifest) {
+  const rel = manifest && manifest.audioPacksUrl;
+  if (typeof rel !== 'string' || !rel.startsWith('content/')) return null;
+  const url = resolveUrl(rel);
+  try {
+    const cache = await caches.open(CONTENT_CACHE);
+    const hit = await cache.match(url);
+    if (hit) {
+      const p = JSON.parse(await hit.text());
+      return validatePacks(p) ? p : null;
+    }
+    const res = await fetchWithTimeout(url, DOWNLOAD_TIMEOUT, { cache: 'no-cache' });
+    if (!res.ok) return null;
+    const text = await res.text();
+    const p = JSON.parse(text);
+    if (!validatePacks(p)) return null;
+    await cache.put(url, jsonResponse(text));
+    return p;
+  } catch (e) { return null; }
+}
+
 /** Bundled root files — the emergency fallback for a device that has never
  *  successfully fetched remote content. Served from the shell cache offline. */
 export async function loadBundled() {
@@ -176,6 +218,7 @@ export async function pruneOldVersions(keepManifests) {
       if (!m) continue;
       keep.add(resolveUrl(m.vocabUrl));
       keep.add(resolveUrl(m.audioIndexUrl));
+      if (typeof m.audioPacksUrl === 'string') keep.add(resolveUrl(m.audioPacksUrl));
     }
     const cache = await caches.open(CONTENT_CACHE);
     for (const req of await cache.keys()) {
