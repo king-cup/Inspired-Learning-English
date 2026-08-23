@@ -28,7 +28,10 @@ let lastStatus = { activeVersion: null, installedNew: false, usedBundled: false,
 const TYPE_ORDER = ['Book Units', 'HSE Packages'];
 const GROUP_ORDER = [
   'Prepare Level 1', 'Prepare Level 2', 'Prepare Level 3', 'Prepare Level 4',
+  'Prepare Level 5',
   'Unlock 3', 'Unlock 4', 'Openworld FCE',
+  'Reading Explorer Foundations', 'Reading Explorer 1',
+  'Reading Explorer 2', 'Reading Explorer 3',
 ];
 const rank = (order, name) => { const i = order.indexOf(name); return i < 0 ? order.length : i; };
 

@@ -12,7 +12,8 @@
 // only -- the live vocabulary now comes from content/ (see js/content.js), which
 // this worker deliberately does not touch. js/content.js is added below.
 // v6: v1.03.1 adds the shared update bar (app-code + vocabulary).
-const SHELL = 'vd-shell-v6';
+// v7: Reading Explorer + Prepare Level 5 added to GROUP_ORDER in js/data.js.
+const SHELL = 'vd-shell-v7';
 
 const PRECACHE = [
   './',
