@@ -22,6 +22,10 @@ example sentence with the word bolded plus synonym/antonym.
 shapes, distractors drawn from the same unit preferring the same part of speech.
 Wrong answers come back at the end and keep coming back until they're right; the
 saved score is the first-attempt percentage.
+**Cloze tests** — 306 complete Beijing exam passages across Grades 7–9. Study
+mode gives immediate feedback; Test mode draws a non-repeating passage from the
+chosen grade and hides all results until submission. Each blank unfolds its
+choices inside the article, and scores plus perfect runs are saved on-device.
 
 ## Layout
 
@@ -31,10 +35,13 @@ app.css               the whole design system
 js/data.js            word lists; port of VocabRepository.kt
 js/store.js           progress; port of Progress.kt + ProgressStore.kt
 js/learn-engine.js    MCQ construction; literal port of LearnEngine.kt
+js/cloze-data.js      lazy cloze corpus loader and grade pools
+js/cloze-store.js     cloze history, sessions, and balanced random draws
 js/audio.js           pronunciation; port of Speaker.kt
 js/ui.js              the component vocabulary from Components.kt
 js/screens/*.js       one file per screen
 sw.js                 app shell cache only — audio is handled by the page
+cloze.json            306 de-duplicated, answer-keyed cloze passages
 vocab.json            copied from the Android app's assets
 audio-index.json      the 4,321 slugs that have a clip
 audio/*.m4a           4,321 clips, 24 MB

@@ -16,7 +16,8 @@
 // v8: v1.04 audio packs. audio/packs/*.pack is NOT precached and NOT handled
 //     here -- like every other clip, packs are fetched by js/audio.js straight
 //     into vd-audio-v1, for the Range-request reason at the top of this file.
-const SHELL = 'vd-shell-v8';
+// v9: v1.05 adds the grade-based cloze passage reader and its offline corpus.
+const SHELL = 'vd-shell-v9';
 
 const PRECACHE = [
   './',
@@ -25,11 +26,14 @@ const PRECACHE = [
   'manifest.webmanifest',
   'vocab.json',           // emergency fallback only; live content is under content/
   'audio-index.json',     // emergency fallback only
+  'cloze.json',
   'js/main.js',
   'js/data.js',
   'js/content.js',
   'js/updates.js',
   'js/store.js',
+  'js/cloze-data.js',
+  'js/cloze-store.js',
   'js/ui.js',
   'js/audio.js',
   'js/learn-engine.js',
@@ -44,6 +48,8 @@ const PRECACHE = [
   'js/screens/test.js',
   'js/screens/onboarding.js',
   'js/screens/settings.js',
+  'js/screens/cloze-library.js',
+  'js/screens/cloze.js',
   'icons/icon-180-inspire.png',
   'icons/icon-192-inspire.png',
   'icons/icon-512-inspire.png',

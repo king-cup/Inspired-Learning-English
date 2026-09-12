@@ -599,6 +599,176 @@ body.standalone #tabwarn { display: none; }
 /* Lift the toast above the update bar so the two never overlap. */
 body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
 
+/* ======================================================================
+   v1.05 cloze passages
+
+   The question sheet opens inside the prose itself. The 3D hinge and moving
+   grid track make the article below the blank travel downward like a folded
+   piece of exam paper being opened.
+   ====================================================================== */
+
+.cloze-grade-tabs { display: grid; grid-template-columns: repeat(3, 1fr); }
+.cloze-grade {
+  min-height: 64px; padding: 8px 4px; background: var(--paper); color: var(--ink);
+  border-right: 1px solid var(--rule); text-align: center;
+}
+.cloze-grade:last-child { border-right: 0; }
+.cloze-grade .n { display: block; font: 900 24px/1 var(--mono); }
+.cloze-grade .l { display: block; margin-top: 5px; font: bold 10px/1.2 var(--mono); letter-spacing: 1px; text-transform: uppercase; }
+.cloze-grade.on { background: var(--ink); color: var(--paper); }
+.cloze-grade.is-pressed { background: var(--shade); color: var(--ink); }
+
+.cloze-passage-row, .cloze-history-row {
+  display: flex; align-items: center; gap: 11px; width: 100%;
+  padding: 11px 12px; text-align: left; background: var(--paper); color: var(--ink);
+}
+.cloze-passage-row.is-pressed, .cloze-history-row.is-pressed { background: var(--shade); }
+.cloze-passage-row .num {
+  flex: none; width: 34px; font: bold 10px var(--mono); letter-spacing: 1px;
+}
+.cloze-passage-row .title, .cloze-history-row .a {
+  display: block; font-family: var(--serif); font-size: 15px; line-height: 1.3; font-weight: bold;
+}
+.cloze-passage-row .meta, .cloze-history-row .d {
+  display: block; margin-top: 4px; font: 10px/1.35 var(--mono); letter-spacing: .5px; text-transform: uppercase; opacity: .7;
+}
+.cloze-passage-row .score { flex: none; text-align: right; font: bold 14px var(--mono); }
+.cloze-passage-row .score small { display: block; margin-top: 2px; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+.cloze-passage-row .chev { flex: none; font: 21px var(--mono); }
+.cloze-passage-row.perfect .score small { color: var(--rt-edge); }
+
+.cloze-history-row .pct { flex: none; font: bold 15px var(--mono); }
+.cloze-history-row .verdict {
+  flex: none; border: 1.5px solid var(--ink); padding: 4px 6px;
+  font: bold 9px var(--mono); letter-spacing: 1px; text-transform: uppercase;
+}
+.cloze-history-row.perfect { background: var(--rt); }
+.cloze-history-row.perfect .pct, .cloze-history-row.perfect .verdict { color: var(--rt-edge); border-color: var(--rt-edge); }
+
+.cloze-screen { max-width: 760px; margin: 0 auto; }
+.cloze-status { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.cloze-status + .rulebar { margin-top: 6px; }
+.cloze-paper {
+  position: relative; border: 2px solid var(--ink); padding: clamp(18px, 5vw, 34px);
+  background: var(--paper);
+}
+.cloze-paper::before {
+  content: ''; position: absolute; inset: 4px; border: 1px solid var(--rule); pointer-events: none;
+}
+.cloze-article { position: relative; z-index: 1; }
+.cloze-article p {
+  font-family: var(--serif); font-size: 18px; line-height: 1.9;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.cloze-article p + p { margin-top: 18px; }
+
+.cloze-blank {
+  display: inline-flex; align-items: baseline; gap: 6px; min-height: 34px;
+  margin: 0 3px; padding: 1px 7px 0; vertical-align: baseline;
+  border: 1.5px solid var(--ink); border-top: 0; background: var(--shade); color: var(--ink);
+  font: bold 15px/1.5 var(--mono);
+}
+.cloze-blank .blank-no { font-size: 10px; opacity: .65; }
+.cloze-blank.is-pressed { background: var(--ink); color: var(--paper); }
+.cloze-blank.answered { background: var(--ink); color: var(--paper); }
+.cloze-blank.right { background: var(--rt); color: var(--rt-edge); border-color: var(--rt-edge); }
+.cloze-blank.wrong { background: var(--wr); color: var(--wr-edge); border-color: var(--wr-edge); }
+
+.cloze-fold {
+  display: grid; grid-template-rows: 0fr; width: 100%;
+  margin: 7px 0 5px; perspective: 900px; overflow: hidden;
+  transition: grid-template-rows .36s cubic-bezier(.2,.75,.2,1);
+}
+.cloze-fold[hidden] { display: none; }
+.cloze-fold.open { grid-template-rows: 1fr; }
+.cloze-fold-inner {
+  display: block; min-height: 0; overflow: hidden;
+  border: 2px solid var(--ink); background: var(--shade);
+  transform: rotateX(-82deg); transform-origin: top center; opacity: .15;
+  transition: transform .36s cubic-bezier(.2,.75,.2,1), opacity .2s linear;
+}
+.cloze-fold.open .cloze-fold-inner { transform: rotateX(0); opacity: 1; }
+.cloze-fold-bar {
+  display: flex; justify-content: space-between; padding: 6px 10px;
+  background: var(--ink); color: var(--paper);
+  font: bold 10px/1.4 var(--mono); letter-spacing: 1.5px; text-transform: uppercase;
+}
+.cloze-fold-bar .crease-mark { font-size: 13px; }
+.cloze-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cloze-option {
+  display: flex; align-items: center; gap: 9px; min-height: 48px;
+  padding: 8px 10px; text-align: left; background: var(--paper); color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+.cloze-option:nth-child(odd) { border-right: 1px solid var(--rule); }
+.cloze-option .ltr {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border: 1px solid currentColor; font: bold 10px var(--mono);
+}
+.cloze-option .txt { min-width: 0; font-family: var(--serif); font-size: 15px; line-height: 1.25; }
+.cloze-option.is-pressed, .cloze-option.selected { background: var(--ink); color: var(--paper); }
+.cloze-option.right { background: var(--rt); color: var(--rt-edge); }
+.cloze-option.wrong { background: var(--wr); color: var(--wr-edge); }
+.cloze-option[disabled] { cursor: default; }
+.cloze-feedback {
+  display: block; min-height: 34px; padding: 8px 10px;
+  font-family: var(--serif); font-size: 13px; line-height: 1.45;
+}
+.cloze-feedback strong { font: bold 10px var(--mono); letter-spacing: 1px; text-transform: uppercase; }
+.cloze-feedback .why { display: block; margin-top: 5px; font-size: 13px; }
+.cloze-end-note { padding: 13px; border: 1.5px solid var(--rule); text-align: center; font: 11px var(--mono); letter-spacing: 1px; text-transform: uppercase; }
+
+.cloze-result { margin-top: 18px; }
+.cloze-perfect-banner {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  border: 4px double var(--rt-edge); background: var(--rt); color: var(--rt-edge);
+  padding: 14px; text-align: center; font: 900 16px/1.3 var(--mono); letter-spacing: 2px; text-transform: uppercase;
+}
+.cloze-perfect-banner .burst { font-size: 25px; }
+.cloze-review-row { display: flex; gap: 12px; padding: 8px 12px; background: var(--wr); color: var(--wr-edge); }
+.cloze-review-row + .cloze-review-row { border-top: 1px solid var(--wr-edge); }
+.cloze-review-row .n { flex: none; font: bold 10px var(--mono); }
+
+.cloze-celebration { position: fixed; inset: 0; z-index: 80; pointer-events: none; overflow: hidden; }
+.cloze-celebration > i {
+  position: absolute; left: 50%; top: 48%; width: 9px; height: 22px;
+  background: var(--ink); border: 1px solid var(--paper); opacity: 0;
+  animation: cloze-burst 1.15s cubic-bezier(.15,.7,.15,1) var(--delay) both;
+}
+.cloze-celebration > i:nth-child(3n) { background: var(--rt-edge); }
+.cloze-well-done {
+  position: absolute; left: 50%; top: 48%; width: min(88vw, 520px);
+  transform: translate(-50%, -50%) scale(.7); padding: 18px 20px;
+  border: 4px double var(--paper); background: var(--ink); color: var(--paper);
+  text-align: center; font: 900 18px/1.35 var(--mono); letter-spacing: 2px; text-transform: uppercase;
+  animation: cloze-banner 2.5s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes cloze-burst {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.2) rotate(0); }
+  12% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1) rotate(var(--r)); }
+}
+@keyframes cloze-banner {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.7); }
+  12%, 78% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -54%) scale(1); }
+}
+
+@media (max-width: 420px) {
+  .cloze-options { grid-template-columns: 1fr; }
+  .cloze-option:nth-child(odd) { border-right: 0; }
+  .cloze-article p { font-size: 17px; line-height: 1.85; }
+  .cloze-paper { padding: 18px 14px; }
+  .cloze-history-row { gap: 8px; padding-left: 9px; padding-right: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloze-fold, .cloze-fold-inner { transition: none; }
+  .cloze-celebration > i { display: none; }
+  .cloze-well-done { animation: none; opacity: 1; }
+}
+
 /* --- update bar (v1.03.1) ------------------------------------------------
    Fixed to the bottom, above content but below dialogs. Never blocks input:
    it is a strip, not an overlay. */

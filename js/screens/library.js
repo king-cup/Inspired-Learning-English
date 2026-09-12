@@ -32,6 +32,11 @@ export function render(root) {
     right: 'v' + D.APP_VERSION,
   }));
 
+  // Reading lives above the word-list hierarchy because its pool is organised
+  // by school grade, not by publisher/book/unit.
+  root.append(h('div.mt'), blockButton(i18n.t('lib.cloze'), i18n.t('lib.clozeCaption'),
+    () => { location.hash = '#/cloze'; }));
+
   // Two-column grid on iPad (§11); a single column on phone.
   const cols = h('div.lib-cols.mt');
   const side = h('div.lib-side');

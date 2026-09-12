@@ -4,6 +4,7 @@ import * as D from './data.js';
 import * as S from './store.js';
 import * as A from './audio.js';
 import * as P from './profile.js';
+import * as CS from './cloze-store.js';
 import * as i18n from './i18n.js';
 import { applyTheme } from './theme.js';
 import * as library from './screens/library.js';
@@ -14,6 +15,8 @@ import * as learn from './screens/learn.js';
 import * as test from './screens/test.js';
 import * as settings from './screens/settings.js';
 import * as onboarding from './screens/onboarding.js';
+import * as clozeLibrary from './screens/cloze-library.js';
+import * as cloze from './screens/cloze.js';
 import { runUpdateCheck, showVocabUpdateBar } from './updates.js';
 import { h, clear, cn, button, closeAllDialogs, showUpdateBar as showBar, hideUpdateBar } from './ui.js';
 
@@ -110,6 +113,16 @@ async function route() {
 
   if (parts[0] === 'settings') { settings.render(root); afterRoute(); return; }
 
+  if (parts[0] === 'cloze') {
+    if (parts[1] === 'study' && parts[2] && !parts[3]) {
+      await clozeLibrary.renderStudyList(root, parts[2]); afterRoute(); return;
+    }
+    if ((parts[1] === 'study' || parts[1] === 'test') && parts[2] && parts[3]) {
+      await cloze.render(root, parts[1], parts[2], decodeURIComponent(parts[3])); afterRoute(); return;
+    }
+    await clozeLibrary.renderLanding(root, parts[1]); afterRoute(); return;
+  }
+
   if (parts[0] === 'u' && parts[1]) {
     const id = decodeURIComponent(parts[1]);
     const mode = parts[2];
@@ -176,6 +189,7 @@ async function boot() {
   syncHtmlLang();
   applyTheme(P.get().inverted);
   S.init();
+  CS.init();
   A.init();
 
   // Keep the global language in sync, update <html lang>, and re-localise the
