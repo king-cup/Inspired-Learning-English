@@ -96,7 +96,7 @@ export async function renderLanding(root, requestedGrade) {
         },
       },
         h('span.grow', null,
-          h('span.a', null, cn(passage.title || passage.id)),
+          h('span.a', null, cn(C.sourceTitle(passage))),
           h('span.d', null, `${shortDate(run.at)}  ·  ${i18n.t(`cloze.${run.mode}Mode`)}`)),
         h('span.pct', null, pct + '%'),
         h('span.verdict', null, run.perfect ? i18n.t('cloze.perfect') : i18n.t('cloze.redo'))));
@@ -139,7 +139,7 @@ export async function renderStudyList(root, requestedGrade) {
   function paintRows(query = '') {
     clear(rows);
     const needle = query.trim().toLowerCase();
-    const shown = pool.filter((p) => !needle || `${p.title} ${p.year} ${p.term} ${p.area}`.toLowerCase().includes(needle));
+    const shown = pool.filter((p) => !needle || `${C.sourceTitle(p)} ${p.year} ${p.term} ${p.area}`.toLowerCase().includes(needle));
     label.lastChild.textContent = i18n.f('cloze.shown', shown.length);
     if (!shown.length) { rows.append(h('div.panel-empty', null, i18n.t('cloze.noMatches'))); return; }
     shown.forEach((p, index) => {
@@ -151,7 +151,7 @@ export async function renderStudyList(root, requestedGrade) {
       },
         h('span.num', null, p.id.replace(/^R/, '')),
         h('span.grow', null,
-          h('span.title', null, cn(p.title || p.id)),
+          h('span.title', null, cn(C.sourceTitle(p))),
           h('span.meta', null, cn(passageMeta(p)))),
         stat.attempts ? h('span.score', null,
           h('span', null, stat.bestPct + '%'),

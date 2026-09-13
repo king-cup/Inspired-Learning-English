@@ -50,11 +50,14 @@ export function render(root, unitId) {
   rec.append(body);
   primary.append(rec);
 
-  // --- modes, in teaching order: Study, Practice, Cards, Test --------------
+  // --- modes, in teaching order -------------------------------------------
   const modes = h('div.stack.mt2');
+  modes.append(blockButton(i18n.t('mode.study'), i18n.t('mode.studyCaption'), go('study')));
+  modes.append(blockButton(i18n.t('mode.practice'), i18n.t('mode.practiceCaption'), go('practice')));
+  if (unit.typeName === 'HSE Packages') {
+    modes.append(blockButton(i18n.t('mode.advanced'), i18n.t('mode.advancedCaption'), go('advanced')));
+  }
   modes.append(
-    blockButton(i18n.t('mode.study'), i18n.t('mode.studyCaption'), go('study')),
-    blockButton(i18n.t('mode.practice'), i18n.t('mode.practiceCaption'), go('practice')),
     blockButton(i18n.t('mode.cards'), i18n.t('mode.cardsCaption'), go('cards')),
     blockButton(i18n.t('mode.test'), i18n.f('mode.testCaption', S.PASS_PCT), go('test')));
   primary.append(modes);

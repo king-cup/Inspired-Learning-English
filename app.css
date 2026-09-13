@@ -615,14 +615,14 @@ body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
    piece of exam paper being opened.
    ====================================================================== */
 
-.cloze-grade-tabs { display: grid; grid-template-columns: repeat(3, 1fr); }
+.cloze-grade-tabs { display: grid; grid-template-columns: 1fr; gap: 12px; padding: 12px; }
 .cloze-grade {
-  min-height: 64px; padding: 8px 4px; background: var(--paper); color: var(--ink);
-  border-right: 1px solid var(--rule); text-align: center;
+  display: flex; align-items: center; gap: 16px; width: 100%; min-height: 78px;
+  padding: 14px 17px; background: var(--paper); color: var(--ink);
+  border: 2px solid var(--ink); text-align: left;
 }
-.cloze-grade:last-child { border-right: 0; }
-.cloze-grade .n { display: block; font: 900 24px/1 var(--mono); }
-.cloze-grade .l { display: block; margin-top: 5px; font: bold 10px/1.2 var(--mono); letter-spacing: 1px; text-transform: uppercase; }
+.cloze-grade .n { display: block; flex: none; width: 48px; font: 900 32px/1 var(--mono); }
+.cloze-grade .l { display: block; font: 900 14px/1.25 var(--mono); letter-spacing: 1.5px; text-transform: uppercase; }
 .cloze-grade.on { background: var(--ink); color: var(--paper); }
 .cloze-grade.is-pressed { background: var(--shade); color: var(--ink); }
 
@@ -725,6 +725,12 @@ body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
 .cloze-feedback strong { font: bold 10px var(--mono); letter-spacing: 1px; text-transform: uppercase; }
 .cloze-feedback .why { display: block; margin-top: 5px; font-size: 13px; }
 .cloze-end-note { padding: 13px; border: 1.5px solid var(--rule); text-align: center; font: 11px var(--mono); letter-spacing: 1px; text-transform: uppercase; }
+
+/* HSE Advanced Practice */
+.advanced-context { max-height: 45vh; overflow: auto; -webkit-overflow-scrolling: touch; }
+.advanced-passage { padding: 14px; white-space: pre-wrap; font-family: var(--serif); font-size: 15px; line-height: 1.65; }
+.advanced-prompt { padding: 18px 16px; font-family: var(--serif); font-size: 18px; line-height: 1.5; }
+.advanced-answer { margin-top: 7px; font-family: var(--serif); font-size: 15px; line-height: 1.45; }
 
 .cloze-result { margin-top: 18px; }
 .cloze-perfect-banner {
@@ -902,53 +908,6 @@ body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
   to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
 }
 
-/* The ruled title compresses into a sticky navigation-scale masthead. */
-.paper-head.motion-header {
-  --header-collapse: 0;
-  position: sticky; top: calc(env(safe-area-inset-top) + 4px); z-index: 18;
-  padding-top: calc(13px - (5px * var(--header-collapse)));
-  padding-bottom: calc(11px - (4px * var(--header-collapse)));
-  background: var(--glass-strong);
-  -webkit-backdrop-filter: blur(14px) saturate(125%);
-  backdrop-filter: blur(14px) saturate(125%);
-  transition: padding .08s linear;
-}
-.paper-head.motion-header h1 {
-  font-size: calc(27px - (9px * var(--header-collapse)));
-  line-height: calc(29px - (8px * var(--header-collapse)));
-  transition: font-size .08s linear, line-height .08s linear;
-}
-.paper-head.motion-header .kick { opacity: calc(1 - (.55 * var(--header-collapse))); }
-.paper-head.motion-header .feet { padding-top: calc(6px - (3px * var(--header-collapse))); }
-
-/* At the bottom of a live scroll gesture the brand briefly steps forward. */
-#motion-logo {
-  position: fixed; right: calc(env(safe-area-inset-right) + 12px);
-  bottom: calc(env(safe-area-inset-bottom) + 12px); z-index: 4;
-  width: 44px; height: 44px; pointer-events: none;
-  opacity: .14; transform: scale(.72); transform-origin: right bottom;
-  transition: transform .24s var(--spring-out), opacity .18s ease-out;
-}
-#motion-logo img { display: block; width: 100%; height: 100%; }
-#motion-logo.peek { opacity: .88; transform: scale(1.42); }
-
-/* A paper wipe communicates navigation direction without delaying input. */
-.page-wipe {
-  position: fixed; inset: 0; z-index: 95; pointer-events: none;
-  background: var(--ink);
-  animation: page-wipe .46s cubic-bezier(.76,0,.24,1) both;
-}
-.page-wipe::after {
-  content: ''; position: absolute; inset: 0 0 0 auto; width: 5px;
-  background: var(--paper);
-}
-@keyframes page-wipe {
-  0% { clip-path: inset(0 100% 0 0); }
-  46% { clip-path: inset(0 0 0 0); }
-  56% { clip-path: inset(0 0 0 0); }
-  100% { clip-path: inset(0 0 0 100%); }
-}
-
 /* The current lesson breathes at low amplitude behind the hard rules. */
 .active-lesson { position: relative; z-index: 1; animation: lesson-breathe 3.6s ease-in-out infinite; }
 @keyframes lesson-breathe {
@@ -1032,6 +991,5 @@ body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
   .opt.right, .cloze-option.right, .cloze-blank.right, .note.good,
   .opt.wrong, .cloze-option.wrong, .cloze-blank.wrong, .note.bad,
   .cloze-feedback, .note.bad > *, .finish-ready { animation: none !important; }
-  .page-wipe, .finish-burst { display: none; }
-  #motion-logo { transition: none; }
+  .finish-burst { display: none; }
 }

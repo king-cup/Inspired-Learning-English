@@ -1,0 +1,301 @@
+#!/usr/bin/env python3
+"""Rebuild answer-keyed cloze data and HSE selectable-answer practice.
+
+The cloze Markdown bank contains more raw extracts than the app can safely use.
+We refresh the app's existing answer-keyed set by matching both passage text and
+the known correct answer in every blank. This prevents an unkeyed extract from
+silently entering a student test.
+
+HSE worksheet keys for packages 1–7 were checked against the authored papers.
+Package 8's authoritative key is parsed from its adjacent answer-key Markdown.
+Written-response sections are never emitted.
+"""
+
+from __future__ import annotations
+
+import argparse
+import difflib
+import html
+import json
+import re
+import unicodedata
+from pathlib import Path
+
+
+CLOZE_ROOT = Path('/Users/pshen2p/Desktop/Inspired Education/Beijing Middle School English/北京英语_整理版')
+HSE_ROOT = Path('/Users/pshen2p/Documents/Obsidian Notes/Teaching Vault/Generated Materials/Vocab Worksheets/Beijing High School')
+
+
+KEYS = {
+    1: list('BDACBDCABCBACBD'),
+    2: list('BCBACABABCADCAA'),
+    3: list('BCABCBDBACBDCBB'),
+    4: [
+        # Definitions 1–44 (item 2 is omitted below: its authored answer is absent).
+        *list('ABCBABACACCBBCADBCBCACABCABABCBDACBDCCCACBCB'),
+        # Sentence Completion 45–60.
+        *list('ACBDBBCBBCDDABCB'),
+        # Same Meaning 61–74.
+        *list('DCDBBBCBADADBA'),
+    ],
+    5: [
+        *list('BCBCCCDCDDDACDBCDCDBDBDCBCDCBDBACDDD'),
+        *list('BBCBDBCCACDCCB'),
+        *list('AADADBDBACBB'),
+        *list('DCBADCDAADCC'),
+    ],
+    6: [
+        *list('ABADABDACDDBDCBDDCBADBCADBDBADBDDDCB'),
+        *list('CABDABCBAABACDBCA'),
+        *list('ADCCADAABCDD'),
+        *list('DBADDCBCDBAA'),
+    ],
+    7: [
+        *list('ACBACBACDCADCBCCBCABCDCADBCACACACACABCABABDBABADACACACDB'),
+        *list('CDCACBACDBACBCBCDCABADCDBACDCA'),
+        *list('ACDACABCADCAAA'),
+        *list('BACABCDCDBDC'),
+    ],
+}
+
+
+def plain(markup: str) -> str:
+    text = re.sub(r'<[^>]+>', ' ', markup)
+    return re.sub(r'\s+', ' ', html.unescape(text)).strip()
+
+
+def normalized(text: str) -> str:
+    value = unicodedata.normalize('NFKC', text).lower()
+    value = re.sub(r'\{\{\d+\}\}|___\d+___', ' ', value)
+    return re.sub(r'[^a-z0-9]+', '', value)
+
+
+def parse_cloze_markdown(path: Path, grade: str) -> list[dict]:
+    source = path.read_text(encoding='utf-8')
+    passages = []
+    pattern = r'^## Cloze (\d+)\s*$([\s\S]*?)(?=^## Cloze \d+\s*$|\Z)'
+    for match in re.finditer(pattern, source, re.MULTILINE):
+        number, body = int(match.group(1)), match.group(2)
+        source_match = re.search(r'^Source:\s*\n([\s\S]*?)\n### Passage\s*\n', body, re.MULTILINE)
+        passage_match = re.search(r'^### Passage\s*\n([\s\S]*?)\n### Questions\s*\n', body, re.MULTILINE)
+        questions_match = re.search(r'^### Questions\s*\n([\s\S]*)$', body, re.MULTILINE)
+        if not (source_match and passage_match and questions_match):
+            continue
+        sources = re.findall(r'^- `([^`]+)`', source_match.group(1), re.MULTILINE)
+        qmap = {}
+        qpattern = r'^(\d+)\.\s*\n((?:- [A-D]\. .*\n?)+)'
+        for question in re.finditer(qpattern, questions_match.group(1), re.MULTILINE):
+            opts = [item[1].strip() for item in re.findall(r'^- ([A-D])\. (.*)$', question.group(2), re.MULTILINE)]
+            qmap[int(question.group(1))] = opts
+        text = passage_match.group(1).strip()
+        blank_numbers = [int(value) for value in re.findall(r'___(\d+)___', text)]
+        if not blank_numbers or not all(number in qmap for number in blank_numbers):
+            continue
+        passages.append({
+            'number': number,
+            'grade': grade,
+            'sources': sources,
+            'text': text,
+            'options': [qmap[value] for value in blank_numbers],
+            'signature': normalized(text),
+        })
+    return passages
+
+
+def rebuild_cloze(target: Path) -> tuple[int, float]:
+    current = json.loads(target.read_text(encoding='utf-8'))
+    source = []
+    for grade in ('七年级', '八年级', '九年级'):
+        source.extend(parse_cloze_markdown(CLOZE_ROOT / f'完形填空_{grade}.md', grade))
+
+    lowest_score = 1.0
+    rebuilt = []
+    for passage in current:
+        lines = passage['text'].splitlines()
+        old_body = '\n'.join(lines[1:]) if len(lines) > 1 and lines[0].strip() == passage.get('title', '').strip() else passage['text']
+        answers = [blank['opts'][blank['key']].strip().casefold() for blank in passage['blanks']]
+        candidates = []
+        for candidate in source:
+            if candidate['grade'] != passage['grade'] or len(candidate['options']) != len(answers):
+                continue
+            if not all(any(answer == option.strip().casefold() for option in options)
+                       for answer, options in zip(answers, candidate['options'])):
+                continue
+            score = difflib.SequenceMatcher(
+                None, normalized(old_body), candidate['signature'], autojunk=False
+            ).ratio()
+            candidates.append((score, candidate))
+        if not candidates:
+            raise RuntimeError(f'No safe source match for {passage["id"]}')
+        score, candidate = max(candidates, key=lambda item: item[0])
+        if score < .95:
+            raise RuntimeError(f'Unsafe source match for {passage["id"]}: {score:.3f}')
+        lowest_score = min(lowest_score, score)
+
+        new_blanks = []
+        for old_blank, correct, options in zip(passage['blanks'], answers, candidate['options']):
+            key = next(index for index, option in enumerate(options) if option.strip().casefold() == correct)
+            new_blanks.append({**old_blank, 'opts': options, 'key': key})
+        counter = iter(range(1, len(new_blanks) + 1))
+        new_text = re.sub(r'___\d+___', lambda _: '{{' + str(next(counter)) + '}}', candidate['text'])
+        source_name = candidate['sources'][0] if candidate['sources'] else passage.get('source', passage['id'])
+        rebuilt.append({
+            **passage,
+            'title': re.sub(r'\.(?:docx?|pdf)$', '', source_name, flags=re.IGNORECASE),
+            'source': source_name,
+            'sources': candidate['sources'],
+            'text': new_text,
+            'blanks': new_blanks,
+        })
+
+    target.write_text(json.dumps(rebuilt, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
+    return len(rebuilt), lowest_score
+
+
+def section_for(package: int, source: str, position: int) -> str:
+    # Include the heading delimiter so "Part II" does not also match the
+    # beginning of "Part III". That prefix collision previously grouped every
+    # sentence-completion item into Definitions.
+    labels = [('Part II', source.rfind('Part II &middot;', 0, position)),
+              ('Part III', source.rfind('Part III &middot;', 0, position)),
+              ('Part IV', source.rfind('Part IV &middot;', 0, position)),
+              ('Part V', source.rfind('Part V &middot;', 0, position))]
+    part = max(labels, key=lambda item: item[1])[0]
+    if package <= 3 and part == 'Part II':
+        return 'Cloze Reading'
+    return {
+        'Part II': 'Definitions',
+        'Part III': 'Sentence Completion',
+        'Part IV': 'Same Meaning, Different Words',
+        'Part V': 'Which Sense?',
+    }[part]
+
+
+def parse_package_1_to_7(package: int) -> list[dict]:
+    path = HSE_ROOT / f'Package {package}' / f'High School Vocab Package {package}.html'
+    source = path.read_text(encoding='utf-8')
+    questions = []
+    qpattern = r'<div class="q(?:-full)?"><div class="stem">(.*?)</div><div class="opts">(.*?)</div></div>'
+    for match in re.finditer(qpattern, source, re.DOTALL):
+        stem = plain(match.group(1))
+        number_match = re.match(r'(\d+)\.\s*(.*)', stem)
+        if not number_match:
+            continue
+        number = int(number_match.group(1))
+        stem = number_match.group(2).strip()
+        options = [plain(value) for value in re.findall(
+            r'<(?:span|div)><b>\([a-d]\)</b>\s*(.*?)(?:</(?:span|div)>|$)', match.group(2), re.DOTALL
+        )]
+        if len(options) < 2:
+            continue
+        section = section_for(package, source, match.start())
+        if section not in {'Cloze Reading', 'Definitions', 'Sentence Completion', 'Same Meaning, Different Words', 'Which Sense?'}:
+            continue
+        if number > len(KEYS[package]):
+            raise RuntimeError(f'Package {package} has an unkeyed item {number}')
+        if package == 4 and number == 2:
+            continue
+        questions.append({
+            'id': f'P{package}-{number:03d}',
+            'sourceTitle': f'High School Vocab Package {package}',
+            'section': section,
+            'stem': stem,
+            'options': options,
+            'key': ord(KEYS[package][number - 1]) - ord('A'),
+        })
+
+    if package <= 3:
+        part = source[source.find('Part II'):source.find('Part III')]
+        title_match = re.search(r'<h3>(.*?)</h3>', part, re.DOTALL)
+        passage_match = re.search(r'<div class="article">(.*?)</div>\s*<div class="clozegrid">', part, re.DOTALL)
+        if not passage_match:
+            raise RuntimeError(f'Package {package} cloze passage was not found')
+        passage_markup = re.sub(r'<h3>.*?</h3>|<div class="deck">.*?</div>', '', passage_match.group(1), flags=re.DOTALL)
+        passage_markup = re.sub(
+            r'<span class="blk">(\d+)</span>', lambda match: f'[{match.group(1)}]', passage_markup
+        )
+        context = plain(passage_markup)
+        for question in questions:
+            number = int(question['id'].split('-')[-1])
+            question['stem'] = f'Choose the best word for blank {number}.'
+            question['context'] = context
+            if title_match:
+                question['sourceTitle'] = plain(title_match.group(1))
+    return questions
+
+
+def parse_package_8() -> list[dict]:
+    package = 8
+    html_path = HSE_ROOT / 'Package 8' / 'High School Vocab Package 8.html'
+    key_path = HSE_ROOT / 'Package 8' / 'Package 8 — Answer Key (GM-260913-04).md'
+    source = html_path.read_text(encoding='utf-8')
+    key_source = key_path.read_text(encoding='utf-8')
+    keys = {int(number): ord(letter) - ord('A') for number, letter in re.findall(
+        r'^\| (\d+) \| [^|]+ \| \*\*([A-D])\*\* \|', key_source, re.MULTILINE
+    )}
+    questions = []
+    pattern = r'<div class="q"><div class="stem">(.*?)</div><ol>(.*?)</ol></div>'
+    for match in re.finditer(pattern, source, re.DOTALL):
+        stem = plain(match.group(1))
+        number_match = re.match(r'(\d+)\.\s*(.*)', stem)
+        if not number_match:
+            continue
+        number = int(number_match.group(1))
+        options = [plain(value) for value in re.findall(r'<li><b>[A-D]\.</b>\s*(.*?)</li>', match.group(2), re.DOTALL)]
+        if number not in keys or len(options) < 2:
+            continue
+        questions.append({
+            'id': f'P8-{number:03d}',
+            'sourceTitle': 'High School Vocab Package 8',
+            'section': section_for(package, source, match.start()),
+            'stem': number_match.group(2).strip(),
+            'options': options,
+            'key': keys[number],
+        })
+    return questions
+
+
+def rebuild_advanced(target: Path) -> dict[str, int]:
+    data = {str(package): parse_package_1_to_7(package) for package in range(1, 8)}
+    data['8'] = parse_package_8()
+    for package, questions in data.items():
+        for question in questions:
+            if not (0 <= question['key'] < len(question['options'])):
+                raise RuntimeError(f'Invalid key for {question["id"]}')
+    expected_sections = {
+        '1': {'Cloze Reading': 15},
+        '2': {'Cloze Reading': 15},
+        '3': {'Cloze Reading': 15},
+        '4': {'Definitions': 43, 'Sentence Completion': 16,
+              'Same Meaning, Different Words': 14},
+        '5': {'Definitions': 36, 'Sentence Completion': 14,
+              'Same Meaning, Different Words': 12, 'Which Sense?': 12},
+        '6': {'Definitions': 36, 'Sentence Completion': 17,
+              'Same Meaning, Different Words': 12, 'Which Sense?': 12},
+        '7': {'Definitions': 56, 'Sentence Completion': 30,
+              'Same Meaning, Different Words': 14, 'Which Sense?': 12},
+        '8': {'Definitions': 30, 'Sentence Completion': 19,
+              'Same Meaning, Different Words': 10, 'Which Sense?': 10},
+    }
+    for package, expected in expected_sections.items():
+        actual = {}
+        for question in data[package]:
+            actual[question['section']] = actual.get(question['section'], 0) + 1
+        if actual != expected:
+            raise RuntimeError(f'Package {package} section mismatch: {actual} != {expected}')
+    target.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
+    return {package: len(questions) for package, questions in data.items()}
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--project', type=Path, default=Path(__file__).resolve().parents[1])
+    args = parser.parse_args()
+    count, lowest = rebuild_cloze(args.project / 'cloze.json')
+    advanced_counts = rebuild_advanced(args.project / 'advanced-practice.json')
+    print(f'Cloze: {count} answer-keyed passages rebuilt; lowest match {lowest:.3f}')
+    print('Advanced Practice:', ', '.join(f'P{package}={count}' for package, count in advanced_counts.items()))
+
+
+if __name__ == '__main__':
+    main()

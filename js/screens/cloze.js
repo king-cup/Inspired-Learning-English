@@ -274,7 +274,7 @@ export async function render(root, requestedMode, grade, passageId) {
     wrap.append(topBar(i18n.t('common.back'), i18n.t(`cloze.${mode}Mode`), leaveGuard));
     wrap.append(h('div.mt'), paperHeader({
       kicker: `${gradeName(grade)}  ·  ${i18n.t(`cloze.${mode}Mode`)}`,
-      title: passage.title || passage.id,
+      title: C.sourceTitle(passage),
       left: metadata(passage), right: `${passage.blanks.length} ${i18n.t('cloze.blanks')}`,
     }));
 

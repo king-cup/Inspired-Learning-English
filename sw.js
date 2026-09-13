@@ -18,7 +18,8 @@
 //     into vd-audio-v1, for the Range-request reason at the top of this file.
 // v9: v1.05 adds the grade-based cloze passage reader and its offline corpus.
 // v10: v1.07 renames Inspired English and adds the product hub + motion system.
-const SHELL = 'vd-shell-v10';
+// v11: stable headers/navigation, refreshed cloze sources, HSE advanced practice.
+const SHELL = 'vd-shell-v11';
 
 const PRECACHE = [
   './',
@@ -28,6 +29,7 @@ const PRECACHE = [
   'vocab.json',           // emergency fallback only; live content is under content/
   'audio-index.json',     // emergency fallback only
   'cloze.json',
+  'advanced-practice.json',
   'js/main.js',
   'js/motion.js',
   'js/data.js',
@@ -35,6 +37,7 @@ const PRECACHE = [
   'js/updates.js',
   'js/store.js',
   'js/cloze-data.js',
+  'js/advanced-data.js',
   'js/cloze-store.js',
   'js/ui.js',
   'js/audio.js',
@@ -48,6 +51,7 @@ const PRECACHE = [
   'js/screens/study.js',
   'js/screens/cards.js',
   'js/screens/learn.js',
+  'js/screens/advanced.js',
   'js/screens/test.js',
   'js/screens/onboarding.js',
   'js/screens/settings.js',

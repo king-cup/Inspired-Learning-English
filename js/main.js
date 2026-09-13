@@ -12,6 +12,7 @@ import * as unit from './screens/unit.js';
 import * as study from './screens/study.js';
 import * as cards from './screens/cards.js';
 import * as learn from './screens/learn.js';
+import * as advanced from './screens/advanced.js';
 import * as test from './screens/test.js';
 import * as settings from './screens/settings.js';
 import * as onboarding from './screens/onboarding.js';
@@ -77,7 +78,6 @@ function afterRoute() {
 }
 
 async function route() {
-  motion.startWipe();
   // Route cleanup (§9): tear down the previous screen, close any open dialog,
   // and stop audio so nothing survives the navigation.
   if (teardown) { try { teardown(); } catch (e) {} teardown = null; }
@@ -104,7 +104,8 @@ async function route() {
   // Apply a vocabulary version that finished downloading during a session, now
   // that we are navigating to a NON-session screen (§4). Never mid-session.
   const goingToSession = parts[0] === 'u' && parts[1]
-    && (parts[2] === 'cards' || parts[2] === 'practice' || parts[2] === 'learn' || parts[2] === 'test');
+    && (parts[2] === 'cards' || parts[2] === 'practice' || parts[2] === 'learn'
+      || parts[2] === 'advanced' || parts[2] === 'test');
   if (D.hasPending()) {
     if (goingToSession) {
       // Can't swap under a live session: leave the bar up so the student knows
@@ -136,6 +137,7 @@ async function route() {
     if (mode === 'study') { teardown = study.teardown; study.render(root, id); afterRoute(); return; }
     if (mode === 'cards') { teardown = cards.teardown; cards.render(root, id, null); afterRoute(); return; }
     if (mode === 'practice' || mode === 'learn') { learn.render(root, id); afterRoute(); return; }
+    if (mode === 'advanced') { await advanced.render(root, id); afterRoute(); return; }
     if (mode === 'test') { test.render(root, id); afterRoute(); return; }
     unit.render(root, id); afterRoute(); return;
   }

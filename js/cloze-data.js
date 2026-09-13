@@ -34,4 +34,5 @@ export const gradeOf = (sourceGrade) => Object.keys(SOURCE_GRADE).find((g) => SO
 export const all = () => passages;
 export const get = (id) => byId.get(String(id)) || null;
 export const forGrade = (grade) => passages.filter((p) => p.grade === gradeSource(grade));
-
+export const sourceTitle = (p) => String((p && p.source) || (p && p.title) || (p && p.id) || '')
+  .replace(/\.(?:docx?|pdf)$/i, '');

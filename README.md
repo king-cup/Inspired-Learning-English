@@ -1,6 +1,6 @@
 # Inspired English — student web app (PWA)
 
-The iPhone/iPad half of the student app. Same word lists, same three modes and
+The iPhone/iPad half of the student app. Same word lists and learning modes, with
 the same black-and-white paper as the Android APK, delivered as a website that
 installs from Safari instead of an app store.
 
@@ -14,14 +14,16 @@ replacement.
 
 ## What's in it
 
-**Cards** — swipe right for known, left for unknown, tap to flip. The ✗ / Flip /
+**Flashcard** — swipe right for known, left for unknown, tap to flip. The ✗ / Flip /
 ✓ buttons do the same thing for anyone who dislikes swiping.
 **Study** — the whole list, searchable, tap a word to hear it, `+` opens the
 example sentence with the word bolded plus synonym/antonym.
-**Learn** — MCQ in rounds of five with a checkpoint after each. Three question
+**Practice** — MCQ in rounds of five with a checkpoint after each. Three question
 shapes, distractors drawn from the same unit preferring the same part of speech.
 Wrong answers come back at the end and keep coming back until they're right; the
 saved score is the first-attempt percentage.
+**Advanced Practice** — HSE-only selectable-answer questions taken from each
+package's source worksheet. Written-response exercises are excluded.
 **Cloze reading** — 306 complete Beijing exam passages across Grades 7–9. Study
 mode gives immediate feedback; Test mode draws a non-repeating passage from the
 chosen grade and hides all results until submission. Each blank unfolds its
@@ -42,10 +44,12 @@ js/ui.js              the component vocabulary from Components.kt
 js/screens/*.js       one file per screen
 sw.js                 app shell cache only — audio is handled by the page
 cloze.json            306 de-duplicated, answer-keyed cloze passages
+advanced-practice.json HSE worksheet multiple-choice bank
 vocab.json            copied from the Android app's assets
 audio-index.json      the 4,321 slugs that have a clip
 audio/*.m4a           4,321 clips, 24 MB
 tools/transcode_audio.sh
+tools/rebuild_learning_content.py rebuilds the cloze and advanced-practice banks
 ```
 
 ## Three contracts shared with the Android app
