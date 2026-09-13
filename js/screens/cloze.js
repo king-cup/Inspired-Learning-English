@@ -2,7 +2,7 @@ import * as C from '../cloze-data.js';
 import * as CS from '../cloze-store.js';
 import * as P from '../profile.js';
 import * as i18n from '../i18n.js';
-import { h, clear, cn, press, paperHeader, barLabel, button, blockButton, gradeBlock, ruleBar, topBar, openDialog, announce } from '../ui.js';
+import { h, clear, cn, press, paperHeader, barLabel, button, blockButton, gradeBlock, ruleBar, topBar, openDialog, announce, finishFlourish } from '../ui.js';
 
 const PLACEHOLDER = /\{\{(\d+)\}\}/g;
 
@@ -106,18 +106,6 @@ export async function render(root, requestedMode, grade, passageId) {
     phase = 'result';
     paint();
     window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-  }
-
-  function confirmFinish() {
-    if (answers.size === passage.blanks.length) { finishTest(); return; }
-    openDialog({
-      title: i18n.t('cloze.finishAsk'),
-      body: i18n.f('cloze.finishBody', answers.size, passage.blanks.length),
-      actions: [
-        { label: i18n.t('common.cancel'), variant: 'thin' },
-        { label: i18n.t('cloze.finish'), variant: 'thin', onClick: finishTest },
-      ],
-    });
   }
 
   function celebrate() {
@@ -297,12 +285,17 @@ export async function render(root, requestedMode, grade, passageId) {
       h('span.k-10', null, i18n.f('cloze.answered', answers.size, passage.blanks.length)));
     const progressText = statusBox.lastChild;
     const progressBar = ruleBar(answers.size / passage.blanks.length, 'sm', { label: progressText.textContent });
-    const progress = { text: progressText, bar: progressBar, update: () => {
+    const progress = { text: progressText, bar: progressBar, finish: null, update: () => {
       const pct = Math.round((answers.size / passage.blanks.length) * 100);
       progressText.textContent = i18n.f('cloze.answered', answers.size, passage.blanks.length);
       progressBar.firstChild.style.width = pct + '%';
       progressBar.setAttribute('aria-valuenow', String(pct));
       progressBar.setAttribute('aria-label', progressText.textContent);
+      if (progress.finish) {
+        const complete = answers.size === passage.blanks.length;
+        progress.finish.disabled = !complete;
+        progress.finish.classList.toggle('finish-ready', complete);
+      }
     } };
     wrap.append(statusBox, progressBar);
 
@@ -310,7 +303,13 @@ export async function render(root, requestedMode, grade, passageId) {
     wrap.append(h('div.cloze-paper.mt', null, passageBody(resultMode, progress, resultMount)));
 
     if (!resultMode && mode === 'test') {
-      wrap.append(h('div.mt2'), button(i18n.t('cloze.finish'), { variant: 'ruled', size: 'lg', wide: true, onClick: confirmFinish }));
+      const finishButton = button(i18n.t('cloze.finish'), {
+        variant: 'ruled', size: 'lg', wide: true, disabled: answers.size < passage.blanks.length,
+        onClick: () => finishFlourish(finishButton, finishTest),
+      });
+      progress.finish = finishButton;
+      progress.update();
+      wrap.append(h('div.mt2'), finishButton);
     } else if (!resultMode) {
       wrap.append(h('div.cloze-end-note.mt2', null, i18n.t('cloze.answerAll')));
     }

@@ -1,7 +1,7 @@
 {
-  "name": "Inspired English Vocab App",
-  "short_name": "Inspired Vocab",
-  "description": "Vocabulary practice for Peter's classes. Works offline.",
+  "name": "Inspired English",
+  "short_name": "Inspired English",
+  "description": "English vocabulary, cloze reading and language practice for Peter's classes. Works offline.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

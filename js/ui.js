@@ -49,13 +49,48 @@ export function cn(str) {
  * the entire button language, so the state is driven from pointer events.
  */
 export function press(el) {
-  const on = () => el.classList.add('is-pressed');
-  const off = () => el.classList.remove('is-pressed');
+  const on = () => {
+    if (el.disabled) return;
+    el.classList.remove('just-released');
+    el.classList.add('is-pressed');
+  };
+  const off = () => {
+    if (!el.classList.contains('is-pressed')) return;
+    el.classList.remove('is-pressed');
+    el.classList.remove('just-released');
+    // Restart the small spring even when the same control is tapped quickly.
+    void el.offsetWidth;
+    el.classList.add('just-released');
+  };
   el.addEventListener('pointerdown', on);
   el.addEventListener('pointerup', off);
   el.addEventListener('pointercancel', off);
   el.addEventListener('pointerleave', off);
   return el;
+}
+
+/** The only decorative particle moment in the app: finishing a complete test.
+ *  Geometry is deterministic so the same action always feels intentional. */
+export function finishFlourish(anchor, onDone) {
+  const reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) { onDone(); return; }
+  anchor.disabled = true;
+  anchor.classList.add('finishing');
+  const burst = h('div.finish-burst', { 'aria-hidden': 'true' });
+  const rect = anchor.getBoundingClientRect();
+  burst.style.setProperty('--finish-x', `${rect.left + rect.width / 2}px`);
+  burst.style.setProperty('--finish-y', `${rect.top + rect.height / 2}px`);
+  for (let i = 0; i < 18; i += 1) {
+    const angle = (i / 18) * Math.PI * 2;
+    const distance = 38 + (i % 4) * 13;
+    const bit = h('i');
+    bit.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
+    bit.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
+    bit.style.setProperty('--r', `${(i * 47) % 180 - 90}deg`);
+    burst.append(bit);
+  }
+  document.body.append(burst);
+  window.setTimeout(() => { burst.remove(); onDone(); }, 520);
 }
 
 /** The double-ruled header sheet: 3px outer rule, 1px inner. The title is the

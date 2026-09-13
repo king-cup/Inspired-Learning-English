@@ -1,10 +1,10 @@
 /* ============================================================================
-   The Vocab Drill — student web client.
+   Inspired English — student web client.
 
    The design system is the same brutalist exam paper as the desktop drill board
    and the printed homework: serif for content, Courier-ish monospace in wide
-   caps for every label, hard rules, no rounded corners, no shadows, and no
-   colour except the two marking tints.
+   caps for every label and hard rules. v1.07 adds a consistent lower-right
+   keyline shadow and translucent button surfaces without softening the paper.
 
    Compose sp/dp map 1:1 to CSS px at default text scale, so the values here are
    lifted straight from ui/Theme.kt and ui/Components.kt in the Android app.
@@ -20,6 +20,11 @@
   --rt-edge: #1c7a3e;
   --wr: #fdeceb;          /* wrong / unknown */
   --wr-edge: #b3261e;
+  --glass: rgba(255, 255, 255, .78);
+  --glass-strong: rgba(255, 255, 255, .9);
+  --option-shadow: #000;
+  --spring-out: cubic-bezier(.18, .89, .32, 1.28);
+  --physical-out: cubic-bezier(.16, 1, .3, 1);
 
   /* iOS has neither Noto Serif nor Noto Serif CJK. The CJK face must be in the
      stack or every Chinese gloss falls back to a sans-serif system font. */
@@ -47,6 +52,8 @@
   --rt-edge: #4ade80;
   --wr: #3a1412;
   --wr-edge: #ff7a70;
+  --glass: rgba(20, 20, 20, .76);
+  --glass-strong: rgba(0, 0, 0, .88);
 
   color-scheme: dark;
 }
@@ -68,9 +75,8 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Nothing in this design is ever rounded or shadowed. Stated once, globally,
-   so a stray UA default cannot soften an edge. */
-*, *::before, *::after { border-radius: 0 !important; box-shadow: none !important; }
+/* The hard rectangular silhouette is part of the identity. */
+*, *::before, *::after { border-radius: 0 !important; }
 
 button, input { font: inherit; color: inherit; background: none; border: none; }
 button { cursor: pointer; }
@@ -108,8 +114,8 @@ button { cursor: pointer; }
 .paper-head h1 {
   font-family: var(--serif); font-size: 27px; line-height: 29px;
   letter-spacing: 1px; font-weight: 900; text-transform: uppercase;
-  /* The app title "Inspired English Vocab App" is 25 chars and wraps to two or
-     three lines; let it break by words rather than overflow the ruled box. */
+  /* Long lesson names may wrap; let them break by words instead of escaping
+     the ruled box. */
   overflow-wrap: break-word;
 }
 /* On the narrowest phones, shrink the title so a long name never becomes four
@@ -276,7 +282,9 @@ button { cursor: pointer; }
   -webkit-touch-callout: none;             /* no long-press callout mid-drag */
   will-change: transform;
 }
-.card.settling { transition: transform .2s ease-out; }
+.card.settling { transition: transform .42s cubic-bezier(.2,.9,.25,1.24); }
+.card.flinging { transition: transform .24s cubic-bezier(.45,0,1,1); }
+.card.dragging { cursor: grabbing; }
 .card.flipping { transition: transform .16s linear; }
 .card.good { border-color: var(--rt-edge); background: var(--rt); }
 .card.bad  { border-color: var(--wr-edge); background: var(--wr); }
@@ -665,7 +673,7 @@ body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
 .cloze-blank {
   display: inline-flex; align-items: baseline; gap: 6px; min-height: 34px;
   margin: 0 3px; padding: 1px 7px 0; vertical-align: baseline;
-  border: 1.5px solid var(--ink); border-top: 0; background: var(--shade); color: var(--ink);
+  border: 1.5px solid var(--ink); background: var(--shade); color: var(--ink);
   font: bold 15px/1.5 var(--mono);
 }
 .cloze-blank .blank-no { font-size: 10px; opacity: .65; }
@@ -831,3 +839,199 @@ body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
 /* Selected-word marker in the master list */
 .study-cols .word-row.sel { background: var(--shade); }
 .card-back .cb-foot { margin-top: auto; }
+
+/* ======================================================================
+   v1.07 · Inspired English motion system
+
+   Motion hierarchy: route/header first, primary choices second, feedback
+   fastest. The shapes and type remain the original exam-paper identity.
+   ====================================================================== */
+
+/* Glass paper: translucency is restrained and stays inside hard black rules. */
+.btn, .block, .opt, .test-nav .navbtn, .cloze-grade, .cloze-option,
+.unit-row, .cloze-passage-row, .cloze-history-row, .dd-head, .dd-item,
+.toggle-row, .cloze-blank, .updbar-action, .updbar-x {
+  background-color: var(--glass);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  backdrop-filter: blur(10px) saturate(120%);
+  box-shadow: 4px 4px 0 var(--option-shadow) !important;
+  transform: translate3d(0, 0, 0);
+  transform-origin: center;
+  transition: transform .12s ease-out, box-shadow .12s ease-out,
+              background-color .16s ease-out, border-color .18s ease-out, color .18s ease-out;
+}
+.btn.is-pressed, .block.is-pressed, .opt.is-pressed, .test-nav .navbtn.is-pressed,
+.cloze-grade.is-pressed, .cloze-option.is-pressed, .unit-row.is-pressed,
+.cloze-passage-row.is-pressed, .cloze-history-row.is-pressed, .dd-head.is-pressed,
+.dd-item.is-pressed, .toggle-row.is-pressed, .cloze-blank.is-pressed,
+.updbar-action.is-pressed, .updbar-x.is-pressed {
+  transform: translate3d(3px, 3px, 0) scale(.985);
+  box-shadow: 1px 1px 0 var(--option-shadow) !important;
+}
+.just-released { animation: option-release .34s var(--spring-out); }
+@keyframes option-release {
+  0% { transform: translate3d(3px, 3px, 0) scale(.985); }
+  48% { transform: translate3d(-1px, -1px, 0) scale(1.018); }
+  74% { transform: translate3d(0, 0, 0) scale(.996); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* Product hub */
+.home-tools { display: flex; justify-content: flex-end; }
+.home-header { padding-right: 78px; overflow: hidden; }
+.home-header > .leaf { position: absolute; z-index: 2; right: 18px; top: 16px; width: 48px; height: 48px; }
+.home-choices { display: grid; gap: 13px; }
+.home-choices .block { position: relative; min-height: 68px; display: flex; align-items: center; }
+.home-choices .block .t { padding-right: 104px; }
+.home-choices .coming-soon { opacity: .42; background: var(--shade); color: var(--ink); }
+.soon-tag {
+  position: absolute; right: 13px; top: 50%; transform: translateY(-50%);
+  border: 1.5px solid currentColor; padding: 4px 7px;
+  font: bold 9px/1.2 var(--mono); letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* Staggered page entrance: total sequence stays under 500ms. */
+.motion-stage:not(.motion-entered) > * { opacity: 0; }
+.motion-stage.motion-entered > * { animation: page-item-in .38s var(--physical-out) both; }
+.motion-stage.motion-entered > *:nth-child(2) { animation-delay: 55ms; }
+.motion-stage.motion-entered > *:nth-child(3) { animation-delay: 95ms; }
+.motion-stage.motion-entered > *:nth-child(4) { animation-delay: 125ms; }
+.motion-stage.motion-entered > *:nth-child(n+5) { animation-delay: 145ms; }
+@keyframes page-item-in {
+  from { opacity: 0; transform: translate3d(0, 12px, 0) scale(.992); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* The ruled title compresses into a sticky navigation-scale masthead. */
+.paper-head.motion-header {
+  --header-collapse: 0;
+  position: sticky; top: calc(env(safe-area-inset-top) + 4px); z-index: 18;
+  padding-top: calc(13px - (5px * var(--header-collapse)));
+  padding-bottom: calc(11px - (4px * var(--header-collapse)));
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: blur(14px) saturate(125%);
+  backdrop-filter: blur(14px) saturate(125%);
+  transition: padding .08s linear;
+}
+.paper-head.motion-header h1 {
+  font-size: calc(27px - (9px * var(--header-collapse)));
+  line-height: calc(29px - (8px * var(--header-collapse)));
+  transition: font-size .08s linear, line-height .08s linear;
+}
+.paper-head.motion-header .kick { opacity: calc(1 - (.55 * var(--header-collapse))); }
+.paper-head.motion-header .feet { padding-top: calc(6px - (3px * var(--header-collapse))); }
+
+/* At the bottom of a live scroll gesture the brand briefly steps forward. */
+#motion-logo {
+  position: fixed; right: calc(env(safe-area-inset-right) + 12px);
+  bottom: calc(env(safe-area-inset-bottom) + 12px); z-index: 4;
+  width: 44px; height: 44px; pointer-events: none;
+  opacity: .14; transform: scale(.72); transform-origin: right bottom;
+  transition: transform .24s var(--spring-out), opacity .18s ease-out;
+}
+#motion-logo img { display: block; width: 100%; height: 100%; }
+#motion-logo.peek { opacity: .88; transform: scale(1.42); }
+
+/* A paper wipe communicates navigation direction without delaying input. */
+.page-wipe {
+  position: fixed; inset: 0; z-index: 95; pointer-events: none;
+  background: var(--ink);
+  animation: page-wipe .46s cubic-bezier(.76,0,.24,1) both;
+}
+.page-wipe::after {
+  content: ''; position: absolute; inset: 0 0 0 auto; width: 5px;
+  background: var(--paper);
+}
+@keyframes page-wipe {
+  0% { clip-path: inset(0 100% 0 0); }
+  46% { clip-path: inset(0 0 0 0); }
+  56% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 100%); }
+}
+
+/* The current lesson breathes at low amplitude behind the hard rules. */
+.active-lesson { position: relative; z-index: 1; animation: lesson-breathe 3.6s ease-in-out infinite; }
+@keyframes lesson-breathe {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(28,122,62,0)); }
+  50% { filter: drop-shadow(0 0 8px rgba(28,122,62,.2)); }
+}
+
+/* Answer feedback resolves quickly: lift/pulse under 600ms, then stillness. */
+.opt.right, .cloze-option.right, .cloze-blank.right, .note.good {
+  animation: answer-correct .52s var(--physical-out) both;
+}
+.opt.right, .cloze-option.right { position: relative; }
+.opt.right::after, .cloze-option.right::after {
+  content: '✓'; align-self: center; margin: 0 12px 0 6px;
+  color: var(--rt-edge); font: 900 18px/1 var(--mono);
+  clip-path: inset(0 100% 0 0);
+  animation: draw-check .3s ease-out .12s forwards;
+}
+@keyframes answer-correct {
+  0% { transform: translateY(0); border-color: var(--ink); }
+  38% { transform: translateY(-5px); border-color: var(--rt-edge); filter: saturate(1.15) drop-shadow(0 3px 5px rgba(28,122,62,.14)); }
+  70% { transform: translateY(1px); border-color: var(--rt-edge); }
+  100% { transform: translateY(0); border-color: var(--rt-edge); filter: none; }
+}
+@keyframes draw-check { to { clip-path: inset(0 0 0 0); } }
+
+.opt.wrong, .cloze-option.wrong, .cloze-blank.wrong, .note.bad {
+  animation: answer-wrong .42s cubic-bezier(.36,.07,.19,.97) both;
+}
+.cloze-feedback, .note.bad > * { animation: correction-reveal .28s ease-out .16s both; }
+@keyframes answer-wrong {
+  0%, 100% { transform: translateX(0); }
+  18% { transform: translateX(-5px); }
+  36% { transform: translateX(4px); }
+  54% { transform: translateX(-3px); }
+  72% { transform: translateX(2px); }
+}
+@keyframes correction-reveal {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* The final forward control changes role in place, then produces the sole
+   celebratory particle flourish in the interface. */
+.test-nav .navbtn {
+  min-height: 48px; padding: 10px 13px;
+  font: bold 11px/1.2 var(--mono); letter-spacing: 1.25px; text-transform: uppercase;
+}
+.finish-ready { animation: finish-morph .48s var(--spring-out) both; }
+.finish-ready.finishing { background: var(--ink); color: var(--paper); transform: scale(1.025); }
+@keyframes finish-morph {
+  0% { letter-spacing: 1.25px; }
+  48% { letter-spacing: 2.5px; transform: scale(1.025); }
+  100% { letter-spacing: 1.75px; transform: scale(1); }
+}
+.finish-burst { position: fixed; inset: 0; z-index: 90; pointer-events: none; overflow: hidden; }
+.finish-burst > i {
+  position: fixed; left: var(--finish-x); top: var(--finish-y);
+  width: 6px; height: 13px; background: var(--ink); border: 1px solid var(--paper);
+  animation: finish-particle .5s cubic-bezier(.15,.75,.25,1) both;
+}
+.finish-burst > i:nth-child(3n) { background: var(--rt-edge); }
+@keyframes finish-particle {
+  0% { opacity: 0; transform: translate(-50%,-50%) scale(.2); }
+  14% { opacity: 1; }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) rotate(var(--r)) scale(1); }
+}
+
+@media (hover: hover) {
+  .btn:hover:not(:disabled), .block:hover:not(:disabled), .opt:hover:not(:disabled),
+  .navbtn:hover:not(:disabled), .unit-row:hover:not(:disabled),
+  .cloze-grade:hover:not(:disabled), .cloze-option:hover:not(:disabled) {
+    transform: translate3d(-1px, -1px, 0);
+    box-shadow: 5px 5px 0 var(--option-shadow) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-stage:not(.motion-entered) > * { opacity: 1; }
+  .motion-stage.motion-entered > *, .just-released, .active-lesson,
+  .opt.right, .cloze-option.right, .cloze-blank.right, .note.good,
+  .opt.wrong, .cloze-option.wrong, .cloze-blank.wrong, .note.bad,
+  .cloze-feedback, .note.bad > *, .finish-ready { animation: none !important; }
+  .page-wipe, .finish-burst { display: none; }
+  #motion-logo { transition: none; }
+}

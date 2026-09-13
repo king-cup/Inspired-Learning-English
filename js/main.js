@@ -17,6 +17,8 @@ import * as settings from './screens/settings.js';
 import * as onboarding from './screens/onboarding.js';
 import * as clozeLibrary from './screens/cloze-library.js';
 import * as cloze from './screens/cloze.js';
+import * as home from './screens/home.js';
+import * as motion from './motion.js';
 import { runUpdateCheck, showVocabUpdateBar } from './updates.js';
 import { h, clear, cn, button, closeAllDialogs, showUpdateBar as showBar, hideUpdateBar } from './ui.js';
 
@@ -71,9 +73,11 @@ function afterRoute() {
   // keyboard users start at the beginning (§8). Programmatic focus does not
   // trigger the :focus-visible ring for pointer users.
   try { root.focus({ preventScroll: false }); } catch (e) {}
+  motion.enhancePage(root);
 }
 
 async function route() {
+  motion.startWipe();
   // Route cleanup (§9): tear down the previous screen, close any open dialog,
   // and stop audio so nothing survives the navigation.
   if (teardown) { try { teardown(); } catch (e) {} teardown = null; }
@@ -90,6 +94,7 @@ async function route() {
       if (location.hash && location.hash !== '#/') location.hash = '#/';
       else route();
     });
+    motion.enhancePage(root);
     return;
   }
 
@@ -113,6 +118,8 @@ async function route() {
 
   if (parts[0] === 'settings') { settings.render(root); afterRoute(); return; }
 
+  if (parts[0] === 'vocab') { library.render(root); afterRoute(); return; }
+
   if (parts[0] === 'cloze') {
     if (parts[1] === 'study' && parts[2] && !parts[3]) {
       await clozeLibrary.renderStudyList(root, parts[2]); afterRoute(); return;
@@ -132,7 +139,7 @@ async function route() {
     if (mode === 'test') { test.render(root, id); afterRoute(); return; }
     unit.render(root, id); afterRoute(); return;
   }
-  library.render(root); afterRoute();
+  home.render(root); afterRoute();
 }
 
 let started = false;

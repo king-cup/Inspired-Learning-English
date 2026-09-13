@@ -19,14 +19,16 @@ export function render(root, unitId) {
   const st = S.unitStat(unitId);
   const go = (mode) => () => { location.hash = `#/u/${encodeURIComponent(unitId)}/${mode}`; };
 
-  root.append(topBar(i18n.t('common.back'), unit.typeName, () => { location.hash = '#/'; }));
+  root.append(topBar(i18n.t('common.back'), unit.typeName, () => { location.hash = '#/vocab'; }));
 
-  root.append(h('div.mt'), paperHeader({
+  const activeHeader = paperHeader({
     kicker: unit.groupName || i18n.t('lib.book'),
     title: unit.label,
     left: i18n.f('unit.words', words.length),
     right: st.lastMs ? i18n.f('unit.lastUsed', shortDate(st.lastMs)) : i18n.t('unit.notStarted'),
-  }));
+  });
+  activeHeader.classList.add('active-lesson');
+  root.append(h('div.mt'), activeHeader);
 
   const cols = h('div.unit-cols.mt');
   const primary = h('div.unit-primary');

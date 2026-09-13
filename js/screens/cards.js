@@ -122,17 +122,25 @@ export function render(root, unitId, onlyKeys) {
 
     // ------------------------------------------------------------- gestures
     let dragging = false, startX = 0, dx = 0, moved = false;
+    let lastX = 0, lastT = 0, velocity = 0;
     const width = () => card.getBoundingClientRect().width || 320;
 
     card.addEventListener('pointerdown', (ev) => {
       if (busy) return;
       dragging = true; moved = false; startX = ev.clientX; dx = 0;
+      lastX = ev.clientX; lastT = performance.now(); velocity = 0;
+      card.classList.add('dragging');
       card.classList.remove('settling');
       if (preview) preview.style.transition = 'none';
       try { card.setPointerCapture(ev.pointerId); } catch (e) {}
     });
     card.addEventListener('pointermove', (ev) => {
       if (!dragging || busy) return;
+      const now = performance.now();
+      const elapsed = Math.max(8, now - lastT);
+      const instant = (ev.clientX - lastX) / elapsed;
+      velocity = velocity * .68 + instant * .32;
+      lastX = ev.clientX; lastT = now;
       dx = ev.clientX - startX;
       if (Math.abs(dx) > 6) moved = true;
       apply(dx);
@@ -140,17 +148,22 @@ export function render(root, unitId, onlyKeys) {
     const end = () => {
       if (!dragging) return;
       dragging = false;
+      card.classList.remove('dragging');
       if (preview) preview.style.transition = '';
       const t = width() * THROW_RATIO;
-      if (dx > t) fling(true);
-      else if (dx < -t) fling(false);
+      // Project the release briefly forward. A short, decisive flick therefore
+      // feels just as intentional as dragging all the way past the threshold.
+      const projected = dx + velocity * 125;
+      if (projected > t || velocity > 0.72) fling(true, velocity);
+      else if (projected < -t || velocity < -0.72) fling(false, velocity);
       else { card.classList.add('settling'); apply(0); revealPreview(0); }
     };
     card.addEventListener('pointerup', () => { if (busy) return; const wasMoved = moved; end(); if (!wasMoved) flip(); });
     card.addEventListener('pointercancel', end);
 
     function apply(x) {
-      card.style.transform = `translateX(${x}px) rotate(${x / 45}deg)`;
+      const rotation = Math.max(-9, Math.min(9, x / 42));
+      card.style.transform = `translateX(${x}px) rotate(${rotation}deg)`;
       const a = Math.min(1, Math.abs(x) / (width() * 0.3));
       stampGood.style.opacity = x > 20 ? String(a) : '0';
       stampBad.style.opacity = x < -20 ? String(a) : '0';
@@ -165,14 +178,15 @@ export function render(root, unitId, onlyKeys) {
       preview.style.transform = `scale(${(0.955 + 0.045 * p).toFixed(4)}) translateY(${((1 - p) * 9).toFixed(2)}px)`;
     }
 
-    function fling(knew) {
+    function fling(knew, releaseVelocity = 0) {
       if (busy) return;
       busy = true;
       setControls(true);
-      card.classList.add('settling');
-      apply(knew ? width() * 1.6 : -width() * 1.6);
+      card.classList.add('flinging');
+      const momentum = Math.min(width() * .8, Math.abs(releaseVelocity) * 170);
+      apply(knew ? width() * 1.55 + momentum : -width() * 1.55 - momentum);
       if (preview) { preview.style.transition = ''; preview.style.transform = 'scale(1) translateY(0)'; }
-      later(() => commit(knew), REDUCED ? 0 : 200);
+      later(() => commit(knew), REDUCED ? 0 : 240);
     }
 
     function commit(knew) {

@@ -18,7 +18,7 @@ import * as S from '../store.js';
 import { build, instructionFor, tagFor, QType } from '../learn-engine.js';
 import * as P from '../profile.js';
 import * as i18n from '../i18n.js';
-import { h, clear, cn, press, paperHeader, barLabel, button, blockButton, gradeBlock, ruleBar, tag, posTag, topBar, shuffled, openDialog, announce } from '../ui.js';
+import { h, clear, cn, press, paperHeader, barLabel, button, blockButton, gradeBlock, ruleBar, tag, posTag, topBar, shuffled, openDialog, announce, finishFlourish } from '../ui.js';
 
 const TEST_TYPES = [QType.WORD_TO_MEANING, QType.MEANING_TO_WORD];
 
@@ -207,34 +207,30 @@ export function render(root, unitId) {
     });
     r.append(optsWrap);
 
-    // large, labelled prev / next (§5)
-    const prev = navBtn('←', i18n.t('a11y.prevQuestion'), pos === 0, () => { if (pos > 0) { pos -= 1; saveState(); paint(); } });
-    const next = navBtn('→', i18n.t('a11y.nextQuestion'), pos >= questions.length - 1, () => { if (pos < questions.length - 1) { pos += 1; saveState(); paint(); } }, true);
+    // A test can only finish after every word has an answer. On the final
+    // question the forward control itself morphs into Finish, keeping one
+    // clear primary action instead of offering an early-submit escape hatch.
+    const atEnd = pos >= questions.length - 1;
+    const prev = navBtn(i18n.t('test.previousWord'), i18n.t('a11y.prevQuestion'), pos === 0,
+      () => { if (pos > 0) { pos -= 1; saveState(); paint(); } });
+    let next;
+    const advance = () => {
+      if (!atEnd) { pos += 1; saveState(); paint(); return; }
+      if (answers.size === questions.length) { finishFlourish(next, finish); return; }
+      const missing = questions.findIndex((_, i) => !answers.has(i));
+      if (missing >= 0) { pos = missing; saveState(); announce(i18n.t('test.findUnanswered'), true); paint(); }
+    };
+    next = navBtn(atEnd ? i18n.t('test.finish') : i18n.t('test.nextWord'), i18n.t('a11y.nextQuestion'), false, advance, true);
+    if (atEnd) next.classList.add('finish-ready');
     r.append(h('div.test-nav.mt', null, prev, next));
-
-    r.append(h('div.mt'), button(i18n.t('test.finish'), {
-      variant: 'ruled', size: 'lg', wide: true,
-      onClick: () => { if (answers.size < questions.length) confirmFinish(); else finish(); },
-    }));
     r.append(h('div', { style: { height: '28px' } }));
   }
 
-  function navBtn(glyph, label, disabled, onClick, grow) {
-    const el = h('button.navbtn' + (grow ? '.grow' : ''), { type: 'button', 'aria-label': label }, glyph);
+  function navBtn(text, label, disabled, onClick, grow) {
+    const el = h('button.navbtn' + (grow ? '.grow' : ''), { type: 'button', 'aria-label': label }, cn(text));
     if (disabled) el.disabled = true;
     el.addEventListener('click', onClick);
     return press(el);
-  }
-
-  function confirmFinish() {
-    openDialog({
-      title: i18n.t('test.finishAsk'),
-      body: i18n.f('test.finishBody', answers.size, questions.length),
-      actions: [
-        { label: i18n.t('common.cancel'), variant: 'thin' },
-        { label: i18n.t('test.finish'), variant: 'thin', onClick: finish },
-      ],
-    });
   }
 
   // ------------------------------------------------------------------ result

@@ -106,7 +106,7 @@ export function displayPos(rawPos, langCode = curCode) {
 
 const EN_TABLE = {
   // --- app ---------------------------------------------------------------
-  'app.title': 'Inspired English Vocab App',
+  'app.title': 'Inspired English',
   'app.kicker': 'student edition · works offline',
   'common.back': '← Back',
   'common.done': 'Done',
@@ -127,6 +127,13 @@ const EN_TABLE = {
   'onboard.begin': 'Start learning',
   'onboard.needName': 'Please enter your name first.',
 
+  // --- home --------------------------------------------------------------
+  'home.vocabulary': 'Vocabulary',
+  'home.cloze': 'Cloze Reading',
+  'home.reading': 'Reading Comprehension',
+  'home.grammar': 'Grammar Multiple Choice',
+  'home.comingSoon': 'Coming soon',
+
   // --- library -----------------------------------------------------------
   'lib.listType': 'List type',
   'lib.book': 'Book',
@@ -138,7 +145,7 @@ const EN_TABLE = {
   'lib.settings': 'Settings',
   'lib.empty': 'No word lists found',
   'lib.hello': 'Hello, %s',
-  'lib.cloze': 'Cloze tests',
+  'lib.cloze': 'Cloze Reading',
   'lib.clozeCaption': 'Read full passages and open each blank like a folded sheet of paper.',
 
   // --- unit --------------------------------------------------------------
@@ -247,6 +254,9 @@ const EN_TABLE = {
   'test.q': 'Question %d of %d',
   'test.answered': '%d answered',
   'test.noAnswersYet': 'No answers until you finish',
+  'test.previousWord': '← Previous Word',
+  'test.nextWord': 'Next Word →',
+  'test.findUnanswered': 'Answer every word before finishing',
   'test.finish': 'Complete test',
   'test.finishAsk': 'Finish and see your score?',
   'test.finishBody': 'You have answered %d of %d. Unanswered questions count as wrong.',
@@ -263,7 +273,7 @@ const EN_TABLE = {
   'test.retestTitle': 'Test · retest',
 
   // --- cloze tests -------------------------------------------------------
-  'cloze.title': 'Cloze tests',
+  'cloze.title': 'Cloze Reading',
   'cloze.reading': 'Reading',
   'cloze.kicker': 'Beijing exam passage collection',
   'cloze.loading': 'Loading cloze passages…',
@@ -468,7 +478,7 @@ const EN_TABLE = {
 
 const ZH_TABLE = {
   // --- app ---------------------------------------------------------------
-  'app.title': '因思博睿英语学习',
+  'app.title': 'Inspired English',
   'app.kicker': '学生版 · 可离线使用',
   'common.back': '← 返回',
   'common.done': '完成',
@@ -488,6 +498,13 @@ const ZH_TABLE = {
   'onboard.langHelp': '以后可以在「设置」里更改。',
   'onboard.begin': '开始学习',
   'onboard.needName': '请先输入你的名字。',
+
+  // --- home --------------------------------------------------------------
+  'home.vocabulary': '词汇',
+  'home.cloze': '完形填空',
+  'home.reading': '阅读理解',
+  'home.grammar': '语法选择题',
+  'home.comingSoon': '即将推出',
 
   // --- library -----------------------------------------------------------
   'lib.listType': '列表类型',
@@ -609,6 +626,9 @@ const ZH_TABLE = {
   'test.q': '第 %d 题，共 %d 题',
   'test.answered': '已答 %d 题',
   'test.noAnswersYet': '做完之后才显示答案',
+  'test.previousWord': '← 上一个单词',
+  'test.nextWord': '下一个单词 →',
+  'test.findUnanswered': '答完所有单词后才能交卷',
   'test.finish': '交卷',
   'test.finishAsk': '交卷并查看成绩？',
   'test.finishBody': '你已作答 %d / %d 题。未作答的题目按错误计算。',
@@ -631,9 +651,9 @@ const ZH_TABLE = {
   'cloze.loading': '正在加载完形填空…',
   'cloze.loadError': '无法加载完形填空题库。请检查网络后重试。',
   'cloze.chooseGrade': '选择年级',
-  'cloze.grade7': '七年级',
-  'cloze.grade8': '八年级',
-  'cloze.grade9': '九年级',
+  'cloze.grade7': '初一',
+  'cloze.grade8': '初二',
+  'cloze.grade9': '初三',
   'cloze.passages': '%d 篇短文',
   'cloze.studyMode': '学习',
   'cloze.studyCaption': '自己选择短文。每次作答后立即查看对错。',

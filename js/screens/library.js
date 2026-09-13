@@ -3,7 +3,7 @@ import * as S from '../store.js';
 import * as A from '../audio.js';
 import * as P from '../profile.js';
 import * as i18n from '../i18n.js';
-import { h, clear, press, paperHeader, barLabel, button, blockButton, ruleBar, hrule, dropdown } from '../ui.js';
+import { h, clear, press, paperHeader, barLabel, button, blockButton, ruleBar, hrule, dropdown, topBar } from '../ui.js';
 
 const SEL = 'vd.lib.sel';
 const readSel = () => { try { return JSON.parse(sessionStorage.getItem(SEL)) || { t: 0, g: 0 }; } catch (e) { return { t: 0, g: 0 }; } };
@@ -19,23 +19,16 @@ export function render(root) {
   const g = t.groups[Math.min(sel.g, t.groups.length - 1)];
   const name = P.displayName();
 
-  // Settings, top-right (full width, above the columns).
-  root.append(h('div', { style: { display: 'flex', justifyContent: 'flex-end' } },
-    button('⚙  ' + i18n.t('lib.settings'), { variant: 'thin', size: 'sm', ariaLabel: i18n.t('a11y.settings'), onClick: () => { location.hash = '#/settings'; } })));
+  root.append(topBar(i18n.t('common.back'), i18n.t('home.vocabulary'), () => { location.hash = '#/'; }));
 
   // Header: full width on iPad; the unit/word totals are gone (6.1), the
   // student's own name is more use to them than a corpus statistic.
   root.append(h('div.mt'), paperHeader({
     kicker: i18n.t('app.kicker'),
-    title: i18n.t('app.title'),
+    title: i18n.t('home.vocabulary'),
     left: name ? i18n.f('lib.hello', name) : '',
     right: 'v' + D.APP_VERSION,
   }));
-
-  // Reading lives above the word-list hierarchy because its pool is organised
-  // by school grade, not by publisher/book/unit.
-  root.append(h('div.mt'), blockButton(i18n.t('lib.cloze'), i18n.t('lib.clozeCaption'),
-    () => { location.hash = '#/cloze'; }));
 
   // Two-column grid on iPad (§11); a single column on phone.
   const cols = h('div.lib-cols.mt');
@@ -84,7 +77,7 @@ export function render(root) {
     const frac = words.length ? known / words.length : 0;
     // Book and unit names are the publishers' English titles and stay English
     // in both interfaces (6.6).
-    const row = press(h('button.unit-row', { type: 'button', onclick: () => { location.hash = '#/u/' + encodeURIComponent(u.id); } },
+    const row = press(h('button.unit-row' + (lastId === u.id ? '.active-lesson' : ''), { type: 'button', onclick: () => { location.hash = '#/u/' + encodeURIComponent(u.id); } },
       h('div.grow', null,
         h('div.label', null, u.label),
         h('div.meta', null,

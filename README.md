@@ -1,4 +1,4 @@
-# The Vocab Drill — student web app (PWA)
+# Inspired English — student web app (PWA)
 
 The iPhone/iPad half of the student app. Same word lists, same three modes and
 the same black-and-white paper as the Android APK, delivered as a website that
@@ -22,7 +22,7 @@ example sentence with the word bolded plus synonym/antonym.
 shapes, distractors drawn from the same unit preferring the same part of speech.
 Wrong answers come back at the end and keep coming back until they're right; the
 saved score is the first-attempt percentage.
-**Cloze tests** — 306 complete Beijing exam passages across Grades 7–9. Study
+**Cloze reading** — 306 complete Beijing exam passages across Grades 7–9. Study
 mode gives immediate feedback; Test mode draws a non-repeating passage from the
 chosen grade and hides all results until submission. Each blank unfolds its
 choices inside the article, and scores plus perfect runs are saved on-device.

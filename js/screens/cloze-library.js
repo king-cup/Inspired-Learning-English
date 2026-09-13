@@ -46,11 +46,12 @@ function startRandom(grade, pool) {
 }
 
 export async function renderLanding(root, requestedGrade) {
-  const grade = safeGrade(requestedGrade);
+  const pickedGrade = ['7', '8', '9'].includes(String(requestedGrade));
+  const grade = pickedGrade ? String(requestedGrade) : safeGrade(requestedGrade);
   loading(root);
   try { await C.load(); } catch (err) { loadError(root, err); return; }
   const pool = C.forGrade(grade);
-  CS.setLastGrade(grade);
+  if (pickedGrade) CS.setLastGrade(grade);
   clear(root);
 
   root.append(topBar(i18n.t('common.back'), i18n.t('cloze.reading'), () => { location.hash = '#/'; }));
@@ -62,6 +63,13 @@ export async function renderLanding(root, requestedGrade) {
   const gradeBox = h('div.box.mt');
   gradeBox.append(barLabel(i18n.t('cloze.chooseGrade')), gradeTabs(grade, 'landing'));
   root.append(gradeBox);
+
+  // First visit is a clean grade choice. Study/Test appears only after a grade
+  // is deliberately selected, which keeps the flow legible on a phone.
+  if (!pickedGrade) {
+    root.append(h('div', { style: { height: '30px' } }));
+    return;
+  }
 
   const modes = h('div.stack.mt2');
   modes.append(
