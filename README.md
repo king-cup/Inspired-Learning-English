@@ -22,9 +22,9 @@ example sentence with the word bolded plus synonym/antonym.
 shapes, distractors drawn from the same unit preferring the same part of speech.
 Wrong answers come back at the end and keep coming back until they're right; the
 saved score is the first-attempt percentage.
-**Advanced Practice** — HSE-only selectable-answer questions taken from each
-package's source worksheet. Written-response exercises are excluded.
-**Cloze reading** — 306 complete Beijing exam passages across Grades 7–9. Study
+**Advanced Practice** — HSE-only selectable-answer questions from Packages 1–8,
+taken from each package's source worksheet. Written-response exercises are excluded.
+**Cloze reading** — 608 complete Beijing exam passages across Grades 7–9. Study
 mode gives immediate feedback; Test mode draws a non-repeating passage from the
 chosen grade and hides all results until submission. Each blank unfolds its
 choices inside the article, and scores plus perfect runs are saved on-device.
@@ -43,7 +43,7 @@ js/audio.js           pronunciation; port of Speaker.kt
 js/ui.js              the component vocabulary from Components.kt
 js/screens/*.js       one file per screen
 sw.js                 app shell cache only — audio is handled by the page
-cloze.json            306 de-duplicated, answer-keyed cloze passages
+cloze.json            608 de-duplicated, answer-keyed cloze passages
 advanced-practice.json HSE worksheet multiple-choice bank
 vocab.json            copied from the Android app's assets
 audio-index.json      the 4,321 slugs that have a clip

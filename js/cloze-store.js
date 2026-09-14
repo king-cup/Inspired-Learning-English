@@ -3,6 +3,10 @@
 
 const KEY = 'vd.cloze.v1';
 const VALID_GRADES = new Set(['7', '8', '9']);
+// The expanded source bank merged two pairs of passages that had previously
+// been published twice. Canonicalising their old IDs keeps scores and random
+// draw counts attached to the surviving passage.
+const LEGACY_ID_ALIASES = { R056: 'R038', R240: 'R235' };
 const DEFAULT = { version: 1, runs: [], pulls: {}, lastRandomByGrade: {}, lastGrade: '7' };
 
 let state = { ...DEFAULT };
@@ -10,17 +14,26 @@ const listeners = new Set();
 
 const gradeOf = (value) => VALID_GRADES.has(String(value)) ? String(value) : '7';
 const isObj = (value) => value && typeof value === 'object' && !Array.isArray(value);
+const canonicalId = (value) => LEGACY_ID_ALIASES[String(value)] || String(value);
 
 export function init() {
   try {
     const raw = localStorage.getItem(KEY);
     const parsed = raw ? JSON.parse(raw) : null;
     if (isObj(parsed)) {
+      const pulls = {};
+      Object.entries(isObj(parsed.pulls) ? parsed.pulls : {}).forEach(([id, count]) => {
+        const canonical = canonicalId(id);
+        pulls[canonical] = Number(pulls[canonical] || 0) + Number(count || 0);
+      });
       state = {
         version: 1,
-        runs: Array.isArray(parsed.runs) ? parsed.runs.filter((r) => isObj(r) && typeof r.id === 'string') : [],
-        pulls: isObj(parsed.pulls) ? parsed.pulls : {},
-        lastRandomByGrade: isObj(parsed.lastRandomByGrade) ? parsed.lastRandomByGrade : {},
+        runs: Array.isArray(parsed.runs) ? parsed.runs
+          .filter((r) => isObj(r) && typeof r.id === 'string')
+          .map((r) => ({ ...r, id: canonicalId(r.id) })) : [],
+        pulls,
+        lastRandomByGrade: isObj(parsed.lastRandomByGrade)
+          ? Object.fromEntries(Object.entries(parsed.lastRandomByGrade).map(([grade, id]) => [grade, canonicalId(id)])) : {},
         lastGrade: gradeOf(parsed.lastGrade),
       };
     }
@@ -46,7 +59,7 @@ export function setLastGrade(grade) {
 }
 
 export function statsFor(id) {
-  const runs = state.runs.filter((r) => r.id === id);
+  const runs = state.runs.filter((r) => r.id === canonicalId(id));
   const last = runs[runs.length - 1] || null;
   return {
     attempts: runs.length,
@@ -91,7 +104,7 @@ export function drawRandom(grade, ids, random = Math.random) {
 
 export function recordRun({ id, grade, mode, correct, total }) {
   const run = {
-    id: String(id), grade: gradeOf(grade), mode: mode === 'test' ? 'test' : 'study',
+    id: canonicalId(id), grade: gradeOf(grade), mode: mode === 'test' ? 'test' : 'study',
     at: Date.now(), correct: Number(correct) || 0, total: Number(total) || 0,
     perfect: total > 0 && correct === total,
   };
@@ -101,7 +114,7 @@ export function recordRun({ id, grade, mode, correct, total }) {
   return run;
 }
 
-const sessionKey = (id, mode) => `vd.cloze.session.${mode}.${id}`;
+const sessionKey = (id, mode) => `vd.cloze.session.${mode}.${canonicalId(id)}`;
 export function loadSession(id, mode) {
   try { return JSON.parse(sessionStorage.getItem(sessionKey(id, mode)) || 'null'); }
   catch (e) { return null; }
@@ -112,4 +125,3 @@ export function saveSession(id, mode, data) {
 export function clearSession(id, mode) {
   try { sessionStorage.removeItem(sessionKey(id, mode)); } catch (e) {}
 }
-

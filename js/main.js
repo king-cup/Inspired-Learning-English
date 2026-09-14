@@ -69,12 +69,12 @@ const isStandalone = () =>
   window.navigator.standalone === true ||
   (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
 
-function afterRoute() {
+function afterRoute(animate = true) {
   // Move focus to the top of the new screen so screen readers announce it and
   // keyboard users start at the beginning (§8). Programmatic focus does not
   // trigger the :focus-visible ring for pointer users.
   try { root.focus({ preventScroll: false }); } catch (e) {}
-  motion.enhancePage(root);
+  motion.enhancePage(root, animate);
 }
 
 async function route() {
@@ -101,6 +101,12 @@ async function route() {
   const hash = location.hash || '#/';
   const parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean);
 
+  // Cloze screens render a lightweight loading state and then replace it with
+  // the full passage. Re-running the shared page entrance across both paints
+  // made the paper briefly disappear and read as a white wipe. The fold itself
+  // remains animated; only the route-level entrance is disabled here.
+  if (parts[0] === 'cloze') motion.enhancePage(root, false);
+
   // Apply a vocabulary version that finished downloading during a session, now
   // that we are navigating to a NON-session screen (§4). Never mid-session.
   const goingToSession = parts[0] === 'u' && parts[1]
@@ -123,12 +129,12 @@ async function route() {
 
   if (parts[0] === 'cloze') {
     if (parts[1] === 'study' && parts[2] && !parts[3]) {
-      await clozeLibrary.renderStudyList(root, parts[2]); afterRoute(); return;
+      await clozeLibrary.renderStudyList(root, parts[2]); afterRoute(false); return;
     }
     if ((parts[1] === 'study' || parts[1] === 'test') && parts[2] && parts[3]) {
-      await cloze.render(root, parts[1], parts[2], decodeURIComponent(parts[3])); afterRoute(); return;
+      await cloze.render(root, parts[1], parts[2], decodeURIComponent(parts[3])); afterRoute(false); return;
     }
-    await clozeLibrary.renderLanding(root, parts[1]); afterRoute(); return;
+    await clozeLibrary.renderLanding(root, parts[1]); afterRoute(false); return;
   }
 
   if (parts[0] === 'u' && parts[1]) {

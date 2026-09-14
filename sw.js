@@ -19,7 +19,8 @@
 // v9: v1.05 adds the grade-based cloze passage reader and its offline corpus.
 // v10: v1.07 renames Inspired English and adds the product hub + motion system.
 // v11: stable headers/navigation, refreshed cloze sources, HSE advanced practice.
-const SHELL = 'vd-shell-v11';
+// v12: full 608-passage cloze bank, flash-free cloze routes, HSE Packages 7–8.
+const SHELL = 'vd-shell-v12';
 
 const PRECACHE = [
   './',

@@ -149,7 +149,7 @@ export async function renderStudyList(root, requestedGrade) {
           location.hash = `#/cloze/study/${grade}/${encodeURIComponent(p.id)}`;
         },
       },
-        h('span.num', null, p.id.replace(/^R/, '')),
+        h('span.num', null, String(p.number || p.id.replace(/^R/, '')).padStart(3, '0')),
         h('span.grow', null,
           h('span.title', null, cn(C.sourceTitle(p))),
           h('span.meta', null, cn(passageMeta(p)))),
