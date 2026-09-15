@@ -3,9 +3,6 @@ import * as P from '../profile.js';
 import * as i18n from '../i18n.js';
 import { h, clear, paperHeader, button, blockButton, leafMark } from '../ui.js';
 
-// The product hub deliberately stays small: it is a doorway, not a dashboard.
-// Vocabulary keeps its existing library behind #/vocab; the two future modes
-// remain visible so students understand where the app is heading.
 export function render(root) {
   clear(root);
   const name = P.displayName();
@@ -29,17 +26,10 @@ export function render(root) {
   const choices = h('div.home-choices.mt2');
   choices.append(
     blockButton(i18n.t('home.vocabulary'), '', () => { location.hash = '#/vocab'; }),
-    blockButton(i18n.t('home.cloze'), '', () => { location.hash = '#/cloze'; }),
-    comingSoon(i18n.t('home.reading')),
-    comingSoon(i18n.t('home.grammar')),
+    blockButton(i18n.t('home.reading'), '', () => { location.hash = '#/reading'; }),
+    blockButton(i18n.t('home.middle'), '', () => { location.hash = '#/middle'; }),
+    blockButton(i18n.t('home.high'), '', () => { location.hash = '#/high-school'; }),
+    blockButton(i18n.t('home.memory'), '', () => { location.hash = '#/memory'; }),
   );
   root.append(choices, h('div', { style: { height: '34px' } }));
-}
-
-function comingSoon(title) {
-  const el = blockButton(title, '', () => {});
-  el.disabled = true;
-  el.classList.add('coming-soon');
-  el.append(h('span.soon-tag', null, i18n.t('home.comingSoon')));
-  return el;
 }

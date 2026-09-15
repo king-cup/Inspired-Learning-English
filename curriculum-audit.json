@@ -1,0 +1,56 @@
+{
+  "contentVersion": "1.09",
+  "readingArticles": 144,
+  "readingByLevel": {
+    "Foundation": 24,
+    "Level 1": 24,
+    "Level 2": 24,
+    "Level 3": 24,
+    "Level 4": 24,
+    "Level 5": 24
+  },
+  "recordings": 144,
+  "missingOrFailedRecordings": 0,
+  "audioFormat": "AAC-LC in M4A",
+  "audioIntegrityProbe": "ffprobe codec and duration verified per recording",
+  "voice": "alloy",
+  "model": "mlx-audio",
+  "audioDurationSeconds": 41443.905,
+  "wpmMin": 143.8794265408651,
+  "wpmMax": 159.54103267647793,
+  "wpmAverage": 150.47,
+  "questionsWithAnswerKeys": 12845,
+  "questionsWithoutAnswerKeys": 7250,
+  "middleSchoolByGradeAndSection": {
+    "7": {
+      "mcq": 140,
+      "reading-a": 141,
+      "reading-b": 161,
+      "reading-c": 161,
+      "reading-d": 115,
+      "reading-e": 11,
+      "reading-response": 148
+    },
+    "8": {
+      "mcq": 169,
+      "reading-a": 158,
+      "reading-b": 182,
+      "reading-c": 181,
+      "reading-d": 150,
+      "reading-e": 8,
+      "reading-response": 169
+    },
+    "9": {
+      "mcq": 231,
+      "reading-a": 174,
+      "reading-b": 234,
+      "reading-c": 230,
+      "reading-d": 227,
+      "reading-e": 18,
+      "reading-response": 210
+    }
+  },
+  "duplicatesSkippedOrMerged": 1,
+  "rejectedRecords": 152,
+  "errors": []
+}

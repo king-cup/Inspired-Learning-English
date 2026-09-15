@@ -12,7 +12,7 @@
 // only -- the live vocabulary now comes from content/ (see js/content.js), which
 // this worker deliberately does not touch. js/content.js is added below.
 // v6: v1.03.1 adds the shared update bar (app-code + vocabulary).
-// v7: Reading Explorer + Prepare Level 5 added to GROUP_ORDER in js/data.js.
+// v7: additional reading vocabulary + Prepare Level 5 added to GROUP_ORDER.
 // v8: v1.04 audio packs. audio/packs/*.pack is NOT precached and NOT handled
 //     here -- like every other clip, packs are fetched by js/audio.js straight
 //     into vd-audio-v1, for the Range-request reason at the top of this file.
@@ -20,7 +20,8 @@
 // v10: v1.07 renames Inspired English and adds the product hub + motion system.
 // v11: stable headers/navigation, refreshed cloze sources, HSE advanced practice.
 // v12: full 608-passage cloze bank, flash-free cloze routes, HSE Packages 7–8.
-const SHELL = 'vd-shell-v12';
+// v13: v1.09 reading library, middle-school sections, and Memory Palace.
+const SHELL = 'vd-shell-v13';
 
 const PRECACHE = [
   './',
@@ -31,6 +32,9 @@ const PRECACHE = [
   'audio-index.json',     // emergency fallback only
   'cloze.json',
   'advanced-practice.json',
+  'reading-content.json',
+  'reading-audio-manifest.json',
+  'middle-school.json',
   'js/main.js',
   'js/motion.js',
   'js/data.js',
@@ -40,6 +44,8 @@ const PRECACHE = [
   'js/cloze-data.js',
   'js/advanced-data.js',
   'js/cloze-store.js',
+  'js/curriculum-data.js',
+  'js/curriculum-store.js',
   'js/ui.js',
   'js/audio.js',
   'js/learn-engine.js',
@@ -48,6 +54,11 @@ const PRECACHE = [
   'js/theme.js',
   'js/screens/library.js',
   'js/screens/home.js',
+  'js/screens/reading-library.js',
+  'js/screens/reading-article.js',
+  'js/screens/middle-school.js',
+  'js/screens/high-school.js',
+  'js/screens/memory.js',
   'js/screens/unit.js',
   'js/screens/study.js',
   'js/screens/cards.js',

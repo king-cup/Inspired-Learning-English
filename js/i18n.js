@@ -129,9 +129,10 @@ const EN_TABLE = {
 
   // --- home --------------------------------------------------------------
   'home.vocabulary': 'Vocabulary',
-  'home.cloze': 'Cloze Reading',
   'home.reading': 'Reading Comprehension',
-  'home.grammar': 'Grammar Multiple Choice',
+  'home.middle': 'Middle School English',
+  'home.high': 'High School English',
+  'home.memory': 'Memory Palace',
   'home.comingSoon': 'Coming soon',
 
   // --- library -----------------------------------------------------------
@@ -517,9 +518,10 @@ const ZH_TABLE = {
 
   // --- home --------------------------------------------------------------
   'home.vocabulary': '词汇',
-  'home.cloze': '完形填空',
   'home.reading': '阅读理解',
-  'home.grammar': '语法选择题',
+  'home.middle': '初中英语',
+  'home.high': '高中英语',
+  'home.memory': '记忆宫殿',
   'home.comingSoon': '即将推出',
 
   // --- library -----------------------------------------------------------

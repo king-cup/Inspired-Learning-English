@@ -5,6 +5,7 @@ import * as S from './store.js';
 import * as A from './audio.js';
 import * as P from './profile.js';
 import * as CS from './cloze-store.js';
+import * as CurriculumStore from './curriculum-store.js';
 import * as i18n from './i18n.js';
 import { applyTheme } from './theme.js';
 import * as library from './screens/library.js';
@@ -19,6 +20,11 @@ import * as onboarding from './screens/onboarding.js';
 import * as clozeLibrary from './screens/cloze-library.js';
 import * as cloze from './screens/cloze.js';
 import * as home from './screens/home.js';
+import * as readingLibrary from './screens/reading-library.js';
+import * as readingArticle from './screens/reading-article.js';
+import * as middleSchool from './screens/middle-school.js';
+import * as highSchool from './screens/high-school.js';
+import * as memory from './screens/memory.js';
 import * as motion from './motion.js';
 import { runUpdateCheck, showVocabUpdateBar } from './updates.js';
 import { h, clear, cn, button, closeAllDialogs, showUpdateBar as showBar, hideUpdateBar } from './ui.js';
@@ -127,6 +133,20 @@ async function route() {
 
   if (parts[0] === 'vocab') { library.render(root); afterRoute(); return; }
 
+  if (parts[0] === 'reading') {
+    if (parts[1]) { teardown = readingArticle.teardown; await readingArticle.render(root, decodeURIComponent(parts[1])); }
+    else await readingLibrary.render(root);
+    afterRoute(); return;
+  }
+
+  if (parts[0] === 'middle') {
+    await middleSchool.render(root, parts[1], parts[2], parts[3], parts[4]);
+    afterRoute(); return;
+  }
+
+  if (parts[0] === 'high-school') { highSchool.render(root); afterRoute(); return; }
+  if (parts[0] === 'memory') { memory.render(root, parts[1], parts[2] && decodeURIComponent(parts[2])); afterRoute(); return; }
+
   if (parts[0] === 'cloze') {
     if (parts[1] === 'study' && parts[2] && !parts[3]) {
       await clozeLibrary.renderStudyList(root, parts[2]); afterRoute(false); return;
@@ -205,6 +225,7 @@ async function boot() {
   applyTheme(P.get().inverted);
   S.init();
   CS.init();
+  CurriculumStore.init();
   A.init();
 
   // Keep the global language in sync, update <html lang>, and re-localise the

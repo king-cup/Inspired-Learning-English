@@ -7,6 +7,8 @@ Thumbs.db
 # Tooling / local
 node_modules/
 .netlify/
+__pycache__/
+*.py[cod]
 *.log
 .tmp-*.json
 

@@ -12,7 +12,7 @@
 
 import * as C from './content.js';
 
-export const APP_VERSION = '1.08';
+export const APP_VERSION = '1.09';
 
 let bundle = { types: [], data: {} };
 let cleanTypes = [];
@@ -33,8 +33,8 @@ const GROUP_ORDER = [
   'Prepare Level 1', 'Prepare Level 2', 'Prepare Level 3', 'Prepare Level 4',
   'Prepare Level 5',
   'Unlock 3', 'Unlock 4', 'Openworld FCE',
-  'Reading Explorer Foundations', 'Reading Explorer 1',
-  'Reading Explorer 2', 'Reading Explorer 3',
+  'Reading Vocabulary · Foundation', 'Reading Vocabulary · Level 1',
+  'Reading Vocabulary · Level 2', 'Reading Vocabulary · Level 3',
 ];
 const rank = (order, name) => { const i = order.indexOf(name); return i < 0 ? order.length : i; };
 
@@ -258,6 +258,29 @@ export function resolve(unitId) {
 
 export const totalWords = () => Object.values(bundle.data || {}).reduce((n, v) => n + v.length, 0);
 export const totalUnits = () => cleanTypes.reduce((n, t) => n + t.groups.reduce((m, g) => m + g.units.length, 0), 0);
+
+/** Reuse the existing vocabulary corpus for contextual lookup. Exact phrases
+ * win over single words, matching the reading flow's authored-phrase rule. */
+export function findEntry(text) {
+  const needle = String(text || '').trim().toLowerCase().replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, '');
+  if (!needle) return null;
+  const candidates = [needle];
+  if (!needle.includes(' ')) {
+    if (needle.endsWith("'s")) candidates.push(needle.slice(0, -2));
+    if (needle.endsWith('ies') && needle.length > 4) candidates.push(needle.slice(0, -3) + 'y');
+    if (needle.endsWith('ing') && needle.length > 5) candidates.push(needle.slice(0, -3), needle.slice(0, -3) + 'e');
+    if (needle.endsWith('ed') && needle.length > 4) candidates.push(needle.slice(0, -2), needle.slice(0, -1));
+    if (needle.endsWith('es') && needle.length > 4) candidates.push(needle.slice(0, -2));
+    if (needle.endsWith('s') && needle.length > 3) candidates.push(needle.slice(0, -1));
+  }
+  for (const candidate of [...new Set(candidates)]) {
+    for (const entries of Object.values(bundle.data || {})) {
+      const hit = entries.find((entry) => String(entry.w || '').trim().toLowerCase() === candidate);
+      if (hit) return hit;
+    }
+  }
+  return null;
+}
 
 /** Every distinct clip URL a unit needs, for the per-unit prefetch. */
 export function clipUrlsFor(unitId) {

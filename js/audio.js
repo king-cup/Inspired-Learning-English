@@ -149,6 +149,25 @@ export function stop() {
   try { window.speechSynthesis && speechSynthesis.cancel(); } catch (e) {}
 }
 
+/** Load a long-form bundled track through the same Safari-safe fetch → blob
+ * path as pronunciation. It never autoplays and shares the app's one unlocked
+ * audio element. */
+export async function loadTrack(url, position = 0) {
+  if (!el) throw new Error('audio element unavailable');
+  const cache = await caches.open(CACHE);
+  let response = await cache.match(url);
+  if (!response) {
+    response = await fetch(url, { cache: 'force-cache' });
+    if (!response.ok) throw new Error(`audio HTTP ${response.status}`);
+    try { await cache.put(url, response.clone()); } catch (e) {}
+  }
+  el.src = await blobUrl(url, response);
+  el.currentTime = Math.max(0, Number(position) || 0);
+  return el;
+}
+
+export const element = () => el;
+
 // ------------------------------------------------------------- prefetching
 
 /** Which of these URLs are already on the device. */

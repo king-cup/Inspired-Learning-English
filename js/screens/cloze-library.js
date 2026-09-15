@@ -54,7 +54,7 @@ export async function renderLanding(root, requestedGrade) {
   if (pickedGrade) CS.setLastGrade(grade);
   clear(root);
 
-  root.append(topBar(i18n.t('common.back'), i18n.t('cloze.reading'), () => { location.hash = '#/'; }));
+  root.append(topBar(i18n.t('common.back'), i18n.t('cloze.reading'), () => { location.hash = `#/middle/${grade}`; }));
   root.append(h('div.mt'), paperHeader({
     kicker: i18n.t('cloze.kicker'), title: i18n.t('cloze.title'),
     left: i18n.f('cloze.passages', pool.length), right: gradeName(grade),
