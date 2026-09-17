@@ -5,6 +5,8 @@
 // must never take the app down with it.
 
 import * as D from './data.js';
+import * as Curriculum from './curriculum-store.js';
+import * as ClozeStore from './cloze-store.js';
 
 const KEY = 'vd.progress.v1';
 const LAST_UNIT_KEY = 'vd.lastUnit';
@@ -209,9 +211,11 @@ export function exportBackup() {
   return JSON.stringify({
     app: 'inspired-vocab',
     kind: 'progress-backup',
-    schema: 1,
+    schema: 2,
     exportedAt: new Date().toISOString(),
     progress: { version: 1, words: state.words, units: state.units },
+    curriculum: Curriculum.get(),
+    cloze: ClozeStore.get(),
   }, null, 2);
 }
 
@@ -233,7 +237,9 @@ export function validateBackup(text) {
   for (const k of Object.keys(p.units)) {
     if (!isObj(p.units[k])) return { ok: false, reason: 'shape' };
   }
-  return { ok: true, progress: { version: 1, words: p.words, units: p.units } };
+  if (obj.curriculum && (!isObj(obj.curriculum) || !isObj(obj.curriculum.articles) || !isObj(obj.curriculum.memory) || !isObj(obj.curriculum.middle) || (obj.curriculum.encounters && !Array.isArray(obj.curriculum.encounters)) || (obj.curriculum.highlights && !isObj(obj.curriculum.highlights)))) return { ok: false, reason: 'shape' };
+  if (obj.cloze && (!isObj(obj.cloze) || !Array.isArray(obj.cloze.runs))) return { ok: false, reason: 'shape' };
+  return { ok: true, progress: { version: 1, words: p.words, units: p.units }, curriculum: obj.curriculum, cloze: obj.cloze };
 }
 
 /** Replace all progress from a validated backup. Returns { ok } or
@@ -241,6 +247,25 @@ export function validateBackup(text) {
 export function importBackup(text) {
   const v = validateBackup(text);
   if (!v.ok) return v;
+  // Restore the extra stores transactionally: quota failure leaves the existing
+  // progress intact. Encounter history is merged, never erased by an older file.
+  const oldCurriculum = localStorage.getItem('ie.curriculum.v2');
+  const oldCloze = localStorage.getItem('vd.cloze.v1');
+  try {
+    if (v.curriculum) {
+      const events = [...Curriculum.get().encounters, ...(v.curriculum.encounters || [])];
+      v.curriculum.encounters = [...new Map(events.map(row => [JSON.stringify(row), row])).values()];
+      localStorage.setItem('ie.curriculum.v2', JSON.stringify(v.curriculum));
+    }
+    if (v.cloze) localStorage.setItem('vd.cloze.v1', JSON.stringify(v.cloze));
+  } catch (e) {
+    try {
+      if (oldCurriculum === null) localStorage.removeItem('ie.curriculum.v2'); else localStorage.setItem('ie.curriculum.v2', oldCurriculum);
+      if (oldCloze === null) localStorage.removeItem('vd.cloze.v1'); else localStorage.setItem('vd.cloze.v1', oldCloze);
+    } catch (ignored) {}
+    return { ok: false, reason: 'storage' };
+  }
+  Curriculum.init(); ClozeStore.init();
   state = v.progress;
   clearAllSessions();   // any in-flight run no longer matches the restored data
   commit();

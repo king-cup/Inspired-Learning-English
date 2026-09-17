@@ -3,7 +3,4 @@
 
 export function enhancePage(root, animate = true) {
   root.classList.remove('motion-stage', 'motion-entered');
-  if (!animate) return;
-  root.classList.add('motion-stage');
-  requestAnimationFrame(() => root.classList.add('motion-entered'));
 }

@@ -1,7 +1,7 @@
 # Inspired English — learner app
 
 This folder is the canonical learner application. iPhone and iPad run it as an
-installable PWA; Android v1.09 packages the same audited web release inside the
+installable PWA; Android v1.10 packages the same audited web release inside the
 WebView shell in `../Vocab Drill Student App/`.
 
 **Why this exists:** the App Store's China storefront requires an ICP filing
@@ -31,8 +31,8 @@ mode gives immediate feedback; Test mode draws a non-repeating passage from the
 chosen grade and hides all results until submission. Each blank unfolds its
 choices inside the article, and scores plus perfect runs are saved on-device.
 **Reading Comprehension** — 144 lessons across Foundation and Levels 1–5, with
-article narration, extracted source exercises, selected vocabulary, completion
-history and a personal follow-up review.
+optional article narration, comprehension exercises, inline vocabulary meanings,
+persistent highlights, completion history and next-article navigation.
 **Middle School English** — Grades 7–9 organized into MCQ and reading sections.
 **Memory Palace** — vocabulary encountered in Reading, with context, review
 history and a spaced-review queue. Its product model is under review.
@@ -62,8 +62,9 @@ middle-school-future.json Cleaned 阅读表达 and Writing material, not learner
 middle-school-cleaning-audit.json Per-record source matching and quarantine ledger
 reading-audio-manifest.json Reading narration metadata
 vocab.json            copied from the Android app's assets
-audio-index.json      the 4,321 slugs that have a clip
-audio/*.m4a           4,321 clips, 24 MB
+audio-index.json      the 5,364 slugs that have a clip
+audio/*.m4a           5,364 clips, 20.8 MiB
+audio/packs/all-vocabulary.pack Single-download vocabulary pack for the PWA
 tools/transcode_audio.sh
 tools/rebuild_learning_content.py rebuilds the cloze and advanced-practice banks
 tools/build_curriculum.py builds Reading and Middle School bundles

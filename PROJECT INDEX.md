@@ -7,27 +7,27 @@ tags:
   - app
   - project-index
 status: active
-updated: 2026-09-17
+updated: 2026-09-18
 ---
 
 # Inspired English App — Project Index
 
 > [!summary]
-> `Vocab Drill Web` is the canonical learner app. The iPhone/iPad PWA runs it directly, and Android v1.09 packages the same web release inside a WebView shell. Product work normally starts here; Android-only packaging work lives in `../Vocab Drill Student App/`.
+> `Vocab Drill Web` is the canonical learner app. The iPhone/iPad PWA runs it directly, and Android v1.10 packages the same web release inside a WebView shell. Product work normally starts here; Android-only packaging work lives in `../Vocab Drill Student App/`.
 
 ## Current release
 
 | Item | Current state |
 |---|---|
-| Learner release | v1.09, released 2026-09-15 |
+| Learner release | v1.10, release work 2026-09-18; see [[CHANGELOG]] and [[Release 1.10 Plan]] |
 | Web source | `Inspired Vocab Development/Vocab Drill Web/` |
 | Android shell | `Inspired Vocab Development/Vocab Drill Student App/` |
-| Android APK | `VocabDrill-1.09-20260915.apk`, approximately 450 MB |
+| Android APK | v1.10 build follows PWA push; v1.09 retained for rollback |
 | App data model | Local-first; browser storage / WebView storage; no accounts or server-side student record |
 | Canonical curriculum build | `tools/build_curriculum.py` |
 | Current structural audit | `tools/validate_curriculum.py` → `curriculum-audit.json` |
 
-The repository was clean and matched `origin/main` when this index was prepared.
+Release checkpoint: `checkpoint-v1.10-audited-content`. Deployment and APK verification are recorded in [[Release 1.10 Plan]].
 
 ## Which folder does what
 
@@ -63,7 +63,7 @@ js/store.js                      core vocabulary progress
 js/curriculum-store.js           reading progress, selections and Memory Palace
 js/screens/                      one module per learner screen
 reading-content.json             144 extracted reading lessons
-middle-school.json               3,218 extracted middle-school records
+middle-school.json               506 approved MCQ + 1,874 approved reading records
 advanced-practice.json           HSE advanced-practice bank
 cloze.json                       cloze bank
 vocab.json                       vocabulary corpus
@@ -80,12 +80,14 @@ The Android packaging path is:
 Vocab Drill Web
   → tools/validate_curriculum.py
   → Vocab Drill Student App/tools/sync_web_release.py
-  → app/src/main/assets/web/
+  → app/build/generated/learner-assets/web/ (text + word audio, no reading audio)
   → Android WebView at https://app.local
   → release APK
 ```
 
-## Health snapshot — 2026-09-17
+## Historical pre-cleanup snapshot — 2026-09-17
+
+The table below describes the original extraction, not release 1.10. See [[CHANGELOG]] for the completed audit, quarantine, smaller audio and release limitations.
 
 The current audit reports zero errors, but it verifies structure and audio integrity rather than the educational correctness of extracted content. A direct inventory found:
 
@@ -104,7 +106,7 @@ These counts are triage signals, not automatic verdicts. Open-response exercises
 
 - Preserve vocabulary progress keys, audio slugs and MCQ construction rules documented in `CLAUDE.md`.
 - Preserve existing student progress across curriculum corrections. Content IDs need a migration/alias policy before records are merged or split.
-- iOS and Android share the learner code, but asset delivery differs. The PWA may fetch and cache media; the Android shell currently copies the entire web tree into the APK.
+- iOS and Android share the learner code, but asset delivery differs. The PWA downloads vocabulary as one pack; Android bundles word clips without duplicate packs and downloads reading audio on demand.
 - The learner app is offline-first. Optional audio must degrade clearly when unavailable and must not make text lessons depend on a network connection.
 - The teacher board is a separate live application and is outside this roadmap.
 
@@ -115,4 +117,3 @@ These counts are triage signals, not automatic verdicts. Open-response exercises
 - [[CHANGELOG]]
 - [[README|Developer README]]
 - [[PUBLISHING|Vocabulary publishing workflow]]
-

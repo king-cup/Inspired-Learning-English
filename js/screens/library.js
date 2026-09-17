@@ -6,8 +6,8 @@ import * as i18n from '../i18n.js';
 import { h, clear, press, paperHeader, barLabel, button, blockButton, ruleBar, hrule, dropdown, topBar } from '../ui.js';
 
 const SEL = 'vd.lib.sel';
-const readSel = () => { try { return JSON.parse(sessionStorage.getItem(SEL)) || { t: 0, g: 0 }; } catch (e) { return { t: 0, g: 0 }; } };
-const writeSel = (v) => { try { sessionStorage.setItem(SEL, JSON.stringify(v)); } catch (e) {} };
+const readSel = () => { try { return JSON.parse(localStorage.getItem(SEL) || sessionStorage.getItem(SEL)) || { t: 0, g: 0 }; } catch (e) { return { t: 0, g: 0 }; } };
+const writeSel = (v) => { try { localStorage.setItem(SEL, JSON.stringify(v)); } catch (e) {} };
 
 export function render(root) {
   const types = D.types();
@@ -132,6 +132,7 @@ function offlineBox() {
     btn.disabled = true;
     failNote.classList.add('hidden');
     const res = await A.prefetch(targetUrls, {
+      allInOne: true,
       concurrency: 6,
       onProgress: (n, total) => {
         btn.textContent = i18n.f('pwa.downloading', n, total);

@@ -26,6 +26,7 @@ import * as middleSchool from './screens/middle-school.js';
 import * as highSchool from './screens/high-school.js';
 import * as memory from './screens/memory.js';
 import * as motion from './motion.js';
+import * as tutorial from './screens/tutorial.js';
 import { runUpdateCheck, showVocabUpdateBar } from './updates.js';
 import { h, clear, cn, button, closeAllDialogs, showUpdateBar as showBar, hideUpdateBar } from './ui.js';
 
@@ -104,8 +105,17 @@ async function route() {
     return;
   }
 
+  if (!tutorial.completed() || location.hash === '#/tutorial') {
+    tutorial.render(root, () => { if (location.hash === '#/tutorial') location.hash = '#/'; else route(); });
+    afterRoute(false); return;
+  }
+
   const hash = location.hash || '#/';
   const parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean);
+  if (!['settings', 'tutorial'].includes(parts[0])) {
+    try { localStorage.setItem('ie.lastRoute', hash); } catch (e) {}
+  }
+  document.body.dataset.area = parts[0] || 'home';
 
   // Cloze screens render a lightweight loading state and then replace it with
   // the full passage. Re-running the shared page entrance across both paints
@@ -134,7 +144,8 @@ async function route() {
   if (parts[0] === 'vocab') { library.render(root); afterRoute(); return; }
 
   if (parts[0] === 'reading') {
-    if (parts[1]) { teardown = readingArticle.teardown; await readingArticle.render(root, decodeURIComponent(parts[1])); }
+    if (parts[1] === 'book') await readingLibrary.render(root, parts[2]);
+    else if (parts[1]) { teardown = readingArticle.teardown; await readingArticle.render(root, decodeURIComponent(parts[1])); }
     else await readingLibrary.render(root);
     afterRoute(); return;
   }
@@ -203,6 +214,12 @@ async function tryLoad() {
 function proceed() {
   if (started) { route(); return; }
   started = true;
+  try {
+    const last = localStorage.getItem('ie.lastRoute');
+    if ((!location.hash || location.hash === '#/') && /^#\/(vocab|u|reading|middle|cloze|high-school|memory)(\/|$)/.test(last || '')) {
+      history.replaceState(null, '', last);
+    }
+  } catch (e) {}
   window.addEventListener('hashchange', route);
   route();
 
@@ -232,13 +249,16 @@ async function boot() {
   // install banner (outside #app, so screen re-renders do not touch it).
   P.subscribe((p) => { i18n.use(p.lang); syncHtmlLang(); if (!isStandalone()) renderTabWarn(); });
 
-  if (isStandalone()) document.body.classList.add('standalone');
+  const androidApp = location.hostname === 'app.local' || navigator.userAgent.includes('InspiredEnglishAndroid');
+  document.body.classList.toggle('android-app', androidApp);
+  if (isStandalone() || androidApp) { document.body.classList.add('standalone'); document.getElementById('tabwarn').hidden = true; }
   else { renderTabWarn(); document.getElementById('tabwarn').hidden = false; }
 
   tryLoad();
 }
 
 async function registerServiceWorker() {
+  if (location.hostname === 'app.local') return; // APK is the versioned offline shell.
   if ('serviceWorker' in navigator) {
     try {
       const reg = await navigator.serviceWorker.register('sw.js');

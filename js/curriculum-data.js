@@ -8,7 +8,7 @@ async function json(url) {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
   const value = await response.json();
-  if (!value || value.schemaVersion !== 1 || value.contentVersion !== '1.09') throw new Error(`${url}: invalid schema`);
+  if (!value || value.schemaVersion !== 1 || value.contentVersion !== '1.10') throw new Error(`${url}: invalid schema`);
   return value;
 }
 
@@ -36,3 +36,7 @@ export const article = (id) => reading && reading.articles.find((row) => row.id 
 export const audioRecord = (id) => audio && audio.recordings.find((row) => row.articleId === id);
 export const middleExercise = (grade, section, id) =>
   middle && (middle.grades[grade]?.[section] || []).find((row) => row.id === id);
+export const nextMiddle = (grade, section, id) => {
+  const rows = middle?.grades[grade]?.[section] || [];
+  return rows[rows.findIndex(row => row.id === id) + 1];
+};

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the neutral v1.09 reading and middle-school content bundles."""
+"""Build the neutral v1.10 reading and middle-school content bundles."""
 
 from __future__ import annotations
 
@@ -365,7 +365,7 @@ def reading_bundle() -> dict:
             articles.append(article)
             all_articles.append(article)
         levels.append({"id": level_id, "label": label, "articles": [a["id"] for a in articles]})
-    return {"schemaVersion": 1, "contentVersion": "1.09", "levels": levels, "articles": all_articles}
+    return {"schemaVersion": 1, "contentVersion": "1.10", "levels": levels, "articles": all_articles}
 
 
 def middle_bundle() -> dict:
@@ -416,7 +416,7 @@ def middle_bundle() -> dict:
         grades[grade] = sections
     return {
         "schemaVersion": 1,
-        "contentVersion": "1.09",
+        "contentVersion": "1.10",
         "grades": grades,
         "importAudit": {"duplicatesSkippedOrMerged": duplicates_skipped, "rejectedRecords": rejected_records},
     }

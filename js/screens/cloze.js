@@ -158,6 +158,10 @@ export async function render(root, requestedMode, grade, passageId) {
       answers = new Map(); phase = 'asking'; recordedRun = null; paint(); window.scrollTo(0, 0);
     }));
     wrap.append(h('div.mt'), button(i18n.t('common.done'), { variant: 'ruled', size: 'lg', wide: true, onClick: backToList }));
+    const gradeId = C.gradeOf(passage.grade);
+    const rows = C.forGrade(gradeId);
+    const next = rows[rows.findIndex(row => row.id === passage.id) + 1];
+    if (next) wrap.append(h('div.mt'), button(P.get().lang === 'zh' ? '下一篇练习' : 'Next exercise', { variant: 'ruled', wide: true, onClick: () => { location.hash = `#/cloze/${mode}/${gradeId}/${encodeURIComponent(next.id)}`; } }));
     return wrap;
   }
 
@@ -278,7 +282,6 @@ export async function render(root, requestedMode, grade, passageId) {
       left: metadata(passage), right: `${passage.blanks.length} ${i18n.t('cloze.blanks')}`,
     }));
 
-    if (resultMode) wrap.append(resultBlock());
 
     const statusBox = h('div.cloze-status.mt', null,
       h('span.k-10', null, mode === 'test' && !resultMode ? i18n.t('cloze.hiddenUntilEnd') : i18n.t('cloze.tapBlank')),
@@ -313,6 +316,7 @@ export async function render(root, requestedMode, grade, passageId) {
     } else if (!resultMode) {
       wrap.append(h('div.cloze-end-note.mt2', null, i18n.t('cloze.answerAll')));
     }
+    if (resultMode) resultMount.append(resultBlock());
     wrap.append(resultMount, h('div', { style: { height: '30px' } }));
     root.append(wrap);
 

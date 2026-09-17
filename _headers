@@ -26,8 +26,12 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /audio/*
+  Access-Control-Allow-Origin: *
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: audio/mp4
+
+/audio/packs/*
+  Content-Type: application/octet-stream
 
 /*
   X-Robots-Tag: noindex, nofollow

@@ -2,6 +2,7 @@ import * as C from '../curriculum-data.js';
 import * as S from '../curriculum-store.js';
 import * as P from '../profile.js';
 import * as Cloze from '../cloze-data.js';
+import { passage } from '../passage.js';
 import { h, clear, cn, topBar, paperHeader, barLabel, button, blockButton, press, srHeading } from '../ui.js';
 
 const tr = (en, zh) => P.get().lang === 'zh' ? zh : en;
@@ -13,15 +14,17 @@ const SECTION_LABELS = {
   'reading-e': ['Reading E', '阅读 E'],
 };
 const sectionLabel = (id) => tr(...SECTION_LABELS[id]);
+const answerKey = q => q.answer || (/^[A-F]$/i.test(q.answerText || '') ? q.answerText.toLowerCase() : null);
+const matches = (value, key) => String(value || '').trim().toLowerCase() === String(key).trim().toLowerCase();
 
 export async function render(root, grade, section, mode, id) {
-  clear(root); root.append(h('div.centre', null, h('div.k-11', { role: 'status' }, tr('Loading middle-school content…', '正在加载初中英语内容…'))));
   try { await C.loadMiddle(); } catch (error) { console.error(error); }
   if (!grade) { home(root); return; }
   if (!section) { await gradeHome(root, grade); return; }
+  if (!SECTION_ORDER.includes(section)) { location.hash = `#/middle/${grade}`; return; }
   if (section === 'cloze') { location.hash = `#/cloze/${grade}`; return; }
   if (!id) { list(root, grade, section); return; }
-  exercise(root, grade, section, mode, decodeURIComponent(id));
+  await exercise(root, grade, section, mode, decodeURIComponent(id));
 }
 
 function home(root) {
@@ -56,7 +59,7 @@ function list(root, grade, section) {
   });
 }
 
-function exercise(root, grade, section, mode, id) {
+async function exercise(root, grade, section, mode, id) {
   const item = C.middleExercise(grade, section, id);
   if (!item) { list(root, grade, section); return; }
   S.touchMiddle(id, mode || 'choose');
@@ -67,26 +70,36 @@ function exercise(root, grade, section, mode, id) {
     return;
   }
   const isTest = mode === 'test'; const sessionKey = `ie.ms.session.${id}.${mode}`; let saved = {};
+  const content = item.content && section.startsWith('reading-') ? await passage({ ...item, level: `Grade ${grade}`, unit: section, reading: '' }, item.content.split(/\n\n+/)) : null;
   try { saved = JSON.parse(sessionStorage.getItem(sessionKey) || '{}'); } catch (e) {}
   clear(root); root.append(srHeading(`${item.title} · ${isTest ? tr('Test', '测试') : tr('Study', '学习')}`), topBar(tr('← Exercise', '← 练习'), `${sectionLabel(section)} · ${isTest ? tr('Test', '测试') : tr('Study', '学习')}`, () => { location.hash = `#/middle/${grade}/${section}/choose/${id}`; }));
-  if (item.content) root.append(h('div.exercise-source.box.mt', null, barLabel(item.title, `${item.questions.length} ${tr('questions', '题')}`), ...item.content.split(/\n\n+/).map((text) => h('p', null, cn(text)))));
+  if (content) root.append(h('h1.exercise-title', null, cn(item.title)), content);
+  else if (item.content) root.append(h('div.exercise-source.box.mt', null, barLabel(item.title, `${item.questions.length} ${tr('questions', '题')}`), ...item.content.split(/\n\n+/).map((text) => h('p', null, cn(text)))));
   const form = h('form.middle-form.mt');
   item.questions.forEach((q) => {
     const field = h('fieldset.question', { 'data-id': q.id }, h('legend', null, `${q.number}. `, cn(q.prompt)));
     if (q.choices.length) q.choices.forEach((choice) => { const input = h('input', { type: 'radio', name: q.id, value: choice.id }); if (saved[q.id] === choice.id) input.checked = true; input.onchange = () => { persist(); if (!isTest && q.answer) feedback(field, input.value === q.answer, q); }; field.append(h('label.choice', null, input, h('span', null, `${choice.label}. `, cn(choice.text)))); });
-    else { const input = h('textarea', { rows: '2', 'aria-label': `${item.title} ${q.number}` }); input.value = saved[q.id] || ''; input.oninput = persist; field.append(input); }
+    else {
+      const input = answerKey(q) ? h('input.match-answer', { type: 'text', maxlength: '1', autocomplete: 'off', placeholder: tr('Letter', '选项字母'), 'aria-label': `${item.title} ${q.number}` }) : h('textarea', { rows: '2', 'aria-label': `${item.title} ${q.number}` });
+      input.value = saved[q.id] || ''; input.oninput = persist;
+      input.onchange = () => { if (!isTest && answerKey(q)) feedback(field, matches(input.value, answerKey(q)), q); };
+      field.append(input);
+    }
     form.append(field);
   });
   const result = h('div'); const submit = button(isTest ? tr('Submit test', '提交测试') : tr('Finish study', '完成学习'), { variant: 'ruled', size: 'lg', wide: true });
   submit.onclick = () => {
-    const answers = values(); const graded = item.questions.filter((q) => q.answer); const correct = graded.filter((q) => answers[q.id] === q.answer).length; const run = S.recordMiddle(id, mode, correct, graded.length, graded.length > 0); sessionStorage.removeItem(sessionKey);
+    if (Object.values(values()).some(value => !String(value).trim()) && !confirm(tr('Some questions are unanswered. Submit anyway?', '还有题目未作答，仍要提交吗？'))) return;
+    const answers = values(); const graded = item.questions.filter(answerKey); const correct = graded.filter((q) => matches(answers[q.id], answerKey(q))).length; const run = S.recordMiddle(id, mode, correct, graded.length, graded.length > 0); sessionStorage.removeItem(sessionKey);
     form.querySelectorAll('input,textarea').forEach((el) => { el.disabled = true; }); submit.disabled = true;
     clear(result); result.append(h('div.note.' + (run.graded && correct === graded.length ? 'good' : 'bad'), null, run.graded ? `${Math.round(correct * 100 / graded.length)}% · ${correct}/${graded.length}` : tr('Submitted · ungraded because no valid answer key is available.', '已提交 · 因无有效答案而不评分。')));
-    if (isTest) graded.forEach((q) => { const field = form.querySelector(`[data-id="${q.id}"]`); feedback(field, answers[q.id] === q.answer, q); });
+    if (isTest) item.questions.forEach((q) => { const field = form.querySelector(`[data-id="${q.id}"]`); feedback(field, answerKey(q) && matches(answers[q.id], answerKey(q)), q); });
+    const next = C.nextMiddle(grade, section, id);
+    result.append(button(next ? tr('Next exercise', '下一篇练习') : tr('Back to exercises', '返回练习列表'), { variant: 'ruled', size: 'lg', wide: true, onClick: () => { location.hash = next ? `#/middle/${grade}/${section}/${mode}/${next.id}` : `#/middle/${grade}/${section}`; } }));
   };
   root.append(form, submit, result, h('div', { style: { height: '32px' } }));
-  function values() { const out = {}; item.questions.forEach((q) => { const field = form.querySelector(`[data-id="${q.id}"]`); out[q.id] = field.querySelector('input:checked')?.value || field.querySelector('textarea')?.value || ''; }); return out; }
+  function values() { const out = {}; item.questions.forEach((q) => { const field = form.querySelector(`[data-id="${q.id}"]`); out[q.id] = field.querySelector('input:checked')?.value || field.querySelector('textarea,input[type=text]')?.value || ''; }); return out; }
   function persist() { try { sessionStorage.setItem(sessionKey, JSON.stringify(values())); } catch (e) {} }
 }
 
-function feedback(field, ok, q) { let note = field.querySelector('.question-feedback'); if (!note) { note = h('div.question-feedback', { role: 'status' }); field.append(note); } note.className = `question-feedback note ${ok ? 'good' : 'bad'}`; note.textContent = ok ? tr('Correct', '正确') : q.answer ? `${tr('Answer', '答案')}: ${q.answer.toUpperCase()}` : tr('Submitted · ungraded', '已提交 · 不评分'); }
+function feedback(field, ok, q) { let note = field.querySelector('.question-feedback'); if (!note) { note = h('div.question-feedback', { role: 'status' }); field.append(note); } note.className = `question-feedback note ${ok ? 'good' : answerKey(q) ? 'bad' : ''}`; note.textContent = ok ? tr('Correct', '正确') : answerKey(q) ? `${tr('Answer', '答案')}: ${answerKey(q).toUpperCase()}` : tr('Submitted · teacher review', '已提交 · 请老师批阅'); }

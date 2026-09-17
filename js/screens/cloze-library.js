@@ -7,13 +7,14 @@ const gradeName = (grade) => i18n.t(`cloze.grade${grade}`);
 const safeGrade = (grade) => ['7', '8', '9'].includes(String(grade)) ? String(grade) : CS.get().lastGrade;
 
 function loading(root) {
-  clear(root);
-  root.append(h('div.centre', null, h('div.k-11', { role: 'status' }, i18n.t('cloze.loading'))));
+  root.setAttribute('aria-busy', 'true');
 }
 
 function loadError(root, err) {
   console.error('[cloze] could not load passages:', err);
   clear(root);
+
+  root.removeAttribute('aria-busy');
   root.append(topBar(i18n.t('common.back'), i18n.t('cloze.title'), () => { location.hash = '#/'; }));
   root.append(h('div.note.bad.mt2', null, h('div.k-11', null, i18n.t('cloze.loadError'))));
 }
@@ -56,13 +57,13 @@ export async function renderLanding(root, requestedGrade) {
 
   root.append(topBar(i18n.t('common.back'), i18n.t('cloze.reading'), () => { location.hash = `#/middle/${grade}`; }));
   root.append(h('div.mt'), paperHeader({
-    kicker: i18n.t('cloze.kicker'), title: i18n.t('cloze.title'),
+    kicker: i18n.t('cloze.kicker'), title: `${gradeName(grade)} · ${i18n.t('cloze.title')}`,
     left: i18n.f('cloze.passages', pool.length), right: gradeName(grade),
   }));
 
   const gradeBox = h('div.box.mt');
   gradeBox.append(barLabel(i18n.t('cloze.chooseGrade')), gradeTabs(grade, 'landing'));
-  root.append(gradeBox);
+  if (!pickedGrade) root.append(gradeBox);
 
   // First visit is a clean grade choice. Study/Test appears only after a grade
   // is deliberately selected, which keeps the flow legible on a phone.
@@ -117,13 +118,11 @@ export async function renderStudyList(root, requestedGrade) {
 
   root.append(topBar(i18n.t('common.back'), i18n.t('cloze.studyMode'), () => { location.hash = `#/cloze/${grade}`; }));
   root.append(h('div.mt'), paperHeader({
-    kicker: i18n.t('cloze.studyMode'), title: i18n.t('cloze.choosePassage'),
+    kicker: i18n.t('cloze.studyMode'), title: `${gradeName(grade)} · ${i18n.t('cloze.choosePassage')}`,
     left: i18n.f('cloze.passages', pool.length), right: gradeName(grade),
   }));
 
-  const gradeBox = h('div.box.mt');
-  gradeBox.append(barLabel(i18n.t('cloze.chooseGrade')), gradeTabs(grade, 'study'));
-  root.append(gradeBox);
+  root.removeAttribute('aria-busy');
 
   const find = h('div.find.mt', null,
     h('div.lbl', null, i18n.t('study.find')),

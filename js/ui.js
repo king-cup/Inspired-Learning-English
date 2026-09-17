@@ -97,12 +97,10 @@ export function finishFlourish(anchor, onDone) {
  *  screen's h1 (ยง8 logical heading). */
 export const paperHeader = ({ kicker, title, left, right }) =>
   h('header.paper-head', null,
-    h('div.kick', null, cn(String(kicker || ''))),
     h('h1', null, cn(String(title || ''))),
     h('div.band', { 'aria-hidden': 'true' }),
     h('div.feet', null,
-      h('span', null, cn(String(left || ''))),
-      h('span', null, cn(String(right || '')))));
+      h('span', null, cn(String(left || '')))));
 
 /** A screen heading for views without a paper header (Practice/Test/Cards). */
 export const srHeading = (text) => h('h1.sr-only', null, cn(String(text)));
@@ -165,7 +163,7 @@ export const speakerGlyph = () => h('span.glyph', { 'aria-hidden': 'true' }, 'โ–
 export const topBar = (leftText, rightText, onBack) =>
   h('div.topbar', null,
     button(leftText, { variant: 'thin', size: 'sm', onClick: onBack }),
-    h('span.k-9.dim', null, cn(String(rightText || ''))));
+    h('a.brand-home', { href: '#/', 'aria-label': i18n.t('app.title') }, leafMark(30)));
 
 export const centreNote = (text) => h('div.centre', null, h('div.k-11', null, cn(text)));
 

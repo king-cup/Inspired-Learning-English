@@ -113,6 +113,7 @@ export function render(root) {
         h('div.k-11', null, t.get('app.title')),
         h('div.set-line', { style: { padding: '2px 0 0' } }, t.f('set.version', APP_VERSION)))));
     root.append(about);
+    root.append(h('div.mt'), button(P.get().lang === 'zh' ? '重看使用指南' : 'Replay tutorial', { variant: 'thin', wide: true, onClick: () => { location.hash = '#/tutorial'; } }));
 
     root.append(h('div', { style: { height: '30px' } }));
   }

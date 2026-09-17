@@ -25,6 +25,7 @@ Writes:
     audio-packs.json                the index, published with the content version
 """
 import json
+import hashlib
 import os
 import re
 import sys
@@ -146,6 +147,10 @@ def main():
         "units": units_map,
         "books": books_map,
     }
+    idx, total = build_pack(os.path.join(PACKS, 'all-vocabulary.pack'), have, sizes)
+    with open(os.path.join(PACKS, 'all-vocabulary.pack'), 'rb') as handle:
+        checksum = hashlib.sha256(handle.read()).hexdigest()
+    out['all'] = {"url": "audio/packs/all-vocabulary.pack", "bytes": total, "clips": idx, "sha256": checksum}
     with open(os.path.join(WEB, "audio-packs.json"), "w", encoding="utf-8") as fh:
         json.dump(out, fh, ensure_ascii=False, separators=(",", ":"))
 

@@ -1,5 +1,5 @@
 {
-  "contentVersion": "1.09",
+  "contentVersion": "1.10",
   "readingArticles": 144,
   "readingByLevel": {
     "Foundation": 24,
@@ -15,10 +15,10 @@
   "audioIntegrityProbe": "ffprobe codec and duration verified per recording",
   "voice": "alloy",
   "model": "mlx-audio",
-  "audioDurationSeconds": 41443.905,
-  "wpmMin": 143.8794265408651,
-  "wpmMax": 159.54103267647793,
-  "wpmAverage": 150.47,
+  "audioDurationSeconds": 41447.086,
+  "wpmMin": 143.87449027603512,
+  "wpmMax": 159.50840686115586,
+  "wpmAverage": 150.46,
   "questionsWithAnswerKeys": 12148,
   "questionsWithoutAnswerKeys": 2316,
   "middleSchoolByGradeAndSection": {

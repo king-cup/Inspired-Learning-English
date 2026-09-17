@@ -8,7 +8,7 @@ export function render(root) {
   const name = P.displayName();
 
   root.append(h('div.home-tools', null,
-    button('⚙  ' + i18n.t('lib.settings'), {
+    button(i18n.t('lib.settings'), {
       variant: 'thin', size: 'sm', ariaLabel: i18n.t('a11y.settings'),
       onClick: () => { location.hash = '#/settings'; },
     })));

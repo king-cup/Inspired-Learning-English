@@ -11,11 +11,15 @@
    ========================================================================== */
 
 :root {
-  --ink: #000;
+  /* 1.10: Inspire's leaf colours guide navigation; prose stays on plain paper. */
+  --ink: #183329;
   --paper: #fff;
-  --hover: #e8e8e8;
-  --rule: #999;
-  --shade: #eee;
+  --hover: #e2eee8;
+  --rule: #8ba499;
+  --shade: #f0f5f2;
+  --accent: #176447;
+  --blue: #245d8c;
+  --amber: #835600;
   --rt: #e9f5ec;          /* right / known */
   --rt-edge: #1c7a3e;
   --wr: #fdeceb;          /* wrong / unknown */
@@ -29,7 +33,7 @@
   /* iOS has neither Noto Serif nor Noto Serif CJK. The CJK face must be in the
      stack or every Chinese gloss falls back to a sans-serif system font. */
   --serif: Georgia, 'Times New Roman', 'Songti SC', 'Songti TC', 'PingFang SC', serif;
-  --mono: 'Courier New', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --mono: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
 
   --pad: 14px;
   --shell: 720px;
@@ -54,6 +58,9 @@
   --wr-edge: #ff7a70;
   --glass: rgba(20, 20, 20, .76);
   --glass-strong: rgba(0, 0, 0, .88);
+  --accent: #7de0ac;
+  --blue: #9fcdfa;
+  --amber: #f5ce73;
 
   color-scheme: dark;
 }
@@ -936,9 +943,7 @@ body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
 .unit-row, .cloze-passage-row, .cloze-history-row, .dd-head, .dd-item,
 .toggle-row, .cloze-blank, .updbar-action, .updbar-x {
   background-color: var(--glass);
-  -webkit-backdrop-filter: blur(10px) saturate(120%);
-  backdrop-filter: blur(10px) saturate(120%);
-  box-shadow: 4px 4px 0 var(--option-shadow) !important;
+  box-shadow: none;
   transform: translate3d(0, 0, 0);
   transform-origin: center;
   transition: transform .12s ease-out, box-shadow .12s ease-out,
@@ -949,10 +954,10 @@ body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
 .cloze-passage-row.is-pressed, .cloze-history-row.is-pressed, .dd-head.is-pressed,
 .dd-item.is-pressed, .toggle-row.is-pressed, .cloze-blank.is-pressed,
 .updbar-action.is-pressed, .updbar-x.is-pressed {
-  transform: translate3d(3px, 3px, 0) scale(.985);
-  box-shadow: 1px 1px 0 var(--option-shadow) !important;
+  transform: scale(.99);
+  box-shadow: none;
 }
-.just-released { animation: option-release .34s var(--spring-out); }
+.just-released { animation: none; }
 @keyframes option-release {
   0% { transform: translate3d(3px, 3px, 0) scale(.985); }
   48% { transform: translate3d(-1px, -1px, 0) scale(1.018); }
@@ -961,7 +966,7 @@ body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
 }
 
 /* Product hub */
-.home-tools { display: flex; justify-content: flex-end; }
+.home-tools { display: flex; justify-content: flex-start; }
 .home-header { padding-right: 78px; overflow: hidden; }
 .home-header > .leaf { position: absolute; z-index: 2; right: 18px; top: 16px; width: 48px; height: 48px; }
 .home-choices { display: grid; gap: 13px; }
@@ -975,8 +980,8 @@ body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
 }
 
 /* Staggered page entrance: total sequence stays under 500ms. */
-.motion-stage:not(.motion-entered) > * { opacity: 0; }
-.motion-stage.motion-entered > * { animation: page-item-in .38s var(--physical-out) both; }
+.motion-stage:not(.motion-entered) > * { opacity: 1; }
+.motion-stage.motion-entered > * { animation: none; }
 .motion-stage.motion-entered > *:nth-child(2) { animation-delay: 55ms; }
 .motion-stage.motion-entered > *:nth-child(3) { animation-delay: 95ms; }
 .motion-stage.motion-entered > *:nth-child(4) { animation-delay: 125ms; }

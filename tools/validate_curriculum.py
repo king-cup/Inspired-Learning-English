@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail-fast production validation and v1.09 curriculum audit."""
+"""Fail-fast production validation and v1.10 curriculum audit."""
 
 from __future__ import annotations
 
@@ -26,8 +26,8 @@ def main() -> None:
     reading = load("reading-content.json")
     middle = load("middle-school.json")
     audio = load("reading-audio-manifest.json")
-    if reading.get("contentVersion") != "1.09" or middle.get("contentVersion") != "1.09":
-        errors.append("curriculum content version is not 1.09")
+    if reading.get("contentVersion") != "1.10" or middle.get("contentVersion") != "1.10":
+        errors.append("curriculum content version is not 1.10")
     articles = reading.get("articles", [])
     article_ids = [row.get("id") for row in articles]
     if len(articles) != 144:
@@ -186,7 +186,7 @@ def main() -> None:
     level_counts = Counter(row["level"] for row in articles)
     generated = sum(row.get("status") == "generated" for row in recordings)
     audit = {
-        "contentVersion": "1.09",
+        "contentVersion": "1.10",
         "readingArticles": len(articles),
         "readingByLevel": dict(level_counts),
         "recordings": generated,

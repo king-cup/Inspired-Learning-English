@@ -32,7 +32,7 @@ function home(root) {
     clear(rows);
     const shown = items.filter((item) => (!level.el.value || item.contexts.some((c) => c.level === level.el.value)) && (!source.el.value || item.contexts.some((c) => c.articleTitle === source.el.value)));
     title.lastChild.textContent = String(shown.length);
-    if (!shown.length) { rows.append(h('div.panel-empty', null, tr('Tap or select vocabulary in a reading article to begin.', '在阅读文章中点选词汇即可开始。'))); return; }
+    if (!shown.length) { rows.append(h('div.panel-empty', null, tr('Double-tap a dotted word in a reading passage to begin.', '双击阅读文章中带点状下划线的词即可开始。'))); return; }
     shown.sort((a, b) => b.lastEncounter - a.lastEncounter).forEach((item) => {
       const row = h('button.memory-row', {
         type: 'button', onclick: () => { location.hash = `#/memory/item/${encodeURIComponent(item.id)}`; },
@@ -53,7 +53,7 @@ function detail(root, id) {
   root.append(h('div.mt'), paperHeader({ kicker: item.type, title: item.display, left: item.partOfSpeech, right: tr(...(labels[item.mastery] || labels.new)) }));
   const box = h('section.box.mt', null, barLabel(tr('Definitions', '释义')), h('div.memory-detail', null,
     h('h3', null, cn(item.chinese)), h('p', null, cn(item.english)), h('div.k-9.dim', null, `${tr('Encounters', '遇见次数')}: ${item.encounterCount} · ${tr('Reviews', '复习次数')}: ${item.reviewCount} · ${tr('Priority', '优先级')}: ${item.priority || 0}`)));
-  item.contexts.forEach((context) => box.append(h('blockquote', null, cn(context.sentence)), button(`${context.articleTitle} · ${context.level} U${context.unit}${context.reading}`, { variant: 'thin', wide: true, onClick: () => { location.hash = `#/reading/${context.articleId}`; } })));
+  item.contexts.forEach((context) => box.append(h('blockquote', null, cn(context.sentence)), button(context.articleTitle, { variant: 'thin', wide: true, onClick: () => { location.hash = context.route || `#/reading/${context.articleId}`; } })));
   const note = h('textarea', { rows: '3', maxlength: '500', placeholder: tr('Optional student note', '可选学习笔记'), 'aria-label': tr('Student note', '学习笔记') }); note.value = item.note || ''; note.onchange = () => S.note(id, note.value);
   box.append(h('div.mt', null, barLabel(tr('Note', '笔记')), note));
   const history = Array.isArray(item.reviewHistory) ? item.reviewHistory.slice(-8).reverse() : [];

@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-17T18:58:20Z",
+  "title": "Design System: Inspired English",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Evergreen"
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Reading blue"
+      },
+      "amber": {
+        "role": "primary",
+        "displayName": "Study amber"
+      },
+      "highlight": {
+        "role": "primary",
+        "displayName": "Marker yellow"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Reading paper"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Evergreen ink"
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Paper headline",
+        "purpose": "Double-ruled screen headers; local serif stack."
+      },
+      "passage": {
+        "displayName": "Reading passage",
+        "purpose": "Long text above 520px; use passage-phone at narrower widths."
+      },
+      "label": {
+        "displayName": "Interface label",
+        "purpose": "Native sans controls; historical variable name --mono is not a monospace font."
+      }
+    },
+    "shadows": [
+      {
+        "name": "flat-resting",
+        "value": "none",
+        "purpose": "Reviewed home and reading components at rest. Legacy hover shadows are excluded."
+      }
+    ],
+    "motion": [
+      {
+        "name": "press-transform",
+        "value": "transform .12s ease-out",
+        "purpose": "Shared controls scale to .99 while pressed."
+      },
+      {
+        "name": "control-colour",
+        "value": "background-color .16s ease-out, border-color .18s ease-out, color .18s ease-out",
+        "purpose": "Short shared control state changes."
+      },
+      {
+        "name": "route-entrance",
+        "value": "none",
+        "purpose": "Route content appears immediately."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow-heading",
+        "value": "360px"
+      },
+      {
+        "name": "phone-reading",
+        "value": "520px"
+      },
+      {
+        "name": "book-home-tablet",
+        "value": "760px"
+      },
+      {
+        "name": "legacy-master-detail",
+        "value": "768px"
+      }
+    ],
+    "focus": {
+      "default": "3px solid var(--blue)",
+      "offset": "3px",
+      "solidInkVariant": "var(--paper)"
+    },
+    "layout": {
+      "shell": "720px",
+      "shellTablet": "960px",
+      "safeAreaPadding": "14px; 26px at min-width:760px, plus env(safe-area-inset-*)",
+      "passageMeasure": "75ch",
+      "passagePadding": "clamp(18px, 5vw, 34px)"
+    },
+    "assets": [
+      {
+        "paths": [
+          "icons/icon-180-inspire.png",
+          "icons/icon-192-inspire.png"
+        ],
+        "provenance": "Supplied preexisting company leaf assets; no generated imagery in this design turn.",
+        "usage": "Install icons and shared leaf mark; preserve aspect ratio."
+      }
+    ],
+    "sourceOrder": [
+      "app.css",
+      "reader.css"
+    ],
+    "notes": [
+      "Palette primitives live only in DESIGN.md frontmatter. No additional tonal scales were introduced.",
+      "Dark theme uses the existing :root[data-theme=\"dark\"] overrides in app.css; home navigation uses shade and ink in dark mode.",
+      "Component previews emulate is-pressed with :active; app pointer-event behavior remains in js/ui.js.",
+      "Legacy hard hover shadows and feedback glyph icons are not canonized. Preview snippets omit those defects."
+    ]
+  },
+  "components": [
+    {
+      "name": "Solid-ink button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Existing selected or pressed emphasis variant; the preview uses CSS active state in place of the app's pointer-event class.",
+      "html": "<button class=\"ds-primary\" type=\"button\">Continue</button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;font:700 11px/1.4 var(--mono, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif);letter-spacing:1.5px;text-transform:uppercase;padding:10px 15px;border-radius:0;cursor:pointer;transition:transform .12s ease-out,background-color .16s ease-out,color .18s ease-out;border:2px solid var(--ink,#183329);background:var(--ink,#183329);color:var(--paper,#fff)}.ds-primary:focus-visible{outline:3px solid var(--blue,#245d8c);outline-offset:3px;outline-color:var(--paper,#fff)}.ds-primary:hover{transform:translate(-1px,-1px)}.ds-primary:active{transform:scale(.99)}.ds-primary:disabled{opacity:.3}"
+    },
+    {
+      "name": "Ruled button",
+      "kind": "button",
+      "refersTo": "button-ruled",
+      "description": "Standard paper action with a strong rule; legacy hard hover shadow is intentionally not a system token.",
+      "html": "<button class=\"ds-ruled\" type=\"button\">Submit section</button>",
+      "css": ".ds-ruled{display:inline-flex;align-items:center;justify-content:center;font:700 11px/1.4 var(--mono, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif);letter-spacing:1.5px;text-transform:uppercase;padding:10px 15px;border-radius:0;cursor:pointer;transition:transform .12s ease-out,background-color .16s ease-out,color .18s ease-out;border:2px solid var(--ink,#183329);background:var(--glass,rgba(255,255,255,.78));color:var(--ink,#183329)}.ds-ruled:focus-visible{outline:3px solid var(--blue,#245d8c);outline-offset:3px}.ds-ruled:hover{transform:translate(-1px,-1px)}.ds-ruled:active{background:var(--ink,#183329);color:var(--paper,#fff);transform:scale(.99)}.ds-ruled:disabled{opacity:.3}"
+    },
+    {
+      "name": "Small thin button",
+      "kind": "button",
+      "refersTo": "button-thin-small",
+      "description": "Compact secondary actions, including Settings and passage tools.",
+      "html": "<button class=\"ds-thin\" type=\"button\">Settings</button>",
+      "css": ".ds-thin{display:inline-flex;align-items:center;justify-content:center;font:700 11px/1.4 var(--mono, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif);letter-spacing:1.5px;text-transform:uppercase;padding:10px 15px;border-radius:0;cursor:pointer;transition:transform .12s ease-out,background-color .16s ease-out,color .18s ease-out;font-size:10px;letter-spacing:1px;padding:8px 11px;border:1.5px solid var(--ink,#183329);background:var(--glass,rgba(255,255,255,.78));color:var(--ink,#183329)}.ds-thin:focus-visible{outline:3px solid var(--blue,#245d8c);outline-offset:3px}.ds-thin:hover{transform:translate(-1px,-1px)}.ds-thin:active{background:var(--ink,#183329);color:var(--paper,#fff);transform:scale(.99)}.ds-thin:disabled{opacity:.3}"
+    },
+    {
+      "name": "Vocabulary home choice",
+      "kind": "button",
+      "refersTo": "home-vocabulary",
+      "description": "One of five area-specific navigation fills; the remaining pairs are frontmatter tokens.",
+      "html": "<button class=\"ds-home\" type=\"button\">Vocabulary</button>",
+      "css": ".ds-home{display:block;width:100%;min-height:68px;padding:20px;text-align:left;border:1px solid var(--ink,#183329);border-radius:0;background:#e4f2e9;color:#175035;font:700 16px/1.2 var(--mono, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif);letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:transform .12s ease-out}.ds-home:focus-visible{outline:3px solid var(--blue,#245d8c);outline-offset:3px}.ds-home:hover{transform:translate(-1px,-1px)}.ds-home:active{transform:scale(.99)}"
+    },
+    {
+      "name": "Search field",
+      "kind": "input",
+      "refersTo": "search-input",
+      "description": "Flexible 16px input with attached ink label and a two-pixel frame.",
+      "html": "<label class=\"ds-search\"><span>Search</span><input type=\"search\" aria-label=\"Search vocabulary\" placeholder=\"Find a word\"></label>",
+      "css": ".ds-search{display:flex;align-items:center;border:2px solid var(--ink,#183329);color:var(--ink,#183329)}.ds-search span{background:var(--ink,#183329);color:var(--paper,#fff);padding:11px;font:9px var(--mono, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif);letter-spacing:2px}.ds-search input{flex:1;min-width:0;padding:11px;font:16px var(--mono, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif);background:none;color:inherit;border:0;border-radius:0;caret-color:var(--accent,#176447)}.ds-search input:focus-visible{outline:3px solid var(--blue,#245d8c);outline-offset:3px}"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Non-interactive rectangular metadata tag.",
+      "html": "<span class=\"ds-tag\">Noun</span>",
+      "css": ".ds-tag{display:inline-block;padding:2px 6px;border:1px solid var(--ink,#183329);border-radius:0;color:var(--ink,#183329);font:700 10px/1.4 var(--mono, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif);letter-spacing:1.5px;text-transform:uppercase}"
+    },
+    {
+      "name": "Navigation row",
+      "kind": "nav",
+      "refersTo": "navigation-row",
+      "description": "A full-width library row with serif lesson text and pressed shade feedback.",
+      "html": "<nav aria-label=\"Units\"><button class=\"ds-row\" type=\"button\">Unit 1</button></nav>",
+      "css": ".ds-row{display:flex;align-items:center;gap:12px;width:100%;padding:11px 13px;text-align:left;background:var(--glass,rgba(255,255,255,.78));color:var(--ink,#183329);font:700 15px var(--serif, Georgia, 'Times New Roman', 'Songti SC', serif);border:0;border-radius:0;cursor:pointer;transition:transform .12s ease-out,background-color .16s ease-out}.ds-row:focus-visible{outline:3px solid var(--blue,#245d8c);outline-offset:3px}.ds-row:hover{transform:translate(-1px,-1px)}.ds-row:active{background:var(--shade,#f0f5f2);transform:scale(.99)}"
+    },
+    {
+      "name": "Inline definition",
+      "kind": "card",
+      "refersTo": "inline-definition",
+      "description": "In-flow meaning panel; surrounding passage continuation is preserved by the app.",
+      "html": "<aside class=\"ds-definition\" aria-label=\"Word meaning\"><div class=\"ds-heading\"><strong>astronomer</strong><span>n.</span></div><p class=\"ds-meaning\" lang=\"zh-Hans\">天文学家</p></aside>",
+      "css": ".ds-definition{padding:18px;border-block:1px solid var(--rule,#8ba499);border-radius:0;background:var(--shade,#f0f5f2);color:var(--ink,#183329);font:16px/1.6 var(--mono, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif);overflow-wrap:anywhere}.ds-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:12px;color:var(--accent,#176447)}.ds-heading strong{font-size:22px}.ds-definition .ds-meaning{margin:10px 0;font:700 20px/1.6 var(--cn,'TT SongTi','Songti SC','Songti TC','STSong',serif)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Leaf and reading paper",
+    "overview": "The learner app extends the existing Inspire company leaf identity with evergreen ink, lightly coloured learning choices and plain reading paper. Serif passages retain the feel of printed study material; native interface text keeps navigation distinct from the material being learned.",
+    "keyCharacteristics": [
+      "White reading paper, evergreen structure and restrained area colours.",
+      "Square corners, precise rules and compact interface labels.",
+      "Serif reading, native sans interface text and local Chinese serif fallbacks.",
+      "Inline meanings and persistent yellow word highlights."
+    ],
+    "rules": [
+      {
+        "name": "The Paper Rule",
+        "body": "Reading prose stays on the paper surface; area colours belong to navigation and highlights belong to selected words.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Keep serif learning content and native sans navigation distinct; preserve the Chinese serif fallback where the component supplies it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ruled Surface Rule",
+        "body": "Carry hierarchy with border weight and tonal fill; do not add shadow elevation to the documented reading and home components.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use the existing paper and leaf identity and the supplied company assets.",
+      "Do load `reader.css` after `app.css` and check the final cascade before copying a value.",
+      "Do keep meanings inline, preserve the passage continuation and expose Undo highlight.",
+      "Do preserve keyboard focus, safe-area padding, readable input sizes and reduced-motion behavior."
+    ],
+    "donts": [
+      "Don't introduce rounded cards or replace the company mark with new artwork.",
+      "Don't turn home area colours into correctness signals or colour entire reading passages.",
+      "Don't restore page entrance flashes or add downloaded fonts to this local-font system.",
+      "Don't promote legacy glyph icons, unused kickers or leftover hover shadows into new component rules."
+    ]
+  }
+}

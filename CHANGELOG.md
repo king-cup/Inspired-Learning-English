@@ -11,7 +11,39 @@ updated: 2026-09-18
 
 This file tracks learner-visible releases and significant platform changes. Curriculum-only publication IDs remain recorded in `content/manifest.json` and Git history.
 
-## Unreleased
+## 1.10 — 2026-09-18
+
+### Learner experience
+
+- Added inline passage definitions using explicit lists for 2,018 readings. Double-tap a dotted word/phrase to highlight it yellow and open its meaning inside the passage; single-tap to close/reopen. Highlights persist, and Undo keeps the encounter history.
+- Reading Explorer now opens through book menus and prominent unit groups. Removed its separate lookup, vocabulary-practice and personal-test sections; retained comprehension. Added next-article/exercise actions after submission.
+- Removed redundant Cloze grade selectors and active 阅读表达 routes. Improved matching-letter question grading using source answerText keys.
+- Added a bilingual first-use/replayable tutorial, last-page restoration and persistent vocabulary book/unit selections.
+- Removed page entrance opacity flashes and top-right text notes. Added restrained area colours and company-leaf home links; moved home Settings to the upper left. Responsive layouts cover phone, portrait tablet and landscape tablet.
+- Backup/restore now includes reading, highlights, encounter history and Cloze progress as well as vocabulary. Existing progress keys are unchanged.
+- Fixed article playback after word pronunciation uses the shared audio player.
+
+### Audio and Android packaging
+
+- Full vocabulary download is one checksummed 20.8 MiB pack containing 5,364 original clips, then unpacked into the existing offline cache. No 5,000-request fallback during this action.
+- Compressed 144 existing reading recordings from 343.9 to 166.4 MiB (51.6% smaller), mono 24 kHz / 32 kbps AAC. Downloads are optional per article and cached for reuse.
+- Android 1.10 excludes reading narration and duplicate vocabulary packs from the APK; retains bundled word audio and all text lessons. Uses only current release assets, resource shrinking, a smaller adaptive leaf icon, rotation/resizing, and no iOS installation banner.
+
+### Verification and honest limits
+
+- Structural/content validation: zero errors. Automated browser checks pass at 390×844, 834×1194, 1194×834 and 412×915, including touch/keyboard highlights, persistence/undo, all middle-school section routes, study/test submissions, next actions, vocabulary cards/practice/test, backups, tutorial and offline audio. Full vocabulary download was exactly one audio request.
+- Reading Explorer still has no verified comprehension answer keys: submissions are saved for teacher review, never given invented scores. Quarantined items are not silently restored.
+- Bedlam/Qwen clone bulk replacement remains deferred. This release's short-word and sentence pilots did not pass transcript checks (including an extra final word in the sentence pilot). Existing narrator audio was compressed, not regenerated against every corrected text. The approved earlier demo remains an experiment, not the production audio bank.
+- 128 vocabulary entries lack an authored clip and retain the existing device-voice fallback; this is not 128 missing unique words.
+- Encounter history is append-only within the app's local store and backups, not an immutable server log: there is no student backend. Browser/OS storage removal can still erase local progress. Export a backup before reinstalling or downgrading.
+- Browser tests are Chromium simulations, not physical iPhone/iPad verification. Android release verification is recorded in the vault release plan after packaging.
+
+### Rollback
+
+- Source checkpoint before 1.10 UI/audio work: `checkpoint-v1.10-audited-content` (`5edfb9f`). Original 1.09 source remains `0bdee3023089fb46adaaf2b878bd947848bd2897`.
+- Android source snapshot: `../android-source-before-1.10.tar.gz`; previous signed APK is retained. Restore/redeploy a reviewed checkpoint, without deleting student data. Native downgrades may require uninstalling, so export first.
+
+### Included content audit
 
 ### Changed
 
@@ -30,13 +62,10 @@ This file tracks learner-visible releases and significant platform changes. Curr
 - Added Voicebox/Kokoro and Qwen CustomVoice narration experiments outside the app bundle. Their 150 WPM, 32 kbps AAC-LC samples are approximately 52.5% smaller than the current recording for the same article and duration; batch replacement remains pending listening review.
 - Added an authorized audiobook-narrator clone to Voicebox and rendered a paragraph-checked Reading Explorer comparison. The corrected 80.49-second exports are 332,816 bytes at 32 kbps and 250,749 bytes at 24 kbps; the final sentence is complete. Qwen tail repetition in rejected raw takes remains a production concern requiring automatic transcription validation and retry.
 
-### Planned
+### Still planned
 
-- Add a versioned, replayable tutorial covering the app's new and non-obvious functions.
-- Replace transient reading selection with persistent highlights backed by stable text anchors.
-- Separate removable highlights from the immutable vocabulary encounter log.
-- Remove Reading narration from the base Android APK and make it an optional, verified download.
 - Hold the Memory Palace redesign as a discovery item until its purpose and review interaction are agreed.
+- Complete narrated-content regeneration after the clone passes reliability and listening checks; add source-verified Reading Explorer answer keys when available.
 
 ### Documentation
 

@@ -25,6 +25,8 @@ export const Status = { STARTING: 'STARTING', CLIP: 'CLIP', VOICE: 'DEVICE VOICE
 let el = null;
 let unlocked = false;
 let status = Status.STARTING;
+let loaded = null;
+export const loadedUrl = () => loaded;
 const objectUrls = new Map();   // request url -> object url (insertion-ordered LRU)
 const statusListeners = new Set();
 
@@ -105,6 +107,7 @@ async function playClip(url) {
       try { await cache.put(url, res.clone()); } catch (e) { /* quota; still playable */ }
     }
     el.src = await blobUrl(url, res);
+    loaded = url;
     el.currentTime = 0;
     await el.play();
     return true;
@@ -162,6 +165,7 @@ export async function loadTrack(url, position = 0) {
     try { await cache.put(url, response.clone()); } catch (e) {}
   }
   el.src = await blobUrl(url, response);
+  loaded = url;
   el.currentTime = Math.max(0, Number(position) || 0);
   return el;
 }
@@ -276,6 +280,11 @@ async function fetchPack(cache, pack, wanted) {
   if (typeof pack.bytes === 'number' && buf.byteLength !== pack.bytes) {
     throw new Error('pack ' + pack.url + ' is ' + buf.byteLength + ' bytes, expected ' + pack.bytes);
   }
+  if (pack.sha256) {
+    const digest = await crypto.subtle.digest('SHA-256', buf);
+    const hex = [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, '0')).join('');
+    if (hex !== pack.sha256) throw new Error('Audio pack integrity check failed');
+  }
   let filed = 0;
   for (const sl of Object.keys(pack.clips)) {
     if (wanted && !wanted.has(sl)) continue;
@@ -303,7 +312,7 @@ const slugFromUrl = (u) => {
  * fetching for anything packs cannot cover, and for a publish that has no
  * packs at all.
  */
-export async function prefetch(urls, { concurrency = 6, onProgress } = {}) {
+export async function prefetch(urls, { concurrency = 6, onProgress, allInOne = false } = {}) {
   let cache;
   try { cache = await caches.open(CACHE); } catch (e) { return { done: 0, failed: urls.length, failedUrls: urls.slice() }; }
 
@@ -328,7 +337,17 @@ export async function prefetch(urls, { concurrency = 6, onProgress } = {}) {
   let index = null;
   try { index = await audioPacks(); } catch (e) { index = null; }
 
-  if (index) {
+  if (allInOne && index?.all && location.hostname !== 'app.local') {
+    // One HTTP download even for retries. Do not silently explode a pack error
+    // into thousands of mobile requests; the UI offers a single-pack retry.
+    try {
+      await fetchPack(cache, index.all, new Set(missing.map(slugFromUrl)));
+      done += missing.length;
+    } catch (error) { failed = missing.length; failedUrls.push(...missing); }
+    report(); return { done, failed, failedUrls };
+  }
+
+  if (index && location.hostname !== 'app.local') {
     const bySlug = new Map();
     for (const url of missing) {
       const sl = slugFromUrl(url);

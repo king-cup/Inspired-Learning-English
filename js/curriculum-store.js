@@ -1,7 +1,7 @@
 const KEY = 'ie.curriculum.v2';
 const VERSION = 2;
 const DAY = 86400000;
-const fresh = () => ({ version: VERSION, articles: {}, middle: {}, memory: {}, activity: [] });
+const fresh = () => ({ version: VERSION, articles: {}, middle: {}, memory: {}, activity: [], highlights: {}, encounters: [] });
 let state = fresh();
 
 export function init() {
@@ -13,6 +13,8 @@ export function init() {
       middle: parsed.middle && typeof parsed.middle === 'object' ? parsed.middle : {},
       memory: parsed.memory && typeof parsed.memory === 'object' ? parsed.memory : {},
       activity: Array.isArray(parsed.activity) ? parsed.activity.slice(-100) : [],
+      highlights: parsed.highlights && typeof parsed.highlights === 'object' ? parsed.highlights : {},
+      encounters: Array.isArray(parsed.encounters) ? parsed.encounters : [],
     };
   } catch (error) { console.warn('[curriculum] ignored malformed stored data:', error); }
   return state;
@@ -24,6 +26,21 @@ function save() {
 }
 
 export const get = () => state;
+export const highlights = id => state.highlights[id] || {};
+export function highlightWord(article, anchor, entry, display, sentence) {
+  if (highlights(article.id)[anchor]) return;
+  const item = remember({ display, baseForm: entry.w, partOfSpeech: entry.p, chinese: entry.c, english: entry.s || entry.e || '', sentence, article });
+  const event = { at: Date.now(), articleId: article.id, anchor, word: entry.w, memoryId: item.id };
+  state.encounters.push(event);
+  state.highlights[article.id] = { ...highlights(article.id), [anchor]: event };
+  save();
+}
+export function undoHighlight(id) {
+  const entries = Object.entries(highlights(id)).reverse();
+  if (!entries.length) return;
+  const [anchor] = entries.sort((a,b) => b[1].at-a[1].at)[0];
+  delete state.highlights[id][anchor]; save();
+}
 export const articleState = (id) => state.articles[id] || {};
 export function patchArticle(id, patch) {
   state.articles[id] = { ...articleState(id), ...patch, updatedAt: Date.now() };
@@ -52,7 +69,9 @@ export function remember({ display, type, baseForm, partOfSpeech, english, chine
   const id = `v-${form.replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || btoa(unescape(encodeURIComponent(form))).slice(0, 12)}`;
   const now = Date.now();
   const old = state.memory[id];
-  const context = { sentence, articleId: article.id, articleTitle: article.title, level: article.level, unit: article.unit, reading: article.reading };
+  const match = /^ms-g([789])-(reading-[a-e])-/.exec(article.id);
+  const route = match ? `#/middle/${match[1]}/${match[2]}/study/${article.id}` : `#/reading/${article.id}`;
+  const context = { sentence, articleId: article.id, articleTitle: article.title, level: article.level, unit: article.unit, reading: article.reading, route };
   const contexts = old?.contexts || [];
   const duplicate = contexts.some((row) => row.articleId === context.articleId && row.sentence === context.sentence);
   state.memory[id] = {
