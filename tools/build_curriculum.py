@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 READING_ROOT = ROOT.parent / "Reading Explorer Extracts"
-MIDDLE_ROOT = Path("/Users/pshen2p/Desktop/Inspired Education/Beijing Middle School English/北京英语_整理版/AI提取_分类_含解析")
+MIDDLE_ROOT = Path.home() / "Desktop/Inspired Education/Beijing Middle School English/北京英语_整理版/AI提取_分类_含解析"
 
 READING_FILES = [
     ("foundation", "Foundation", READING_ROOT / "Reading Explorer Foundations - Articles and Practice.md"),

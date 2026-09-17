@@ -1,16 +1,18 @@
-# Inspired English — student web app (PWA)
+# Inspired English — learner app
 
-The iPhone/iPad half of the student app. Same word lists and learning modes, with
-the same black-and-white paper as the Android APK, delivered as a website that
-installs from Safari instead of an app store.
+This folder is the canonical learner application. iPhone and iPad run it as an
+installable PWA; Android v1.09 packages the same audited web release inside the
+WebView shell in `../Vocab Drill Student App/`.
 
 **Why this exists:** the App Store's China storefront requires an ICP filing
 number, which requires a Chinese business licence. A PWA sidesteps that
 entirely — Add to Home Screen, full-screen, offline after first load, updated by
 republishing. No store, no review, no $99, no filing.
 
-Android students keep using the native APK; this is a second client, not a
-replacement.
+Start with [[PROJECT INDEX]] for the current architecture and health snapshot.
+Planned work is in [[ROADMAP — App Quality, Tutorial and Download Size]], the
+curriculum cleanup is in [[CONTENT AUDIT — Reading and Middle School]], and
+learner-facing release history is in [[CHANGELOG]].
 
 ## What's in it
 
@@ -28,6 +30,12 @@ taken from each package's source worksheet. Written-response exercises are exclu
 mode gives immediate feedback; Test mode draws a non-repeating passage from the
 chosen grade and hides all results until submission. Each blank unfolds its
 choices inside the article, and scores plus perfect runs are saved on-device.
+**Reading Comprehension** — 144 lessons across Foundation and Levels 1–5, with
+article narration, extracted source exercises, selected vocabulary, completion
+history and a personal follow-up review.
+**Middle School English** — Grades 7–9 organized into MCQ and reading sections.
+**Memory Palace** — vocabulary encountered in Reading, with context, review
+history and a spaced-review queue. Its product model is under review.
 
 ## Layout
 
@@ -39,18 +47,37 @@ js/store.js           progress; port of Progress.kt + ProgressStore.kt
 js/learn-engine.js    MCQ construction; literal port of LearnEngine.kt
 js/cloze-data.js      lazy cloze corpus loader and grade pools
 js/cloze-store.js     cloze history, sessions, and balanced random draws
+js/curriculum-data.js lazy Reading and Middle School loaders
+js/curriculum-store.js Reading progress, vocabulary encounters and Memory Palace
 js/audio.js           pronunciation; port of Speaker.kt
 js/ui.js              the component vocabulary from Components.kt
 js/screens/*.js       one file per screen
 sw.js                 app shell cache only — audio is handled by the page
 cloze.json            608 de-duplicated, answer-keyed cloze passages
 advanced-practice.json HSE worksheet multiple-choice bank
+reading-content.json  144 audited Reading lessons
+reading-explorer-audit.json Per-article Reading review and quarantine ledger
+middle-school.json    Approved Grades 7–9 MCQ and Reading A–E bank
+middle-school-future.json Cleaned 阅读表达 and Writing material, not learner-facing
+middle-school-cleaning-audit.json Per-record source matching and quarantine ledger
+reading-audio-manifest.json Reading narration metadata
 vocab.json            copied from the Android app's assets
 audio-index.json      the 4,321 slugs that have a clip
 audio/*.m4a           4,321 clips, 24 MB
 tools/transcode_audio.sh
 tools/rebuild_learning_content.py rebuilds the cloze and advanced-practice banks
+tools/build_curriculum.py builds Reading and Middle School bundles
+tools/clean_middle_school.py source-matches and publishes approved middle-school sections
+tools/audit_reading_content.py removes learner-page debris and malformed Reading exercises
+tools/validate_curriculum.py validates structure and reading audio integrity
 ```
+
+> [!warning]
+> [!note]
+> `curriculum-audit.json` proves structural and audio integrity. Editorial
+> publication decisions and quarantined records are tracked separately in
+> `middle-school-cleaning-audit.json` and `reading-explorer-audit.json`; see
+> [[CONTENT AUDIT — Reading and Middle School]].
 
 ## Three contracts shared with the Android app
 
@@ -124,8 +151,10 @@ no way to get it back.
 
 - **No accounts, no gating, no teacher-side tracking.** All three need a server
   students in mainland China can reach, which is the ICP wall again.
-- **Progress is per device and per install.** Deleting the icon or clearing
-  Safari data destroys it. `toJSON`/`fromJSON` exist in `store.js`; the
-  export/import UI is not built yet.
+- **Progress is per device and per install.** Deleting the icon/app or clearing
+  its storage destroys it. Settings includes local backup/restore; students must
+  make a backup before destructive device changes.
 - **Audio needs network on first use** of each unit (median 106 KB), unless the
   student uses "Download all pronunciation" on the library screen first.
+- **Android v1.09 is oversized.** The APK bundles all 144 Reading narrations;
+  moving those 343.9 MiB of raw assets to optional downloads is planned.

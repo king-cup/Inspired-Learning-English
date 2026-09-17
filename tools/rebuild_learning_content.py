@@ -23,8 +23,9 @@ import unicodedata
 from pathlib import Path
 
 
-CLOZE_ROOT = Path('/Users/pshen2p/Desktop/Inspired Education/Beijing Middle School English/北京英语_整理版')
-HSE_ROOT = Path('/Users/pshen2p/Documents/Obsidian Notes/Teaching Vault/Generated Materials/Vocab Worksheets/Beijing High School')
+HOME = Path.home()
+CLOZE_ROOT = HOME / 'Desktop/Inspired Education/Beijing Middle School English/北京英语_整理版'
+HSE_ROOT = HOME / 'Documents/Obsidian Notes/Teaching Vault/Generated Materials/Vocab Worksheets/Beijing High School'
 ANSWER_KEYS = Path(__file__).with_name('cloze-answer-keys.json')
 
 

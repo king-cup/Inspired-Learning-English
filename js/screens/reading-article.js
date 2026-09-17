@@ -133,7 +133,7 @@ export async function render(root, id) {
 
 function exerciseSection(section, key, title) {
   const wrap = h('section.exercise-section.box.mt', { 'data-section': key });
-  wrap.append(barLabel(title), h('div.exercise-source', null, ...section.sourceText.split(/\n\n+/).map((text) => h('p', null, cn(text)))));
+  wrap.append(barLabel(title), h('p.exercise-instructions', null, cn(section.instructions || tr('Answer the questions below.', '请回答以下问题。'))));
   const fields = h('div.exercise-fields');
   section.questions.forEach((q) => {
     const field = h('fieldset.question', { 'data-id': q.id }, h('legend', null, `${q.number}. `, cn(q.prompt)));

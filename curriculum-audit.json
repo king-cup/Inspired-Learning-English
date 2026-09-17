@@ -19,35 +19,32 @@
   "wpmMin": 143.8794265408651,
   "wpmMax": 159.54103267647793,
   "wpmAverage": 150.47,
-  "questionsWithAnswerKeys": 12845,
-  "questionsWithoutAnswerKeys": 7250,
+  "questionsWithAnswerKeys": 12148,
+  "questionsWithoutAnswerKeys": 2316,
   "middleSchoolByGradeAndSection": {
     "7": {
-      "mcq": 140,
-      "reading-a": 141,
-      "reading-b": 161,
-      "reading-c": 161,
-      "reading-d": 115,
-      "reading-e": 11,
-      "reading-response": 148
+      "mcq": 126,
+      "reading-a": 118,
+      "reading-b": 139,
+      "reading-c": 132,
+      "reading-d": 92,
+      "reading-e": 9
     },
     "8": {
-      "mcq": 169,
-      "reading-a": 158,
-      "reading-b": 182,
-      "reading-c": 181,
-      "reading-d": 150,
-      "reading-e": 8,
-      "reading-response": 169
+      "mcq": 151,
+      "reading-a": 135,
+      "reading-b": 159,
+      "reading-c": 152,
+      "reading-d": 125,
+      "reading-e": 6
     },
     "9": {
-      "mcq": 231,
-      "reading-a": 174,
-      "reading-b": 234,
-      "reading-c": 230,
-      "reading-d": 227,
-      "reading-e": 18,
-      "reading-response": 210
+      "mcq": 229,
+      "reading-a": 160,
+      "reading-b": 219,
+      "reading-c": 208,
+      "reading-d": 202,
+      "reading-e": 18
     }
   },
   "duplicatesSkippedOrMerged": 1,

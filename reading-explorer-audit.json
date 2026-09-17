@@ -1,0 +1,4817 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "rc-foundation-u01-a",
+      "title": "A Mysterious Visitor",
+      "status": "approved",
+      "paragraphs": 5,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 3,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u01-a-c-q04",
+              "number": "4",
+              "prompt": "In paragraph C, what does considered mean?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            },
+            {
+              "id": "rc-foundation-u01-a-c-q05",
+              "number": "5",
+              "prompt": "According to the infographic on page 10, when was ‘Oumuamua first seen from Earth?",
+              "reasons": [
+                "missing-page-material",
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 12,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u01-b",
+      "title": "The Lost City of Atlantis",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u01-b-c-q05",
+              "number": "5",
+              "prompt": "In paragraph D, which sentence is closest in meaning to “there is not a piece of solid evidence” for a real Atlantis?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 12,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u02-a",
+      "title": "The World of Speed Eating",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u02-a-c-q05",
+              "number": "5",
+              "prompt": "Which of the following would Takeru Kobayashi most likely say?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u02-b",
+      "title": "The Hottest Chilies",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u02-b-c-q05",
+              "number": "5",
+              "prompt": "In paragraph F, the phrase I barely notice them can be replaced with",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u03-a",
+      "title": "Digging for the Past",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u03-a-c-q05",
+              "number": "5",
+              "prompt": "In paragraph E, what does stress mean?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-8:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-foundation-u03-b",
+      "title": "Getting the Shot Right",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u03-b-c-q05",
+              "number": "5",
+              "prompt": "What is the main idea of paragraph F?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            },
+            {
+              "id": "rc-foundation-u03-b-c-q06",
+              "number": "1",
+              "prompt": "there (paragraph",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            },
+            {
+              "id": "rc-foundation-u03-b-c-q07",
+              "number": "2",
+              "prompt": "some (paragraph",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 5,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u03-b-v-q03",
+              "number": "3",
+              "prompt": "If something is free, • •",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u04-a",
+      "title": "I’ve Found the Titanic!",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u04-a-c-q05",
+              "number": "5",
+              "prompt": "Which statement would Ballard probably agree with?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u04-b",
+      "title": "My Descent to the Titanic",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u04-b-c-q05",
+              "number": "5",
+              "prompt": "In paragraph F, what does fell mean?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u05-a",
+      "title": "The Disease Detective",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u05-a-c-q05",
+              "number": "5",
+              "prompt": "What advice would Dr. Besser probably agree with?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u05-b",
+      "title": "At the Scene of a Crime",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u05-b-c-q05",
+              "number": "5",
+              "prompt": "What are the most important clues that the investigator finds?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u06-a",
+      "title": "Planting for the Planet",
+      "status": "approved",
+      "paragraphs": 5,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u06-a-c-q05",
+              "number": "5",
+              "prompt": "Which of the following is the best summary of Finkbeiner’s quote in paragraph D?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 4,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u06-b",
+      "title": "Fatal Attraction",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u06-b-c-q05",
+              "number": "5",
+              "prompt": "Which plant does not use hairs to catch insects?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 11,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-6:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-foundation-u07-a",
+      "title": "Understanding Dreams",
+      "status": "approved",
+      "paragraphs": 5,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u07-a-c-q05",
+              "number": "5",
+              "prompt": "According to the passage, which of these sentences is true?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u07-b",
+      "title": "Seeing the Impossible",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u07-b-c-q05",
+              "number": "5",
+              "prompt": "Which of these is an optical illusion?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u07-b-v-q04",
+              "number": "4",
+              "prompt": "If you make a mistake, you do something that is .",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-4:inline-footnote-marker-removed",
+        "paragraph-5:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-foundation-u08-a",
+      "title": "A Penguin’s Year",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u08-a-c-q05",
+              "number": "5",
+              "prompt": "At what age do most penguin chicks start to live on their own?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 6,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u08-b",
+      "title": "Do Animals Laugh?",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u08-b-c-q05",
+              "number": "5",
+              "prompt": "What is the main idea of the last paragraph?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 4,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-4:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-foundation-u09-a",
+      "title": "A Love Poem in Stone",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u09-a-c-q05",
+              "number": "5",
+              "prompt": "What is the main idea of paragraph F?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u09-b",
+      "title": "The Great Dome of Florence",
+      "status": "approved",
+      "paragraphs": 5,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u09-b-c-q05",
+              "number": "5",
+              "prompt": "Why don’t we fully understand how the dome was built?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 3,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u10-a",
+      "title": "Wild Weather",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u10-a-c-q05",
+              "number": "5",
+              "prompt": "Which of the following statements would Oppenheimer probably agree with?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u10-b",
+      "title": "When Weird Weather Strikes",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u10-b-c-q05",
+              "number": "5",
+              "prompt": "What is NOT true about the skeletons found at Lake Roopkund?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 4,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-1:footnote-marker-removed",
+        "paragraph-3:footnote-marker-removed",
+        "paragraph-5:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-foundation-u11-a",
+      "title": "The Mammoth’s Tale",
+      "status": "approved",
+      "paragraphs": 5,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u11-a-c-q05",
+              "number": "5",
+              "prompt": "How did Lyuba die?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u11-a-v-q04",
+              "number": "4",
+              "prompt": "If something is perfect, you probably want to .",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u11-b",
+      "title": "Monsters of the Deep",
+      "status": "approved",
+      "paragraphs": 5,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u11-b-c-q05",
+              "number": "5",
+              "prompt": "Why did the fish not have a chance to get away from Thalassomedon?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 5,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u11-b-v-q03",
+              "number": "3",
+              "prompt": "meanwhile • •",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u12-a",
+      "title": "The Robots Are Coming!",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u12-a-c-q05",
+              "number": "5",
+              "prompt": "Why was the snake-bot created?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 6,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-foundation-u12-b",
+      "title": "How Will We Live in 2045?",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-foundation-u12-b-c-q05",
+              "number": "5",
+              "prompt": "In paragraph E, what says, “Don’t drink that!”?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 11,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-1-u01-a",
+      "title": "The Incredible Dolphin",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u01-a-c-q05",
+              "number": "5",
+              "prompt": "Why do dolphins sometimes help fishermen?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:footnote-marker-removed",
+        "paragraph-5:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u01-b",
+      "title": "Master of Disguise",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u01-b-c-q05",
+              "number": "5",
+              "prompt": "What does they refer to in paragraph D, line 4?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-1:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u02-a",
+      "title": "The Trip of a Lifetime",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u02-a-c-q05",
+              "number": "5",
+              "prompt": "Which statement would Gregg most likely agree with?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u02-a-v-q04",
+              "number": "4",
+              "prompt": "If something is a challenge, it is to do.",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u02-b",
+      "title": "Adventure Islands",
+      "status": "approved",
+      "paragraphs": 4,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u02-b-c-q05",
+              "number": "5",
+              "prompt": "Which sentence is true about land diving?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-4:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u03-a",
+      "title": "Move to the Music",
+      "status": "approved",
+      "paragraphs": 9,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 5,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u03-a-c-q05",
+              "number": "5",
+              "prompt": "Which of these can we definitely say about Jymmin machines?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-1-u03-b",
+      "title": "A Musical Boost",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u03-b-c-q05",
+              "number": "5",
+              "prompt": "How does Gottfried Schlaug help stroke patients speak?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u03-b-v-q05",
+              "number": "5",
+              "prompt": "A person’s overall abilities means their abilities .",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-1-u04-a",
+      "title": "Life Beyond Earth?",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u04-a-c-q05",
+              "number": "5",
+              "prompt": "Why does Shostak think we will make contact with intelligent life within the next 20 years?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-4:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u04-b",
+      "title": "Living in Space",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u04-b-c-q02",
+              "number": "2",
+              "prompt": "What does our in Stephen Hawking’s quote “our future should be safe“ (paragraph",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            },
+            {
+              "id": "rc-level-1-u04-b-c-q05",
+              "number": "5",
+              "prompt": "What does First stop: the moon mean in the last sentence?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 13,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-6:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u05-a",
+      "title": "Global Cities",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u05-a-c-q05",
+              "number": "5",
+              "prompt": "Which statement would the writer probably agree with?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 13,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-5:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u05-b",
+      "title": "A Taste of Two Cities",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u05-b-c-q05",
+              "number": "5",
+              "prompt": "The author’s suggestion in the last sentence is directed to .",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:footnote-marker-removed",
+        "paragraph-6:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u06-a",
+      "title": "In One Cubic Foot",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u06-a-c-q05",
+              "number": "5",
+              "prompt": "In paragraph C, why does Liittschwager call the organisms “little gems”?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-1:inline-footnote-marker-removed",
+        "paragraph-3:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u06-b",
+      "title": "What’s in Your Neighborhood?",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u06-b-c-q05",
+              "number": "5",
+              "prompt": "The nine-spotted ladybug seen in New York.",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u06-b-v-q05",
+              "number": "5",
+              "prompt": "If you are online, your computer connected to the Internet.",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-5:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u07-a",
+      "title": "The Truth About Dinosaurs",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u07-a-c-q05",
+              "number": "5",
+              "prompt": "What happened 66 million years ago?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:inline-footnote-marker-removed",
+        "paragraph-6:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u07-b",
+      "title": "Mystery of the Terrible Hand",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u07-b-c-q05",
+              "number": "5",
+              "prompt": "Why does Darla Zelenitsky say it’s “also sad in a way”?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-4:glossary-note-removed",
+        "paragraph-5:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u08-a",
+      "title": "The Brothers Grimm",
+      "status": "approved",
+      "paragraphs": 4,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u08-a-c-q05",
+              "number": "5",
+              "prompt": "Which of these is true about the Grimms’ stories?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-1-u08-b",
+      "title": "The Seven Ravens",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 3,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u08-b-c-q03",
+              "number": "3",
+              "prompt": "What does He could not take back his words (paragraph",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            },
+            {
+              "id": "rc-level-1-u08-b-c-q05",
+              "number": "5",
+              "prompt": "What lesson or moral is taught in this story?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u08-b-v-q06",
+              "number": "6",
+              "prompt": "If you are afraid to do something, you are .",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-1-u09-a",
+      "title": "Meet the Meteorite Hunter",
+      "status": "approved",
+      "paragraphs": 9,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u09-a-c-q05",
+              "number": "5",
+              "prompt": "In paragraph D, Farmer says, “New meteorites are in demand.” What does he mean?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-1-u09-b",
+      "title": "Smokejumpers",
+      "status": "approved",
+      "paragraphs": 5,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u09-b-c-q05",
+              "number": "5",
+              "prompt": "In Alexi Tishin’s opinion, why do people become smokejumpers?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-4:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u10-a",
+      "title": "The Army’s True Colors",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u10-a-c-q05",
+              "number": "5",
+              "prompt": "Which statement would Rong Bo probably agree with?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 5,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u10-a-v-q03",
+              "number": "3",
+              "prompt": "If you apply paint to something, you .",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-1-u10-b",
+      "title": "Wonders of Egypt",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u10-b-c-q05",
+              "number": "5",
+              "prompt": "What can we infer about the people who wrote Friends of Khufu on a wall?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-5:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u11-a",
+      "title": "The Problem with Plastic",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u11-a-c-q06",
+              "number": "8",
+              "prompt": "1 billion kilograms of plastic waste goes into the sea every year from coastal regions.",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-1-u11-b",
+      "title": "Five Tips for Using Less Plastic",
+      "status": "approved",
+      "paragraphs": 9,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u11-b-c-q05",
+              "number": "5",
+              "prompt": "What does They refer to in the last sentence of paragraph E?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-1-u12-a",
+      "title": "Mystery on the Mountain",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u12-a-c-q05",
+              "number": "5",
+              "prompt": "Which statement would Conrad Anker probably agree with?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-1-u12-b",
+      "title": "The Missing Pilot",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-1-u12-b-c-q05",
+              "number": "5",
+              "prompt": "In paragraph D, when Earhart says “When I go …,” what does go mean?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-2-u01-a",
+      "title": "Sweet Love",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u01-a-c-q05",
+              "number": "5",
+              "prompt": "Which of the following statements about sugar is NOT true?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-2-u01-b",
+      "title": "Food for the Future",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u01-b-c-q05",
+              "number": "5",
+              "prompt": "The infographic on page 15 shows .",
+              "reasons": [
+                "missing-page-material",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 13,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:glossary-note-removed",
+        "paragraph-4:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u02-a",
+      "title": "Song of the Humpback",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u02-a-c-q05",
+              "number": "5",
+              "prompt": "In the last paragraph, what does goes both\n\nways mean?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 13,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:inline-footnote-marker-removed",
+        "paragraph-6:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u02-b",
+      "title": "The 1,000-Year Bird Song",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u02-b-c-q05",
+              "number": "5",
+              "prompt": "Which of the following is an example of conformist bias ?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:glossary-note-removed",
+        "paragraph-5:inline-footnote-marker-removed",
+        "paragraph-7:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u03-a",
+      "title": "Was King Tut Murdered?",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u03-a-c-q05",
+              "number": "5",
+              "prompt": "What did scientists discover by analyzing King Tut’s DNA?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 6,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:inline-footnote-marker-removed",
+        "paragraph-5:glossary-note-removed",
+        "paragraph-5:inline-footnote-marker-removed",
+        "paragraph-7:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u03-b",
+      "title": "Who Killed the Iceman?",
+      "status": "approved",
+      "paragraphs": 10,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u03-b-c-q05",
+              "number": "5",
+              "prompt": "In paragraph G, what does opening the door to mean?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 14,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-4:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u04-a",
+      "title": "Living Treasures",
+      "status": "approved",
+      "paragraphs": 9,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 11,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u04-a-c-q05",
+              "number": "5",
+              "prompt": "Why does the author mention Al Sadu?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-2-u04-b",
+      "title": "The Changing Face of Kung Fu",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u04-b-c-q05",
+              "number": "5",
+              "prompt": "In paragraph F, what does endure suffering mean?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-2-u05-a",
+      "title": "The Secrets in the Sand",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u05-a-c-q05",
+              "number": "5",
+              "prompt": "Why does the author mention a UNESCO World Heritage Site?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 4,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u05-b",
+      "title": "The Stories in the Rocks",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u05-b-c-q05",
+              "number": "5",
+              "prompt": "Why does Hurum mention “scratch-off lottery tickets”?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u06-a",
+      "title": "Cities Beneath the Sea",
+      "status": "approved",
+      "paragraphs": 9,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u06-a-c-q05",
+              "number": "5",
+              "prompt": "Which sentence best expresses the main idea of the final paragraph?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 14,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-5:footnote-marker-removed",
+        "paragraph-8:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u06-b",
+      "title": "The Truth About Great Whites",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u06-b-c-q05",
+              "number": "5",
+              "prompt": "Which statement is a fact and not speculation?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-2-u07-a",
+      "title": "The Flower Trade",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u07-a-c-q05",
+              "number": "5",
+              "prompt": "What is the purpose of the “From Colombia to the United States” section?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:inline-footnote-marker-removed",
+        "paragraph-4:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u07-b",
+      "title": "The Power of Perfume",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 5,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u07-b-c-q05",
+              "number": "5",
+              "prompt": "What does Annie Buzantian suggest people do when buying a perfume?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-5:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u08-a",
+      "title": "An Incredible Journey",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u08-a-c-q05",
+              "number": "5",
+              "prompt": "In the last sentence of paragraph E, the word It refers to .",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-1:inline-footnote-marker-removed",
+        "paragraph-3:inline-footnote-marker-removed",
+        "paragraph-5:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u08-b",
+      "title": "The Travels of Ibn Battuta",
+      "status": "approved",
+      "paragraphs": 5,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u08-b-c-q05",
+              "number": "5",
+              "prompt": "The writer of this passage most likely thinks that Ibn Battuta’s journey .",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 14,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u09-a",
+      "title": "The Teenage Brain",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 11,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u09-a-c-q05",
+              "number": "5",
+              "prompt": "Which of the following would be the best heading for the last paragraph?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 5,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-1:inline-footnote-marker-removed",
+        "paragraph-3:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u09-b",
+      "title": "Seeing Double",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u09-b-c-q05",
+              "number": "5",
+              "prompt": "In paragraph E, the word vastly is closest in meaning to .",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-2-u10-a",
+      "title": "The Big Thaw",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u10-a-c-q05",
+              "number": "5",
+              "prompt": "What would be the best heading for the final paragraph?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-2-u10-b",
+      "title": "Life on the Edge",
+      "status": "approved",
+      "paragraphs": 10,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u10-b-c-q05",
+              "number": "5",
+              "prompt": "The author refers to Ilannguaq Egede in paragraph Fto indicate that .",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-4:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u11-a",
+      "title": "The Knowledge Illusion",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u11-a-c-q05",
+              "number": "5",
+              "prompt": "Which of the following is an example of “motivated reasoning”?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-2-u11-b",
+      "title": "The Limits of Lying",
+      "status": "approved",
+      "paragraphs": 10,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u11-b-c-q05",
+              "number": "5",
+              "prompt": "Which of the following statements best summarizes the conclusion Ariely draws in paragraph E?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-5:glossary-note-removed",
+        "paragraph-9:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-2-u12-a",
+      "title": "The Dream of Flight",
+      "status": "approved",
+      "paragraphs": 9,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u12-a-c-q05",
+              "number": "5",
+              "prompt": "What did Yves Rossy accomplish?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 5,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-2-u12-b",
+      "title": "Dark Descent",
+      "status": "approved",
+      "paragraphs": 9,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-2-u12-b-c-q05",
+              "number": "5",
+              "prompt": "What is the purpose of the last paragraph?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:inline-footnote-marker-removed",
+        "paragraph-5:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u01-a",
+      "title": "The World’s Game",
+      "status": "approved",
+      "paragraphs": 10,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u01-a-c-q05",
+              "number": "5",
+              "prompt": "What is the main idea of the last paragraph?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-3-u01-b",
+      "title": "What Makes an Olympic Champion?",
+      "status": "approved",
+      "paragraphs": 11,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 5,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u01-b-c-q05",
+              "number": "5",
+              "prompt": "What statement would diver Greg Louganis probably agree with?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u02-a",
+      "title": "What Is Beauty?",
+      "status": "approved",
+      "paragraphs": 11,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u02-a-c-q05",
+              "number": "5",
+              "prompt": "What determines the beauty of a Huli man in Papua New Guinea?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-3-u02-b",
+      "title": "Skin: The Body’s Canvas",
+      "status": "approved",
+      "paragraphs": 10,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u02-b-c-q05",
+              "number": "5",
+              "prompt": "What is NOT true about henna designs?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-4:footnote-marker-removed",
+        "paragraph-5:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u03-a",
+      "title": "Racing to Rescue Koalas",
+      "status": "approved",
+      "paragraphs": 15,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u03-a-c-q05",
+              "number": "5",
+              "prompt": "Why do you think de Villiers captures Tee V ee?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-12:footnote-marker-removed",
+        "paragraph-2:footnote-marker-removed",
+        "paragraph-8:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u03-b",
+      "title": "Tracking the Snow Leopard",
+      "status": "approved",
+      "paragraphs": 10,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u03-b-c-q05",
+              "number": "5",
+              "prompt": "Why is the Mongolian women’s status in the community “elevated” (paragraph I)?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            },
+            {
+              "id": "rc-level-3-u03-b-c-q10",
+              "number": "5",
+              "prompt": "incentives (paragraph G)",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 14,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u04-a",
+      "title": "Sacred Summits",
+      "status": "approved",
+      "paragraphs": 10,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u04-a-c-q05",
+              "number": "5",
+              "prompt": "Which statement is true about both Mount Fuji and El Popo?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 4,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-3-u04-b",
+      "title": "Is Prediction Possible?",
+      "status": "approved",
+      "paragraphs": 9,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u04-b-c-q05",
+              "number": "5",
+              "prompt": "What is the main idea of paragraph H?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 6,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-3-u05-a",
+      "title": "Land of Fire and Ice",
+      "status": "approved",
+      "paragraphs": 10,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 12,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u05-a-c-q05",
+              "number": "5",
+              "prompt": "Where is the mid-Atlantic fault most noticeable?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u05-a-v-q10",
+              "number": "4",
+              "prompt": "The island nation of Singapore was built by people who migrated there from other countries.",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-1:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u05-b",
+      "title": "The Perfect Beach",
+      "status": "approved",
+      "paragraphs": 12,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u05-b-c-q05",
+              "number": "5",
+              "prompt": "In paragraph H, the best one refers to .",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 4,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-6:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u06-a",
+      "title": "The World’s Favorite Drug",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u06-a-c-q05",
+              "number": "5",
+              "prompt": "The following sentence would best be placed at the end of which paragraph? Many say they couldn’t live without it.",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 6,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-3-u06-b",
+      "title": "Addicted to Distraction",
+      "status": "approved",
+      "paragraphs": 13,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u06-b-c-q05",
+              "number": "5",
+              "prompt": "At the beginning of the third sentence of paragraph I, This r efers to .",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-3-u07-a",
+      "title": "Powering the Planet",
+      "status": "approved",
+      "paragraphs": 12,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u07-a-c-q05",
+              "number": "5",
+              "prompt": "Which question is closest in meaning to In the end, are any of these sources alone the answer to our current energy problems? (paragraph M)",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 6,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-6:inline-footnote-marker-removed",
+        "paragraph-8:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u07-b",
+      "title": "City of the Future?",
+      "status": "approved",
+      "paragraphs": 9,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u07-b-c-q05",
+              "number": "5",
+              "prompt": "At the beginning of the third sentence in paragraph F, It refers to .",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            },
+            {
+              "id": "rc-level-3-u07-b-c-q11",
+              "number": "6",
+              "prompt": "Paragraph F",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-8:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u08-a",
+      "title": "China’s Grand Canal",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u08-a-c-q05",
+              "number": "5",
+              "prompt": "The following sentence would best be placed at the end of which paragraph? The city of Yangzhou, for example, has created a beautiful park near its waterfront.",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:footnote-marker-removed",
+        "paragraph-4:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u08-b",
+      "title": "Highway of Dreams",
+      "status": "approved",
+      "paragraphs": 9,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u08-b-c-q05",
+              "number": "5",
+              "prompt": "What would be the best heading for paragraph I?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-5:inline-footnote-marker-removed",
+        "paragraph-7:inline-footnote-marker-removed",
+        "paragraph-8:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u09-a",
+      "title": "The Power of Virtual Reality",
+      "status": "approved",
+      "paragraphs": 13,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u09-a-c-q05",
+              "number": "5",
+              "prompt": "What is Bailenson’s main point in the final paragraph (K)?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-5:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u09-b",
+      "title": "High-Flying Helpers",
+      "status": "approved",
+      "paragraphs": 10,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u09-b-c-q05",
+              "number": "5",
+              "prompt": "Which of these is closest in meaning to swarms in the last sentence of paragraph E?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:footnote-marker-removed",
+        "paragraph-9:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u10-a",
+      "title": "What’s on Your Mind?",
+      "status": "approved",
+      "paragraphs": 11,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u10-a-c-q05",
+              "number": "5",
+              "prompt": "According to researcher Richard Davidson, what helps people shift away fr om a negative state of mind?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 11,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-10:inline-footnote-marker-removed",
+        "paragraph-4:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u10-b",
+      "title": "Inside Animal Minds",
+      "status": "approved",
+      "paragraphs": 11,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u10-b-c-q05",
+              "number": "5",
+              "prompt": "What do parrots and primates have in common?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:inline-footnote-marker-removed",
+        "paragraph-8:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u11-a",
+      "title": "Van Gogh’s World",
+      "status": "approved",
+      "paragraphs": 12,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u11-a-c-q05",
+              "number": "5",
+              "prompt": "The following sentence would best be placed at the end of which paragraph? The question, like so many others in van Gogh’s life, remains unanswered.",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-11:inline-footnote-marker-removed",
+        "paragraph-7:footnote-marker-removed",
+        "paragraph-8:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u11-b",
+      "title": "Seeing the Light",
+      "status": "approved",
+      "paragraphs": 16,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u11-b-c-q05",
+              "number": "5",
+              "prompt": "How did Vivian Maier first become internationally famous?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-10:inline-footnote-marker-removed",
+        "paragraph-16:glossary-note-removed",
+        "paragraph-6:footnote-marker-removed",
+        "paragraph-8:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u12-a",
+      "title": "Defying Gravity",
+      "status": "approved",
+      "paragraphs": 11,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u12-a-c-q05",
+              "number": "5",
+              "prompt": "What would Sunita Williams say was the most challenging aspect of her first spacewalk?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:inline-footnote-marker-removed",
+        "paragraph-5:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-3-u12-b",
+      "title": "The Ultimate Trip",
+      "status": "approved",
+      "paragraphs": 6,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u12-b-c-q05",
+              "number": "5",
+              "prompt": "What does SpaceX want to do?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-3-u12-b-v-q05",
+              "number": "4",
+              "prompt": "You are likely to replace a product if it’s .",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-4:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u01-a",
+      "title": "The Visual Village",
+      "status": "approved",
+      "paragraphs": 11,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u01-a-c-q05",
+              "number": "5",
+              "prompt": "When referring to visual language, what does the author mean by as with any language, there will be those who produce poetry and those who make shopping lists (paragraph K)?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-7:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u01-b",
+      "title": "My Journey in Photographs",
+      "status": "approved",
+      "paragraphs": 12,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u01-b-c-q05",
+              "number": "5",
+              "prompt": "According to Griffiths, what has life as a photographer taught her?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            },
+            {
+              "id": "rc-level-4-u01-b-c-q11",
+              "number": "6",
+              "prompt": "once",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-9:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u02-a",
+      "title": "Living Light",
+      "status": "approved",
+      "paragraphs": 10,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u02-a-c-q05",
+              "number": "5",
+              "prompt": "What is meant by the “burglar alarm” effect?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-7:footnote-marker-removed",
+        "paragraph-9:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u02-b",
+      "title": "Feathers of Love",
+      "status": "approved",
+      "paragraphs": 15,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u02-b-c-q05",
+              "number": "5",
+              "prompt": "The following sentence would best be placed at the beginning of which paragraph? However, there may be some good news for the birds.",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            },
+            {
+              "id": "rc-level-4-u02-b-c-q10",
+              "number": "5",
+              "prompt": "present (paragraph L)",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-10:inline-footnote-marker-removed",
+        "paragraph-11:page-header-removed",
+        "paragraph-6:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u03-a",
+      "title": "How Safe Is Our Food?",
+      "status": "approved",
+      "paragraphs": 13,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u03-a-c-q05",
+              "number": "5",
+              "prompt": "What does Carmela Velazquez mean in paragraph I when she says, “The farmers we’ve trained will become models for all our growers” ?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 13,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-8:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u03-b",
+      "title": "The Battle for Biotech",
+      "status": "approved",
+      "paragraphs": 13,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 5,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u03-b-c-q05",
+              "number": "5",
+              "prompt": "What is the main idea of the final paragraph?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            },
+            {
+              "id": "rc-level-4-u03-b-c-q07",
+              "number": "2",
+              "prompt": "soybean 3. cotton",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-6:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u04-a",
+      "title": "Design by Nature: Biomimetics",
+      "status": "approved",
+      "paragraphs": 14,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u04-a-c-q05",
+              "number": "5",
+              "prompt": "Which of these statements about biomimetics is NOT true?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:glossary-note-removed",
+        "paragraph-3:glossary-note-removed",
+        "paragraph-3:inline-footnote-marker-removed",
+        "paragraph-6:inline-footnote-marker-removed",
+        "paragraph-7:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u04-b",
+      "title": "Weaving the Future",
+      "status": "approved",
+      "paragraphs": 16,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u04-b-c-q05",
+              "number": "5",
+              "prompt": "The following sentence would best be placed at the end of which paragraph? Thanks to them, the world of high-tech textiles is an exciting place to be these days.",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-14:inline-footnote-marker-removed",
+        "paragraph-7:footnote-marker-removed",
+        "paragraph-9:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u05-a",
+      "title": "The DNA Trail",
+      "status": "approved",
+      "paragraphs": 14,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u05-a-c-q05",
+              "number": "5",
+              "prompt": "Which statement is a theory, not a fact according to the passage?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-13:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u05-b",
+      "title": "Fantastic Voyage",
+      "status": "approved",
+      "paragraphs": 13,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u05-b-c-q05",
+              "number": "5",
+              "prompt": "What does Irwin mean by “they wanted to go and see what was over the horizon” (paragraph I)?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:inline-footnote-marker-removed",
+        "paragraph-7:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u06-a",
+      "title": "How Money Made Us Modern",
+      "status": "approved",
+      "paragraphs": 12,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u06-a-c-q05",
+              "number": "5",
+              "prompt": "Who is most likely to agree that physical money will be replaced in the near future?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:footnote-marker-removed",
+        "paragraph-4:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u06-b",
+      "title": "The Rise of Virtual Money",
+      "status": "approved",
+      "paragraphs": 15,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u06-b-c-q05",
+              "number": "5",
+              "prompt": "According to the analogy in paragraph I, a supersonic jet plane would represent .",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-10:footnote-marker-removed",
+        "paragraph-4:inline-footnote-marker-removed",
+        "paragraph-6:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u07-a",
+      "title": "A Crowd in Harmony",
+      "status": "approved",
+      "paragraphs": 7,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u07-a-c-q05",
+              "number": "5",
+              "prompt": "The following sentence would best be placed at the end of which paragraph? One day, it could even save your life.",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-4-u07-b",
+      "title": "Our Online Behavior",
+      "status": "approved",
+      "paragraphs": 13,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u07-b-c-q05",
+              "number": "5",
+              "prompt": "In which position should this sentence be added to paragraph H? Today it may include more virtual, social media friends than physical ones.",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-5:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u08-a",
+      "title": "Who Killed the Emperor?",
+      "status": "approved",
+      "paragraphs": 16,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 11,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u08-a-c-q05",
+              "number": "5",
+              "prompt": "Why does François de Candé - Montholon seem proud that his ancestor murdered Napoleon?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-13:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u08-b",
+      "title": "In the Crime Lab",
+      "status": "approved",
+      "paragraphs": 14,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u08-b-c-q05",
+              "number": "5",
+              "prompt": "According to Poklis, why don’t more Americans use poison to kill?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-10:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u09-a",
+      "title": "Virtually Immortal",
+      "status": "approved",
+      "paragraphs": 12,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u09-a-c-q05",
+              "number": "5",
+              "prompt": "What is the S c ottish Ten?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            },
+            {
+              "id": "rc-level-4-u09-a-c-q10",
+              "number": "5",
+              "prompt": "two examples of other projects the S c ottish team has worked on DETAIL PURPOSE INFERENCE DETAIL SCANNING\n\n156 Unit 9 A",
+              "reasons": [
+                "page-furniture"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 12,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u09-a-v-q13",
+              "number": "3",
+              "prompt": "The students study with a teacher via a virtual . COLLOCATIONS A coffin of solid gold held King Tut’s remains. 158 Unit 9 A",
+              "reasons": [
+                "page-furniture"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-4-u09-b",
+      "title": "Lure of the Lost City",
+      "status": "approved",
+      "paragraphs": 16,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 8,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u09-b-c-q05",
+              "number": "5",
+              "prompt": "Which of the following did the team NOT observe in the T1 valley?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            },
+            {
+              "id": "rc-level-4-u09-b-c-q10",
+              "number": "5",
+              "prompt": "Fisher’s team took the artifacts back to the U.S . for further study. T F NG MAIN IDEA DETAIL SEQUENCE DETAIL EVALUATING STATEMENTS A carved artifact uncovered in La Mosquitia 164 Unit 9 B",
+              "reasons": [
+                "page-furniture"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u09-b-v-q07",
+              "number": "3",
+              "prompt": "The tales of Robin Hood describe the adventures of a man who may have lived in E n gland’s S h erwood Forest hundreds of years ago. COMPLETION WORDS IN CONTEXT WORD USAGE An artist’s impression of the mythical El Dorado 166 Unit 9 B",
+              "reasons": [
+                "page-furniture"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-11:footnote-marker-removed",
+        "paragraph-5:footnote-marker-removed",
+        "paragraph-8:footnote-marker-removed",
+        "paragraph-9:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u10-a",
+      "title": "Living Longer",
+      "status": "approved",
+      "paragraphs": 11,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 7,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u10-a-c-q05",
+              "number": "5",
+              "prompt": "Which statement would Giuseppe Passarino probably agree with the most?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-4-u10-b",
+      "title": "In Search of Longevity",
+      "status": "approved",
+      "paragraphs": 13,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u10-b-c-q05",
+              "number": "5",
+              "prompt": "Which statement is true about Sar dinians, Adventists, and Okinawans?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            },
+            {
+              "id": "rc-level-4-u10-b-c-q08",
+              "number": "3",
+              "prompt": "Ushi Okushima , a Work hard your whole life.",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 13,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-4-u11-a",
+      "title": "Saving Water",
+      "status": "approved",
+      "paragraphs": 13,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 4,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u11-a-c-q05",
+              "number": "5",
+              "prompt": "What did Sandr a Postel mean by “water conservation is where the big gains are to be made” (para graph L)?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-12:inline-footnote-marker-removed",
+        "paragraph-1:inline-footnote-marker-removed",
+        "paragraph-2:inline-footnote-marker-removed",
+        "paragraph-5:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u11-b",
+      "title": "Technology as Trash",
+      "status": "approved",
+      "paragraphs": 12,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 10,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u11-b-c-q05",
+              "number": "5",
+              "prompt": "Which of these is NOT mentioned as a possible benefit of microfactories?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-5:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u12-a",
+      "title": "Planet Hunters",
+      "status": "approved",
+      "paragraphs": 18,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u12-a-c-q03",
+              "number": "3",
+              "prompt": "Look at the infographic on page 206. Which of these statements is true?",
+              "reasons": [
+                "missing-page-material"
+              ]
+            },
+            {
+              "id": "rc-level-4-u12-a-c-q05",
+              "number": "5",
+              "prompt": "The author implies that on some exoplanets, .",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-10:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-4-u12-b",
+      "title": "The Threat from Space",
+      "status": "approved",
+      "paragraphs": 15,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 9,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-4-u12-b-c-q05",
+              "number": "5",
+              "prompt": "Which method of deflection would not work well on a rotating asteroid?",
+              "reasons": [
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-5-u01-a",
+      "title": "Secrets of the Maya",
+      "status": "approved",
+      "paragraphs": 13,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u01-a-c-q07",
+              "number": "7",
+              "prompt": "Where would be the best place to insert this sentence in paragraph K? The villagers work without rest or sleep to persuade Chaak to come to them.",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-12:inline-footnote-marker-removed",
+        "paragraph-4:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u01-b",
+      "title": "The Collapse of Angkor",
+      "status": "approved",
+      "paragraphs": 19,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u01-b-c-q07",
+              "number": "7",
+              "prompt": "Why does the author mention the Little Ice Age in paragraph L?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-10:glossary-note-removed",
+        "paragraph-11:inline-footnote-marker-removed",
+        "paragraph-13:inline-footnote-marker-removed",
+        "paragraph-6:glossary-note-removed",
+        "paragraph-7:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u02-a",
+      "title": "The Sky Runner",
+      "status": "approved",
+      "paragraphs": 8,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u02-a-c-q07",
+              "number": "7",
+              "prompt": "Which of these q uestions about Rai’s home village cannot be answered by information in the passage?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:inline-footnote-marker-removed",
+        "paragraph-5:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u02-b",
+      "title": "The Free Soloist",
+      "status": "approved",
+      "paragraphs": 21,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u02-b-c-q07",
+              "number": "7",
+              "prompt": "Which of the following was NOT given as one of the challenges involved in climbing the Freerider route?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-1:footnote-marker-removed",
+        "paragraph-8:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u03-a",
+      "title": "The Age of Disbelief",
+      "status": "approved",
+      "paragraphs": 21,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u03-a-c-q07",
+              "number": "7",
+              "prompt": "According to the author, the “ science communication problem” mentioned in paragraph Q is caused by the fact that .",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-13:inline-footnote-marker-removed",
+        "paragraph-7:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u03-b",
+      "title": "Goalkeepers for the Planet",
+      "status": "approved",
+      "paragraphs": 12,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u03-b-c-q07",
+              "number": "7",
+              "prompt": "Which of the goals from the list of sustainable development goals is Bill Gates most concerned with?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-1:inline-footnote-marker-removed",
+        "paragraph-9:footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u04-a",
+      "title": "City Under Siege",
+      "status": "approved",
+      "paragraphs": 17,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u04-a-c-q07",
+              "number": "7",
+              "prompt": "The word they in the second sentence of paragraph Orefers to the .",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-2:footnote-marker-removed",
+        "paragraph-4:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u04-b",
+      "title": "Rising Seas",
+      "status": "approved",
+      "paragraphs": 17,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 5,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u04-b-c-q03",
+              "number": "3",
+              "prompt": "Find the sentences below in the passage. Which one does NOT include an example of figurative language?",
+              "reasons": [
+                "duplicate-choice-ids"
+              ]
+            },
+            {
+              "id": "rc-level-5-u04-b-c-q07",
+              "number": "7",
+              "prompt": "What is the main purpose of the section on page 88?",
+              "reasons": [
+                "missing-page-material",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-5:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u05-a",
+      "title": "Our Energy Diet",
+      "status": "approved",
+      "paragraphs": 18,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u05-a-c-q07",
+              "number": "7",
+              "prompt": "According to the information in the infographic A Traveler’s Footprint, which of the following is NOT true about the j ourney from Toronto to New York?",
+              "reasons": [
+                "implausible-choice-count",
+                "duplicate-choice-ids",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-5-u05-b",
+      "title": "Plugging into the Sun",
+      "status": "approved",
+      "paragraphs": 16,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u05-b-c-q07",
+              "number": "7",
+              "prompt": "Which of the following is NOT true according to the infographic on page 110?",
+              "reasons": [
+                "missing-page-material",
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 5,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-11:glossary-note-removed",
+        "paragraph-12:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u06-a",
+      "title": "Quicksilver",
+      "status": "approved",
+      "paragraphs": 24,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u06-a-c-q07",
+              "number": "7",
+              "prompt": "Why does the author discuss sardines in paragraph O?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-5:footnote-marker-removed",
+        "paragraph-5:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u06-b",
+      "title": "Building the Ark",
+      "status": "approved",
+      "paragraphs": 15,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u06-b-c-q07",
+              "number": "7",
+              "prompt": "Which animal is probably the most in danger of becoming extinct?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 5,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-4:glossary-note-removed",
+        "paragraph-5:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u07-a",
+      "title": "Secrets of the Brain",
+      "status": "approved",
+      "paragraphs": 20,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u07-a-c-q07",
+              "number": "7",
+              "prompt": "According to the writer, which researcher is the farthest along in finding practical ways to use recent brain research?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-12:glossary-note-removed",
+        "paragraph-14:footnote-marker-removed",
+        "paragraph-2:inline-footnote-marker-removed",
+        "paragraph-5:footnote-marker-removed",
+        "paragraph-5:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u07-b",
+      "title": "Human Bionics",
+      "status": "approved",
+      "paragraphs": 22,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u07-b-c-q07",
+              "number": "7",
+              "prompt": "In paragraph P , the author implies that the paper coffee cup went ‘pop’ because Ki tts .",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 10,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-13:glossary-note-removed",
+        "paragraph-14:glossary-note-removed",
+        "paragraph-18:inline-footnote-marker-removed",
+        "paragraph-4:inline-footnote-marker-removed",
+        "paragraph-7:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u08-a",
+      "title": "The Genius of Swarms",
+      "status": "approved",
+      "paragraphs": 20,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u08-a-c-q07",
+              "number": "7",
+              "prompt": "According to the infographic Articulate Ants, what does a weaver ant NOT do when an intruder is nearby?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-15:footnote-marker-removed",
+        "paragraph-9:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u08-b",
+      "title": "Of Ants and Humans",
+      "status": "approved",
+      "paragraphs": 29,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u08-b-c-q07",
+              "number": "7",
+              "prompt": "According to Wilson’s responses, how are humans unique?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-18:glossary-note-removed",
+        "paragraph-25:inline-footnote-marker-removed",
+        "paragraph-27:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u09-a",
+      "title": "Decoding Leonardo",
+      "status": "approved",
+      "paragraphs": 19,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u09-a-c-q07",
+              "number": "7",
+              "prompt": "In paragraph W , what does the author mean when he says, He had no way to know that the few magnificent works he did complete would alone make his name immortal?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-19:inline-footnote-marker-removed",
+        "paragraph-2:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u09-b",
+      "title": "The Power of Writing",
+      "status": "approved",
+      "paragraphs": 21,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u09-b-c-q07",
+              "number": "7",
+              "prompt": "Which of these opinions would Usama Fayyad most likely agree with?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 9,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": []
+    },
+    {
+      "id": "rc-level-5-u10-a",
+      "title": "Cosmic Dawn",
+      "status": "approved",
+      "paragraphs": 17,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u10-a-c-q07",
+              "number": "7",
+              "prompt": "Which of these things happened most recently?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-10:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u10-b",
+      "title": "Element Hunters",
+      "status": "approved",
+      "paragraphs": 22,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 5,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u10-b-c-q05",
+              "number": "5",
+              "prompt": "Why were physicists excited about the theory of the “ island of stability” ?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            },
+            {
+              "id": "rc-level-5-u10-b-c-q07",
+              "number": "7",
+              "prompt": "Since 2000, how many newly created elements have lasted longer than a few milliseconds?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-10:inline-footnote-marker-removed",
+        "paragraph-11:glossary-note-removed",
+        "paragraph-19:inline-footnote-marker-removed",
+        "paragraph-5:inline-footnote-marker-removed",
+        "paragraph-6:chart-or-axis-data-removed",
+        "paragraph-8:chart-or-axis-data-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u11-a",
+      "title": "The World of Süleyman the Magnificent",
+      "status": "approved",
+      "paragraphs": 26,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u11-a-c-q07",
+              "number": "7",
+              "prompt": "What does the author say about the siege of Malta?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 11,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-11:footnote-marker-removed",
+        "paragraph-12:glossary-note-removed",
+        "paragraph-14:glossary-note-removed",
+        "paragraph-6:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u11-b",
+      "title": "When the Moors Ruled Spain",
+      "status": "approved",
+      "paragraphs": 26,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u11-b-c-q07",
+              "number": "7",
+              "prompt": "Which of these is NOT true about the Alhambra?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 7,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-11:glossary-note-removed",
+        "paragraph-12:glossary-note-removed",
+        "paragraph-16:footnote-marker-removed",
+        "paragraph-20:inline-footnote-marker-removed",
+        "paragraph-7:glossary-note-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u12-a",
+      "title": "Gold Fever",
+      "status": "approved",
+      "paragraphs": 25,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u12-a-c-q07",
+              "number": "7",
+              "prompt": "Which of the following is true about Nagavi?",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 3,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-11:glossary-note-removed",
+        "paragraph-12:glossary-note-removed",
+        "paragraph-16:inline-footnote-marker-removed"
+      ]
+    },
+    {
+      "id": "rc-level-5-u12-b",
+      "title": "The Rush for White Gold",
+      "status": "approved",
+      "paragraphs": 15,
+      "sections": {
+        "comprehension": {
+          "questionsKept": 6,
+          "questionsQuarantined": [
+            {
+              "id": "rc-level-5-u12-b-c-q07",
+              "number": "7",
+              "prompt": "According to the infographic, the greatest amount of lithium is extracted in .",
+              "reasons": [
+                "instruction-or-skill-label-in-choices"
+              ]
+            }
+          ],
+          "rawDisplayRemoved": true
+        },
+        "vocabulary": {
+          "questionsKept": 8,
+          "questionsQuarantined": [],
+          "rawDisplayRemoved": true
+        }
+      },
+      "flags": [],
+      "proseCorrections": [
+        "paragraph-3:footnote-marker-removed",
+        "paragraph-5:glossary-note-removed",
+        "paragraph-7:footnote-marker-removed",
+        "paragraph-8:inline-footnote-marker-removed"
+      ]
+    }
+  ],
+  "summary": {
+    "articles": 144,
+    "approved": 144,
+    "questionsKept": 2239,
+    "questionsQuarantined": 173,
+    "rawExerciseBlocksRemoved": 288
+  }
+}

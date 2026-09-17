@@ -5,12 +5,12 @@ import * as Cloze from '../cloze-data.js';
 import { h, clear, cn, topBar, paperHeader, barLabel, button, blockButton, press, srHeading } from '../ui.js';
 
 const tr = (en, zh) => P.get().lang === 'zh' ? zh : en;
-const SECTION_ORDER = ['mcq', 'cloze', 'reading-a', 'reading-b', 'reading-c', 'reading-d', 'reading-e', 'reading-response'];
+const SECTION_ORDER = ['mcq', 'cloze', 'reading-a', 'reading-b', 'reading-c', 'reading-d', 'reading-e'];
 const SECTION_LABELS = {
   mcq: ['MCQ', '语法选择题'], cloze: ['Cloze', '完形填空'],
   'reading-a': ['Reading A', '阅读 A'], 'reading-b': ['Reading B', '阅读 B'],
   'reading-c': ['Reading C', '阅读 C'], 'reading-d': ['Reading D', '阅读 D'],
-  'reading-e': ['Reading E', '阅读 E'], 'reading-response': ['Reading Response', '阅读表达'],
+  'reading-e': ['Reading E', '阅读 E'],
 };
 const sectionLabel = (id) => tr(...SECTION_LABELS[id]);
 
