@@ -41,18 +41,19 @@ def main():
     pattern = re.compile(r"(?<![A-Za-z])(?:" + '|'.join(re.escape(word) for word in sorted(forms, key=len, reverse=True)) + r")(?![A-Za-z])", re.I)
     passages = {}
     for row in load('reading-content.json')['articles']:
-        passages[row['id']] = '\n\n'.join(row['paragraphs'])
+        passages[row['id']] = '\n\n'.join(row['paragraphs']) + '\n' + json.dumps(row['comprehension'], ensure_ascii=False)
     for sections in load('middle-school.json')['grades'].values():
         for section, rows in sections.items():
-            if section.startswith('reading-'):
-                for row in rows: passages[row['id']] = row.get('content', '')
+            for row in rows: passages[row['id']] = row.get('content', '') + '\n' + json.dumps(row.get('questions', []), ensure_ascii=False)
+    for row in load('cloze.json'):
+        passages['cloze-' + row['id']] = row['text'] + '\n' + '\n'.join(option for blank in row['blanks'] for option in blank['opts'])
     lists = {}
     used = set()
     for ident, text in passages.items():
         hits = sorted({match.group().lower() for match in pattern.finditer(text)})
         lists[ident] = {form: forms[form] for form in hits}
         used.update(lists[ident].values())
-    result = dict(schemaVersion=1, contentVersion='1.10', entries={word: entries[word] for word in sorted(used)}, passages=lists)
+    result = dict(schemaVersion=1, contentVersion='1.10.1', entries={word: entries[word] for word in sorted(used)}, passages=lists)
     (ROOT / 'passage-glossary.json').write_text(json.dumps(result, ensure_ascii=False, separators=(',', ':')) + '\n')
     assert all(form not in STOP and key in result['entries'] for rows in lists.values() for form, key in rows.items())
     print(f'{len(lists)} passage lists; {len(used)} definitions; {sum(map(len, lists.values()))} passage terms')

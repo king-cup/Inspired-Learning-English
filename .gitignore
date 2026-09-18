@@ -15,5 +15,11 @@ __pycache__/
 # Design-critique scratch (not part of the deployed app)
 .impeccable/
 
+# Explicit Android-preview build artifacts are kept locally, never deployed.
+*.apk
+*.keystore
+keystore.properties
+local.properties
+
 # NOTE: audio/, vocab.json, audio-index.json and content/ ARE committed on
 # purpose — they are the app's data and Netlify serves them directly.

@@ -79,7 +79,7 @@ export function render(root) {
     // in both interfaces (6.6).
     const row = press(h('button.unit-row' + (lastId === u.id ? '.active-lesson' : ''), { type: 'button', onclick: () => { location.hash = '#/u/' + encodeURIComponent(u.id); } },
       h('div.grow', null,
-        h('div.label', null, u.label),
+        h('div.label', null, D.resolve(u.id).label),
         h('div.meta', null,
           ruleBar(frac, 'sm', { label: i18n.f('lib.known', known, words.length) }),
           h('span.k-9', null, i18n.f('lib.known', known, words.length) + (st.bestPct > 0 ? '   ·   ' + i18n.f('lib.best', st.bestPct) : ''))

@@ -15,6 +15,8 @@ import * as cards from './screens/cards.js';
 import * as learn from './screens/learn.js';
 import * as advanced from './screens/advanced.js';
 import * as test from './screens/test.js';
+import * as guided from './screens/guided.js';
+import * as Activity from './activity.js';
 import * as settings from './screens/settings.js';
 import * as onboarding from './screens/onboarding.js';
 import * as clozeLibrary from './screens/cloze-library.js';
@@ -27,6 +29,8 @@ import * as highSchool from './screens/high-school.js';
 import * as memory from './screens/memory.js';
 import * as motion from './motion.js';
 import * as tutorial from './screens/tutorial.js';
+import * as releaseNotes from './release-notes.js';
+import * as releasePolicy from './release-policy.js';
 import { runUpdateCheck, showVocabUpdateBar } from './updates.js';
 import { h, clear, cn, button, closeAllDialogs, showUpdateBar as showBar, hideUpdateBar } from './ui.js';
 
@@ -35,7 +39,25 @@ import { h, clear, cn, button, closeAllDialogs, showUpdateBar as showBar, hideUp
 const FOREGROUND_CHECK_INTERVAL = 15 * 60 * 1000;
 
 const root = document.getElementById('app');
+window.addEventListener('learning-storage-error', () => {
+  if (document.getElementById('learning-storage-warning')) return;
+  const warning = h('p.note.bad', { id: 'learning-storage-warning', role: 'alert' },
+    i18n.lang() === 'zh'
+      ? '本设备无法保存部分学习记录。请勿关闭应用；请清理存储空间，并在设置中备份进度。'
+      : 'Some learning records could not be saved on this device. Keep the app open, free storage space, and back up your progress in Settings.');
+  root.before(warning);
+});
+window.addEventListener('pagehide', () => S.flush());
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') S.flush(); });
 let teardown = null;
+function enforceReleasePolicy() {
+  if (!releasePolicy.locked()) return false;
+  if (teardown) { try { teardown(); } catch (_) {} teardown = null; }
+  closeAllDialogs(); A.stop(); hideUpdateBar();
+  document.body.classList.add('version-locked');
+  releasePolicy.render(root);
+  return true;
+}
 
 /** Keep the document language in sync with the chosen UI language (§8), so
  *  assistive tech announces Chinese content in Chinese. */
@@ -77,6 +99,7 @@ const isStandalone = () =>
   (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
 
 function afterRoute(animate = true) {
+  if (enforceReleasePolicy()) return;
   // Move focus to the top of the new screen so screen readers announce it and
   // keyboard users start at the beginning (§8). Programmatic focus does not
   // trigger the :focus-visible ring for pointer users.
@@ -85,6 +108,7 @@ function afterRoute(animate = true) {
 }
 
 async function route() {
+  if (enforceReleasePolicy()) return;
   // Route cleanup (§9): tear down the previous screen, close any open dialog,
   // and stop audio so nothing survives the navigation.
   if (teardown) { try { teardown(); } catch (e) {} teardown = null; }
@@ -105,12 +129,14 @@ async function route() {
     return;
   }
 
+  if (releaseNotes.pending()) { releaseNotes.showNotice(() => route()); return; }
   if (!tutorial.completed() || location.hash === '#/tutorial') {
     tutorial.render(root, () => { if (location.hash === '#/tutorial') location.hash = '#/'; else route(); });
     afterRoute(false); return;
   }
 
   const hash = location.hash || '#/';
+  Activity.start(hash);
   const parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean);
   if (!['settings', 'tutorial'].includes(parts[0])) {
     try { localStorage.setItem('ie.lastRoute', hash); } catch (e) {}
@@ -127,7 +153,7 @@ async function route() {
   // that we are navigating to a NON-session screen (§4). Never mid-session.
   const goingToSession = parts[0] === 'u' && parts[1]
     && (parts[2] === 'cards' || parts[2] === 'practice' || parts[2] === 'learn'
-      || parts[2] === 'advanced' || parts[2] === 'test');
+      || parts[2] === 'spelling' || parts[2] === 'guided' || parts[2] === 'advanced' || parts[2] === 'test');
   if (D.hasPending()) {
     if (goingToSession) {
       // Can't swap under a live session: leave the bar up so the student knows
@@ -144,8 +170,8 @@ async function route() {
   if (parts[0] === 'vocab') { library.render(root); afterRoute(); return; }
 
   if (parts[0] === 'reading') {
-    if (parts[1] === 'book') await readingLibrary.render(root, parts[2]);
-    else if (parts[1]) { teardown = readingArticle.teardown; await readingArticle.render(root, decodeURIComponent(parts[1])); }
+    if (parts[1] === 'book') await readingLibrary.render(root, parts[2], parts[3]);
+    else if (parts[1]) { teardown = readingArticle.teardown; await readingArticle.render(root, decodeURIComponent(parts[1]), parts[2]); }
     else await readingLibrary.render(root);
     afterRoute(); return;
   }
@@ -174,6 +200,8 @@ async function route() {
     if (mode === 'study') { teardown = study.teardown; study.render(root, id); afterRoute(); return; }
     if (mode === 'cards') { teardown = cards.teardown; cards.render(root, id, null); afterRoute(); return; }
     if (mode === 'practice' || mode === 'learn') { learn.render(root, id); afterRoute(); return; }
+    if (mode === 'spelling') { learn.render(root, id, 'spelling'); afterRoute(); return; }
+    if (mode === 'guided') { guided.render(root, id); afterRoute(); return; }
     if (mode === 'advanced') { await advanced.render(root, id); afterRoute(); return; }
     if (mode === 'test') { test.render(root, id); afterRoute(); return; }
     unit.render(root, id); afterRoute(); return;
@@ -196,6 +224,7 @@ function showLoadError(err) {
 }
 
 async function tryLoad() {
+  if (enforceReleasePolicy()) return;
   clear(root);
   try {
     const stats = await D.load();
@@ -208,7 +237,7 @@ async function tryLoad() {
     showLoadError(err);
     return;
   }
-  proceed();
+  if (!enforceReleasePolicy()) proceed();
 }
 
 function proceed() {
@@ -244,6 +273,7 @@ async function boot() {
   CS.init();
   CurriculumStore.init();
   A.init();
+  Activity.init();
 
   // Keep the global language in sync, update <html lang>, and re-localise the
   // install banner (outside #app, so screen re-renders do not touch it).
@@ -254,7 +284,8 @@ async function boot() {
   if (isStandalone() || androidApp) { document.body.classList.add('standalone'); document.getElementById('tabwarn').hidden = true; }
   else { renderTabWarn(); document.getElementById('tabwarn').hidden = false; }
 
-  tryLoad();
+  await releasePolicy.start(enforceReleasePolicy);
+  if (!enforceReleasePolicy()) tryLoad();
 }
 
 async function registerServiceWorker() {
@@ -283,6 +314,7 @@ async function registerServiceWorker() {
 
 /** New app CODE is waiting in the service worker. */
 function showAppUpdateBar(sw) {
+  if (releasePolicy.locked()) return;
   showBar({
     kind: 'app',
     message: i18n.t('update.appReady'),

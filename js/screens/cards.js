@@ -87,6 +87,7 @@ export function render(root, unitId, onlyKeys) {
     const screen = h('div.cards-screen');
     screen.append(topBar(i18n.t('common.back'), onlyKeys ? i18n.t('cards.retry') : i18n.t('mode.cards'),
       () => { location.hash = '#/u/' + encodeURIComponent(unitId); }));
+    if (unit.typeName !== 'HSE Packages') screen.append(h('h1.lesson-context', null, unit.label));
 
     const prog = h('div.row.mt', null,
       h('span.k-11', null, `${index + 1} / ${deck.length}`),

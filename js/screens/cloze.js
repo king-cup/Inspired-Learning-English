@@ -2,6 +2,8 @@ import * as C from '../cloze-data.js';
 import * as CS from '../cloze-store.js';
 import * as P from '../profile.js';
 import * as i18n from '../i18n.js';
+import * as Activity from '../activity.js';
+import { vocabulary } from '../passage.js';
 import { h, clear, cn, press, paperHeader, barLabel, button, blockButton, gradeBlock, ruleBar, topBar, openDialog, announce, finishFlourish } from '../ui.js';
 
 const PLACEHOLDER = /\{\{(\d+)\}\}/g;
@@ -35,6 +37,7 @@ export async function render(root, requestedMode, grade, passageId) {
 
   const passage = C.get(passageId);
   if (!passage || C.gradeOf(passage.grade) !== String(grade)) { showLoadError(root, backToList); return; }
+  const vocab = await vocabulary({ id: 'cloze-' + passage.id, title: C.sourceTitle(passage), route: `#/cloze/study/${grade}/${encodeURIComponent(passage.id)}` }, mode === 'study');
 
   let phase = 'asking';
   let answers = new Map();
@@ -161,7 +164,13 @@ export async function render(root, requestedMode, grade, passageId) {
     const gradeId = C.gradeOf(passage.grade);
     const rows = C.forGrade(gradeId);
     const next = rows[rows.findIndex(row => row.id === passage.id) + 1];
-    if (next) wrap.append(h('div.mt'), button(P.get().lang === 'zh' ? '下一篇练习' : 'Next exercise', { variant: 'ruled', wide: true, onClick: () => { location.hash = `#/cloze/${mode}/${gradeId}/${encodeURIComponent(next.id)}`; } }));
+    if (next || mode === 'test') wrap.append(h('div.mt'), button(P.get().lang === 'zh' ? '下一篇练习' : 'Next exercise', { variant: 'ruled', wide: true, onClick: () => {
+      const id = mode === 'test' ? CS.drawRandom(gradeId, rows.map(row => row.id), Math.random, passage.id) : next.id;
+      if (!id) return;
+      CS.clearSession(id, mode);
+      const target = `#/cloze/${mode}/${gradeId}/${encodeURIComponent(id)}`;
+      if (location.hash === target) render(root, mode, gradeId, id); else location.hash = target;
+    } }));
     return wrap;
   }
 
@@ -195,13 +204,16 @@ export async function render(root, requestedMode, grade, passageId) {
       let optionClass = selected ? '.selected' : '';
       if (revealed && correctChoice) optionClass += '.right';
       if (revealed && selected && !correctChoice) optionClass += '.wrong';
-      const opt = press(h(`button.cloze-option${optionClass}`, {
+      const pick = press(h(`button${mode === 'study' ? '.cloze-pick' : '.cloze-option' + optionClass}`, {
         type: 'button', disabled: mode === 'study' && chosen >= 0 || resultMode,
         'aria-pressed': selected ? 'true' : 'false',
-      }, h('span.ltr', { 'aria-hidden': 'true' }, String.fromCharCode(65 + choice)), h('span.txt', null, text)));
-      opt.addEventListener('click', () => {
+        'aria-label': `${String.fromCharCode(65 + choice)}. ${text}`,
+      }, h('span.ltr', { 'aria-hidden': 'true' }, String.fromCharCode(65 + choice)), mode === 'test' ? h('span.txt', null, text) : null));
+      const opt = mode === 'study' ? h(`div.cloze-option.cloze-option-study${optionClass}`, null, pick, h('span.txt', null, vocab.text(text, `option-${index}-${choice}`))) : pick;
+      pick.addEventListener('click', () => {
         if (resultMode || (mode === 'study' && answers.has(index))) return;
         answers.set(index, choice);
+        Activity.record('cloze-answer', { passageId: passage.id, grade, mode, question: index, response: choice });
         save();
         if (mode === 'test') {
           buttonEl.classList.add('answered');
@@ -221,6 +233,7 @@ export async function render(root, requestedMode, grade, passageId) {
         buttonEl.querySelector('.blank-answer').textContent = text;
         optionWrap.querySelectorAll('.cloze-option').forEach((el, optionIndex) => {
           el.disabled = true;
+          const pick = el.querySelector('.cloze-pick'); if (pick) pick.disabled = true;
           if (optionIndex === blank.key) el.classList.add('right');
           if (optionIndex === choice && !ok) el.classList.add('wrong');
         });
@@ -254,17 +267,17 @@ export async function render(root, requestedMode, grade, passageId) {
   function passageBody(resultMode, progress, resultMount) {
     const body = h('article.cloze-article');
     const paragraphs = articleText(passage).split(/\n\s*\n/).filter((p) => p.trim());
-    paragraphs.forEach((paragraph) => {
+    paragraphs.forEach((paragraph, paragraphIndex) => {
       const p = h('p');
       let at = 0;
       PLACEHOLDER.lastIndex = 0;
       let match;
       while ((match = PLACEHOLDER.exec(paragraph))) {
-        if (match.index > at) p.append(document.createTextNode(paragraph.slice(at, match.index)));
+        if (match.index > at) p.append(vocab.text(paragraph.slice(at, match.index), String(paragraphIndex), at));
         p.append(...makeBlank(Number(match[1]) - 1, resultMode, progress, resultMount));
         at = match.index + match[0].length;
       }
-      if (at < paragraph.length) p.append(document.createTextNode(paragraph.slice(at)));
+      if (at < paragraph.length) p.append(vocab.text(paragraph.slice(at), String(paragraphIndex), at));
       body.append(p);
     });
     return body;
@@ -303,6 +316,7 @@ export async function render(root, requestedMode, grade, passageId) {
     wrap.append(statusBox, progressBar);
 
     const resultMount = h('div');
+    if (vocab.tools) wrap.append(vocab.tools, h('p.note', null, P.get().lang === 'zh' ? '点击选项字母作答；双击带点状下划线的词查看释义。' : 'Tap an option letter to answer; double-tap dotted words for meanings.'));
     wrap.append(h('div.cloze-paper.mt', null, passageBody(resultMode, progress, resultMount)));
 
     if (!resultMode && mode === 'test') {

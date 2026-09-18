@@ -1,6 +1,8 @@
 // Local-only cloze history and fair random selection. Kept separate from the
 // vocabulary progress schema so both can evolve without invalidating the other.
 
+import { chooseRandom } from './random-pool.js';
+import * as Activity from './activity.js';
 const KEY = 'vd.cloze.v1';
 const VALID_GRADES = new Set(['7', '8', '9']);
 // The expanded source bank merged two pairs of passages that had previously
@@ -45,7 +47,7 @@ export function init() {
 
 function commit() {
   try { localStorage.setItem(KEY, JSON.stringify(state)); }
-  catch (err) { console.warn('[cloze] could not save progress:', err); }
+  catch (err) { Activity.storageFailure(err); }
   listeners.forEach((fn) => { try { fn(state); } catch (e) { console.error(e); } });
 }
 
@@ -79,22 +81,10 @@ export const historyForGrade = (grade) => state.runs
  * Unseen passages come first. Once all have appeared, choose among those with
  * the fewest pulls so the pool stays balanced over time.
  */
-export function drawRandom(grade, ids, random = Math.random) {
+export function drawRandom(grade, ids, random = Math.random, current = null) {
   const g = gradeOf(grade);
-  const pool = [...new Set(ids.map(String))];
-  if (!pool.length) return null;
-
-  const last = state.lastRandomByGrade[g];
-  const eligible = pool.length > 1 ? pool.filter((id) => id !== last) : pool;
-  const unseen = eligible.filter((id) => Number(state.pulls[id] || 0) === 0);
-  let candidates = unseen;
-  if (!candidates.length) {
-    const least = Math.min(...eligible.map((id) => Number(state.pulls[id] || 0)));
-    candidates = eligible.filter((id) => Number(state.pulls[id] || 0) === least);
-  }
-
-  const index = Math.min(candidates.length - 1, Math.floor(Math.max(0, random()) * candidates.length));
-  const id = candidates[index];
+  const id = chooseRandom(ids, state.pulls, current || state.lastRandomByGrade[g], random);
+  if (!id) return null;
   state.pulls[id] = Number(state.pulls[id] || 0) + 1;
   state.lastRandomByGrade[g] = id;
   state.lastGrade = g;
@@ -103,6 +93,7 @@ export function drawRandom(grade, ids, random = Math.random) {
 }
 
 export function recordRun({ id, grade, mode, correct, total }) {
+  Activity.record('cloze-completed', { id: canonicalId(id), grade: gradeOf(grade), mode, correct, total });
   const run = {
     id: canonicalId(id), grade: gradeOf(grade), mode: mode === 'test' ? 'test' : 'study',
     at: Date.now(), correct: Number(correct) || 0, total: Number(total) || 0,

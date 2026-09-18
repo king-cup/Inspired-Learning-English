@@ -22,7 +22,7 @@ input, textarea { caret-color: var(--ink); }
 .passage-paragraph:last-child { margin-bottom: 0; }
 .passage-paragraph p { margin: 0; }
 .passage-term { display: inline; font: inherit; color: inherit; padding: 2px 0; text-decoration: underline dotted var(--rule); text-underline-offset: 4px; touch-action: manipulation; -webkit-user-select: none; user-select: none; cursor: pointer; }
-.passage-term.is-highlighted { color: #000; background: #ffe57a; text-decoration: none; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.passage-term.is-highlighted { color: var(--highlight-ink, #000); background: var(--highlight, #ffe57a); text-decoration: none; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .inline-definition { margin: 14px -10px; padding: 18px; border-block: 1px solid var(--rule); background: var(--shade); font: 16px/1.6 var(--mono); overflow-wrap: anywhere; }
 .inline-definition p { font: 16px/1.6 var(--mono); margin: 10px 0; }
 .definition-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; }
@@ -45,3 +45,41 @@ input, textarea { caret-color: var(--ink); }
   .reading-unit .reading-row { padding: 22px; }
 }
 @media (prefers-reduced-motion: reduce) { .inline-definition { animation: none; } }
+.vocab-fold .inline-definition { display: block; margin: 0; border: 0; }
+.definition-meaning, .definition-example { display: block; margin: 10px 0; }
+.vocab-fold { white-space: normal; }
+.highlight-palette { display: flex; flex-wrap: wrap; gap: 12px; padding: 14px; }
+.highlight-palette .btn { min-height: 44px; min-width: 78px; }
+.highlight-palette [aria-pressed=true] { outline: 3px solid var(--ink); outline-offset: 3px; }
+.cloze-option-study { display: block; }
+.cloze-option-study .cloze-pick { min-width: 48px; min-height: 44px; border: 1px solid var(--ink); margin-right: 10px; }
+.cloze-option-study .txt { display: inline; }
+.cloze-option-study .vocab-fold { grid-column: 1 / -1; }
+@media (prefers-reduced-motion: reduce) { .vocab-fold, .vocab-fold .cloze-fold-inner { transition: none; transform: none; } }
+.lesson-context { font: bold 18px/1.4 var(--serif); margin: 14px 0 0; overflow-wrap: anywhere; }
+.release-notes { font: 16px/1.6 var(--serif); overflow-wrap: anywhere; }
+.release-notes h2 { font-size: 20px; margin: 24px 0 8px; }
+.release-notes ul { padding-left: 22px; }
+.release-notes li + li { margin-top: 8px; }
+.release-language { display: flex; gap: 8px; margin-bottom: 12px; }
+.release-language button { min-height: 44px; }
+.release-date { font: 12px/1.4 var(--mono); margin: 0 0 12px; }
+.release-dialog { display: flex; flex-direction: column; overflow: hidden; }
+.release-dialog > .bar, .release-dialog > .dlg-actions { flex-shrink: 0; }
+.release-dialog > .dlg-body { overflow-y: auto; min-height: 0; }
+.release-dialog > .dlg-actions { padding-top: 12px; border-top: 1px solid var(--ink); }
+.version-locked #tabwarn { display: none !important; }
+.update-required { max-width: 640px; margin: 36px auto; }
+.update-required > p { font: 18px/1.6 var(--serif); margin: 22px 0; }
+/* Spelling uses the same paper surface and typography as existing practice. */
+.spelling-label { display: block; margin-top: 22px; margin-bottom: 8px; font-weight: bold; }
+.spelling-input { box-sizing: border-box; width: 100%; min-height: 48px; padding: 12px; border: 2px solid var(--ink); border-radius: 0; color: var(--ink); background: var(--paper); font: 20px var(--serif); caret-color: var(--ink); }
+.spelling-input:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.guided-days { padding-left: 24px; line-height: 1.8; margin: 24px 0; }
+.guided-prompt { font: 22px/1.5 var(--serif); overflow-wrap: anywhere; }
+.reading-figure { margin: 24px 0; }
+.reading-figure figcaption { margin-bottom: 12px; font-weight: 700; }
+.reading-figure-viewport { overflow: auto; margin-top: 12px; border: 1px solid var(--rule); }
+.reading-figure-viewport img { display: block; width: 100%; height: auto; }
+.reading-figure-viewport.is-zoomed img { width: 1400px; max-width: none; }
+.reading-figure-viewport:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }

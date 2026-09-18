@@ -21,19 +21,25 @@
 // v11: stable headers/navigation, refreshed cloze sources, HSE advanced practice.
 // v12: full 608-passage cloze bank, flash-free cloze routes, HSE Packages 7–8.
 // v13: v1.09 reading library, middle-school sections, and Memory Palace.
-const SHELL = 'vd-shell-v15'; // Original aesthetic restored; v1.10 functions retained.
+const SHELL = 'vd-shell-v18-preview'; // Non-production 1.10.2 checkpoint.
 
 const PRECACHE = [
   './',
   'index.html',
   'app.css',
   'reader.css',
+  'js/random-pool.js',
+  'js/release-notes.js',
+  'js/release-policy.js',
   'manifest.webmanifest',
   'vocab.json',           // emergency fallback only; live content is under content/
   'audio-index.json',     // emergency fallback only
   'cloze.json',
   'advanced-practice.json',
   'reading-content.json',
+  'reading-figures/re3-12b-missions-1.jpg',
+  'reading-figures/re3-12b-missions-2.jpg',
+  'reading-figures/re5-5a-traveler.jpg',
   'reading-audio-manifest.json',
   'middle-school.json',
   'passage-glossary.json',
@@ -53,6 +59,8 @@ const PRECACHE = [
   'js/ui.js',
   'js/audio.js',
   'js/learn-engine.js',
+  'js/activity.js',
+  'js/guided-plan.js',
   'js/i18n.js',
   'js/profile.js',
   'js/theme.js',
@@ -67,6 +75,7 @@ const PRECACHE = [
   'js/screens/study.js',
   'js/screens/cards.js',
   'js/screens/learn.js',
+  'js/screens/guided.js',
   'js/screens/advanced.js',
   'js/screens/test.js',
   'js/screens/onboarding.js',
@@ -106,6 +115,7 @@ self.addEventListener('fetch', (ev) => {
   if (url.origin !== self.location.origin) return;
   // Hands off: the page owns the audio cache.
   if (url.pathname.includes('/audio/')) return;
+  if (url.pathname.endsWith('/release-policy.json')) return;
   // Hands off: js/content.js owns remote-content caching. Passing these straight
   // to the network means the manifest is never served from a stale worker cache
   // -- that is what lets a new release appear on the FIRST launch after publish

@@ -1,6 +1,7 @@
 import * as D from '../data.js';
 import * as AP from '../advanced-data.js';
 import * as i18n from '../i18n.js';
+import * as Activity from '../activity.js';
 import { h, clear, cn, press, paperHeader, barLabel, button, ruleBar, topBar, gradeBlock } from '../ui.js';
 
 export async function render(root, unitId) {
@@ -77,6 +78,7 @@ export async function render(root, unitId) {
   function answer(index) {
     if (chosen >= 0) return;
     chosen = index;
+    Activity.record('advanced-answer', { unitId, question: pool[pos].id || pos, response: index, correct: index === pool[pos].key });
     if (index === pool[pos].key) correct += 1;
     paint();
   }
@@ -90,6 +92,7 @@ export async function render(root, unitId) {
   }
 
   function finish() {
+    Activity.record('advanced-completed', { unitId, correct, total: pool.length });
     clear(root);
     root.append(topBar(i18n.t('common.back'), i18n.t('advanced.complete'), leave));
     root.append(h('div.mt'), paperHeader({

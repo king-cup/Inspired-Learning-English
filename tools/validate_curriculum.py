@@ -179,7 +179,10 @@ def main() -> None:
         ROOT / "audio-packs.json", ROOT / "reading-content.json", ROOT / "reading-audio-manifest.json",
         ROOT / "middle-school.json", *sorted((ROOT / "js").rglob("*.js")), *sorted((ROOT / "content").glob("*.json")),
     ]
-    branded = [str(path.relative_to(ROOT)) for path in production if path.exists() and PROHIBITED.search(path.read_text(encoding="utf-8"))]
+    # 1.10.1 explicitly identifies the book/series in lesson context and the
+    # historical release log. Keep the extraction-debris guard everywhere else.
+    named_book_context = {"js/screens/reading-article.js", "js/release-notes.js"}
+    branded = [str(path.relative_to(ROOT)) for path in production if path.exists() and str(path.relative_to(ROOT)) not in named_book_context and PROHIBITED.search(path.read_text(encoding="utf-8"))]
     if branded:
         errors.append("prohibited learner-facing phrase in: " + ", ".join(branded))
 

@@ -1,6 +1,11 @@
 /sw.js
   Cache-Control: public, max-age=0, must-revalidate
 
+/release-policy.json
+  Cache-Control: no-store
+  Access-Control-Allow-Origin: *
+  X-Robots-Tag: noindex, nofollow
+
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
   X-Robots-Tag: noindex, nofollow

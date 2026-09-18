@@ -15,6 +15,7 @@
 //    is made synchronously from an in-memory Set so the gesture is not spent.
 
 import { hasClip, audioUrl, audioPacks, urlForSlug, audioSuffix } from './data.js';
+import * as Activity from './activity.js';
 
 const CACHE = 'vd-audio-v1';
 const SILENT_WAV = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=';
@@ -83,6 +84,7 @@ export const urlFor = (word) => audioUrl(word);
  * anything before it, or the speechSynthesis branch loses its gesture.
  */
 export function speak(word) {
+  Activity.record('word-audio-requested', { word });
   const clean = String(word || '').trim();
   if (!clean) return;
 

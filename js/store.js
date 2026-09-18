@@ -7,6 +7,8 @@
 import * as D from './data.js';
 import * as Curriculum from './curriculum-store.js';
 import * as ClozeStore from './cloze-store.js';
+import * as Activity from './activity.js';
+import { validState as validGuidedState } from './guided-plan.js';
 
 const KEY = 'vd.progress.v1';
 const LAST_UNIT_KEY = 'vd.lastUnit';
@@ -61,10 +63,13 @@ export const subscribe = (fn) => { listeners.add(fn); return () => listeners.del
 function commit() {
   listeners.forEach((fn) => { try { fn(state); } catch (e) { console.error(e); } });
   clearTimeout(timer);
-  timer = setTimeout(() => {
-    try { localStorage.setItem(KEY, JSON.stringify(state)); }
-    catch (err) { console.warn('[store] could not save progress:', err); }
-  }, SAVE_DELAY);
+  timer = setTimeout(flush, SAVE_DELAY);
+}
+
+export function flush() {
+  clearTimeout(timer); timer = null;
+  try { localStorage.setItem(KEY, JSON.stringify(state)); return true; }
+  catch (err) { Activity.storageFailure(err); return false; }
 }
 
 export const statOf = (unitId, e) =>
@@ -79,6 +84,7 @@ export const knownCount = (unitId, entries) =>
   entries.reduce((n, e) => n + (statOf(unitId, e).known ? 1 : 0), 0);
 
 export function markKnown(unitId, e, known) {
+  Activity.record('word-status', { unitId, wordKey: wordKey(unitId, e), known });
   const k = wordKey(unitId, e);
   const old = state.words[k] || { known: false, right: 0, wrong: 0, seen: 0, lastMs: 0 };
   state.words[k] = {
@@ -100,6 +106,7 @@ export const recordAnswer = (unitId, e, correct) => markKnown(unitId, e, correct
  * with markKnown.
  */
 export function recordTestAnswer(unitId, e, correct) {
+  Activity.record('word-assessed', { unitId, wordKey: wordKey(unitId, e), correct });
   const k = wordKey(unitId, e);
   const old = state.words[k] || { known: false, right: 0, wrong: 0, seen: 0, lastMs: 0 };
   state.words[k] = {
@@ -113,6 +120,7 @@ export function recordTestAnswer(unitId, e, correct) {
 }
 
 function touchUnit(unitId, patch) {
+  Activity.record('vocabulary-session-completed', { unitId, ...patch });
   const u = unitStat(unitId);
   state.units[unitId] = { ...u, ...patch, lastMs: Date.now() };
   commit();
@@ -132,13 +140,14 @@ export const finishLearn = (unitId, pct) => touchUnit(unitId, {
  * A fresh attempt increments the attempt number; a retest keeps the number of
  * the attempt it is fixing, and carries the retest flag. Port of finishTest().
  */
-export function finishTest(unitId, correct, total, retest) {
+export function finishTest(unitId, correct, total, retest, details = {}) {
+  Activity.record('vocabulary-test-completed', { unitId, correct, total, retest, ...details });
   const u = unitStat(unitId);
   const at = Date.now();
   const run = {
     at,
     attempt: u.tests.filter((r) => !r.retest).length + (retest ? 0 : 1),
-    correct, total, retest: !!retest,
+    correct, total, retest: !!retest, ...details,
   };
   const pct = total ? Math.floor((correct * 100) / total) : 0;
   state.units[unitId] = {
@@ -152,6 +161,8 @@ export function finishTest(unitId, correct, total, retest) {
 }
 
 export function resetUnit(unitId) {
+  Activity.record('unit-reset', { unitId });
+  try { localStorage.removeItem(`ie.guided.${unitId}`); } catch (_) {}
   const prefix = unitId + '|';
   for (const k of Object.keys(state.words)) if (k.startsWith(prefix)) delete state.words[k];
   delete state.units[unitId];
@@ -160,6 +171,9 @@ export function resetUnit(unitId) {
 }
 
 export function resetAll() {
+  Activity.record('progress-reset');
+  try { for (const key of Object.keys(localStorage)) if (key.startsWith('ie.guided.')) localStorage.removeItem(key); }
+  catch (error) { Activity.storageFailure(error); return false; }
   state = { version: 1, words: {}, units: {} };
   clearAllSessions();
   commit();
@@ -167,27 +181,27 @@ export function resetAll() {
 
 // --------------------------------------------------- session recovery (§6)
 //
-// Practice, Test and Cards persist an interrupted run to sessionStorage so a
-// refresh, phone call or accidental swipe-back does not lose it. sessionStorage
-// survives a reload but clears when the tab closes, which matches "resume this
-// run", not "forever". Cleared on completion, explicit restart, or unit reset.
+// Runs persist across tab/app closure. Read legacy sessionStorage on upgrade;
+// clear both stores on completion, explicit restart, or unit reset.
 export const sessionKey = (unitId, mode) => `vd.session.${mode}.${unitId}`;
-const SESSION_MODES = ['cards', 'practice', 'test'];
+const SESSION_MODES = ['cards', 'practice', 'spelling', 'test'];
 
 export function loadSession(unitId, mode) {
-  try { return JSON.parse(sessionStorage.getItem(sessionKey(unitId, mode)) || 'null'); }
+  try { return JSON.parse(localStorage.getItem(sessionKey(unitId, mode)) || sessionStorage.getItem(sessionKey(unitId, mode)) || 'null'); }
   catch (e) { return null; }
 }
 export function saveSession(unitId, mode, data) {
-  try { sessionStorage.setItem(sessionKey(unitId, mode), JSON.stringify(data)); } catch (e) {}
+  try { localStorage.setItem(sessionKey(unitId, mode), JSON.stringify(data)); return true; }
+  catch (e) { Activity.storageFailure(e); return false; }
 }
 export function clearSession(unitId, mode) {
-  try { sessionStorage.removeItem(sessionKey(unitId, mode)); } catch (e) {}
+  try { localStorage.removeItem(sessionKey(unitId, mode)); sessionStorage.removeItem(sessionKey(unitId, mode)); } catch (e) {}
 }
 export function clearUnitSessions(unitId) { SESSION_MODES.forEach((m) => clearSession(unitId, m)); }
 function clearAllSessions() {
   try {
     for (const k of Object.keys(sessionStorage)) if (k.startsWith('vd.session.')) sessionStorage.removeItem(k);
+    for (const k of Object.keys(localStorage)) if (k.startsWith('vd.session.')) localStorage.removeItem(k);
   } catch (e) {}
 }
 
@@ -200,22 +214,25 @@ export function getLastUnit() { try { return localStorage.getItem(LAST_UNIT_KEY)
 export function getLastBackup() {
   try { const v = localStorage.getItem(LAST_BACKUP_KEY); return v ? Number(v) : 0; } catch (e) { return 0; }
 }
-function markBackup() { try { localStorage.setItem(LAST_BACKUP_KEY, String(Date.now())); } catch (e) {} }
+export function markBackup() { try { localStorage.setItem(LAST_BACKUP_KEY, String(Date.now())); } catch (e) {} }
 
 // Export/import hooks existed from day one; v1.02 wraps them in a validated,
 // self-describing backup envelope and surfaces them in Settings.
 export const toJSON = () => JSON.stringify(state);
 
 export function exportBackup() {
-  markBackup();
+  const guided = Object.fromEntries(Object.keys(localStorage).filter(key => key.startsWith('ie.guided.'))
+    .map(key => [key.slice('ie.guided.'.length), JSON.parse(localStorage.getItem(key))]));
+  if (!Object.values(guided).every(validGuidedState)) throw new Error('Invalid saved guided plan; backup was not created.');
   return JSON.stringify({
     app: 'inspired-vocab',
     kind: 'progress-backup',
-    schema: 2,
+    schema: 3,
     exportedAt: new Date().toISOString(),
     progress: { version: 1, words: state.words, units: state.units },
     curriculum: Curriculum.get(),
     cloze: ClozeStore.get(),
+    guided,
   }, null, 2);
 }
 
@@ -239,7 +256,8 @@ export function validateBackup(text) {
   }
   if (obj.curriculum && (!isObj(obj.curriculum) || !isObj(obj.curriculum.articles) || !isObj(obj.curriculum.memory) || !isObj(obj.curriculum.middle) || (obj.curriculum.encounters && !Array.isArray(obj.curriculum.encounters)) || (obj.curriculum.highlights && !isObj(obj.curriculum.highlights)))) return { ok: false, reason: 'shape' };
   if (obj.cloze && (!isObj(obj.cloze) || !Array.isArray(obj.cloze.runs))) return { ok: false, reason: 'shape' };
-  return { ok: true, progress: { version: 1, words: p.words, units: p.units }, curriculum: obj.curriculum, cloze: obj.cloze };
+  if (obj.guided !== undefined && (!isObj(obj.guided) || !Object.values(obj.guided).every(validGuidedState))) return { ok: false, reason: 'shape' };
+  return { ok: true, progress: { version: 1, words: p.words, units: p.units }, curriculum: obj.curriculum, cloze: obj.cloze, guided: obj.guided };
 }
 
 /** Replace all progress from a validated backup. Returns { ok } or
@@ -247,28 +265,42 @@ export function validateBackup(text) {
 export function importBackup(text) {
   const v = validateBackup(text);
   if (!v.ok) return v;
-  // Restore the extra stores transactionally: quota failure leaves the existing
-  // progress intact. Encounter history is merged, never erased by an older file.
-  const oldCurriculum = localStorage.getItem('ie.curriculum.v2');
-  const oldCloze = localStorage.getItem('vd.cloze.v1');
+  // Stage every affected local key, including the main progress, before writes.
+  // Roll back synchronous storage failures; localStorage is not crash-atomic.
+  // Old backups without guided data preserve existing guided plans.
+  let changes = [], written = [];
   try {
+    const next = new Map([[KEY, JSON.stringify(v.progress)]]);
     if (v.curriculum) {
       const events = [...Curriculum.get().encounters, ...(v.curriculum.encounters || [])];
       v.curriculum.encounters = [...new Map(events.map(row => [JSON.stringify(row), row])).values()];
-      localStorage.setItem('ie.curriculum.v2', JSON.stringify(v.curriculum));
+      next.set('ie.curriculum.v2', JSON.stringify(v.curriculum));
     }
-    if (v.cloze) localStorage.setItem('vd.cloze.v1', JSON.stringify(v.cloze));
+    if (v.cloze) next.set('vd.cloze.v1', JSON.stringify(v.cloze));
+    if (v.guided !== undefined) {
+      for (const key of Object.keys(localStorage)) if (key.startsWith('ie.guided.')) next.set(key, null);
+      for (const [unitId, plan] of Object.entries(v.guided)) next.set(`ie.guided.${unitId}`, JSON.stringify(plan));
+    }
+    for (const key of Object.keys(localStorage)) if (key.startsWith('vd.session.')) next.set(key, null);
+    changes = [...next].map(([key, value]) => ({ key, value, before: localStorage.getItem(key) }));
+    for (const change of changes) {
+      if (change.value === null) localStorage.removeItem(change.key); else localStorage.setItem(change.key, change.value);
+      written.push(change);
+    }
   } catch (e) {
     try {
-      if (oldCurriculum === null) localStorage.removeItem('ie.curriculum.v2'); else localStorage.setItem('ie.curriculum.v2', oldCurriculum);
-      if (oldCloze === null) localStorage.removeItem('vd.cloze.v1'); else localStorage.setItem('vd.cloze.v1', oldCloze);
-    } catch (ignored) {}
+      for (const change of written) localStorage.removeItem(change.key);
+      for (const change of written) if (change.before !== null) localStorage.setItem(change.key, change.before);
+    } catch (rollbackError) { Activity.storageFailure(rollbackError); }
+    Activity.storageFailure(e);
     return { ok: false, reason: 'storage' };
   }
+  clearTimeout(timer);
   Curriculum.init(); ClozeStore.init();
   state = v.progress;
   clearAllSessions();   // any in-flight run no longer matches the restored data
-  commit();
+  listeners.forEach(fn => { try { fn(state); } catch (e) { console.error(e); } });
+  Activity.record('progress-restored', { guidedPlans: Object.keys(v.guided || {}).length });
   return { ok: true };
 }
 

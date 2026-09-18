@@ -12,6 +12,7 @@ export const QType = {
   WORD_TO_MEANING: 'WORD_TO_MEANING',
   MEANING_TO_WORD: 'MEANING_TO_WORD',
   SENTENCE_GAP: 'SENTENCE_GAP',
+  SPELLING: 'SPELLING',
 };
 
 const GAP = ' ______ ';
@@ -21,9 +22,23 @@ const entryKey = (e) => String(e.w).trim().toLowerCase() + '|' + String(e.p || '
 export function blank(sentence, word) {
   const stem = String(word || '').trim();
   if (!stem) return sentence;
-  const idx = String(sentence).toLowerCase().indexOf(stem.toLowerCase());
-  if (idx < 0) return sentence;
-  return sentence.slice(0, idx) + GAP + sentence.slice(idx + stem.length);
+  const escaped = stem.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
+  return String(sentence).replace(new RegExp(`(^|[^\\p{L}])${escaped}(?=$|[^\\p{L}])`, 'giu'), (_all, before) => before + GAP);
+}
+
+export const normalizeSpelling = value => String(value || '').normalize('NFKC').trim().toLowerCase()
+  .replace(/[‘’]/g, "'").replace(/[‐‑–—]/g, '-').replace(/\s+/g, ' ');
+
+export function isCorrect(q, response) {
+  if (q.type !== QType.SPELLING) return response === q.correctIndex;
+  const accepted = [q.entry.w, ...(q.entry.acceptedSpellings || [])];
+  return !!normalizeSpelling(response) && accepted.some(word => normalizeSpelling(word) === normalizeSpelling(response));
+}
+
+export function spelling(entry) {
+  const gap = blank(entry.e || '', entry.w);
+  return { entry, type: QType.SPELLING, prompt: entry.c || '', subPrompt: entry.p || '',
+    example: gap.includes(GAP) ? gap : '', options: [], correctIndex: null };
 }
 
 /**
@@ -38,7 +53,7 @@ export function blank(sentence, word) {
  */
 export function build(entry, pool, opts = {}) {
   const word = String(entry.w || '').trim();
-  const canGap = !!entry.e && entry.e.toLowerCase().includes(word.toLowerCase()) && word.length > 2;
+  const canGap = !!entry.e && blank(entry.e, word) !== entry.e && word.length > 2;
   const canMeaning = !!(entry.c && entry.c.trim());
 
   let kinds = [];
@@ -99,12 +114,14 @@ function assemble(entry, pool, type, prompt, subPrompt, answerOf) {
 
 /** The translated instruction line for a question type. Port of instructionFor. */
 export const instructionFor = (type) =>
-  type === QType.WORD_TO_MEANING ? i18n.t('practice.meaningQ')
+  type === QType.SPELLING ? i18n.t('spelling.instruction')
+    : type === QType.WORD_TO_MEANING ? i18n.t('practice.meaningQ')
     : type === QType.MEANING_TO_WORD ? i18n.t('practice.recallQ')
     : i18n.t('practice.gapQ');
 
 /** The translated corner tag for a question type. Port of tagFor. */
 export const tagFor = (type) =>
-  type === QType.WORD_TO_MEANING ? i18n.t('practice.tagMeaning')
+  type === QType.SPELLING ? i18n.t('spelling.title')
+    : type === QType.WORD_TO_MEANING ? i18n.t('practice.tagMeaning')
     : type === QType.MEANING_TO_WORD ? i18n.t('practice.tagRecall')
     : i18n.t('practice.tagContext');

@@ -1,5 +1,5 @@
 // Test mode (6.5). Summative assessment: no feedback until Complete. The student
-// picks the length, can move back and forward and change answers, and only then
+// picks a question format, can move back and forward and change answers, and only then
 // does anything turn green or red.
 //
 // v1.02:
@@ -15,8 +15,9 @@
 
 import * as D from '../data.js';
 import * as S from '../store.js';
-import { build, instructionFor, tagFor, QType } from '../learn-engine.js';
+import { build, spelling, isCorrect, instructionFor, tagFor, QType } from '../learn-engine.js';
 import * as P from '../profile.js';
+import * as Activity from '../activity.js';
 import * as i18n from '../i18n.js';
 import { h, clear, cn, press, paperHeader, barLabel, button, blockButton, gradeBlock, ruleBar, tag, posTag, topBar, shuffled, openDialog, announce, finishFlourish } from '../ui.js';
 
@@ -30,7 +31,7 @@ export function render(root, unitId) {
   if (!unit) { root.append(h('div.centre', null, h('div.k-11', null, i18n.t('unit.notFound')))); return; }
 
   const pool = unit.words;
-  if (pool.length < 2) {
+  if (!pool.length) {
     root.append(topBar(i18n.t('common.back'), i18n.t('mode.test'), backToUnit));
     root.append(h('div.centre', null, h('div.k-11', null, i18n.t('practice.tooShort'))));
     return;
@@ -45,21 +46,23 @@ export function render(root, unitId) {
   const answers = new Map();     // question index -> chosen option index
   let wrongEntries = [];
   let score = 0;
+  let format = 'mcq';
 
   function saveState() {
     if (phase !== 'asking') return;
     S.saveSession(unitId, 'test', {
-      mode: 'test', phase, isRetest, pos,
+      mode: 'test', phase, isRetest, pos, format,
       questions: questions.map((q) => ({
         entryKey: S.wordKey(unitId, q.entry), type: q.type,
-        prompt: q.prompt, subPrompt: q.subPrompt, options: q.options, correctIndex: q.correctIndex,
+        prompt: q.prompt, subPrompt: q.subPrompt, example: q.example, options: q.options, correctIndex: q.correctIndex,
       })),
       answers: [...answers.entries()],
     });
   }
 
   function startTest(entries, retest) {
-    questions = shuffled(entries).map((e) => build(e, pool, { allowedTypes: TEST_TYPES }));
+    questions = shuffled(entries).map((e, i) => format === 'spelling' || (format === 'mixed' && i % 2 === 0)
+      ? spelling(e) : build(e, pool, { allowedTypes: TEST_TYPES }));
     answers.clear();
     pos = 0;
     isRetest = retest;
@@ -71,13 +74,14 @@ export function render(root, unitId) {
   function restore(s) {
     questions = s.questions.map((q) => ({
       entry: byKey.get(q.entryKey), type: q.type, prompt: q.prompt,
-      subPrompt: q.subPrompt, options: q.options, correctIndex: q.correctIndex,
+      subPrompt: q.subPrompt, example: q.example, options: q.options, correctIndex: q.correctIndex,
     })).filter((q) => q.entry);
     if (questions.length !== s.questions.length) { S.clearSession(unitId, 'test'); phase = 'setup'; paint(); return; }
     answers.clear();
     (s.answers || []).forEach(([k, v]) => answers.set(k, v));
     pos = Math.min(s.pos || 0, questions.length - 1);
     isRetest = !!s.isRetest;
+    format = s.format || 'mcq';
     phase = 'asking';
     paint();
   }
@@ -86,13 +90,13 @@ export function render(root, unitId) {
     let correct = 0;
     const wrong = [];
     questions.forEach((q, i) => {
-      const ok = answers.get(i) === q.correctIndex;
+      const ok = isCorrect(q, answers.get(i));
       if (ok) correct += 1; else wrong.push(q.entry);
       S.recordTestAnswer(unitId, q.entry, ok);
     });
     score = correct;
     wrongEntries = wrong;
-    S.finishTest(unitId, correct, questions.length, isRetest);
+    S.finishTest(unitId, correct, questions.length, isRetest, { format, breakdown: breakdown() });
     S.clearSession(unitId, 'test');
     phase = 'result';
     paint();
@@ -148,14 +152,17 @@ export function render(root, unitId) {
     }));
 
     const box = h('div.box.mt');
-    box.append(barLabel(i18n.t('test.howMany')));
-    box.append(h('div', { style: { padding: '13px', fontFamily: 'var(--serif)', fontSize: '14px' } }, i18n.f('test.lengthHelp', S.PASS_PCT)));
+    box.append(barLabel(i18n.t('test.format')));
+    box.append(h('div', { style: { padding: '13px', fontFamily: 'var(--serif)', fontSize: '14px' } }, i18n.t('test.formatHelp')));
     r.append(box);
 
     const opts = h('div.stack.mt');
-    if (pool.length >= 10) opts.append(blockButton(i18n.t('test.ten'), '', () => startTest(shuffled(pool).slice(0, 10), false)));
-    if (pool.length >= 20) opts.append(blockButton(i18n.t('test.twenty'), '', () => startTest(shuffled(pool).slice(0, 20), false)));
-    opts.append(blockButton(i18n.f('test.all', pool.length), '', () => startTest(pool, false)));
+    for (const [value, label] of [['mcq', 'test.mcq'], ['spelling', 'spelling.title'], ['mixed', 'test.mixed']]) {
+      const option = blockButton(i18n.t(label), i18n.f('unit.words', pool.length), () => { format = value; startTest(pool, false); });
+      option.disabled = pool.length < 2 && value !== 'spelling';
+      opts.append(option);
+    }
+    if (pool.length < 2) opts.append(h('p.note', null, i18n.lang() === 'zh' ? '本词表只有一个词，请使用填空题。选择题需要至少两个词。' : 'This list has one word. Use spelling; multiple choice needs at least two words.'));
     r.append(opts);
     r.append(h('div', { style: { height: '30px' } }));
   }
@@ -166,6 +173,7 @@ export function render(root, unitId) {
     const chosen = answers.has(pos) ? answers.get(pos) : -1;
 
     r.append(topBar(i18n.t('common.back'), isRetest ? i18n.t('test.retestTitle') : i18n.t('mode.test'), leaveGuard));
+    if (unit.typeName !== 'HSE Packages') r.append(h('h1.lesson-context', null, unit.label));
 
     const prog = h('div.row.mt', null,
       h('span.k-11', null, i18n.f('test.q', pos + 1, questions.length)),
@@ -178,7 +186,7 @@ export function render(root, unitId) {
     const box = h('div.box.mt');
     box.append(barLabel(instructionFor(q.type), tagFor(q.type)));
     const body = h('div', { style: { padding: '16px' } });
-    const promptCn = q.type === QType.MEANING_TO_WORD;   // Chinese gloss prompt
+    const promptCn = q.type === QType.MEANING_TO_WORD || q.type === QType.SPELLING;
     if (q.type === QType.SENTENCE_GAP) {
       body.append(h('div', { style: { fontFamily: 'var(--serif)', fontSize: '17px', lineHeight: '26px' } }, q.prompt));
     } else if (promptCn) {
@@ -189,6 +197,7 @@ export function render(root, unitId) {
       if (q.subPrompt) { const p = posTag(q.subPrompt); if (p) body.append(h('div.mt', null, p)); }
     }
     box.append(body);
+    if (q.example) body.append(h('p', null, q.example));
     r.append(box);
 
     // options -- selected, never marked right/wrong
@@ -198,7 +207,7 @@ export function render(root, unitId) {
       const sel = i === chosen;
       const el = press(h('button.opt' + (sel ? '.sel' : ''), {
         type: 'button', 'aria-pressed': sel ? 'true' : 'false',
-        onclick: () => { answers.set(pos, i); saveState(); paint(); },
+        onclick: () => { answers.set(pos, i); Activity.record('test-answer-selected', { unitId, wordKey: S.wordKey(unitId, q.entry), question: pos, type: q.type, response: i }); saveState(); paint(); },
       },
         h('span.ltr', { 'aria-hidden': 'true' }, 'ABCD'[i]),
         h('span.txt', null, optsCn ? cn(text) : text),
@@ -206,6 +215,17 @@ export function render(root, unitId) {
       optsWrap.append(el);
     });
     r.append(optsWrap);
+    if (q.type === QType.SPELLING) {
+      const input = h('input.spelling-input', { id: 'spelling-answer', type: 'text', value: typeof chosen === 'string' ? chosen : '',
+        autocomplete: 'off', autocorrect: 'off', autocapitalize: 'off', spellcheck: 'false', lang: 'en',
+        oninput: event => {
+          const value = event.target.value; if (value.trim()) answers.set(pos, value); else answers.delete(pos); saveState();
+          const bar = ruleBar(answers.size / questions.length, 'sm', { label: i18n.f('test.answered', answers.size) });
+          bar.classList.add('grow'); prog.lastChild.replaceWith(bar);
+        },
+      });
+      r.append(h('label.spelling-label', { for: 'spelling-answer' }, i18n.t('spelling.answer')), input);
+    }
 
     // A test can only finish after every word has an answer. On the final
     // question the forward control itself morphs into Finish, keeping one
@@ -215,6 +235,7 @@ export function render(root, unitId) {
       () => { if (pos > 0) { pos -= 1; saveState(); paint(); } });
     let next;
     const advance = () => {
+      if (q.type === QType.SPELLING) Activity.record('test-spelling-saved', { unitId, wordKey: S.wordKey(unitId, q.entry), question: pos, response: answers.get(pos) || '' });
       if (!atEnd) { pos += 1; saveState(); paint(); return; }
       if (answers.size === questions.length) { finishFlourish(next, finish); return; }
       const missing = questions.findIndex((_, i) => !answers.has(i));
@@ -234,6 +255,13 @@ export function render(root, unitId) {
   }
 
   // ------------------------------------------------------------------ result
+  function breakdown() {
+    return ['mcq', 'spelling'].map(kind => {
+      const indices = questions.map((q, i) => ({ q, i })).filter(({ q }) => (q.type === QType.SPELLING) === (kind === 'spelling'));
+      return { kind, total: indices.length, correct: indices.filter(({ q, i }) => isCorrect(q, answers.get(i))).length };
+    });
+  }
+
   function paintResult(r) {
     const total = questions.length;
     const pct = total ? Math.floor((score * 100) / total) : 0;
@@ -253,6 +281,8 @@ export function render(root, unitId) {
       caption: passed ? i18n.f('test.passedMsg', name) : i18n.f('test.failedMsg', name),
     }));
     announce(i18n.f('test.scoreOf', score, total) + ' · ' + (passed ? i18n.t('unit.pass') : i18n.t('unit.fail')), true);
+    breakdown().filter(row => row.total).forEach(row => r.append(h('p', null,
+      i18n.f(row.kind === 'spelling' ? 'test.spellingScore' : 'test.recognitionScore', row.correct, row.total))));
 
     if (!wrongEntries.length) {
       r.append(h('div.note.good.mt2', null, h('div.k-11', { style: { color: 'var(--rt-edge)' } }, i18n.t('test.allRight'))));

@@ -1,6 +1,7 @@
 import * as C from '../curriculum-data.js';
 import * as S from '../curriculum-store.js';
 import * as P from '../profile.js';
+import * as Activity from '../activity.js';
 import * as Cloze from '../cloze-data.js';
 import { passage } from '../passage.js';
 import { h, clear, cn, topBar, paperHeader, barLabel, button, blockButton, press, srHeading } from '../ui.js';
@@ -23,7 +24,7 @@ export async function render(root, grade, section, mode, id) {
   if (!section) { await gradeHome(root, grade); return; }
   if (!SECTION_ORDER.includes(section)) { location.hash = `#/middle/${grade}`; return; }
   if (section === 'cloze') { location.hash = `#/cloze/${grade}`; return; }
-  if (!id) { list(root, grade, section); return; }
+  if (!id) { if (mode === 'study') await list(root, grade, section); else await sectionHome(root, grade, section); return; }
   await exercise(root, grade, section, mode, decodeURIComponent(id));
 }
 
@@ -44,19 +45,32 @@ async function gradeHome(root, grade) {
   root.append(choices, h('div', { style: { height: '30px' } }));
 }
 
-function list(root, grade, section) {
-  C.loadMiddle().then((data) => {
+function startTest(grade, section, rows, current = null) {
+  const id = S.drawRandom(`middle-${grade}-${section}`, rows.map(row => row.id), Math.random, current);
+  if (!id) return;
+  sessionStorage.removeItem(`ie.ms.session.${id}.test`);
+  const target = `#/middle/${grade}/${section}/test/${id}`;
+  if (location.hash === target) window.dispatchEvent(new HashChangeEvent('hashchange')); else location.hash = target;
+}
+async function sectionHome(root, grade, section) {
+  const rows = (await C.loadMiddle()).grades[grade]?.[section] || [];
+  clear(root); root.append(topBar(tr('← Grade', '← 年级') + ' ' + grade, '', () => { location.hash = `#/middle/${grade}`; }), h('div.mt'), paperHeader({ title: sectionLabel(section), left: `${rows.length} ${tr('exercises', '份练习')}` }));
+  root.append(h('div.home-choices.mt2', null,
+    blockButton(tr('Study', '学习'), tr('Choose any exercise. Meanings and feedback are available.', '自由选择练习，可查看释义和反馈。'), () => { location.hash = `#/middle/${grade}/${section}/study`; }),
+    blockButton(tr('Test', '测试'), tr('Random exercise. Unseen first; no immediate repeats. No word lookup.', '随机抽题：未做优先，不连续重复。测试不提供查词。'), () => startTest(grade, section, rows))));
+}
+async function list(root, grade, section) {
+  const data = await C.loadMiddle();
     const exercises = data.grades[grade]?.[section] || [];
-    clear(root); root.append(topBar(`← ${tr('Grade', '年级')} ${grade}`, sectionLabel(section), () => { location.hash = `#/middle/${grade}`; }));
+    clear(root); root.append(topBar(tr('← Back', '← 返回'), sectionLabel(section), () => { location.hash = `#/middle/${grade}/${section}`; }));
     root.append(h('div.mt'), paperHeader({ kicker: `${tr('Grade', '年级')} ${grade}`, title: sectionLabel(section), left: `${exercises.length} ${tr('exercises', '份练习')}`, right: tr('Study · Test', '学习 · 测试') }));
     const find = h('input', { type: 'search', placeholder: tr('Find an exercise', '查找练习'), 'aria-label': tr('Find exercise', '查找练习') }); root.append(h('div.find.mt', null, h('div.lbl', null, tr('Find', '查找')), find));
     const box = h('div.box.mt'); const label = barLabel(tr('Exercises', '练习'), String(exercises.length)); const list = h('div'); box.append(label, list); root.append(box, h('div', { style: { height: '30px' } }));
     const paint = () => {
       clear(list); const needle = find.value.trim(); const shown = exercises.filter((row) => !needle || row.title.toLowerCase().includes(needle.toLowerCase()) || String(row.number).includes(needle)); label.lastChild.textContent = String(shown.length);
-      shown.forEach((row) => { const runs = S.middleRuns(row.id); const best = runs.filter((x) => x.graded).reduce((n, x) => Math.max(n, Math.round(x.correct * 100 / Math.max(1, x.total))), 0); list.append(press(h('button.middle-row', { type: 'button', onclick: () => { location.hash = `#/middle/${grade}/${section}/choose/${row.id}`; } }, h('span.grow', null, h('b', null, row.title), h('small', null, runs.length ? `${runs.length} ${tr('attempts', '次')} · ${best}% ${tr('best', '最好')}` : tr('Not started', '尚未开始'))), h('span', null, '›')))); });
+      shown.forEach((row) => { const runs = S.middleRuns(row.id); const best = runs.filter((x) => x.graded).reduce((n, x) => Math.max(n, Math.round(x.correct * 100 / Math.max(1, x.total))), 0); list.append(press(h('button.middle-row', { type: 'button', onclick: () => { location.hash = `#/middle/${grade}/${section}/study/${row.id}`; } }, h('span.grow', null, h('b', null, row.title), h('small', null, runs.length ? `${runs.length} ${tr('attempts', '次')} · ${best}% ${tr('best', '最好')}` : tr('Not started', '尚未开始'))), h('span', null, '›')))); });
     };
     find.oninput = paint; paint();
-  });
 }
 
 async function exercise(root, grade, section, mode, id) {
@@ -70,12 +84,16 @@ async function exercise(root, grade, section, mode, id) {
     return;
   }
   const isTest = mode === 'test'; const sessionKey = `ie.ms.session.${id}.${mode}`; let saved = {};
-  const content = item.content && section.startsWith('reading-') ? await passage({ ...item, level: `Grade ${grade}`, unit: section, reading: '' }, item.content.split(/\n\n+/)) : null;
+  const content = item.content && section.startsWith('reading-') ? await passage({ ...item, level: `Grade ${grade}`, unit: section, reading: '' }, item.content.split(/\n\n+/), !isTest) : null;
   try { saved = JSON.parse(sessionStorage.getItem(sessionKey) || '{}'); } catch (e) {}
-  clear(root); root.append(srHeading(`${item.title} · ${isTest ? tr('Test', '测试') : tr('Study', '学习')}`), topBar(tr('← Exercise', '← 练习'), `${sectionLabel(section)} · ${isTest ? tr('Test', '测试') : tr('Study', '学习')}`, () => { location.hash = `#/middle/${grade}/${section}/choose/${id}`; }));
-  if (content) root.append(h('h1.exercise-title', null, cn(item.title)), content);
+  clear(root); root.append(topBar(tr('← Back', '← 返回'), '', () => { location.hash = `#/middle/${grade}/${section}${isTest ? '' : '/study'}`; }), h('div.mt'), paperHeader({ title: item.title, left: `${sectionLabel(section)} · ${isTest ? tr('Test — no word lookup', '测试 — 不可查词') : tr('Study', '学习')}` }));
+  if (content) root.append(content);
   else if (item.content) root.append(h('div.exercise-source.box.mt', null, barLabel(item.title, `${item.questions.length} ${tr('questions', '题')}`), ...item.content.split(/\n\n+/).map((text) => h('p', null, cn(text)))));
   const form = h('form.middle-form.mt');
+  form.addEventListener('change', event => {
+    const field = event.target.closest('[data-id]');
+    if (field) Activity.record('school-answer', { id, mode, questionId: field.dataset.id, response: event.target.value });
+  });
   item.questions.forEach((q) => {
     const field = h('fieldset.question', { 'data-id': q.id }, h('legend', null, `${q.number}. `, cn(q.prompt)));
     if (q.choices.length) q.choices.forEach((choice) => { const input = h('input', { type: 'radio', name: q.id, value: choice.id }); if (saved[q.id] === choice.id) input.checked = true; input.onchange = () => { persist(); if (!isTest && q.answer) feedback(field, input.value === q.answer, q); }; field.append(h('label.choice', null, input, h('span', null, `${choice.label}. `, cn(choice.text)))); });
@@ -95,7 +113,7 @@ async function exercise(root, grade, section, mode, id) {
     clear(result); result.append(h('div.note.' + (run.graded && correct === graded.length ? 'good' : 'bad'), null, run.graded ? `${Math.round(correct * 100 / graded.length)}% · ${correct}/${graded.length}` : tr('Submitted · ungraded because no valid answer key is available.', '已提交 · 因无有效答案而不评分。')));
     if (isTest) item.questions.forEach((q) => { const field = form.querySelector(`[data-id="${q.id}"]`); feedback(field, answerKey(q) && matches(answers[q.id], answerKey(q)), q); });
     const next = C.nextMiddle(grade, section, id);
-    result.append(button(next ? tr('Next exercise', '下一篇练习') : tr('Back to exercises', '返回练习列表'), { variant: 'ruled', size: 'lg', wide: true, onClick: () => { location.hash = next ? `#/middle/${grade}/${section}/${mode}/${next.id}` : `#/middle/${grade}/${section}`; } }));
+    result.append(button(isTest || next ? tr('Next exercise', '下一篇练习') : tr('Back to exercises', '返回练习列表'), { variant: 'ruled', size: 'lg', wide: true, onClick: async () => { if (isTest) startTest(grade, section, (await C.loadMiddle()).grades[grade][section], id); else location.hash = next ? `#/middle/${grade}/${section}/study/${next.id}` : `#/middle/${grade}/${section}/study`; } }));
   };
   root.append(form, submit, result, h('div', { style: { height: '32px' } }));
   function values() { const out = {}; item.questions.forEach((q) => { const field = form.querySelector(`[data-id="${q.id}"]`); out[q.id] = field.querySelector('input:checked')?.value || field.querySelector('textarea,input[type=text]')?.value || ''; }); return out; }

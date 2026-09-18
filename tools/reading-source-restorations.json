@@ -1,0 +1,489 @@
+{
+  "schemaVersion": 1,
+  "articles": {
+    "rc-level-3-u12-b": {
+      "source": {
+        "file": "re3 unit 12B.pdf",
+        "sha256": "5c4d772b913f9bf59e2524482b17716c8deb2ac877d986ddd0dc0368e2c3e4fe",
+        "pdfPages": [
+          1,
+          2,
+          5
+        ],
+        "review": "Text extraction compared against rendered textbook pages."
+      },
+      "paragraphs": [
+        "Although we have sent unmanned spacecraft to Mars and other parts of our solar system for decades, humans haven’t ventured more than 650 kilometers from Earth since 1973. However, there is increasing interest in sending new missions—both robotic and manned—into space. Unlike in the past, this renewed interest is not primarily being driven by government agencies. Instead, private companies are leading today’s new age of space exploration.",
+        "Astronauts and supplies from the United States used to be transported to the ISS by NASA’s space shuttles. But the space shuttle program ended in 2011. In early 2012, SpaceX, a private company based near Los Angeles, sent an unmanned rocket to the ISS. SpaceX and other private companies are now competing to replace the shuttle to become the ISS’s main supply ship.",
+        "Another company called Planetary Resources—which received backing from Google executives—has developed plans to use robotic spacecraft to mine asteroids for precious metals. One that the company hopes to find is platinum, a metal so rare on Earth that an ounce costs $1,600. Robots will have to travel millions of kilometers to locate and mine asteroids, and this requires technology that doesn’t exist yet. However, this isn’t stopping companies like Planetary Resources and others from trying. They are investing millions into research, hoping to create tools that will make space mining possible. “This is the beginning of the new space age,” says Dr. Mason Peck, NASA’s Chief Technologist. “The energy we see now—the economic motivation to go into space—we haven’t seen that before.”",
+        "For centuries, economics has driven exploration. A thousand years ago, merchants risked the dangers of the Silk Road to reach the markets of China. In the 15th century, European ships traveled to new worlds, searching less for knowledge than for gold and spices. “Historically, the driver has always been the search for resources,” explains investor Peter Diamandis. If you want people to explore space, he says, create an economic incentive.",
+        "Entrepreneur Elon Musk, the founder of SpaceX, is spending a large part of his fortune on his own space program. SpaceX has developed a rocket that transports cargo to the ISS relatively cheaply. Musk reduced costs by creating reusable rockets—in the same way that we reuse a plane after a flight. People first thought that creating reusable rockets would be extremely difficult, or even impossible, but Musk knew there was no other way to keep costs down. “If we threw away airplanes after every flight,” he says, “no one would fly.”",
+        "For Musk, creating reusable rockets has been part of a much bigger plan: He wants to establish a human colony on Mars. NASA has had enormous success on Mars with unmanned spacecraft, but it has yet to launch a manned mission. Musk says SpaceX could put astronauts on Mars within 10 years, and keep sending them for decades after that. “We can’t send one little group to Mars,” he says. “We have to take millions of people and lots of equipment to Mars to make it a self-sustaining civilization.” It will be the hardest thing that humanity has ever done, but Musk thinks his company can do it and he’s eager to see it happen. “It’s about making life multiplanetary,” he says. “It’s about getting out there and exploring the stars.”"
+      ],
+      "answers": {
+        "01": [
+          "b",
+          "The opening says humans had not ventured more than 650 kilometres from Earth since 1973 at the time of this historical article.",
+          [
+            1
+          ]
+        ],
+        "02": [
+          "c",
+          "One refers to one of the precious metals; the next word identifies platinum.",
+          [
+            3
+          ]
+        ],
+        "03": [
+          "b",
+          "Energy here describes enthusiasm and economic motivation, not rocket fuel.",
+          [
+            3
+          ]
+        ],
+        "04": [
+          "a",
+          "The Silk Road and European voyages illustrate how economic incentives have driven exploration.",
+          [
+            4
+          ]
+        ],
+        "05": [
+          "d",
+          "Musk wants SpaceX to establish a human colony on Mars.",
+          [
+            6
+          ]
+        ],
+        "06": [
+          "f",
+          "The chart shows Apollo Moon missions continuing into the early 1970s.",
+          []
+        ],
+        "07": [
+          "f",
+          "The first lunar landing is labelled Apollo 11, not Mercury.",
+          []
+        ],
+        "08": [
+          "ng",
+          "The chart does not compare the total costs of the space programmes.",
+          []
+        ],
+        "09": [
+          "t",
+          "Most mission-height bars remain below the low-Earth-orbit boundary.",
+          []
+        ],
+        "10": [
+          "t",
+          "The first flight lasting over 100 days is labelled Salyut 6, a U.S.S.R. programme.",
+          []
+        ],
+        "11": [
+          "t",
+          "In the 1995–2005 portion of the chart, the US mission bars outnumber those for the other individual countries.",
+          []
+        ]
+      },
+      "prompts": {
+        "01": "According to this historical article, which statement about space exploration is NOT true?",
+        "02": "In “One that the company hopes to find is platinum”, what does “One” refer to?",
+        "03": "In “The energy we see now—the economic motivation to go into space”, what could replace “energy”?",
+        "04": "What is the main idea of the paragraph beginning “For centuries, economics has driven exploration”?"
+      },
+      "choiceText": {
+        "01": {
+          "d": "More and more private companies are beginning to explore space."
+        }
+      },
+      "additionalQuestions": [
+        {
+          "id": "rc-level-3-u12-b-c-q05",
+          "number": "5",
+          "prompt": "What does SpaceX want to do?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "build a space station that can replace the ISS"
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "get the government’s approval to transport astronauts to the ISS"
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "partner with Planetary Resources to mine asteroids for platinum"
+            },
+            {
+              "id": "d",
+              "label": "D",
+              "text": "send a manned spacecraft to Mars in order to colonize it"
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "figures": [
+        {
+          "id": "re3-12b-missions-1",
+          "path": "reading-figures/re3-12b-missions-1.jpg",
+          "title": "Charting the Missions · 1961–1990s",
+          "alt": "Charting the Missions · 1961–1990s — source textbook infographic. Open full size to inspect details.",
+          "source": {
+            "source": "re3 unit 12B.pdf",
+            "pdfPage": 3,
+            "operation": "Direct PDF page rendering; not AI-generated."
+          }
+        },
+        {
+          "id": "re3-12b-missions-2",
+          "path": "reading-figures/re3-12b-missions-2.jpg",
+          "title": "Charting the Missions · 1990s–2008",
+          "alt": "Charting the Missions · 1990s–2008 — source textbook infographic. Open full size to inspect details.",
+          "source": {
+            "source": "re3 unit 12B.pdf",
+            "pdfPage": 4,
+            "operation": "Direct PDF page rendering; not AI-generated."
+          }
+        }
+      ],
+      "evidenceFigures": {
+        "06": [
+          "re3-12b-missions-1",
+          "re3-12b-missions-2"
+        ],
+        "07": [
+          "re3-12b-missions-1",
+          "re3-12b-missions-2"
+        ],
+        "08": [
+          "re3-12b-missions-1",
+          "re3-12b-missions-2"
+        ],
+        "09": [
+          "re3-12b-missions-1",
+          "re3-12b-missions-2"
+        ],
+        "10": [
+          "re3-12b-missions-1",
+          "re3-12b-missions-2"
+        ],
+        "11": [
+          "re3-12b-missions-1",
+          "re3-12b-missions-2"
+        ]
+      },
+      "notes": [
+        "Restored the complete A–F narrative and missing MCQ 5 from supplied PDF pages 194–195 and 198. Date-sensitive predictions remain historical source statements.",
+        "Restored the six infographic T/F/NG items with their actual two-page source chart, separate from the narrative."
+      ]
+    },
+    "rc-level-5-u02-a": {
+      "source": {
+        "file": "re5 unit 2A.pdf",
+        "sha256": "204e50e4a642db65b9cd63d040b4173ec9663cdc49e26481c3bd057504915b16",
+        "pdfPages": [
+          2,
+          4,
+          5,
+          6,
+          7
+        ],
+        "review": "Text extraction compared against rendered textbook pages."
+      },
+      "paragraphs": [
+        "Growing up in a village in eastern Nepal’s Bhojpur Mountains, Mira Rai had dreams that went far beyond the conventional expectations for Nepali women. The eldest daughter of five children, she was expected to fetch water, tend crops and livestock, and help out at home. By age 12, she no longer regularly attended school, and instead hauled heavy bags of rice up and down steep trails—often barefoot—to trade at the market. It was hard work—but great training for a future trail runner.",
+        "“As a girl,” Rai recalls, “I would constantly be told to know my place, suppress my voice, and act in a certain manner. For me, breaking free from these traditions itself was a big dream.”",
+        "Several years ago, Rai’s dream became reality. She was running outside Kathmandu when two male trail runners invited her to enter her first trail race, the Kathmandu West Valley Rim 50K. She had never run 50 kilometers before, had no special gear or training for such a distance, and was also the only woman in the competition. But against all odds, she beat everyone—even the men. From there, a community of supporters came together to give her a chance to compete in international trail running competitions.",
+        "Today, the running world recognizes Rai as a high-elevation trail racing phenomenon. Now she is on a mission to help both women and men of Nepal through sports. Rai believes her work to empower others has just begun. “We have realized that Nepal has tremendous potential to develop competitive athletes,” she says.",
+        "Wasfia Nazreen, a mountain climber from Bangladesh, knows first-hand the impact Rai has had on the young women of Nepal. “For someone who has left school so early and missed the learning we take for granted, Mira has been able to turn back time and set a rare example by being the change herself,” she says.",
+        "“It’s hard to find good role models for young women in our region, especially one coming from the same rural village background as most of the young generation,” Nazreen says. Mira is blazing a trail, not just in terms of being able to speak nationally on gender equality, but also by getting young people into running through the new Kathmandu Trail Race Series. “The grit and joy she embodies throughout all her hardships and victories is an inspiration to all of us!”",
+        "Rai, however, remains humble. “I have been able to do the things I did because so many people believed in me and took chances, and I want to give back so others can have a chance just the way I did,” she says. “We have a saying in Nepal, ‘Khana pugyos, dina pugos,’ which means, ‘Let there be enough to eat, let there be enough to give.’”",
+        "Interviewer: Which is more difficult: running a hard, steep trail race or breaking gender stereotypes? Mira Rai: Running is no issue, but breaking gender stereotypes is. For the society we live in, it’s difficult for women and men alike because doing anything out of convention means a lot of struggle—especially for women. As women, we are expected to help out with chores at home from childhood and then get married and raise a family, so it becomes a struggle, not merely a challenge. You get called a rebel, and for an adventure sport that involves risks, nobody encourages you. “You’ll end up breaking your bones!” they’d say. Though the mindset seems to be changing, it’s still at a snail’s pace and has a long way to go before women are seen as equivalent to men.",
+        "What advice do you have for someone who wants to be a stronger runner like you? MR: It was a matter of chance and luck that I became a runner. Back in the village we had to walk hours on end—up and down grueling terrain, often barefoot, with a heavy weight on our backs—and this definitely contributed. I started running, I got professional training that taught me techniques, and gradually I became more determined, motivated, and persistent to chase my dreams. However, I’ve also learned that proper diet, enough rest, confidence, yoga, and mental well-being—as well as having good support from my mentor Richard Bull and my coach Dhruba Bikram Malla—are just as important as being in shape.",
+        "You stopped going to school regularly when you were 12. Do you wish you’d had more school? MR: I feel that if I’d finished more school, I would have been able to communicate with more confidence and have a better insight into world affairs. In many cases when I first started racing abroad, I couldn’t even be a part of conversations because of my poor English skills. I used to just sit there and listen, but I didn’t feel uncomfortable being there as everybody was very supportive. However, with media and sponsors, it would’ve definitely been more helpful had I obtained more education back home. Even today when I try to read newspapers, I fail to understand quite a few words, so I am taking English classes these days, and it’s certainly helping.",
+        "Running has helped you see the world. What is it like to return to your village now that you have been to Hong Kong, Italy, and other places? MR: I return once a year during the Dashain, the largest festival of the year, and the people there are living the same sort of lives as I saw when I was a kid. We used to have kerosene lanterns, but now there are bulbs that run on solar power. The village had no access by road back in the day; now there are dirt tracks that connect to big towns. But the mud houses are the same. There’s phone connection, but it doesn’t work well. When I go back, I meet a lot of youngsters that ask me how they can live differently. They definitely seem motivated, but sadly their folks do not agree with such ambition. While the physical infrastructure in my village has improved, the mindset has not. I remain hopeful that the future generation will break the mold.",
+        "What work are you doing now with communities in Nepal? MR: While recovering from knee surgery, I have been providing guidance to men and women alike in running and encouraging them to pursue a career as professional athletes. Every so often, I visit schools and children’s homes to share my knowledge about running, particularly training, diet, and more importantly, an active lifestyle.",
+        "We have realized that Nepal has tremendous potential to develop competitive athletes, so we’re organizing a series of trail races in Kathmandu. These are short races aimed for both beginners and experienced runners. I also organized a small race back in my hometown of Sano Dumma last October, to introduce the sport to the young crowd and get them interested in running. In the coming days, I plan to organize races that aim to identify and promote promising runners.",
+        "Is there a personal challenge that you still want to achieve? MR: I have always dreamed of running in the Ultra-Trail du Mont Blanc in France. It’s a challenging race for elite runners from all over the world—166 kilometers! I would love to see where I stand in this race."
+      ],
+      "answers": {
+        "01": [
+          "b",
+          "The article traces a village girl’s journey to international racing and her support for others.",
+          [
+            1,
+            3,
+            4,
+            12,
+            13
+          ]
+        ],
+        "02": [
+          "b",
+          "By twelve she no longer attended school regularly; she did not first start school then.",
+          [
+            1,
+            10
+          ]
+        ],
+        "03": [
+          "c",
+          "Nazreen praises gender equality, encouraging runners and resilience; housing improvements are not attributed to Rai.",
+          [
+            6
+          ]
+        ],
+        "04": [
+          "a",
+          "Rai is describing the struggle of acting outside conventional expectations, especially for women.",
+          [
+            8
+          ]
+        ],
+        "05": [
+          "d",
+          "Long barefoot walks over difficult terrain with heavy loads are tiring.",
+          [
+            9
+          ]
+        ],
+        "06": [
+          "b",
+          "The added sentence comments on the difficult childhood walks before the answer moves on to professional training.",
+          [
+            9
+          ]
+        ],
+        "07": [
+          "c",
+          "The village account covers lighting, the annual festival visit and road access, but says nothing about improvements in village education.",
+          [
+            11
+          ]
+        ]
+      },
+      "prompts": {
+        "03": "In Nazreen’s description, what is NOT given as a reason that Rai is a good role model?",
+        "04": "When Rai says “it becomes a struggle, not merely a challenge”, what is she referring to?",
+        "05": "In Rai’s description of walking over “grueling terrain”, what does “grueling” mean?",
+        "06": "Where should “It wasn’t much fun, but it definitely helped me develop my stamina” be inserted in Rai’s answer about becoming a stronger runner?"
+      },
+      "choiceText": {
+        "03": {
+          "a": "She works to promote gender equality in her country."
+        }
+      },
+      "choices": {
+        "06": {
+          "a": "After “It was a matter of chance and luck that I became a runner.”",
+          "b": "After the sentence describing childhood walks with heavy loads.",
+          "c": "After the sentence about professional training and determination.",
+          "d": "After the sentence about diet, rest, confidence and support."
+        }
+      },
+      "additionalQuestions": [
+        {
+          "id": "rc-level-5-u02-a-c-q07",
+          "number": "7",
+          "prompt": "Which question about Rai’s home village cannot be answered by information in the passage?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "How did people light their homes there in the past?"
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "When does Mira Rai make her annual visit there?"
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "Has education in the village improved?"
+            },
+            {
+              "id": "d",
+              "label": "D",
+              "text": "How can people living there now get to other towns?"
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "notes": [
+        "Restored all fourteen A–N paragraphs, including both the missing opening and missing final interview page; recovered MCQ 7. Removed captions, repeated page labels and footnotes from the narrative."
+      ]
+    },
+    "rc-level-5-u05-a": {
+      "source": {
+        "file": "re5 unit 5A.pdf",
+        "sha256": "3832876d62c9d5a74a5c781e41c483e2308c8655d538aca8335409deb57ea3e8",
+        "pdfPages": [
+          3,
+          4,
+          6,
+          8
+        ],
+        "review": "Text extraction compared against rendered textbook pages."
+      },
+      "paragraphs": [
+        "Not long ago, my wife and I tried a new diet—not to lose weight but to answer a question about climate change. Scientists have reported that the world is heating up even faster than they predicted just a few years ago. The consequences, they say, could be severe if we don’t keep reducing emissions of carbon dioxide (CO₂) and other greenhouse gases that are trapping heat in our atmosphere. But what can we do about it as individuals? And will our efforts really make any difference?",
+        "We decided to try an experiment: For one month we would track our personal emissions of CO₂ as if we were counting calories. We wanted to see how much we could cut back.",
+        "The average U.S. household produces about 80 kilos of CO₂ a day by doing commonplace things like turning on air conditioning or driving cars. This is more than twice the European average and almost five times the global average. But how much should we try to reduce?",
+        "I checked with Tim Flannery, author of The Weather Makers: How Man Is Changing the Climate and What It Means for Life on Earth. In his book, he challenged readers to make deep cuts in personal emissions to keep the world from reaching critical tipping points, such as the melting of the ice sheets in Greenland or West Antarctica. “To stay below that threshold, we need to reduce CO₂ emissions by 80 percent,” he said. “That sounds like a lot,” my wife said. “Can we really do that?”",
+        "It seemed unlikely to me, too. Still, the point was to answer a simple question: How close could we come to a lifestyle the planet could handle? Finally, we agreed to aim for 80 percent less than the U.S. average: a daily diet of about 13 kilograms of CO₂. Our first challenge was to find ways to convert our daily activities into kilos of CO₂. We wanted to track our progress as we went so that we could change our habits if necessary.",
+        "To get a rough idea of our current carbon footprint, I put numbers from recent utility bills into several calculators on websites. The results that came out were not very flattering. The Environmental Protection Agency (EPA) website figured our annual CO₂ emissions at 24,618 kilos, 30 percent higher than the average U.S. family with two people. The main culprit was the energy we were using to heat and cool our house. Clearly we had further to go than I thought.",
+        "We got some help in Week Two from a professional “house doctor,” Ed Minch of Energy Services Group in Wilmington, Delaware, who we asked to do an energy audit of our house. The first thing he did was to walk around the outside of the house to see if the architect and builder had created any opportunities for air to seep in or out, such as overhanging floors. Next, he went inside and used an infrared scanner to look at our interior walls. Finally, his assistants set up a powerful fan in our front door to lower air pressure inside the house and force air through whatever leaks there might be in the shell of the house.",
+        "Our house, his instruments showed, was 50 percent leakier than it should be. Addressing this became a priority, as heating represents up to half of a house’s energy costs, and cooling can account for a tenth. Minch also gave us tips about lighting and appliances. “A typical kitchen these days has ten 75-watt spots on all day,” he said, “and that’s a huge waste of money.” Replacing them with compact fluorescents could save a homeowner $200 a year. Refrigerators, washing machines, dishwashers, and other appliances, in fact, may represent half of a household’s electric bill.",
+        "Everywhere I looked, I saw things sucking up energy. One night I sat up in bed and counted ten little lights in the darkness: cell phone charger, desktop calculator, laptop computer, printer, clock radio, cable TV box, camera battery recharger, carbon monoxide detector, cordless phone base, smoke detector. What were they all doing? One study found that “vampire” power sucked up by electronics in standby mode can add up to 25 percent of a house’s electric bill.",
+        "“You can go nuts thinking about everything in your house that uses power,” said Jennifer Thorne Amann, author of Consumer Guide to Home Energy Savings. “You have to use common sense and prioritize. Don’t agonize too much, and think about what you’ll be able to sustain after the experiment is over. If you have trouble reaching your goal in one area, remember there’s always something else you can do.”",
+        "By the last week in July, we were finally getting into the flow of the reduced carbon lifestyle. We walked to the neighborhood pool instead of driving, biked to the local farmers market on Saturday morning, and sat out on the deck until dark, chatting over the sound of the crickets. Whenever possible I worked from home, and when I commuted, I took the bus and subway.",
+        "Our numbers were looking pretty good, in fact, when we crossed the finish line on August 1. Compared with the previous July, we had cut electricity use by 70 percent, natural gas by 40 percent, and reduced our driving to half the national average. In terms of CO₂, we trimmed our emissions to an average of 32 kilograms a day, which, though twice as much as we’d targeted as our goal, was still about half the national average.",
+        "We can do more, of course. We can sign up with our utility company for power from regional wind farms. We can purchase locally grown foods instead of winter raspberries from Chile and bottled water from Fiji. We can join a carbon-reduction club, or set up one of our own.",
+        "What we really wanted to know was whether it would make any difference. Our low-carbon diet had shown us that, with little or no hardship and no major cash outlays, we could cut day-to-day emissions of CO₂ in half—mainly by using less energy at home and on the highway. Similar efforts in office buildings, shopping malls, and factories throughout the nation, combined with incentives and efficiency standards, could halt further increases in U.S. emissions.",
+        "Yet efficiency, in the end, can only take us so far. To get the deeper reductions we need, as Tim Flannery advised, we must replace fossil fuels faster with energy from wind farms, solar plants, geothermal facilities, and biofuels. We must slow deforestation, which contributes to the buildup of greenhouse gases, and we must develop technologies to capture and bury carbon dioxide from existing power plants. Efficiency can buy us time—perhaps as much as two decades—to figure out how to remove carbon from the world’s diet.",
+        "Not that there won’t still be obstacles. Every sector of our economy faces challenges, says energy-efficiency guru Amory Lovins of the Rocky Mountain Institute. “But they all have huge potential. I don’t know anyone who has failed to make money at energy efficiency. There’s so much low-hanging fruit, it’s falling off the trees and mushing up around our ankles.”",
+        "The rest of the world isn’t waiting for the United States to show the way. Sweden has pioneered carbon-neutral houses, Germany affordable solar power, Japan fuel-efficient cars, China wind-power installations, the Netherlands prosperous cities filled with bicycles. Does the United States have the will to match such efforts?",
+        "Change starts at home with the replacement of a light bulb, the opening of a window, a walk to the bus, or a bike ride to the post office. My wife and I did it for only a month, but I can see the low-carbon diet becoming a habit. As my wife said, “What do we have to lose?”"
+      ],
+      "answers": {
+        "01": [
+          "b",
+          "The central story is one family’s experiment in reducing its carbon emissions.",
+          [
+            1,
+            2,
+            11,
+            12
+          ]
+        ],
+        "02": [
+          "c",
+          "The question asks what individuals can do about climate change.",
+          [
+            1
+          ]
+        ],
+        "03": [
+          "a",
+          "The passage gives about 80 kg for a US household, more than twice the European average; 40 kg is the closest offered estimate.",
+          [
+            3
+          ]
+        ],
+        "04": [
+          "d",
+          "“It seemed unlikely to me, too” expresses the author’s initial lack of confidence.",
+          [
+            4,
+            5
+          ]
+        ],
+        "05": [
+          "d",
+          "The cited study says standby electronics may account for up to 25 percent of the electricity bill.",
+          [
+            9
+          ]
+        ],
+        "07": [
+          "d",
+          "The infographic gives 84.3 kg CO₂ per train passenger versus 75.3 kg per plane passenger; the plane is not highest.",
+          []
+        ]
+      },
+      "prompts": {
+        "01": "Which is the best alternative title for this reading?",
+        "02": "In “But what can we do about it as individuals?”, what does “it” refer to?",
+        "03": "Which is the closest estimate offered for average daily European household CO₂ emissions in this historical passage?",
+        "04": "How does the author initially feel about reducing his family’s CO₂ production by 80 percent?",
+        "05": "What does the author say about electronics in standby mode?"
+      },
+      "choiceText": {
+        "01": {
+          "b": "One Family’s Energy Diet"
+        }
+      },
+      "choices": {
+        "04": {
+          "a": "fairly agreeable to it",
+          "b": "enthusiastic about it",
+          "c": "not very interested in it",
+          "d": "not confident about it"
+        }
+      },
+      "excluded": {
+        "06": "The supplied textbook itself prints an 80 kg average, 13 kg target and 32 kg result alongside inconsistent half/double comparisons. Preserve the original figures but do not score this contradictory numerical paraphrase."
+      },
+      "figures": [
+        {
+          "id": "re5-5a-traveler",
+          "path": "reading-figures/re5-5a-traveler.jpg",
+          "title": "A Traveler’s Footprint",
+          "alt": "A Traveler’s Footprint — source textbook infographic. Open full size to inspect details.",
+          "source": {
+            "source": "re5 unit 5A.pdf",
+            "pdfPage": 7,
+            "operation": "Direct PDF page rendering; not AI-generated."
+          }
+        }
+      ],
+      "evidenceFigures": {
+        "07": [
+          "re5-5a-traveler"
+        ]
+      },
+      "additionalQuestions": [
+        {
+          "id": "rc-level-5-u05-a-c-q07",
+          "number": "7",
+          "prompt": "According to “A Traveler’s Footprint”, which statement about the journey from Toronto to New York is NOT true?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "The longest journey is by train."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "The passenger miles per gallon is higher for a train than an SUV."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "Driving an electric car is the most fuel efficient mode of transport."
+            },
+            {
+              "id": "d",
+              "label": "D",
+              "text": "The total CO₂ per passenger is highest on a plane."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "editorialNote": {
+        "en": "The original textbook contains inconsistent comparisons between its emissions figures. The figures are preserved here, but the conflicting numerical question is not scored.",
+        "zh": "原教材中部分排放数据的比较不一致。此处保留原始数字，但不对存在矛盾的数字题计分。"
+      },
+      "notes": [
+        "Verified the numerical inconsistency against supplied PDF pages 97, 98, 100 and 102; it is not merely extraction damage. Original figures retained, Q6 withheld. Restored the two missing Q4 options and repaired paragraph/column order and CO₂ formatting.",
+        "Recovered the missing infographic question 7 and its supporting chart."
+      ]
+    }
+  }
+}

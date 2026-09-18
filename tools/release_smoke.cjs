@@ -16,7 +16,8 @@ async function main() {
       const context = await browser.newContext({ viewport: { width, height }, hasTouch: true, isMobile: width < 760, userAgent: android ? 'Mozilla/5.0 InspiredEnglishAndroid/1.10' : undefined });
       await context.addInitScript(({lang,android}) => {
         if (!localStorage.getItem('vd.profile.v1')) localStorage.setItem('vd.profile.v1', JSON.stringify({ name:'Student', lang, onboarded:true, inverted:false, cardsReversed:false }));
-        localStorage.setItem('ie.tutorial.1.10','done');
+        localStorage.setItem('ie.tutorial.1.10.1','done');
+        localStorage.setItem('ie.releaseNotice.1.10.1','seen');
         if (!android) Object.defineProperty(navigator, 'standalone', { value: true });
       }, {lang,android});
       const page = await context.newPage();
@@ -37,7 +38,7 @@ async function main() {
       const first = read('vocab.json').types[0].groups[0].units[0].id;
       const routes = ['#/vocab','#/u/'+first,'#/u/'+first+'/study','#/u/'+first+'/cards','#/u/'+first+'/practice','#/u/'+first+'/test','#/reading','#/reading/book/foundation','#/middle','#/middle/7','#/middle/8','#/middle/9','#/middle/7/mcq','#/cloze/7','#/cloze/study/7','#/high-school','#/memory','#/settings'];
       for (const route of routes) await go(route);
-      await go('#/reading/book/foundation');
+      await go('#/reading/book/foundation/study');
       assert.equal(await page.locator('select').count(),0);
       assert.equal(await page.locator('.unit-heading').count(),12);
       await page.screenshot({path:path.join(capture,name+'-books.png'),fullPage:true});
@@ -49,7 +50,7 @@ async function main() {
       await term.dblclick();
       assert.equal(await page.locator('.inline-definition').count(),1);
       assert.equal(await term.getAttribute('aria-expanded'),'true');
-      await term.click(); assert.equal(await page.locator('.inline-definition').count(),0);
+      await term.click(); await page.waitForTimeout(400); assert.equal(await page.locator('.inline-definition:visible').count(),0);
       await term.click(); assert.equal(await page.locator('.inline-definition').count(),1);
       assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('ie.curriculum.v2')).encounters.length),1);
       await page.screenshot({path:path.join(capture,name+'-passage.png'),fullPage:true});
@@ -64,11 +65,11 @@ async function main() {
       await page.locator('[data-section=comp] > button').click();
       assert.equal(await page.locator('.article-results .note').count(),1);
       await page.locator('.article-results .btn.wide').click();
-      await page.waitForURL('**/#/reading/rc-foundation-u01-b');
-      await page.waitForFunction(() => localStorage.getItem('ie.lastRoute') === '#/reading/rc-foundation-u01-b');
+      await page.waitForURL('**/#/reading/rc-foundation-u01-b/study');
+      await page.waitForFunction(() => localStorage.getItem('ie.lastRoute') === '#/reading/rc-foundation-u01-b/study');
       await page.getByRole('heading', {name:read('reading-content.json').articles[1].title,exact:true}).waitFor();
       await page.goto(BASE, {waitUntil:'networkidle'});
-      assert.equal(new URL(page.url()).hash,'#/reading/rc-foundation-u01-b');
+      assert.equal(new URL(page.url()).hash,'#/reading/rc-foundation-u01-b/study');
       // Every middle-school reading section and grade can open and submit.
       const middle = read('middle-school.json');
       if (name === 'phone') {
@@ -78,7 +79,7 @@ async function main() {
           assert.equal(await page.locator('.question-feedback').count(),0);
           await page.locator('form.middle-form + button').click();
           assert.ok(await page.locator('.question-feedback').count() > 0);
-          if (rows.length > 1) { await page.locator('form.middle-form + button + div button').click(); await page.waitForURL('**/'+rows[1].id); }
+          if (rows.length > 1) { await page.locator('form.middle-form + button + div button').click(); await page.waitForURL(url => !url.hash.endsWith('/'+rows[0].id)); }
         }
         const row = middle.grades['7']['reading-a'].find(row => row.questions.some(q => q.choices.length));
         await go(`#/middle/7/reading-a/study/${row.id}`);
@@ -123,6 +124,7 @@ async function main() {
     await page.goto(BASE);
     await page.locator('input[type=text]').fill('New Student');
     await page.locator('button').filter({hasText:/start|begin|开始/i}).last().click();
+    await page.getByRole('button',{name:'继续学习 · Continue learning',exact:true}).click();
     await page.getByRole('heading',{name:'Welcome to Inspired English'}).waitFor();
     await page.getByRole('button',{name:'Next',exact:true}).click();
     await page.getByRole('button',{name:'Next',exact:true}).click();

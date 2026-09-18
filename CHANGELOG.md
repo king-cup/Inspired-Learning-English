@@ -9,6 +9,61 @@ updated: 2026-09-18
 
 # Changelog
 
+## 1.10.2-preview — non-production checkpoint — 2026-09-19
+
+The user chose a checkpoint branch and a separately installed preview APK, **not** publication to students. See [[PREVIEW-1.10.2]] for limitations, checks and reproducible Android source. Production `main` is not updated by this checkpoint.
+
+- Refreshed `PRODUCT.md`, `DESIGN.md` and the component-preview sidecar from the implemented interface. Original monochrome paper/Courier styling is unchanged.
+- Labelled the web shell and bilingual Settings/update notice `1.10.2-preview`. The notice explicitly identifies unfinished reading content, examples and translations.
+- Android preview uses a separate package ID and **Inspired Preview** launcher label, so it does not replace the student app or share its storage.
+- Built with existing recordings and no bundled reading narration or duplicate packs. The unpublished reading-answer draft remains excluded.
+
+中文：本次仅保存非正式 Git 检查点并提供独立安装的安卓预览版，不更新正式学生版本。设计文档已刷新，保留原黑白配色和字体。预览版清楚说明阅读审核、例句和整句翻译尚未完成；不替换原应用或其学习记录。
+
+## 1.10.2 — verification in progress, NOT RELEASED — 2026-09-18
+
+Publishing and an Android build are now authorized **after** the release checks pass. This supersedes the historical 1.10.1 hold below, but no push or new Android build has occurred.
+
+- Added guided plans to progress backups (schema 3). Older backups remain readable and do not erase existing guided plans. Failed storage writes during restore roll back changes; this is not a crash-atomic database transaction.
+- Added visible English/Chinese saving-failure messages and a guided-plan retry path. Unreadable guided plans are preserved rather than silently replaced. Progress is flushed when the app goes into the background.
+- Fixed spelling-test progress while typing. One-word lists can use spelling tests; unavailable multiple-choice formats explain why they are disabled.
+- Included the guided-learning and activity modules in the offline app cache. Existing audio files and the audio cache are unchanged.
+- Expanded local timestamps for school/cloze submissions, selected answers, advanced practice, word-audio requests and vocabulary highlights. Audio requests are not evidence that a student listened. The history remains local and uses an unverified device clock.
+- Corrected draft article word counts and reading-time estimates after passage restoration. The Reading Explorer answer-key draft is **not yet published**; final prose/evidence review is still required.
+
+### 中文摘要（尚未发布）
+
+- 进度备份现包含引导学习计划；仍可读取旧版备份。恢复时如保存失败，会尝试回退已写入的数据。
+- 增加保存失败提示及引导学习重试入口，不再静默覆盖无法读取的学习计划。应用进入后台时立即保存当前词汇进度。
+- 修复填空测试输入时进度条不更新的问题。只有一个词的词表仍可进行拼写测试。
+- 补齐引导学习和学习记录所需的离线文件，保留现有音频。
+- 扩充带设备时间戳的本地学习记录；记录不代表防篡改出勤证明，也不证明学生实际听完录音。
+- 阅读理解答案草稿仍在审核中，尚未发布。完成最终检查后才推送网页版本及构建安卓安装包。
+
+Verification details: [[../Verification Checkpoint — 1.10.2 Learning and Recovery]].
+
+## 1.10.1 — local implementation, NOT RELEASED — 2026-09-18
+
+**Release hold:** the user requested no Git push, deployment or Android build. None has started for this version. Existing audio is retained; narrator replacement is cancelled.
+
+- Reused the Cloze fold for Study passage meanings across Reading Explorer and all published middle-school Reading A–E passages. Added eligible-word lookup to Cloze passages and options; option letters answer, word lookups do not select answers.
+- Reading and Cloze Test screens render plain text: no definition buttons, saved highlights or lookup toolbar.
+- Reading books and school MCQ/Reading A–E sections now offer Study/Test first. Study browses a list; Test and Next Test share the balanced Cloze selection rule: unseen first, least drawn next, no immediate repeat when another exercise exists. Separate scopes prevent one section affecting another.
+- Reading Explorer Study and Test answers are stored separately. Next Test clears only the newly selected test draft, not Study progress.
+- Settings offers nine persistent highlight colours, with contrasting text (including white on black). Original monochrome interface and fonts are unchanged.
+- Every vocabulary book's visible lesson titles include its name and unit, including active Cards, Practice and Test plus results/continue links. HSE package titles remain unchanged. Reading Explorer articles explicitly show the series, level and unit.
+- Added an English/Chinese one-time 1.10.1 update notice and a permanent bilingual Settings update/fix log, covering known history from 1.04. Notice is tied to running this shell version, not merely detecting an available update. It remembers dismissal locally; clearing app storage or reinstalling without retained data can show it again.
+- Updated the bilingual tutorial and local [[USER GUIDE — 1.10.1]]. The same release-note catalogue renders both the notice and Settings log.
+- Expanded explicit glossary lists to 3,132 published exercises/readings, reusing authored definitions and keeping stop words excluded. No fabricated definitions or high-school reading corpus was added.
+- Preserved curriculum IDs, vocabulary scoring contracts, backup data and existing recordings. Shell cache bumped; audio cache unchanged.
+
+### Remaining release boundaries
+
+- High-school reading remains a placeholder; HSE vocabulary/Advanced Practice remain available. Future school sections should reuse the Study/Test and balanced-random contract.
+- Reading Explorer answer keys still require teacher/source verification. Do not claim automatic comprehension scores.
+- Android source version is prepared as 1.10.1 (code 11), but no 1.10.1 APK has been built. Browser Android-user-agent checks are not native device verification.
+- Prior release history below is historical; earlier pending publishing instructions do not override this release hold.
+
 This file tracks learner-visible releases and significant platform changes. Curriculum-only publication IDs remain recorded in `content/manifest.json` and Git history.
 
 ## 1.10 — 2026-09-18

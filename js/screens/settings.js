@@ -6,10 +6,12 @@ import { APP_VERSION, clipCount, activeVersion, lastCheck } from '../data.js';
 import * as P from '../profile.js';
 import * as A from '../audio.js';
 import * as S from '../store.js';
+import * as Activity from '../activity.js';
 import * as i18n from '../i18n.js';
 import { LANGS } from '../i18n.js';
 import { applyTheme } from '../theme.js';
 import { runUpdateCheck } from '../updates.js';
+import { content as releaseLog } from '../release-notes.js';
 import { h, clear, paperHeader, barLabel, button, toggleRow, topBar, openDialog, announce, leafMark } from '../ui.js';
 
 const MAX_NAME = 24;
@@ -84,6 +86,15 @@ export function render(root) {
       onChange: (on) => { P.setInverted(on); applyTheme(on); paint(); },
     }));
     root.append(dispBox);
+    const colors = h('div.box.mt', null, barLabel(p.lang === 'zh' ? '词汇标记颜色' : 'Vocabulary highlight colour'));
+    const palette = h('div.highlight-palette', { role: 'group', 'aria-label': p.lang === 'zh' ? '标记颜色' : 'Highlight colour' });
+    Object.entries(P.HIGHLIGHTS).forEach(([key, row]) => {
+      const option = button(row[p.lang === 'zh' ? 1 : 0], { variant: 'thin', ariaPressed: key === p.highlightColor, onClick: () => { P.setHighlightColor(key); paint(); } });
+      option.style.backgroundColor = row[2]; option.style.color = row[3]; option.dataset.highlightColor = key;
+      palette.append(option);
+    });
+    colors.append(palette, h('p.note', null, p.lang === 'zh' ? '更改颜色会应用于所有已保存的标记，不会改变学习记录。' : 'Applies to all saved highlights without changing your learning history.'));
+    root.append(colors);
 
     // --- cards (reverse) ---------------------------------------------------
     const cardsBox = h('div.box.mt');
@@ -100,6 +111,9 @@ export function render(root) {
 
     // --- vocabulary updates (v1.03 §4) -------------------------------------
     root.append(vocabBox(t));
+    const log = h('details.box.mt.release-log', null, h('summary', { style: { padding: '14px', cursor: 'pointer', minHeight: '44px' } }, p.lang === 'zh' ? '更新与修复记录 · 1.04–1.10.1' : 'Updates & fixes · 1.04–1.10.1'));
+    log.append(h('div', { style: { padding: '0 14px 14px' } }, releaseLog()));
+    root.append(log);
 
     // --- progress & backup (§7) --------------------------------------------
     root.append(dataBox(t, p));
@@ -200,13 +214,26 @@ export function render(root) {
     restore.style.marginTop = '8px';
     share.style.marginTop = '8px';
     body.append(backup, restore, share);
+    const journal = button(p.lang === 'zh' ? '导出带时间戳的学习记录' : 'Export timestamped learning history', { variant: 'thin', wide: true, size: 'sm', onClick: async () => {
+      journal.disabled = true;
+      try { const data = await Activity.exportJournal(); await shareOrDownload(JSON.stringify(data, null, 2), `learning-history-${new Date().toISOString().slice(0,10)}.json`, 'application/json', p.lang === 'zh' ? '学习记录' : 'Learning history'); }
+      catch (_) { flashError(p.lang === 'zh' ? '无法读取本地记录，请重试。' : 'Could not read local history. Please try again.'); }
+      finally { journal.disabled = false; }
+    } });
+    body.append(h('div.mt'), journal, h('p.field-help', null, p.lang === 'zh'
+      ? '学习活动与时间戳仅保存在本设备。不录音、不自动发送给老师。设备时间可以更改，因此记录不能作为防篡改的出勤证明。离开页面或闲置超过一分钟不计入有效学习时间。'
+      : 'Activity and timestamps stay on this device. No microphone recording or automatic teacher upload. Device time can be changed, so this is not tamper-proof attendance. Hidden time and idle time beyond one minute are excluded.'));
     box.append(body);
 
     backup.addEventListener('click', async () => {
-      const text = S.exportBackup();
-      const name = `vocab-progress-${new Date().toISOString().slice(0, 10)}.json`;
-      const ok = await shareOrDownload(text, name, 'application/json', t.get('backup.saved'));
-      if (ok) { announce(t.get('backup.saved')); paint(); }
+      try {
+        const text = S.exportBackup();
+        const name = `vocab-progress-${new Date().toISOString().slice(0, 10)}.json`;
+        const ok = await shareOrDownload(text, name, 'application/json', t.get('backup.saved'));
+        if (ok) { S.markBackup(); announce(t.get('backup.saved')); paint(); }
+      } catch (_) {
+        flashError(p.lang === 'zh' ? '无法读取完整进度，备份未生成。原有记录未更改，请勿清除应用数据。请重试，或联系老师协助恢复。' : 'A complete backup could not be read. Your saved data has not been changed. Do not clear app data; retry or ask your teacher for recovery help.');
+      }
     });
 
     restore.addEventListener('click', () => pickFile('application/json,.json', (text) => {
@@ -220,7 +247,12 @@ export function render(root) {
           { label: t.get('backup.replace'), variant: 'thin bad', onClick: () => {
             const r = S.importBackup(text);
             if (r.ok) { announce(t.get('backup.restored')); paint(); }
-            else { announce(t.get('backup.invalid'), true); flashError(t.get('backup.invalid')); }
+            else {
+              const message = r.reason === 'storage'
+                ? (p.lang === 'zh' ? '设备未能保存恢复的进度。请清理存储空间后重试，不要清除应用数据。' : 'This device could not save the restored progress. Free storage space and retry; do not clear app data.')
+                : t.get('backup.invalid');
+              announce(message, true); flashError(message);
+            }
           } },
         ],
       });

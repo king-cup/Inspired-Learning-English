@@ -105,6 +105,20 @@ export function displayPos(rawPos, langCode = curCode) {
 }
 
 const EN_TABLE = {
+  'spelling.title': 'Fill in the blank',
+  'spelling.instruction': 'Type the English word or phrase',
+  'spelling.caption': 'Practise spelling, five words at a time.',
+  'spelling.answer': 'Your English answer',
+  'spelling.check': 'Check spelling',
+  'spelling.help': 'Use the Chinese meaning and sentence as clues. Capital letters and extra outer spaces do not affect your score.',
+  'test.format': 'Choose your test format',
+  'test.formatHelp': 'Every word in this list appears once. Your answers are saved as you go; feedback appears only after you finish.',
+  'test.mcq': 'Multiple Choice',
+  'test.mixed': 'Mixed',
+  'test.recognitionScore': 'Multiple choice: %d / %d',
+  'test.spellingScore': 'Spelling: %d / %d',
+  'guided.title': 'Guided learning',
+  'guided.caption': 'Build a daily plan for your next class.',
   // --- app ---------------------------------------------------------------
   'app.title': 'Inspired English',
   'app.kicker': 'student edition · works offline',
@@ -494,6 +508,20 @@ const EN_TABLE = {
 };
 
 const ZH_TABLE = {
+  'spelling.title': '填空题',
+  'spelling.instruction': '输入英文单词或短语',
+  'spelling.caption': '每五个单词一组，练习拼写。',
+  'spelling.answer': '你的英文答案',
+  'spelling.check': '检查拼写',
+  'spelling.help': '根据中文释义和例句填写。大小写及首尾多余空格不影响得分。',
+  'test.format': '选择测试题型',
+  'test.formatHelp': '本词表每个词考一次。作答会自动保存，全部提交后才显示答案与反馈。',
+  'test.mcq': '选择题',
+  'test.mixed': '混合题',
+  'test.recognitionScore': '选择题：%d / %d',
+  'test.spellingScore': '拼写：%d / %d',
+  'guided.title': '引导学习',
+  'guided.caption': '为下次上课安排每日学习计划。',
   // --- app ---------------------------------------------------------------
   'app.title': 'Inspired English',
   'app.kicker': '学生版 · 可离线使用',

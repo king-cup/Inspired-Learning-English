@@ -1,7 +1,7 @@
 import * as S from './curriculum-store.js';
 import * as A from './audio.js';
 import * as P from './profile.js';
-import { h, clear, button, cn, announce } from './ui.js';
+import { h, button, cn, announce } from './ui.js';
 const tr = (en, zh) => P.get().lang === 'zh' ? zh : en;
 let glossary;
 export async function loadGlossary() {
@@ -10,69 +10,82 @@ export async function loadGlossary() {
 }
 const escaped = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-/** A definition is a block between the selected text and its continuation.
- * Stable paragraph offsets preserve individual occurrences across reloads.
- * Listeners belong to this element and are released with the screen.
- */
-export async function passage(article, paragraphs) {
+// The controller is shared by passage text and question options. Test mode
+// returns plain text without fetching definitions or adding interactive nodes.
+export async function vocabulary(article, enabled = true) {
+  if (!enabled) return { text: value => document.createTextNode(value), tools: null };
   let data;
-  try { data = await loadGlossary(); } catch (e) { data = { entries: {}, passages: {} }; }
+  try { data = await loadGlossary(); } catch { data = { entries: {}, passages: {} }; }
   const terms = data.passages[article.id] || {};
+  const pattern = Object.keys(terms).length ? new RegExp('(' + Object.keys(terms).sort((a,b) => b.length-a.length).map(escaped).join('|') + ')(?![A-Za-z])', 'gi') : null;
+  const tools = h('div.passage-tools');
+  const undo = button(tr('Undo highlight', '撤销标记'), { variant: 'thin', size: 'sm' });
+  tools.append(h('span', null, tr('Study: double-tap dotted words for meanings. Tap a saved highlight once to open or close.', '学习模式：双击点状下划线词查看释义；单击已标记词展开或收起。')), undo);
+  const refs = [];
+  let active = null, lastTap = { key: null, at: 0 };
+  const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function close(ref) {
+    if (!ref?.panel) return;
+    ref.panel.classList.remove('open'); ref.word.setAttribute('aria-expanded', 'false');
+    ref.panel.inert = true;
+    setTimeout(() => { if (!ref.panel.classList.contains('open')) ref.panel.hidden = true; }, reduced() ? 0 : 380);
+    if (active === ref) active = null;
+  }
+  function refresh() {
+    const marks = S.highlights(article.id);
+    refs.forEach(ref => ref.word.classList.toggle('is-highlighted', !!marks[ref.key]));
+    undo.disabled = !Object.keys(marks).length;
+  }
+  function activate(ref, ev) {
+    ev.preventDefault(); ev.stopPropagation();
+    const now = Date.now();
+    if (!S.highlights(article.id)[ref.key]) {
+      if (ev.detail !== 0 && !(lastTap.key === ref.key && now - lastTap.at < 450)) { lastTap = { key: ref.key, at: now }; return; }
+      S.highlightWord(article, ref.key, ref.entry, ref.display, ref.context);
+      getSelection()?.removeAllRanges(); refresh();
+    }
+    lastTap = { key: null, at: 0 };
+    if (active === ref) { close(ref); return; }
+    close(active);
+    if (!ref.panel) {
+      const entry = ref.entry;
+      const detail = h('span.inline-definition', { role: 'note', 'aria-label': tr('Word meaning', '词语释义') },
+        h('span.definition-heading', null, h('strong', null, cn(entry.w)), h('span', null, entry.p)),
+        h('span.definition-meaning', null, cn(entry.c)));
+      if (entry.e) detail.append(h('span.definition-example', null, cn(entry.e)));
+      if (entry.s) detail.append(h('span.definition-example', null, tr('Related: ', '近义词：') + entry.s));
+      detail.append(button(tr('Listen', '听发音'), { variant: 'thin', size: 'sm', onClick: ev => { ev.preventDefault(); ev.stopPropagation(); A.speak(entry.w); } }),
+        button(tr('Close meaning', '收起释义'), { variant: 'thin', size: 'sm', onClick: ev => { ev.preventDefault(); ev.stopPropagation(); close(ref); ref.word.focus({preventScroll:true}); } }));
+      ref.panel = h('span.cloze-fold.vocab-fold', { hidden: true }, h('span.cloze-fold-inner', null, detail));
+      ref.word.after(ref.panel);
+    }
+    ref.panel.hidden = false; ref.panel.inert = false; active = ref;
+    ref.word.setAttribute('aria-expanded', 'true');
+    // Commit the folded frame before opening, including when reopening rapidly.
+    void ref.panel.offsetHeight;
+    requestAnimationFrame(() => { if (active === ref) ref.panel.classList.add('open'); });
+  }
+  function text(value, anchor = '0', offset = 0) {
+    const fragment = document.createDocumentFragment(); let at = 0;
+    if (pattern) for (const match of value.matchAll(pattern)) {
+      if (match.index && /[A-Za-z]/.test(value[match.index - 1])) continue;
+      const entry = data.entries[terms[match[0].toLowerCase()]];
+      if (!entry) continue;
+      fragment.append(document.createTextNode(value.slice(at, match.index)));
+      const ref = { key: `${anchor}:${offset + match.index}:${match[0].toLowerCase()}`, entry, display: match[0], context: value };
+      ref.word = h('button.passage-term', { type: 'button', 'data-anchor': ref.key, 'aria-expanded': 'false', 'aria-label': match[0] + tr(': meaning', '：释义'), onclick: ev => activate(ref, ev) }, match[0]);
+      refs.push(ref); fragment.append(ref.word); at = match.index + match[0].length;
+    }
+    fragment.append(document.createTextNode(value.slice(at))); refresh(); return fragment;
+  }
+  undo.onclick = () => { close(active); S.undoHighlight(article.id); refresh(); announce(tr('Highlight removed. Encounter history kept.', '已撤销标记，保留学习接触记录。')); };
+  refresh(); return { text, tools };
+}
+export async function passage(article, paragraphs, enabled = true) {
+  const vocab = await vocabulary(article, enabled);
   const wrap = h('section.passage');
   const body = h('article.reading-body.mt', { 'aria-label': article.title });
-  const toolbar = h('div.passage-tools');
-  const undo = button(tr('Undo highlight', '撤销标记'), { variant: 'thin', size: 'sm' });
-  toolbar.append(h('span', null, tr('Double-tap dotted words for meanings.', '双击点状下划线词查看释义。')), undo);
-  wrap.append(toolbar, body);
-  let open = null;
-  let lastTap = { key: null, at: 0 };
-  // Avoid lookbehind: older iPad Safari can otherwise fail to open the reader.
-  const pattern = Object.keys(terms).length ? new RegExp('(' + Object.keys(terms).sort((a,b) => b.length-a.length).map(escaped).join('|') + ')(?![A-Za-z])', 'gi') : null;
-  const parts = paragraphs.map((text, paragraph) => {
-    const rows = []; let start = 0;
-    if (pattern) { pattern.lastIndex = 0; for (const match of text.matchAll(pattern)) {
-      if (match.index && /[A-Za-z]/.test(text[match.index - 1])) continue;
-      if (match.index > start) rows.push({ text: text.slice(start, match.index) });
-      rows.push({ text: match[0], key: `${paragraph}:${match.index}:${match[0].toLowerCase()}`, entry: data.entries[terms[match[0].toLowerCase()]], context: text });
-      start = match.index + match[0].length;
-    } }
-    if (start < text.length) rows.push({ text: text.slice(start) });
-    return rows;
-  });
-  function activate(row, event) {
-    const highlighted = S.highlights(article.id)[row.key];
-    const now = Date.now();
-    if (highlighted) open = open === row.key ? null : row.key;
-    else if (event.detail === 0 || (lastTap.key === row.key && now-lastTap.at < 450)) {
-      S.highlightWord(article, row.key, row.entry, row.text, row.context); open = row.key;
-      getSelection()?.removeAllRanges();
-    } else { lastTap = { key: row.key, at: now }; return; }
-    lastTap = { key: null, at: 0 }; paint();
-    const selected = [...body.querySelectorAll('.passage-term')].find(el => el.dataset.anchor === row.key);
-    if (event.detail === 0) selected?.focus({ preventScroll: true });
-  }
-  function paint() {
-    clear(body); const marks = S.highlights(article.id);
-    undo.disabled = !Object.keys(marks).length;
-    parts.forEach(rows => {
-      const block = h('div.passage-paragraph'); let line = h('p'); block.append(line);
-      rows.forEach(row => {
-        if (!row.entry) { line.append(cn(row.text)); return; }
-        const active = open === row.key;
-        const word = h('button.passage-term' + (marks[row.key] ? '.is-highlighted' : ''), { type: 'button', 'data-anchor': row.key, 'aria-expanded': String(active), 'aria-label': row.text + tr(': meaning', '：释义'), onclick: ev => activate(row, ev) }, row.text);
-        line.append(word);
-        if (active) {
-          const entry = row.entry;
-          const detail = h('aside.inline-definition', { 'aria-label': tr('Word meaning', '词语释义') }, h('div.definition-heading', null, h('strong', null, cn(entry.w)), h('span', null, entry.p)), h('p.definition-meaning', null, cn(entry.c)));
-          if (entry.e) detail.append(h('p', null, cn(entry.e)));
-          if (entry.s) detail.append(h('p', null, tr('Related: ', '近义词：') + entry.s));
-          detail.append(button(tr('Listen', '听发音'), { variant: 'thin', size: 'sm', onClick: () => A.speak(entry.w) }), button(tr('Close meaning', '收起释义'), { variant: 'thin', size: 'sm', onClick: () => { open = null; paint(); } }));
-          block.append(detail); line = h('p.passage-continuation'); block.append(line);
-        }
-      });
-      body.append(block);
-    });
-  }
-  undo.onclick = () => { S.undoHighlight(article.id); open = null; paint(); announce(tr('Highlight removed. Encounter history kept.', '已撤销标记，保留学习接触记录。')); };
-  paint(); return wrap;
+  if (vocab.tools) wrap.append(vocab.tools);
+  paragraphs.forEach((text, index) => body.append(h('div.passage-paragraph', null, h('p', null, vocab.text(text, String(index))))));
+  wrap.append(body); return wrap;
 }

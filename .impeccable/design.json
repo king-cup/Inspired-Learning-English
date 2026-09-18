@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-18T06:05:25.488Z",
+  "generatedAt": "2026-09-19T00:00:00+08:00",
   "title": "Design System: Inspired English",
   "extensions": {
     "colorMeta": {
@@ -24,7 +24,7 @@
       },
       "passage": {
         "displayName": "Reading passage",
-        "purpose": "Long text above 520px; use passage-phone at narrower widths."
+        "purpose": "Long text above 520px; incumbent phone text is 17px/1.68 at narrower widths."
       },
       "label": {
         "displayName": "Interface label",
@@ -48,6 +48,11 @@
         "name": "control-colour",
         "value": "background-color .16s ease-out, border-color .18s ease-out, color .18s ease-out",
         "purpose": "Short shared control state changes."
+      },
+      {
+        "name": "cloze-vocabulary-fold",
+        "value": ".36s cubic-bezier(.2,.75,.2,1)",
+        "purpose": "Shared in-place option and word-definition fold; reduced motion removes the transition."
       },
       {
         "name": "route-entrance",
@@ -103,7 +108,9 @@
       "Palette primitives live only in DESIGN.md frontmatter. No additional tonal scales were introduced.",
       "Dark theme uses the existing :root[data-theme=\"dark\"] overrides in app.css; home navigation uses shade and ink in dark mode.",
       "Component previews emulate is-pressed with :active; app pointer-event behavior remains in js/ui.js.",
-      "Legacy hard hover shadows and feedback glyph icons are not canonized. Preview snippets omit those defects."
+      "Hard offset shadows are the user's explicit restored design, not defects to remove.",
+      "Spelling inputs, guided prompts, recovery alerts and source-chart viewports reuse the incumbent paper components.",
+      "The 1.10.2 preview is not a production release; restored Reading Explorer source content remains gated."
     ]
   },
   "components": [
@@ -119,7 +126,7 @@
       "name": "Ruled button",
       "kind": "button",
       "refersTo": "button-ruled",
-      "description": "Standard paper action with a strong rule; legacy hard hover shadow is intentionally not a system token.",
+      "description": "Standard paper action with a strong rule and the user-restored hard offset shadow.",
       "html": "<button class=\"ds-ruled\" type=\"button\">Submit section</button>",
       "css": ".ds-ruled{display:inline-flex;align-items:center;justify-content:center;font:700 11px/1.4 var(--mono, 'Courier New', ui-monospace, SFMono-Regular, Menlo, monospace);letter-spacing:1.5px;text-transform:uppercase;padding:10px 15px;border-radius:0;cursor:pointer;transition:transform .12s ease-out,background-color .16s ease-out,color .18s ease-out;border:2px solid var(--ink,#000);background:var(--glass,rgba(255,255,255,.78));color:var(--ink,#000)}.ds-ruled:focus-visible{outline:3px solid var(--ink,#000);outline-offset:3px}.ds-ruled:hover{transform:translate(-1px,-1px)}.ds-ruled:active{background:var(--ink,#000);color:var(--paper,#fff);transform:translate3d(3px,3px,0) scale(.985)}.ds-ruled:disabled{opacity:.3} .ds-ruled{box-shadow:4px 4px 0 var(--option-shadow,rgba(0,0,0,.22));backdrop-filter:blur(10px) saturate(120%)}"
     },
@@ -171,22 +178,41 @@
       "html": "<aside class=\"ds-definition\" aria-label=\"Word meaning\"><div class=\"ds-heading\"><strong>astronomer</strong><span>n.</span></div><p class=\"ds-meaning\" lang=\"zh-Hans\">天文学家</p></aside>",
       "css": ".ds-definition{padding:18px;border-block:1px solid var(--rule,#999);border-radius:0;background:var(--shade,#eee);color:var(--ink,#000);font:16px/1.6 var(--mono, 'Courier New', ui-monospace, SFMono-Regular, Menlo, monospace);overflow-wrap:anywhere}.ds-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:12px;color:var(--ink,#000)}.ds-heading strong{font-size:22px}.ds-definition .ds-meaning{margin:10px 0;font:700 20px/1.6 var(--cn,'TT SongTi','Songti SC','Songti TC','STSong',serif)}"
     }
+    ,{
+      "name": "Spelling field",
+      "kind": "input",
+      "refersTo": "spelling-input",
+      "description": "Visible label, full-width 48px-minimum field, serif entry text and explicit keyboard focus.",
+      "html": "<label class=\"ds-spelling-label\" for=\"ds-answer\">Type the English word</label><input class=\"ds-spelling\" id=\"ds-answer\" autocomplete=\"off\" spellcheck=\"false\">",
+      "css": ".ds-spelling-label{display:block;margin:22px 0 8px;font-weight:700;color:var(--ink,#000)}.ds-spelling{width:100%;min-height:48px;padding:12px;border:2px solid var(--ink,#000);border-radius:0;color:var(--ink,#000);background:var(--paper,#fff);font:20px var(--serif,Georgia,serif);caret-color:var(--ink,#000)}.ds-spelling:focus-visible{outline:2px solid var(--ink,#000);outline-offset:3px}"
+    },
+    {
+      "name": "Recovery note",
+      "kind": "card",
+      "refersTo": "recovery-note",
+      "description": "Existing error surface; a real failed save provides an adjacent ruled retry button and preserves the unsaved step in memory.",
+      "html": "<p class=\"ds-recovery\" role=\"alert\">Your latest step could not be saved. Keep this page open, free device storage, then retry saving.</p>",
+      "css": ".ds-recovery{padding:12px;border:2px solid var(--wr-edge,#b3261e);background:var(--wr,#fdeceb);color:var(--ink,#000);font:16px/1.45 var(--serif,Georgia,serif);overflow-wrap:anywhere}"
+    }
   ],
   "narrative": {
     "northStar": "Monochrome reading paper",
-    "overview": "User-restored original monochrome paper and Courier aesthetic, retaining v1.10 functions.",
+    "overview": "White paper, black ink, square ruled controls and Courier-style interface labels frame serif learning content. Existing coloured answer feedback and yellow selected-word highlights have functional meaning; they are not navigation themes.",
     "keyCharacteristics": [
-      "Black ink and white paper",
-      "Courier interface and serif passages",
-      "Original framed controls and offset shadows",
-      "Persistent yellow passage highlights"
+      "Black ink and white paper, with functional feedback colours.",
+      "Courier interface labels and serif learning content.",
+      "Square framed controls, hard offset shadows and in-place folds.",
+      "Book/unit identity visible during learning, not only in the menu."
     ],
     "rules": [],
     "dos": [
-      "Preserve functional updates and phone/tablet layouts."
+      "Do inherit the original palette and fonts through app.css; load functional reader.css additions after it.",
+      "Do preserve keyboard focus, tablet layout, readable passages and all v1.10 functions."
     ],
     "donts": [
-      "Do not restore page flashes or the rejected colour/font redesign."
+      "Don't reintroduce coloured learning-area fills or native-sans UI typography.",
+      "Don't undo content/audio corrections, student data, navigation changes or the no-flash fix when restoring appearance.",
+      "Don't confuse browser viewport checks with physical iOS/Android verification, or a documented component with a published content audit."
     ]
   }
 }

@@ -52,8 +52,10 @@ export function render(root, unitId) {
 
   // --- modes, in teaching order -------------------------------------------
   const modes = h('div.stack.mt2');
+  modes.append(blockButton(i18n.t('guided.title'), i18n.t('guided.caption'), go('guided')));
   modes.append(blockButton(i18n.t('mode.study'), i18n.t('mode.studyCaption'), go('study')));
   modes.append(blockButton(i18n.t('mode.practice'), i18n.t('mode.practiceCaption'), go('practice')));
+  modes.append(blockButton(i18n.t('spelling.title'), i18n.t('spelling.caption'), go('spelling')));
   if (unit.typeName === 'HSE Packages') {
     modes.append(blockButton(i18n.t('mode.advanced'), i18n.t('mode.advancedCaption'), go('advanced')));
   }

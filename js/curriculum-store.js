@@ -1,3 +1,5 @@
+import { chooseRandom } from './random-pool.js';
+import * as Activity from './activity.js';
 const KEY = 'ie.curriculum.v2';
 const VERSION = 2;
 const DAY = 86400000;
@@ -22,16 +24,27 @@ export function init() {
 
 function save() {
   try { localStorage.setItem(KEY, JSON.stringify(state)); }
-  catch (error) { console.warn('[curriculum] could not save progress:', error); }
+  catch (error) { Activity.storageFailure(error); }
 }
 
 export const get = () => state;
+export function drawRandom(scope, ids, random = Math.random, current = null) {
+  const record = value => value && typeof value === 'object' && !Array.isArray(value);
+  if (!record(state.randomPools)) state.randomPools = {};
+  if (!record(state.randomPools[scope])) state.randomPools[scope] = { pulls: {}, last: null };
+  const pool = state.randomPools[scope];
+  if (!record(pool.pulls)) pool.pulls = {};
+  const id = chooseRandom(ids, pool.pulls, current || pool.last, random);
+  if (id) { pool.pulls[id] = Number(pool.pulls[id] || 0) + 1; pool.last = id; save(); }
+  return id;
+}
 export const highlights = id => state.highlights[id] || {};
 export function highlightWord(article, anchor, entry, display, sentence) {
   if (highlights(article.id)[anchor]) return;
   const item = remember({ display, baseForm: entry.w, partOfSpeech: entry.p, chinese: entry.c, english: entry.s || entry.e || '', sentence, article });
   const event = { at: Date.now(), articleId: article.id, anchor, word: entry.w, memoryId: item.id };
   state.encounters.push(event);
+  Activity.record('vocabulary-highlighted', event);
   state.highlights[article.id] = { ...highlights(article.id), [anchor]: event };
   save();
 }
@@ -39,6 +52,7 @@ export function undoHighlight(id) {
   const entries = Object.entries(highlights(id)).reverse();
   if (!entries.length) return;
   const [anchor] = entries.sort((a,b) => b[1].at-a[1].at)[0];
+  Activity.record('vocabulary-highlight-undone', { articleId: id, anchor });
   delete state.highlights[id][anchor]; save();
 }
 export const articleState = (id) => state.articles[id] || {};
@@ -55,6 +69,7 @@ export function touchMiddle(id, mode = 'choose') {
   save();
 }
 export function recordMiddle(id, mode, correct, total, graded) {
+  Activity.record('school-exercise-completed', { id, mode, correct, total, graded: !!graded });
   const old = state.middle[id] || { runs: [] };
   const run = { at: Date.now(), mode, correct, total, graded: !!graded };
   state.middle[id] = { ...old, lastOpened: run.at, lastMode: mode, completedAt: run.at, runs: [...old.runs, run].slice(-50) };
@@ -70,7 +85,7 @@ export function remember({ display, type, baseForm, partOfSpeech, english, chine
   const now = Date.now();
   const old = state.memory[id];
   const match = /^ms-g([789])-(reading-[a-e])-/.exec(article.id);
-  const route = match ? `#/middle/${match[1]}/${match[2]}/study/${article.id}` : `#/reading/${article.id}`;
+  const route = article.route || (match ? `#/middle/${match[1]}/${match[2]}/study/${article.id}` : `#/reading/${article.id}`);
   const context = { sentence, articleId: article.id, articleTitle: article.title, level: article.level, unit: article.unit, reading: article.reading, route };
   const contexts = old?.contexts || [];
   const duplicate = contexts.some((row) => row.articleId === context.articleId && row.sentence === context.sentence);
@@ -103,6 +118,7 @@ export function note(id, text) { if (state.memory[id]) { state.memory[id].note =
 export function review(id, correct) {
   const item = state.memory[id];
   if (!item) return;
+  Activity.record('memory-review', { id, correct: !!correct });
   const at = Date.now(); const previousMastery = item.mastery;
   item.reviewCount += 1;
   item.lastReview = at;

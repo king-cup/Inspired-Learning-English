@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "enabled": false,
+  "platforms": {
+    "pwa": { "minimumVersion": "1.10.1", "blockedVersions": [], "updateUrl": "https://inspiredvocab.netlify.app/" },
+    "android": { "minimumVersion": "1.10.1", "blockedVersions": [], "updateUrl": null }
+  }
+}

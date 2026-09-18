@@ -1,6 +1,6 @@
 import * as P from '../profile.js';
 import { h, clear, button, leafMark } from '../ui.js';
-const KEY = 'ie.tutorial.1.10';
+const KEY = 'ie.tutorial.1.10.1';
 const tr = (en, zh) => P.get().lang === 'zh' ? zh : en;
 export const completed = () => { try { return localStorage.getItem(KEY) === 'done'; } catch (e) { return true; } };
 export function render(root, done) {
@@ -8,8 +8,9 @@ export function render(root, done) {
   const pages = [
     ['Welcome to Inspired English', '欢迎使用因思博睿英语', 'Your books, practice and reading in one place. Your progress stays on this device. We’ll remember your last page.', '在这里学习课本词汇、练习和阅读。学习记录保存在此设备上，下次打开时继续上次的页面。'],
     ['Choose how to learn', '选择学习方式', 'Vocabulary: Study shows meanings and examples. Practice gives feedback. Cards help recall; use the buttons or swipe. Test saves your score. Reverse cards in Settings for a harder challenge.', '词汇：学习模式显示释义和例句；练习模式即时反馈；卡片帮助记忆，可用按钮或滑动；测试保存成绩。在设置中可翻转卡片正反面。'],
-    ['Read without losing your place', '在原文中理解生词', 'Double-tap a dotted word or phrase to highlight it and open its meaning in the passage. Tap a yellow highlight once to close or reopen it. Undo removes the last highlight. Try it below.', '双击带点状下划线的词或短语，在原文中展开释义并标黄。单击黄色词可收起或再次展开。撤销可移除最近的标记。请在下面试试。'],
-    ['Read, answer, continue', '阅读、答题、继续', 'Reading Comprehension opens by book, then unit. Middle School opens by grade and section. Study gives feedback; Test waits until submission. Use Next exercise after your result. Some reading prompts need teacher review and have no automatic score.', '阅读理解按书本和单元选择，初中英语按年级和题型选择。学习模式即时反馈，测试模式提交后显示结果。结果页可继续下一篇。部分阅读题需老师批阅，不能自动评分。'],
+    ['Read without losing your place', '在原文中理解生词', 'In Study, double-tap a dotted word or phrase to save a highlight and fold open its meaning. Tap a saved highlight once to fold it closed or reopen it. Undo removes the latest mark, not its history. Choose your highlight colour in Settings. Try it below.', '学习模式下双击点状下划线词或短语，保存标记并折叠展开释义。单击已标记词可收起或展开。撤销仅移除最近标记，不删除接触记录。可在设置中选择标记颜色。请在下面试试。'],
+    ['Study freely, test fairly', '自由学习，公平测试', 'Choose a reading book or a school grade and section, then Study or Test. Study lets you browse exercises and look up words. Test draws a random exercise: unseen first, then least used, never the same one twice in a row. No highlights or definitions appear in Test. After submission, Next gives another test. Questions without verified keys are saved for teacher review.', '选择阅读书本或学校年级和题型，再选择学习或测试。学习可自由浏览、查看生词；测试随机抽题：未做优先，之后优先抽取次数较少的题，不连续重复。测试不显示标记或释义。提交后可开始下一篇测试。无核实答案的题目保存后请老师批阅。'],
+    ['Cloze: choose a letter', '完形填空：点击选项字母', 'Tap a numbered blank to unfold its options. In Study, tap the option letter to answer; double-tap dotted words in the passage or options to open meanings without selecting an answer. Test has no word lookup and shows feedback only after submission.', '点击编号空格展开选项。学习模式点击选项字母作答；双击原文或选项中的点状下划线词可查看释义，不会自动作答。测试不能查词，提交后才显示反馈。'],
     ['Keep and review useful words', '保存并复习生词', 'Highlighted words with offline meanings join Memory Palace. Review the due list, reveal the meaning and record whether you remembered it. Undoing a highlight does not erase the encounter history.', '有离线释义的标记词会加入记忆宫殿。查看待复习列表，揭示释义并记录是否记住。撤销标记不会删除学习接触记录。'],
     ['Ready for offline study', '准备离线学习', 'Download vocabulary audio as one pack in Vocabulary. Reading audio is optional and downloads when you choose it. Settings is at the top left of Home: change language, display, cards, replay this guide and export a backup before changing devices.', '在词汇页面一次下载整个词汇音频包。阅读音频按需下载。首页左上角的设置可更改语言、显示和卡片，重看指南，并在换设备前导出备份。'],
   ];

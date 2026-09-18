@@ -12,7 +12,7 @@
 
 import * as C from './content.js';
 
-export const APP_VERSION = '1.10';
+export const APP_VERSION = '1.10.2-preview';
 
 let bundle = { types: [], data: {} };
 let cleanTypes = [];
@@ -247,7 +247,8 @@ export function resolve(unitId) {
     for (const g of t.groups) {
       for (const u of g.units) {
         if (u.id === unitId) {
-          return { id: u.id, label: u.label, groupName: g.name, typeName: t.type, words: wordsFor(unitId) };
+          const label = t.type === 'HSE Packages' || u.label.toLowerCase().includes(g.name.toLowerCase()) ? u.label : `${g.name} · ${u.label}`;
+          return { id: u.id, label, groupName: g.name, typeName: t.type, words: wordsFor(unitId) };
         }
       }
     }

@@ -6,19 +6,23 @@
 import * as D from '../data.js';
 import * as S from '../store.js';
 import * as A from '../audio.js';
-import { build, QType, instructionFor, tagFor } from '../learn-engine.js';
+import * as Activity from '../activity.js';
+import { build, spelling, isCorrect, QType, instructionFor, tagFor } from '../learn-engine.js';
 import * as i18n from '../i18n.js';
 import { h, clear, cn, press, paperHeader, barLabel, button, blockButton, ruleBar, tag, posTag, topBar, shuffled, openDialog } from '../ui.js';
 
 const ROUND = 5;
 
-export function render(root, unitId) {
+export function render(root, unitId, mode = 'practice') {
+  const spellingMode = mode === 'spelling';
+  const sessionMode = spellingMode ? 'spelling' : 'practice';
+  const modeTitle = () => i18n.t(spellingMode ? 'spelling.title' : 'mode.practice');
   const unit = D.resolve(unitId);
   clear(root);
   if (!unit) { root.append(h('div.centre', null, h('div.k-11', null, i18n.t('unit.notFound')))); return; }
 
   const pool = unit.words;
-  if (pool.length < 2) {
+  if (!pool.length || (!spellingMode && pool.length < 2)) {
     root.append(topBar(i18n.t('common.back'), i18n.t('mode.practice'), () => { location.hash = '#/u/' + encodeURIComponent(unitId); }));
     root.append(h('div.centre', null, h('div.k-11', null, i18n.t('practice.tooShort'))));
     return;
@@ -28,13 +32,13 @@ export function render(root, unitId) {
 
   // --- session state -------------------------------------------------------
   let mainRun, run, pos, isRetry, firstPassRight, answeredTotal, firstPassAnswered;
-  let wrongKeys, roundMarks, question, chosen, phase;
+  let wrongKeys, roundMarks, question, chosen, phase, draft = '';
 
   function fresh() {
     mainRun = shuffled(pool);
     run = mainRun; pos = 0; isRetry = false;
     firstPassRight = 0; answeredTotal = 0; firstPassAnswered = 0;
-    wrongKeys = []; roundMarks = []; question = null; chosen = -1; phase = 'asking';
+    wrongKeys = []; roundMarks = []; question = null; chosen = null; phase = 'asking';
     A.prefetch(D.clipUrlsFor(unitId));
     ask();
   }
@@ -46,10 +50,10 @@ export function render(root, unitId) {
     pos = s.pos; isRetry = s.isRetry;
     firstPassRight = s.firstPassRight; answeredTotal = s.answeredTotal; firstPassAnswered = s.firstPassAnswered || 0;
     wrongKeys = s.wrongKeys.slice(); roundMarks = s.roundMarks.slice();
-    chosen = s.chosen; phase = s.phase;
+    chosen = s.chosen === -1 ? null : s.chosen; phase = s.phase; draft = s.draft || '';
     if (s.question) {
       const e = byKey.get(s.question.entryKey);
-      question = e ? { entry: e, type: s.question.type, prompt: s.question.prompt, subPrompt: s.question.subPrompt, options: s.question.options, correctIndex: s.question.correctIndex } : null;
+      question = e ? { entry: e, type: s.question.type, prompt: s.question.prompt, subPrompt: s.question.subPrompt, example: s.question.example, options: s.question.options, correctIndex: s.question.correctIndex } : null;
     } else question = null;
     A.prefetch(D.clipUrlsFor(unitId));
     if (phase === 'checkpoint') checkpoint(true);
@@ -64,28 +68,28 @@ export function render(root, unitId) {
   }
 
   function saveState() {
-    S.saveSession(unitId, 'practice', {
-      mode: 'practice',
+    S.saveSession(unitId, sessionMode, {
+      mode: sessionMode,
       mainOrder: mainRun.map((e) => S.wordKey(unitId, e)),
       runOrder: run.map((e) => S.wordKey(unitId, e)),
       pos, isRetry, firstPassRight, answeredTotal, firstPassAnswered,
-      wrongKeys: wrongKeys.slice(), roundMarks: roundMarks.slice(), chosen, phase,
+      wrongKeys: wrongKeys.slice(), roundMarks: roundMarks.slice(), chosen, phase, draft,
       question: question ? {
         entryKey: S.wordKey(unitId, question.entry), type: question.type,
-        prompt: question.prompt, subPrompt: question.subPrompt,
+        prompt: question.prompt, subPrompt: question.subPrompt, example: question.example,
         options: question.options, correctIndex: question.correctIndex,
       } : null,
     });
   }
 
   // Entry point: resume an interrupted run, or start fresh.
-  const saved = S.loadSession(unitId, 'practice');
-  if (validSaved(saved) && (saved.answeredTotal > 0 || saved.pos > 0 || saved.phase !== 'asking' || saved.chosen >= 0)) {
+  const saved = S.loadSession(unitId, sessionMode);
+  if (validSaved(saved)) {
     openDialog({
       title: i18n.t('session.resumeTitle'),
       body: i18n.t('session.resumePractice'),
       actions: [
-        { label: i18n.t('session.startOver'), variant: 'thin', onClick: () => { S.clearSession(unitId, 'practice'); fresh(); } },
+        { label: i18n.t('session.startOver'), variant: 'thin', onClick: () => { S.clearSession(unitId, sessionMode); fresh(); } },
         { label: i18n.t('session.resume'), variant: 'thin', onClick: () => restore(saved) },
       ],
     });
@@ -96,7 +100,7 @@ export function render(root, unitId) {
   // ------------------------------------------------------------ navigation
   function leave() { location.hash = '#/u/' + encodeURIComponent(unitId); }
   function backGuard() {
-    const inProgress = phase !== 'finish' && (answeredTotal > 0 || pos > 0 || chosen >= 0 || phase === 'checkpoint');
+    const inProgress = phase !== 'finish' && (answeredTotal > 0 || pos > 0 || chosen !== null || draft || phase === 'checkpoint');
     if (!inProgress) { leave(); return; }
     openDialog({
       title: i18n.t('session.leaveTitle'),
@@ -110,8 +114,9 @@ export function render(root, unitId) {
 
   // --------------------------------------------------------------- question
   function ask() {
-    question = build(run[Math.min(pos, run.length - 1)], pool);
-    chosen = -1;
+    const entry = run[Math.min(pos, run.length - 1)];
+    question = spellingMode ? spelling(entry) : build(entry, pool);
+    chosen = null; draft = '';
     phase = 'asking';
     saveState();
     paintQuestion();
@@ -119,7 +124,8 @@ export function render(root, unitId) {
 
   function paintQuestion() {
     clear(root);
-    root.append(topBar(i18n.t('common.back'), isRetry ? i18n.t('practice.fixing') : i18n.t('mode.practice'), backGuard));
+    root.append(topBar(i18n.t('common.back'), isRetry ? i18n.t('practice.fixing') : modeTitle(), backGuard));
+    if (unit.typeName !== 'HSE Packages') root.append(h('h1.lesson-context', null, unit.label));
 
     const firstFrac = Math.min(1, firstPassAnswered / Math.max(1, mainRun.length));
     const prog = h('div.row.mt', null,
@@ -139,7 +145,7 @@ export function render(root, unitId) {
     const box = h('div.box.mt');
     box.append(barLabel(instructionFor(question.type), tagFor(question.type)));
     const body = h('div', { style: { padding: '16px' } });
-    const promptCn = question.type === QType.MEANING_TO_WORD;   // Chinese gloss prompt
+    const promptCn = question.type === QType.MEANING_TO_WORD || question.type === QType.SPELLING;
     if (question.type === QType.SENTENCE_GAP) {
       body.append(h('div', { style: { fontFamily: 'var(--serif)', fontSize: '17px', lineHeight: '26px' } }, question.prompt));
     } else {
@@ -154,10 +160,11 @@ export function render(root, unitId) {
       if (question.subPrompt) { const p = posTag(question.subPrompt); if (p) body.append(h('div.mt', null, p)); }
     }
     box.append(body);
+    if (question.example) body.append(h('p', null, question.example));
     root.append(box);
 
     // options
-    const answered = chosen >= 0;
+    const answered = chosen !== null;
     const optsCn = question.type === QType.WORD_TO_MEANING;   // Chinese meaning options
     const opts = h('div.stack.mt');
     question.options.forEach((text, i) => {
@@ -170,15 +177,27 @@ export function render(root, unitId) {
       opts.append(el);
     });
     root.append(opts);
+    if (spellingMode) {
+      const input = h('input.spelling-input', { id: 'spelling-answer', type: 'text', value: answered ? chosen : draft,
+        disabled: answered, autocomplete: 'off', autocorrect: 'off', autocapitalize: 'off', spellcheck: 'false', lang: 'en',
+        oninput: event => { draft = event.target.value; saveState(); check.disabled = !draft.trim(); },
+        onkeydown: event => { if (event.key === 'Enter' && !event.isComposing && draft.trim() && !answered) answer(draft); },
+      });
+      const check = button(i18n.t('spelling.check'), { wide: true, size: 'lg', variant: 'ruled', onClick: () => answer(draft) });
+      check.disabled = !draft.trim();
+      root.append(h('label.spelling-label', { for: 'spelling-answer' }, i18n.t('spelling.answer')), input);
+      if (!answered) root.append(h('p', null, i18n.t('spelling.help')), check);
+    }
 
     if (answered) root.append(feedback());
     root.append(h('div', { style: { height: '28px' } }));
   }
 
   function answer(i) {
-    if (chosen >= 0) return;
+    if (chosen !== null || (spellingMode && !String(i).trim())) return;
     chosen = i;
-    const correct = i === question.correctIndex;
+    const correct = isCorrect(question, i);
+    Activity.record('practice-answer', { unitId, mode: sessionMode, wordKey: S.wordKey(unitId, question.entry), type: question.type, response: i, correct, retry: isRetry });
     roundMarks.push(correct);
     answeredTotal += 1;
     if (!isRetry) firstPassAnswered += 1;
@@ -197,7 +216,7 @@ export function render(root, unitId) {
   }
 
   function feedback() {
-    const correct = chosen === question.correctIndex;
+    const correct = isCorrect(question, chosen);
     const e = question.entry;
     const box = h('div.note.mt' + (correct ? '.good' : '.bad'), { role: 'status' });
     box.append(h('div.k-13', { style: { color: correct ? 'var(--rt-edge)' : 'var(--wr-edge)' } },
@@ -236,7 +255,7 @@ export function render(root, unitId) {
     root.append(topBar(i18n.t('common.back'), isRetry ? i18n.t('practice.fixing') : i18n.t('practice.checkpoint'), backGuard));
     root.append(h('div.mt'), paperHeader({
       kicker: isRetry ? i18n.t('practice.fixing') : i18n.t('practice.checkpoint'),
-      title: runComplete && remaining > 0 ? i18n.t('practice.roundDone') : runComplete ? i18n.t('practice.allCorrect') : i18n.f('practice.gotOf', got, marks.length),
+      title: (unit.typeName === 'HSE Packages' ? '' : unit.label + ' — ') + (runComplete && remaining > 0 ? i18n.t('practice.roundDone') : runComplete ? i18n.t('practice.allCorrect') : i18n.f('practice.gotOf', got, marks.length)),
       left: i18n.f('practice.answered', answeredTotal),
       right: i18n.f('practice.firstTime', firstPassRight, mainRun.length),
     }));
@@ -279,7 +298,7 @@ export function render(root, unitId) {
     phase = 'finish';
     const pct = Math.round((firstPassRight * 100) / Math.max(1, mainRun.length));
     if (!resuming) S.finishLearn(unitId, pct);
-    S.clearSession(unitId, 'practice');
+    S.clearSession(unitId, sessionMode);
     const extra = answeredTotal - mainRun.length;
 
     clear(root);
