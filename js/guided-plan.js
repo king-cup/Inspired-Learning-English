@@ -16,25 +16,11 @@ export function schedule(keys, deadline, minutes = 20, now = Date.now(), timeZon
   const firstDay = dayNumber(dateKey(now, timeZone));
   const count = dayNumber(dateKey(end, timeZone)) - firstDay + 1;
   if (count < 1 || count > 366) throw new Error('deadline');
-  // Budget is an honest estimate: ~2 minutes/word for introduction + four
-  // retrievals. Reserve a review day only when earlier days can carry the work.
-  const distribute = newDays => {
-    const days = Array.from({ length: count }, (_, i) => ({ date: dayKey(firstDay + i), keys: [] }));
-    keys.forEach((key, i) => days[Math.floor(i * newDays / keys.length)].keys.push(key));
-    let previous = reviewKeys.length;
-    const peak = Math.max(...days.map(day => {
-      // due() reviews all earlier completed words, not just yesterday's batch.
-      const estimate = day.keys.length * 2 + previous * .5;
-      previous += day.keys.length;
-      return estimate;
-    }));
-    return { days, peak };
-  };
-  const reserved = count > 1 && keys.length ? distribute(count - 1) : null;
-  const reserve = !!reserved && reserved.peak <= minutes;
-  const { days, peak: peakMinutes } = reserve ? reserved : distribute(count);
-  return { timeZone, createdAt: new Date(now).toISOString(), deadline: new Date(end).toISOString(), minutes,
-    days, reviewKeys: [...reviewKeys], reviewOnlyLastDay: reserve, estimatedPeakMinutes: Math.ceil(peakMinutes), overloaded: peakMinutes > minutes };
+  const newDays = count > 1 ? count - 1 : 1;
+  const days = Array.from({ length: count }, (_, i) => ({ date: dayKey(firstDay + i), keys: [] }));
+  keys.forEach((key, i) => days[Math.floor(i * newDays / keys.length)].keys.push(key));
+  return { timeZone, createdAt: new Date(now).toISOString(), deadline: new Date(end).toISOString(),
+    days, reviewKeys: [...reviewKeys], reviewOnlyLastDay: count > 1 && keys.length > 0 };
 }
 
 export function due(plan, progress, now = Date.now()) {
@@ -49,7 +35,7 @@ export function due(plan, progress, now = Date.now()) {
 export function exercises(keys) {
   // Interleaved rounds prevent four immediate repetitions being mistaken for
   // retrieval. A one-word list necessarily has no other item to space with.
-  return ['meaning', 'context', 'spelling', 'recall'].flatMap(kind => keys.map(key => ({ key, kind })));
+  return ['meaning', 'recall', 'meaning-review', 'recall-review'].flatMap(kind => keys.map(key => ({ key, kind })));
 }
 
 // Shared boundary for backups and local plan recovery. Corrupt input must not
@@ -59,7 +45,7 @@ export function validState(state) {
   const strings = value => Array.isArray(value) && value.every(item => typeof item === 'string');
   const validDate = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)
     && Number.isFinite(dayNumber(value)) && dayKey(dayNumber(value)) === value;
-  const kinds = ['intro', 'meaning', 'context', 'spelling', 'recall'];
+  const kinds = ['intro', 'meaning', 'context', 'spelling', 'recall', 'meaning-review', 'recall-review'];
   if (!object(state) || !object(state.progress) || !Array.isArray(state.history)) return false;
   if (!Object.values(state.progress).every(item => object(item) && strings(item.completedKinds)
     && item.completedKinds.every(kind => kinds.slice(1).includes(kind))

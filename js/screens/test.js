@@ -61,8 +61,8 @@ export function render(root, unitId) {
   }
 
   function startTest(entries, retest) {
-    questions = shuffled(entries).map((e, i) => format === 'spelling' || (format === 'mixed' && i % 2 === 0)
-      ? spelling(e) : build(e, pool, { allowedTypes: TEST_TYPES }));
+    format = 'mcq';
+    questions = shuffled(entries).map(e => build(e, pool, { allowedTypes: TEST_TYPES }));
     answers.clear();
     pos = 0;
     isRetest = retest;
@@ -72,6 +72,9 @@ export function render(root, unitId) {
   }
 
   function restore(s) {
+    if (s.questions.some(q => !TEST_TYPES.includes(q.type))) {
+      S.clearSession(unitId, 'test'); phase = 'setup'; paint(); return;
+    }
     questions = s.questions.map((q) => ({
       entry: byKey.get(q.entryKey), type: q.type, prompt: q.prompt,
       subPrompt: q.subPrompt, example: q.example, options: q.options, correctIndex: q.correctIndex,
@@ -152,17 +155,17 @@ export function render(root, unitId) {
     }));
 
     const box = h('div.box.mt');
-    box.append(barLabel(i18n.t('test.format')));
-    box.append(h('div', { style: { padding: '13px', fontFamily: 'var(--serif)', fontSize: '14px' } }, i18n.t('test.formatHelp')));
+    box.append(barLabel(i18n.t('mode.test')));
+    box.append(h('div', { style: { padding: '13px', fontFamily: 'var(--serif)', fontSize: '14px' } }, i18n.lang() === 'zh' ? '选择正确的词义或单词。不考拼写。' : 'Choose the right meaning or word. No spelling.'));
     r.append(box);
 
     const opts = h('div.stack.mt');
-    for (const [value, label] of [['mcq', 'test.mcq'], ['spelling', 'spelling.title'], ['mixed', 'test.mixed']]) {
+    for (const [value, label] of [['mcq', 'test.begin']]) {
       const option = blockButton(i18n.t(label), i18n.f('unit.words', pool.length), () => { format = value; startTest(pool, false); });
       option.disabled = pool.length < 2 && value !== 'spelling';
       opts.append(option);
     }
-    if (pool.length < 2) opts.append(h('p.note', null, i18n.lang() === 'zh' ? '本词表只有一个词，请使用填空题。选择题需要至少两个词。' : 'This list has one word. Use spelling; multiple choice needs at least two words.'));
+    if (pool.length < 2) opts.append(h('p.note', null, i18n.lang() === 'zh' ? '选择题需要至少两个词。请先学习这个单词。' : 'A test needs at least two words. Study this word first.'));
     r.append(opts);
     r.append(h('div', { style: { height: '30px' } }));
   }

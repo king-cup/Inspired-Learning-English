@@ -21,7 +21,7 @@ input, textarea { caret-color: var(--ink); }
 .passage-paragraph { margin-bottom: 1.3em; }
 .passage-paragraph:last-child { margin-bottom: 0; }
 .passage-paragraph p { margin: 0; }
-.passage-term { display: inline; font: inherit; color: inherit; padding: 2px 0; text-decoration: underline dotted var(--rule); text-underline-offset: 4px; touch-action: manipulation; -webkit-user-select: none; user-select: none; cursor: pointer; }
+.passage-term { display: inline; font: inherit; color: inherit; padding: 2px 0; text-decoration: none; text-underline-offset: 4px; touch-action: manipulation; -webkit-user-select: none; user-select: none; cursor: pointer; }
 .passage-term.is-highlighted { color: var(--highlight-ink, #000); background: var(--highlight, #ffe57a); text-decoration: none; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .inline-definition { margin: 14px -10px; padding: 18px; border-block: 1px solid var(--rule); background: var(--shade); font: 16px/1.6 var(--mono); overflow-wrap: anywhere; }
 .inline-definition p { font: 16px/1.6 var(--mono); margin: 10px 0; }
@@ -83,3 +83,9 @@ input, textarea { caret-color: var(--ink); }
 .reading-figure-viewport img { display: block; width: 100%; height: auto; }
 .reading-figure-viewport.is-zoomed img { width: 1400px; max-width: none; }
 .reading-figure-viewport:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+.passage-paragraph { display:grid; grid-template-columns:1.5em minmax(0, 1fr); gap:10px; }
+.paragraph-number { font:12px/2.5 var(--mono); opacity:.6; }
+.passage-term:focus-visible { outline:2px solid var(--ink); outline-offset:2px; }
+
+.exam-figure { display:block; max-width:100%; height:auto; margin:16px auto; }

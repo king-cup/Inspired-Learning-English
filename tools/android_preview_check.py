@@ -31,6 +31,10 @@ with zipfile.ZipFile(apk) as archive:
     assert all(not a.get('figures') for a in reading['articles'])
     assert sum(len(a['comprehension']['questions']) for a in reading['articles']) == 891
     assert json.loads(archive.read(prefix + 'release-policy.json'))['enabled'] is False
+    assert json.loads(archive.read(prefix + 'high-school.json')) == json.loads((root / 'high-school.json').read_text())
+    high = archive.read(prefix + 'high-school.json').decode()
+    for figure in set(re.findall(r'\[\[image:([^]]+)]]', high)):
+        assert archive.read(prefix + figure) == (root / figure).read_bytes()
     clips = json.loads(archive.read(prefix + 'audio-index.json'))
     assert all(prefix + 'audio/' + slug + '.m4a' in names for slug in clips)
     assert len(clips) == 5364

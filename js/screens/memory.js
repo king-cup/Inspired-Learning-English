@@ -20,7 +20,7 @@ function home(root) {
   stats.append(stat(tr('Due for review', '待复习'), due.length));
   Object.entries(labels).forEach(([key, pair]) => stats.append(stat(tr(pair[0], pair[1]), items.filter((x) => x.mastery === key).length)));
   root.append(stats);
-  if (due.length) root.append(h('div.mt', null, button(tr('Review due items', '复习到期项目'), { variant: 'ruled', size: 'lg', wide: true, onClick: () => { location.hash = '#/memory/review'; } })));
+  if (due.length) root.append(h('div.mt', null, button(tr('Review words', '复习单词'), { variant: 'ruled', size: 'lg', wide: true, onClick: () => { location.hash = '#/memory/review'; } })));
 
   const levels = [...new Set(items.flatMap((x) => x.contexts.map((c) => c.level)).filter(Boolean))];
   const sources = [...new Set(items.flatMap((x) => x.contexts.map((c) => c.articleTitle)).filter(Boolean))];
@@ -32,7 +32,7 @@ function home(root) {
     clear(rows);
     const shown = items.filter((item) => (!level.el.value || item.contexts.some((c) => c.level === level.el.value)) && (!source.el.value || item.contexts.some((c) => c.articleTitle === source.el.value)));
     title.lastChild.textContent = String(shown.length);
-    if (!shown.length) { rows.append(h('div.panel-empty', null, tr('Double-tap a dotted word in a reading passage to begin.', '双击阅读文章中带点状下划线的词即可开始。'))); return; }
+    if (!shown.length) { rows.append(h('div.panel-empty', null, tr('Double-tap a word in a reading passage to save it.', '双击阅读文章中的单词，就能保存。'))); return; }
     shown.sort((a, b) => b.lastEncounter - a.lastEncounter).forEach((item) => {
       const row = h('button.memory-row', {
         type: 'button', onclick: () => { location.hash = `#/memory/item/${encodeURIComponent(item.id)}`; },
@@ -72,7 +72,7 @@ function review(root) {
   clear(root); root.append(topBar(tr('← Memory Palace', '← 记忆宫殿'), tr('Review', '复习'), () => { location.hash = '#/memory'; }));
   const stage = h('section.box.mt'); root.append(stage);
   const paint = () => {
-    clear(stage); stage.append(barLabel(tr('Active recall', '主动回忆'), `${Math.min(index + 1, queue.length)}/${queue.length}`));
+    clear(stage); stage.append(barLabel(tr('Do you remember?', '你记得吗？'), `${Math.min(index + 1, queue.length)}/${queue.length}`));
     if (!queue.length || index >= queue.length) { stage.append(h('div.panel-empty', null, tr('Review complete. Difficult items will return sooner.', '复习完成。难点词会更早再次出现。')), button(tr('Done', '完成'), { variant: 'ruled', wide: true, onClick: () => { location.hash = '#/memory'; } })); return; }
     const item = queue[index]; stage.append(h('h2', null, cn(item.display)), h('blockquote', null, cn(item.contexts[item.contexts.length - 1]?.sentence || '')));
     const reveal = button(tr('Reveal answer', '显示答案'), { variant: 'ruled', wide: true });

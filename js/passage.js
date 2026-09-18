@@ -15,12 +15,13 @@ const escaped = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 export async function vocabulary(article, enabled = true) {
   if (!enabled) return { text: value => document.createTextNode(value), tools: null };
   let data;
-  try { data = await loadGlossary(); } catch { data = { entries: {}, passages: {} }; }
+  try { data = article.highlightOnly ? { entries: {}, passages: {} } : await loadGlossary(); } catch { data = { entries: {}, passages: {} }; }
   const terms = data.passages[article.id] || {};
-  const pattern = Object.keys(terms).length ? new RegExp('(' + Object.keys(terms).sort((a,b) => b.length-a.length).map(escaped).join('|') + ')(?![A-Za-z])', 'gi') : null;
+  const known = Object.keys(terms).sort((a,b) => b.length-a.length).map(escaped);
+  const pattern = new RegExp('(' + [...known, "[A-Za-z]+(?:[’'\\-][A-Za-z]+)*"].join('|') + ')(?![A-Za-z])', 'gi');
   const tools = h('div.passage-tools');
   const undo = button(tr('Undo highlight', '撤销标记'), { variant: 'thin', size: 'sm' });
-  tools.append(h('span', null, tr('Study: double-tap dotted words for meanings. Tap a saved highlight once to open or close.', '学习模式：双击点状下划线词查看释义；单击已标记词展开或收起。')), undo);
+  tools.append(h('span', null, tr('Double-tap any word to highlight it.', '双击任意单词即可标记。')), undo);
   const refs = [];
   let active = null, lastTap = { key: null, at: 0 };
   const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -45,13 +46,14 @@ export async function vocabulary(article, enabled = true) {
       getSelection()?.removeAllRanges(); refresh();
     }
     lastTap = { key: null, at: 0 };
+    if (article.highlightOnly) return;
     if (active === ref) { close(ref); return; }
     close(active);
     if (!ref.panel) {
       const entry = ref.entry;
       const detail = h('span.inline-definition', { role: 'note', 'aria-label': tr('Word meaning', '词语释义') },
         h('span.definition-heading', null, h('strong', null, cn(entry.w)), h('span', null, entry.p)),
-        h('span.definition-meaning', null, cn(entry.c)));
+        h('span.definition-meaning', null, cn(entry.c || tr('No saved meaning yet.', '暂无释义。'))));
       if (entry.e) detail.append(h('span.definition-example', null, cn(entry.e)));
       if (entry.s) detail.append(h('span.definition-example', null, tr('Related: ', '近义词：') + entry.s));
       detail.append(button(tr('Listen', '听发音'), { variant: 'thin', size: 'sm', onClick: ev => { ev.preventDefault(); ev.stopPropagation(); A.speak(entry.w); } }),
@@ -69,11 +71,10 @@ export async function vocabulary(article, enabled = true) {
     const fragment = document.createDocumentFragment(); let at = 0;
     if (pattern) for (const match of value.matchAll(pattern)) {
       if (match.index && /[A-Za-z]/.test(value[match.index - 1])) continue;
-      const entry = data.entries[terms[match[0].toLowerCase()]];
-      if (!entry) continue;
+      const entry = data.entries[terms[match[0].toLowerCase()]] || { w: match[0].toLowerCase(), p: '', c: '' };
       fragment.append(document.createTextNode(value.slice(at, match.index)));
       const ref = { key: `${anchor}:${offset + match.index}:${match[0].toLowerCase()}`, entry, display: match[0], context: value };
-      ref.word = h('button.passage-term', { type: 'button', 'data-anchor': ref.key, 'aria-expanded': 'false', 'aria-label': match[0] + tr(': meaning', '：释义'), onclick: ev => activate(ref, ev) }, match[0]);
+      ref.word = h('button.passage-term', { type: 'button', 'data-anchor': ref.key, 'aria-expanded': 'false', 'aria-label': match[0] + tr(': highlight', '：标记'), onclick: ev => activate(ref, ev) }, match[0]);
       refs.push(ref); fragment.append(ref.word); at = match.index + match[0].length;
     }
     fragment.append(document.createTextNode(value.slice(at))); refresh(); return fragment;
@@ -86,6 +87,12 @@ export async function passage(article, paragraphs, enabled = true) {
   const wrap = h('section.passage');
   const body = h('article.reading-body.mt', { 'aria-label': article.title });
   if (vocab.tools) wrap.append(vocab.tools);
-  paragraphs.forEach((text, index) => body.append(h('div.passage-paragraph', null, h('p', null, vocab.text(text, String(index))))));
+  let paragraphNumber = 0;
+  paragraphs.forEach((text, index) => {
+    const image = text.match(/^\[\[image:(high-school-figures\/[a-f0-9]+\.(?:png|jpe?g|gif|webp))]]$/);
+    if (image) { body.append(h('img.exam-figure', { src: image[1], alt: tr('Figure from the exam paper', '试卷中的图片'), loading: 'lazy' })); return; }
+    paragraphNumber += 1;
+    body.append(h('div.passage-paragraph', null, h('span.paragraph-number', { 'aria-label': tr('Paragraph ', '第几段：') + paragraphNumber }, String(paragraphNumber)), h('p', null, vocab.text(text, String(index)))));
+  });
   wrap.append(body); return wrap;
 }

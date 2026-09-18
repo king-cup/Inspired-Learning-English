@@ -7,9 +7,9 @@ async function main() {
     const context = await browser.newContext({ viewport: { width: 834, height: 1194 } });
     await context.addInitScript(() => {
       localStorage.setItem('vd.profile.v1', JSON.stringify({ name: 'Offline QA', lang: 'en', onboarded: true }));
-      localStorage.setItem('ie.tutorial.1.10.2', 'done');
-      localStorage.setItem('ie.releaseNotice.1.10.2', 'seen');
-      localStorage.setItem('ie.releaseNotice.1.10.2-preview', 'seen');
+      localStorage.setItem('ie.tutorial.1.11', 'done');
+      localStorage.setItem('ie.releaseNotice.1.11', 'seen');
+      localStorage.setItem('ie.releaseNotice.1.11-preview', 'seen');
       Object.defineProperty(navigator, 'standalone', { value: true });
     });
     let page = await context.newPage();
@@ -17,22 +17,23 @@ async function main() {
     const watch = p => p.on('pageerror', e => errors.push(String(e)));
     watch(page);
     await page.goto(`${base}/#/u/P1-U01/guided`, { waitUntil: 'networkidle' });
-    await page.locator('#class-deadline').waitFor();
+    await page.getByRole('button', { name: 'Learn all words', exact: true }).waitFor();
     const shell = await page.evaluate(async () => {
       await navigator.serviceWorker.ready;
-      const name = (await caches.keys()).find(k => k === 'vd-shell-v19');
+      const name = (await caches.keys()).find(k => k === 'vd-shell-v20');
       const cache = await caches.open(name);
       return { name, paths: (await cache.keys()).map(r => new URL(r.url).pathname) };
     });
-    assert.equal(shell.name, 'vd-shell-v19');
+    assert.equal(shell.name, 'vd-shell-v20');
+    const figures = shell.paths.filter(p => p.startsWith('/high-school-figures/')); assert(figures.length > 100);
     for (const file of ['js/activity.js', 'js/guided-plan.js', 'js/screens/guided.js']) assert(shell.paths.includes('/' + file));
     await context.setOffline(true);
     await page.close(); page = await context.newPage(); watch(page);
     for (const mode of ['guided', 'spelling', 'test']) {
       await page.goto(`${base}/#/u/P1-U01/${mode}`, { waitUntil: 'networkidle' });
-      if (mode === 'guided') await page.locator('#class-deadline').waitFor();
+      if (mode === 'guided') await page.getByRole('button', { name: 'Learn all words', exact: true }).waitFor();
       else if (mode === 'spelling') await page.locator('#spelling-answer').waitFor();
-      else await page.getByRole('button', { name: /Mixed/ }).waitFor();
+      else await page.getByRole('button', { name: 'Start the test', exact: true }).waitFor();
       assert.match(await page.locator('#app').innerText(), /Prepare Level 1/i);
     }
     const journal = await page.evaluate(async () => {

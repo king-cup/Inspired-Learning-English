@@ -5,6 +5,13 @@ import { h, clear, button, openDialog } from './ui.js';
 const KEY = `ie.releaseNotice.${APP_VERSION}`;
 let dismissed = false;
 export const releases = [
+  ['1.11', '2026-09-19', [
+    ['Learn word meanings first. Vocabulary tests no longer include spelling, and ambiguous sentence-gap vocabulary questions are removed. Spelling stays available as a separate optional activity.', '先学词义。词汇测试不再考拼写，移除答案可能不唯一的词汇句子填空题。拼写保留为单独选做的练习。'],
+    ['Guided learning offers Learn all words first and Daily study plan second. Plans divide work by date without asking for study minutes. Read-aloud confirmation has its own checkbox.', '引导学习先提供一次学完，再提供每日学习计划。计划按日期分配任务，不用填写学习时长。跟读确认有独立勾选框。'],
+    ['Double-tap any passage word to highlight it. Dictionary matches no longer pretend to identify which words are difficult. High-school highlighting has no preset meanings.', '双击文章中任意单词即可标记。不再把词典里匹配到的词当作难词。高中阅读仅标记，不预设释义。'],
+    ['School passages have paragraph numbers and source labels. Reading menus match exam menus, headings are smaller, and action buttons show only their names. Student instructions are simpler.', '学校试卷文章增加段落编号与来源标签。阅读菜单与试卷菜单统一，标题缩小，功能按钮只显示名称，说明文字更简单。'],
+    ['Added source-based high-school MCQ, Cloze, reading, sentence-choice reading, and word-form practice, with Study and Test modes.', '加入高中原卷选择题、完形填空、阅读、阅读选句和词形填空，并提供学习与测试模式。'],
+  ]],
   ['1.10.2', '2026-09-19', [
     ['Reading Explorer now includes 144 cleaned passages and 891 passage-supported answer keys. Multiple-choice and selectable True / False / Not Given questions are scored. Diagram-dependent, written-response and ambiguous questions are omitted.', 'Reading Explorer 更新为 144 篇清理后的文章、891 道有原文依据的答案。选择题及可点击的判断题可自动评分；不收录依赖图表、书面回答或有歧义的题目。'],
     ['Added five-word spelling practice and full-list tests in Multiple Choice, Fill in the blank or Mixed formats.', '新增每五词反馈的拼写练习，以及覆盖整张词表的选择题、填空题和混合测试。'],

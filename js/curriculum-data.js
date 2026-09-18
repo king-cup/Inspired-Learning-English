@@ -40,3 +40,14 @@ export const nextMiddle = (grade, section, id) => {
   const rows = middle?.grades[grade]?.[section] || [];
   return rows[rows.findIndex(row => row.id === id) + 1];
 };
+
+let highPromise;
+export async function loadHigh() {
+  if (!highPromise) highPromise = fetch('high-school.json').then(async response => {
+    if (!response.ok) throw new Error('High-school content unavailable');
+    const data = await response.json();
+    if (data.schemaVersion !== 1 || !data.grades) throw new Error('Invalid high-school content');
+    return data;
+  }).catch(error => { highPromise = null; throw error; });
+  return highPromise;
+}

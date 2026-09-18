@@ -1,9 +1,9 @@
 # Inspired English — learner app
 
-Current release: **1.10.2**. See [release notes and known limits](RELEASE-1.10.2.md). Reading comprehension is passage-only: 144 articles and 891 supported keys, without diagrams. The full Android package uses the original application ID and signing key.
+Current release: **1.11**. See [release notes and known limits](RELEASE-1.11.md). Reading comprehension is passage-only: 144 articles and 891 supported keys, without diagrams. The full Android package uses the original application ID and signing key.
 
 This folder is the canonical learner application. iPhone and iPad run it as an
-installable PWA; Android v1.10 packages the same audited web release inside the
+installable PWA; Android v1.11 packages the same audited web release inside the
 WebView shell in `../Vocab Drill Student App/`.
 
 **Why this exists:** the App Store's China storefront requires an ICP filing
@@ -22,7 +22,7 @@ learner-facing release history is in [[CHANGELOG]].
 ✓ buttons do the same thing for anyone who dislikes swiping.
 **Study** — the whole list, searchable, tap a word to hear it, `+` opens the
 example sentence with the word bolded plus synonym/antonym.
-**Practice** — MCQ in rounds of five with a checkpoint after each. Three question
+**Practice** — MCQ in rounds of five with a checkpoint after each. Two definition question
 shapes, distractors drawn from the same unit preferring the same part of speech.
 Wrong answers come back at the end and keep coming back until they're right; the
 saved score is the first-attempt percentage.
@@ -36,6 +36,8 @@ choices inside the article, and scores plus perfect runs are saved on-device.
 optional article narration, comprehension exercises, inline vocabulary meanings,
 persistent highlights, completion history and next-article navigation.
 **Middle School English** — Grades 7–9 organized into MCQ and reading sections.
+**High School English** — 176 papers, 1,582 exercises and 7,391 questions: MCQ, cloze, separate reading passages, sentence choices and word forms. Highlight any passage word manually.
+**Guided learning** — learn the whole list in one go, or follow a daily plan. Learn meanings first; spelling is a separate optional activity.
 **Memory Palace** — vocabulary encountered in Reading, with context, review
 history and a spaced-review queue. Its product model is under review.
 

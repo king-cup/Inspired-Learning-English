@@ -41,30 +41,19 @@ export function spelling(entry) {
     example: gap.includes(GAP) ? gap : '', options: [], correctIndex: null };
 }
 
-/**
- * Build one MCQ for an entry.
- *
- * `opts.allowedTypes` restricts which question kinds may be produced. It is the
- * WEB TEST-MODE EXCEPTION (v1.02 §4): Test passes
- * [WORD_TO_MEANING, MEANING_TO_WORD] so summative assessment stays a clean
- * two-direction recall check and never shows sentence-gap items. Practice passes
- * nothing, so it keeps ALL types including SENTENCE_GAP. The type itself is NOT
- * removed from the engine -- only filtered per call.
- */
+/** Definition practice in both directions. Spelling is a separate activity. */
 export function build(entry, pool, opts = {}) {
-  const word = String(entry.w || '').trim();
-  const canGap = !!entry.e && blank(entry.e, word) !== entry.e && word.length > 2;
   const canMeaning = !!(entry.c && entry.c.trim());
 
   let kinds = [];
   if (canMeaning) kinds.push(QType.WORD_TO_MEANING, QType.MEANING_TO_WORD);
-  if (canGap) kinds.push(QType.SENTENCE_GAP);
+
   if (!kinds.length) kinds.push(QType.MEANING_TO_WORD);
 
   if (opts.allowedTypes && opts.allowedTypes.length) {
     const allowed = kinds.filter((k) => opts.allowedTypes.includes(k));
     // Never emit a disallowed type; fall back to the first allowed direction.
-    kinds = allowed.length ? allowed : [opts.allowedTypes[0]];
+    kinds = allowed.length ? allowed : [QType.WORD_TO_MEANING];
   }
 
   const kind = kinds[Math.floor(Math.random() * kinds.length)];
@@ -78,7 +67,7 @@ export function build(entry, pool, opts = {}) {
   if (kind === QType.MEANING_TO_WORD) {
     return assemble(entry, pool, kind, entry.c, entry.p, (e) => e.w);
   }
-  return assemble(entry, pool, kind, blank(entry.e, entry.w), '', (e) => e.w);
+  return assemble(entry, pool, QType.MEANING_TO_WORD, entry.c, entry.p, (e) => e.w);
 }
 
 function assemble(entry, pool, type, prompt, subPrompt, answerOf) {

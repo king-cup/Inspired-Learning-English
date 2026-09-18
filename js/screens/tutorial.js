@@ -1,23 +1,21 @@
 import * as P from '../profile.js';
 import { h, clear, button, leafMark } from '../ui.js';
-const KEY = 'ie.tutorial.1.10.2';
+const KEY = 'ie.tutorial.1.11';
 const tr = (en, zh) => P.get().lang === 'zh' ? zh : en;
 export const completed = () => { try { return localStorage.getItem(KEY) === 'done'; } catch (e) { return true; } };
 export function render(root, done) {
   let step = 0;
   const pages = [
-    ['Welcome to Inspired English', '欢迎使用因思博睿英语', 'Your books, practice and reading in one place. Your progress stays on this device. We’ll remember your last page.', '在这里学习课本词汇、练习和阅读。学习记录保存在此设备上，下次打开时继续上次的页面。'],
-    ['Choose how to learn', '选择学习方式', 'Vocabulary: Study shows meanings and examples. Practice gives feedback. Cards help recall; use the buttons or swipe. Test saves your score. Reverse cards in Settings for a harder challenge.', '词汇：学习模式显示释义和例句；练习模式即时反馈；卡片帮助记忆，可用按钮或滑动；测试保存成绩。在设置中可翻转卡片正反面。'],
-    ['Read without losing your place', '在原文中理解生词', 'In Study, double-tap a dotted word or phrase to save a highlight and fold open its meaning. Tap a saved highlight once to fold it closed or reopen it. Undo removes the latest mark, not its history. Choose your highlight colour in Settings. Try it below.', '学习模式下双击点状下划线词或短语，保存标记并折叠展开释义。单击已标记词可收起或展开。撤销仅移除最近标记，不删除接触记录。可在设置中选择标记颜色。请在下面试试。'],
-    ['Study freely, test fairly', '自由学习，公平测试', 'Choose a reading book or a school grade and section, then Study or Test. Study lets you browse exercises and look up words. Test draws a random exercise: unseen first, then least used, never the same one twice in a row. No highlights or definitions appear in Test. After submission, Next gives another test. Reading comprehension uses passage-based choices, including True / False / Not Given. Diagram-dependent and ambiguous questions are omitted.', '选择阅读书本或学校年级和题型，再选择学习或测试。学习可自由浏览、查看生词；测试随机抽题：未做优先，之后优先抽取次数较少的题，不连续重复。测试不显示标记或释义。提交后可开始下一篇测试。阅读理解仅保留依据原文作答的选择题（包括判断题）；不收录依赖图表或答案有歧义的题目。'],
-    ['Cloze: choose a letter', '完形填空：点击选项字母', 'Tap a numbered blank to unfold its options. In Study, tap the option letter to answer; double-tap dotted words in the passage or options to open meanings without selecting an answer. Test has no word lookup and shows feedback only after submission.', '点击编号空格展开选项。学习模式点击选项字母作答；双击原文或选项中的点状下划线词可查看释义，不会自动作答。测试不能查词，提交后才显示反馈。'],
-    ['Keep and review useful words', '保存并复习生词', 'Highlighted words with offline meanings join Memory Palace. Review the due list, reveal the meaning and record whether you remembered it. Undoing a highlight does not erase the encounter history.', '有离线释义的标记词会加入记忆宫殿。查看待复习列表，揭示释义并记录是否记住。撤销标记不会删除学习接触记录。'],
-    ['Ready for offline study', '准备离线学习', 'Download vocabulary audio as one pack in Vocabulary. Reading audio is optional and downloads when you choose it. Settings is at the top left of Home: change language, display, cards, replay this guide and export a backup before changing devices.', '在词汇页面一次下载整个词汇音频包。阅读音频按需下载。首页左上角的设置可更改语言、显示和卡片，重看指南，并在换设备前导出备份。'],
+    ['Welcome to Inspired English', '欢迎使用因思博睿英语', 'Learn words and read stories here. Your progress is saved on this device.', '在这里学单词、读文章。学习记录保存在这个设备上。'],
+    ['Choose how to learn', '选择学习方式', 'Study shows word meanings. Practice helps you remember them. Cards let you quiz yourself. Test checks what you know.', '学习可以查看词义。练习帮你记住。卡片可以自己考自己。测试看看你学会了多少。'],
+    ['Mark words as you read', '边读边标记', 'In Study, double-tap any word to highlight it. Saved meanings appear when available. Tap Undo to remove your last mark. Try it below.', '学习时双击任意单词即可标记。有释义的词会显示意思。点击撤销可以去掉上一次标记。在下面试试吧。'],
+    ['Study or test', '学习或测试', 'Study lets you choose an article. Test picks one for you. In a test, finish first to see your score. You cannot look up words during a test.', '学习时可以自己选文章。测试会帮你抽一篇。做完再看成绩。测试时不能查词。'],
+    ['Fill the blanks', '完成填空', 'In Cloze, tap a blank to see the choices. Tap a letter to answer. In Study, you can also double-tap words to highlight them.', '完形填空中，点击空格查看选项，点击字母作答。学习时还可以双击单词做标记。'],
+    ['Review words', '复习单词', 'Memory Palace keeps words you highlighted. Show the meaning, then check if you remembered it.', '记忆宫殿保存你标记的词。先想想意思，再打开释义看看记对了吗。'],
+    ['Learn word meanings', '学习词义', 'Guided learning helps you learn all the words. Choose Learn all words, or use a daily plan to learn a few each day.', '引导学习帮你学会整张词表。可以选择一次学完，也可以用每日计划，每天学几个。'],
+    ['Spelling is your choice', '拼写可以选做', 'Word tests check meanings. If you want to practise spelling too, choose Spelling on the unit page.', '单词测试考词义。想练拼写时，在单元页面选择拼写练习。'],
+    ['Save your progress', '保存学习记录', 'Before changing devices, save a backup in Settings. Download audio to listen without the internet.', '换设备前，先在设置里保存备份。下载音频后，没有网络也能听。'],
   ];
-  pages.splice(6, 0,
-    ['Practise spelling, then test', '练习拼写，再测试', 'Spelling practice gives feedback every five words. Test covers your selected list: choose Multiple Choice, Fill in the blank or Mixed. Answers are marked after submission, and unfinished tests can be resumed.', '拼写练习每五个词提供一次反馈。测试覆盖所选词表，可选选择题、填空题或混合题；提交后评分，未完成的测试可继续。'],
-    ['Learn before your next class', '为下次课安排学习', 'Guided learning uses your actual deadline. One-day plans cover the whole list; longer plans divide new words and review. Listen, confirm that you repeated the word, then practise it in four rounds. There is no speech recognition. Some examples are still missing; Chinese word meanings are not sentence translations.', '引导学习按实际上课时间安排：一天计划学习整张词表，多日计划分配新词与复习。听发音、确认已跟读，再分四轮练习；目前没有语音识别。部分例句尚缺，中文词义并非整句翻译。'],
-    ['Your progress and learning history', '学习进度与记录', 'Plans and progress are saved on this device and included in Settings backups. Activity timestamps use the device clock, not verified attendance. Keep a backup before changing devices or reinstalling.', '计划与进度保存在此设备，并包含在设置中的备份里。活动时间戳采用设备时间，不是可靠的出勤证明。换设备或重装前请备份。']);
   const finish = () => { try { localStorage.setItem(KEY, 'done'); } catch (e) {} done(); };
   function paint() {
     clear(root); const row = pages[step];

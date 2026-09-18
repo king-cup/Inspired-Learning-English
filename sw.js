@@ -21,7 +21,7 @@
 // v11: stable headers/navigation, refreshed cloze sources, HSE advanced practice.
 // v12: full 608-passage cloze bank, flash-free cloze routes, HSE Packages 7–8.
 // v13: v1.09 reading library, middle-school sections, and Memory Palace.
-const SHELL = 'vd-shell-v19'; // 1.10.2: passage-only keys and guided learning.
+const SHELL = 'vd-shell-v20'; // 1.11: definition-first learning and high-school exams.
 
 const PRECACHE = [
   './',
@@ -39,8 +39,10 @@ const PRECACHE = [
   'reading-content.json',
   'reading-audio-manifest.json',
   'middle-school.json',
+  'high-school.json',
   'passage-glossary.json',
   'js/passage.js',
+  'js/exam-source.js',
   'js/screens/tutorial.js',
   'js/main.js',
   'js/motion.js',
@@ -86,7 +88,13 @@ const PRECACHE = [
 ];
 
 self.addEventListener('install', (ev) => {
-  ev.waitUntil(caches.open(SHELL).then((c) => c.addAll(PRECACHE)));
+  ev.waitUntil((async () => {
+    const cache = await caches.open(SHELL);
+    await cache.addAll(PRECACHE);
+    const bank = await (await cache.match('high-school.json')).text();
+    const figures = [...new Set([...bank.matchAll(/\[\[image:([^\]]+)\]\]/g)].map(match => match[1]))];
+    await cache.addAll(figures);
+  })());
 });
 
 self.addEventListener('activate', (ev) => {

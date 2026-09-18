@@ -181,7 +181,7 @@ async function route() {
     afterRoute(); return;
   }
 
-  if (parts[0] === 'high-school') { highSchool.render(root); afterRoute(); return; }
+  if (parts[0] === 'high-school') { await highSchool.render(root, parts[1], parts[2], parts[3], parts[4]); afterRoute(); return; }
   if (parts[0] === 'memory') { memory.render(root, parts[1], parts[2] && decodeURIComponent(parts[2])); afterRoute(); return; }
 
   if (parts[0] === 'cloze') {

@@ -55,6 +55,7 @@ export function render(root, unitId, mode = 'practice') {
       const e = byKey.get(s.question.entryKey);
       question = e ? { entry: e, type: s.question.type, prompt: s.question.prompt, subPrompt: s.question.subPrompt, example: s.question.example, options: s.question.options, correctIndex: s.question.correctIndex } : null;
     } else question = null;
+    if (!spellingMode && question?.type === QType.SENTENCE_GAP) { question = build(question.entry, pool); chosen = null; phase = 'asking'; saveState(); }
     A.prefetch(D.clipUrlsFor(unitId));
     if (phase === 'checkpoint') checkpoint(true);
     else if (phase === 'finish') finish(true);

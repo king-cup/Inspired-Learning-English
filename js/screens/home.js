@@ -26,9 +26,9 @@ export function render(root) {
   const choices = h('div.home-choices.mt2');
   choices.append(
     blockButton(i18n.t('home.vocabulary'), '', () => { location.hash = '#/vocab'; }),
-    blockButton(i18n.t('home.reading'), '', () => { location.hash = '#/reading'; }),
     blockButton(i18n.t('home.middle'), '', () => { location.hash = '#/middle'; }),
     blockButton(i18n.t('home.high'), '', () => { location.hash = '#/high-school'; }),
+    blockButton(i18n.t('home.reading'), '', () => { location.hash = '#/reading'; }),
     blockButton(i18n.t('home.memory'), '', () => { location.hash = '#/memory'; }),
   );
   root.append(choices, h('div', { style: { height: '34px' } }));

@@ -1,0 +1,149 @@
+{
+  "G11/Midterms/Papers/14_G11_Midterm_25-26.docx": {
+    "excludedGroups": [
+      {
+        "section": "reading-a",
+        "reason": "Missing passage",
+        "numbers": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      {
+        "section": "reading-a",
+        "reason": "Missing passage",
+        "numbers": [
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14"
+        ]
+      },
+      {
+        "section": "reading-a",
+        "reason": "No supported numbered questions",
+        "sample": "Flash Mobs\n\nDefinition | A gathering of strangers organised in secret to do something 15. ______\n\nPurpose | For fun\n\nExa"
+      }
+    ],
+    "decision": "Listening questions; outside the requested written-exam sections."
+  },
+  "G11/Midterms/Papers/17_G11_Midterm_25-26.docx": {
+    "excludedGroups": [
+      {
+        "section": "word-form",
+        "reason": "No supported numbered questions",
+        "sample": ""
+      }
+    ],
+    "decision": "Chinese-to-English sentence completion; outside word-form and selectable questions."
+  },
+  "G11/Midterms/Papers/20_G11_Midterm_24-25.docx": {
+    "excludedGroups": [
+      {
+        "section": "reading-a",
+        "reason": "No supported numbered questions",
+        "sample": "48. 阅读下面短文，根据其内容写一篇80词左右的内容概要。\n注意：请对所给短文进行准确、全面的概括，涵盖短文的主要内容和关键信息，语言简洁明了，尽量使用自己的语言。\nLiterature is a profound and multifa"
+      }
+    ],
+    "decision": "Written summary, not selectable reading."
+  },
+  "G11/Midterms/Papers/59_G11_Midterm_21-22.docx": {
+    "excludedGroups": [
+      {
+        "section": "reading-gap",
+        "reason": "No supported numbered questions",
+        "sample": "Can a robot really freestyle?\n\nEngineers at the Georgia Institute of Technology, led by Gil Weinberg, have designed the "
+      }
+    ],
+    "decision": "Written-response reading; no selectable answers."
+  },
+  "G11/Midterms/Papers/71_G11_Midterm_21-22.docx": {
+    "excludedGroups": [
+      {
+        "section": "reading-a",
+        "reason": "No supported numbered questions",
+        "sample": "Room Renting\n\nPreference | A one-bedroom 16\n\nFacilities | A fridge and a stove\n\nDistance to City University | A ten-minu"
+      }
+    ],
+    "decision": "Listening questions; outside the requested written-exam sections."
+  },
+  "G11/Monthly/Papers/04_G11_Monthly_24-25.docx": {
+    "excludedGroups": [
+      {
+        "section": "reading-gap",
+        "reason": "No supported numbered questions",
+        "sample": "36. A good a___________ (建筑师) is responsible for designing buildings and structures. (根据中英文提示单词拼写)\n\n37. The university i"
+      }
+    ],
+    "decision": "Standalone spelling from Chinese/initial-letter hints, not word-form conversion."
+  },
+  "G11/Monthly/Papers/05_G11_Monthly_24-25.docx": {
+    "excludedGroups": [
+      {
+        "section": "reading-a",
+        "reason": "No supported numbered questions",
+        "sample": "31. In a naval battle your aim is to s______ (下沉；沉没) the enemy’s ship.(根据中英文提示单词拼写)\n\n32. Please s______(提交；呈送) the regis"
+      }
+    ],
+    "decision": "Standalone spelling from Chinese/initial-letter hints, not word-form conversion."
+  },
+  "G11/Monthly/Papers/11_G11_Monthly_24-25.docx": {
+    "excludedGroups": [
+      {
+        "section": "word-form",
+        "reason": "No supported numbered questions",
+        "sample": ""
+      }
+    ],
+    "decision": "Chinese-to-English sentence completion; outside word-form and selectable questions."
+  },
+  "G11/Monthly/Papers/15_G11_Monthly_24-25.docx": {
+    "excludedGroups": [
+      {
+        "section": "reading-gap",
+        "reason": "No supported numbered questions",
+        "sample": "The Value of Failure in Success\n\nIn our pursuit of success, failure often seems like an unwelcome guest. We usually view"
+      }
+    ],
+    "decision": "Written-response reading; no selectable answers."
+  },
+  "G11/Monthly/Papers/23_G11_Monthly_23-24.docx": {
+    "excludedGroups": [
+      {
+        "section": "reading-a",
+        "reason": "Missing passage",
+        "numbers": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      {
+        "section": "reading-a",
+        "reason": "Missing passage",
+        "numbers": [
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14"
+        ]
+      }
+    ],
+    "decision": "Listening questions; outside the requested written-exam sections."
+  }
+}

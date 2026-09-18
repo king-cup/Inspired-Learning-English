@@ -1,3 +1,7 @@
+# 1.11 — 19 September 2026
+
+Definition-first guided learning and tests; optional spelling; simpler student menus; consistent Reading/exam lists; numbered paragraphs and source labels; manual word highlighting; 176 high-school papers with MCQ, cloze, reading and word forms. See [release details](RELEASE-1.11.md).
+
 ---
 title: Inspired English App — Changelog
 tags:

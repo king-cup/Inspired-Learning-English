@@ -123,8 +123,7 @@ export function button(text, opts = {}) {
 
 export function blockButton(title, caption, onClick) {
   const el = h('button.block', { type: 'button', onclick: onClick },
-    h('div.t', null, cn(String(title))),
-    caption ? h('div.c', null, cn(caption)) : null);
+    h('div.t', null, cn(String(title))));
   return press(el);
 }
 

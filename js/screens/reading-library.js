@@ -1,7 +1,7 @@
 import * as C from '../curriculum-data.js';
 import * as S from '../curriculum-store.js';
 import * as P from '../profile.js';
-import { h, clear, cn, paperHeader, topBar, blockButton, button, press } from '../ui.js';
+import { h, clear, cn, paperHeader, topBar, blockButton, button, press, barLabel } from '../ui.js';
 const tr = (en, zh) => P.get().lang === 'zh' ? zh : en;
 
 export async function render(root, bookId, mode) {
@@ -29,17 +29,21 @@ export async function render(root, bookId, mode) {
       blockButton(tr('Test', '测试'), tr('Random article; no word lookup. Unseen first, then least used.', '随机文章，不可查词；未做优先，之后均衡抽题。'), () => startTest(book.id, articles))));
     return;
   }
-  for (const unit of [...new Set(articles.map(row => row.unit))].sort((a,b) => a-b)) {
-    const section = h('section.reading-unit.mt2', null, h('h2.unit-heading', null, tr('Unit ', '单元 ') + unit));
-    articles.filter(row => row.unit === unit).forEach(article => {
+  const find = h('input', { type: 'search', placeholder: tr('Find an article', '查找文章'), 'aria-label': tr('Find an article', '查找文章') });
+  root.append(h('div.find.mt', null, h('div.lbl', null, tr('Find', '查找')), find));
+  const box = h('div.box.mt', null, barLabel(tr('Articles', '文章')));
+  const list = h('div'); box.append(list); root.append(box);
+  const paint = () => {
+    clear(list);
+    const needle = find.value.trim().toLowerCase();
+    articles.filter(article => !needle || `${article.unit}${article.reading} ${article.title}`.toLowerCase().includes(needle)).forEach(article => {
       const progress = S.articleState(article.id);
-      section.append(press(h('button.middle-row.reading-row', { type: 'button', onclick: () => { location.hash = '#/reading/' + article.id + '/study'; } },
-        h('span.reading-code', null, String(unit) + article.reading),
-        h('span.reading-title', null, cn(article.title)),
-        h('span.reading-status', null, progress.completedAt ? tr('Completed', '已完成') : progress.openedAt ? tr('Continue reading', '继续阅读') : article.readingMinutes + tr(' min', ' 分钟')))));
+      list.append(press(h('button.middle-row', { type: 'button', onclick: () => { location.hash = '#/reading/' + article.id + '/study'; } },
+        h('span.grow', null, h('b', null, `${article.unit}${article.reading} · `, cn(article.title)),
+          h('small', null, progress.completedAt ? tr('Completed', '已完成') : progress.openedAt ? tr('Continue reading', '继续阅读') : tr('Not started', '尚未开始'))), h('span', null, '›'))));
     });
-    root.append(section);
-  }
+  };
+  find.oninput = paint; paint();
 }
 export function startTest(bookId, articles, current = null) {
   const id = S.drawRandom('reading-' + bookId, articles.map(row => row.id), Math.random, current);

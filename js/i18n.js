@@ -105,7 +105,7 @@ export function displayPos(rawPos, langCode = curCode) {
 }
 
 const EN_TABLE = {
-  'spelling.title': 'Fill in the blank',
+  'spelling.title': 'Spelling (optional)',
   'spelling.instruction': 'Type the English word or phrase',
   'spelling.caption': 'Practise spelling, five words at a time.',
   'spelling.answer': 'Your English answer',
@@ -508,7 +508,7 @@ const EN_TABLE = {
 };
 
 const ZH_TABLE = {
-  'spelling.title': '填空题',
+  'spelling.title': '拼写（选做）',
   'spelling.instruction': '输入英文单词或短语',
   'spelling.caption': '每五个单词一组，练习拼写。',
   'spelling.answer': '你的英文答案',
