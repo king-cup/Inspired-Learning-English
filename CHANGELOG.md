@@ -13,6 +13,13 @@ This file tracks learner-visible releases and significant platform changes. Curr
 
 ## 1.10 — 2026-09-18
 
+### Local visual revision — original aesthetic restored
+
+- At the user's request, restored the pre-1.10 black/white/grey palette, Courier UI font, original header/reading frames, and translucent, offset-shadow button styling.
+- Removed the new pastel home colours and green/blue/amber interface accents. New reading menus, tutorial and inline definitions now inherit the original styling.
+- Preserved all functional updates, including yellow persistent highlights, undo/history, audited content, compressed audio, one-pack vocabulary downloads, next exercises, left-positioned Settings, tablet layouts and the no-flash fix.
+- Updated the design reference and offline shell version. This revision is local only; publishing and Android build remain stopped at the user's request. The existing local v1.10 tag records the earlier design and must not be pushed as the final revised release without a new reviewed commit.
+
 ### Learner experience
 
 - Added inline passage definitions using explicit lists for 2,018 readings. Double-tap a dotted word/phrase to highlight it yellow and open its meaning inside the passage; single-tap to close/reopen. Highlights persist, and Undo keeps the encounter history.

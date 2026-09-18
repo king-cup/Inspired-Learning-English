@@ -11,15 +11,11 @@
    ========================================================================== */
 
 :root {
-  /* 1.10: Inspire's leaf colours guide navigation; prose stays on plain paper. */
-  --ink: #183329;
+  --ink: #000;
   --paper: #fff;
-  --hover: #e2eee8;
-  --rule: #8ba499;
-  --shade: #f0f5f2;
-  --accent: #176447;
-  --blue: #245d8c;
-  --amber: #835600;
+  --hover: #e8e8e8;
+  --rule: #999;
+  --shade: #eee;
   --rt: #e9f5ec;          /* right / known */
   --rt-edge: #1c7a3e;
   --wr: #fdeceb;          /* wrong / unknown */
@@ -33,7 +29,7 @@
   /* iOS has neither Noto Serif nor Noto Serif CJK. The CJK face must be in the
      stack or every Chinese gloss falls back to a sans-serif system font. */
   --serif: Georgia, 'Times New Roman', 'Songti SC', 'Songti TC', 'PingFang SC', serif;
-  --mono: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+  --mono: 'Courier New', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --pad: 14px;
   --shell: 720px;
@@ -58,9 +54,6 @@
   --wr-edge: #ff7a70;
   --glass: rgba(20, 20, 20, .76);
   --glass-strong: rgba(0, 0, 0, .88);
-  --accent: #7de0ac;
-  --blue: #9fcdfa;
-  --amber: #f5ce73;
 
   color-scheme: dark;
 }
@@ -943,7 +936,9 @@ body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
 .unit-row, .cloze-passage-row, .cloze-history-row, .dd-head, .dd-item,
 .toggle-row, .cloze-blank, .updbar-action, .updbar-x {
   background-color: var(--glass);
-  box-shadow: none;
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  backdrop-filter: blur(10px) saturate(120%);
+  box-shadow: 4px 4px 0 var(--option-shadow) !important;
   transform: translate3d(0, 0, 0);
   transform-origin: center;
   transition: transform .12s ease-out, box-shadow .12s ease-out,
@@ -954,10 +949,10 @@ body.has-updbar .toast { bottom: calc(env(safe-area-inset-bottom) + 84px); }
 .cloze-passage-row.is-pressed, .cloze-history-row.is-pressed, .dd-head.is-pressed,
 .dd-item.is-pressed, .toggle-row.is-pressed, .cloze-blank.is-pressed,
 .updbar-action.is-pressed, .updbar-x.is-pressed {
-  transform: scale(.99);
-  box-shadow: none;
+  transform: translate3d(3px, 3px, 0) scale(.985);
+  box-shadow: 1px 1px 0 var(--option-shadow) !important;
 }
-.just-released { animation: none; }
+.just-released { animation: option-release .34s var(--spring-out); }
 @keyframes option-release {
   0% { transform: translate3d(3px, 3px, 0) scale(.985); }
   48% { transform: translate3d(-1px, -1px, 0) scale(1.018); }

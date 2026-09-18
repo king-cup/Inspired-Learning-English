@@ -21,7 +21,7 @@
 // v11: stable headers/navigation, refreshed cloze sources, HSE advanced practice.
 // v12: full 608-passage cloze bank, flash-free cloze routes, HSE Packages 7–8.
 // v13: v1.09 reading library, middle-school sections, and Memory Palace.
-const SHELL = 'vd-shell-v14';
+const SHELL = 'vd-shell-v15'; // Original aesthetic restored; v1.10 functions retained.
 
 const PRECACHE = [
   './',

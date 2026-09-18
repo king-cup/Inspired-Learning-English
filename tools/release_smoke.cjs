@@ -31,6 +31,8 @@ async function main() {
         assert.equal(await page.locator('.motion-stage:not(.motion-entered)').count(), 0);
       };
       await go('#/');
+      assert.equal(await page.evaluate(() => getComputedStyle(document.body).color), 'rgb(0, 0, 0)', 'original black ink');
+      assert.match(await page.locator('.home-choices .block .t').first().evaluate(el => getComputedStyle(el).fontFamily), /Courier New/, 'original UI font');
       await page.screenshot({path:path.join(capture,name+'-home.png'),fullPage:true});
       const first = read('vocab.json').types[0].groups[0].units[0].id;
       const routes = ['#/vocab','#/u/'+first,'#/u/'+first+'/study','#/u/'+first+'/cards','#/u/'+first+'/practice','#/u/'+first+'/test','#/reading','#/reading/book/foundation','#/middle','#/middle/7','#/middle/8','#/middle/9','#/middle/7/mcq','#/cloze/7','#/cloze/study/7','#/high-school','#/memory','#/settings'];
