@@ -1,0 +1,1365 @@
+{
+  "schemaVersion": 1,
+  "provenance": "Editorial follow-up against complete local Third Edition textbooks. Source originals remain unchanged. Partial work, not corpus sign-off.",
+  "articles": {
+    "rc-level-5-u08-a": {"textRepairs": [["can OF rate", "can rate"]]},
+    "rc-level-5-u12-a": {"textRepairs": [["A S A GI R L GR O W I N G U P", "As a girl growing up"], ["percent of the country’s population but to 8", "percent of the country’s population but 7 to 8"]]},
+    "rc-level-5-u01-a": {"additionalAnswers": {"07": ["a", "The villagers’ general effort belongs after the ceremony is introduced and before their specific tasks are described.", [11]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [14], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u01-a-c-q07", "number": "7", "prompt": "After which sentence in the description of Yaxuná’s annual ceremony would “The villagers work without rest or sleep to persuade Chaak to come to them” fit best?", "choices": [{"id": "a", "label": "A", "text": "“In the village of Yaxuná, many people still depend on milpa, and an annual ceremony is held there to please the rain god.”"}, {"id": "b", "label": "B", "text": "“They walk a long way through the forest to a sacred cave ... to bring up the water the ceremony requires.”"}, {"id": "c", "label": "C", "text": "“They raise the altar, dig a large cooking pit, and provide 13 fat chickens for the ritual meal.”"}, {"id": "d", "label": "D", "text": "“They cook them in the pit so the steam can rise directly to the rain god as an offering.”"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-5-u01-b": {"additionalAnswers": {"07": ["b", "The European example shows that extreme climate change extended far beyond Angkor.", [15]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [23], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u01-b-c-q07", "number": "7", "prompt": "Why does the author mention the Little Ice Age?", "choices": [{"id": "a", "label": "A", "text": "to show that climate change caused more cultures to fail in Europe than in Asia"}, {"id": "b", "label": "B", "text": "to emphasize the extent and significance of climate change in the 1300s"}, {"id": "c", "label": "C", "text": "to explain why European cities were not as advanced as Angkor"}, {"id": "d", "label": "D", "text": "to show how Angkor’s climate in the 1300s was different to Europe’s"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-5-u02-b": {"additionalAnswers": {"07": ["a", "Heat, wind and animals are explicitly mentioned, but ice is not. Below-freezing temperatures alone do not state that ice was encountered.", [12]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [45], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u02-b-c-q07", "number": "7", "prompt": "Which challenge is NOT explicitly mentioned in the description of climbing the Freerider route?", "choices": [{"id": "a", "label": "A", "text": "ice"}, {"id": "b", "label": "B", "text": "heat"}, {"id": "c", "label": "C", "text": "animals"}, {"id": "d", "label": "D", "text": "wind"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-5-u03-a": {"additionalAnswers": {"07": ["d", "Confirmation bias leads people to reinforce beliefs shaped by their existing worldview.", [18]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [58], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u03-a-c-q07", "number": "7", "prompt": "According to the author, what causes the “science communication problem”?", "choices": [{"id": "a", "label": "A", "text": "the majority of scientists don’t explain their research well"}, {"id": "b", "label": "B", "text": "most people don’t have the background to understand scientific research"}, {"id": "c", "label": "C", "text": "there are fewer and fewer outlets for scientific research studies"}, {"id": "d", "label": "D", "text": "people tend to believe only findings that fit into their belief systems"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-5-u04-a": {"additionalAnswers": {"07": ["a", "The former resident is talking about Venetians who dislike tourists but want their money.", [15]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [80], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u04-a-c-q07", "number": "7", "prompt": "In “They don’t want tourists ... but they want their money”, who does “They” refer to?", "choices": [{"id": "a", "label": "A", "text": "people who live in Venice"}, {"id": "b", "label": "B", "text": "International Center of Studies on the Tourist Ec onomy"}, {"id": "c", "label": "C", "text": "people who say that Venice’s wounds are self-inflicted"}, {"id": "d", "label": "D", "text": "tourists who visit Venice"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["bottles in their wake.", "bottles in their wake. “Beauty is difficult,” says Cacciari, sounding as if he were addressing a graduate seminar."], ["what is so different about tourism now.", "what is so different about tourism now. “Now, Venice gets giant cruise ships."], ["el ev at ed", "elevated"]]},
+    "rc-level-5-u04-b": {"additionalAnswers": {"07": ["a", "The section describes the 1953 catastrophe and the Delta Works construction program that followed.", [12, 14]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [89], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u04-b-c-q07", "number": "7", "prompt": "What is the main purpose of the “Dutch Lessons” section?", "choices": [{"id": "a", "label": "A", "text": "to describe the event that caused the Netherlands to begin their dike- and barrier-building program"}, {"id": "b", "label": "B", "text": "to show how dangerous coastal communities like Zeeland can be, even when they are well protected"}, {"id": "c", "label": "C", "text": "to make a case for expanding the Dutch success story in Zeeland to other parts of the country"}, {"id": "d", "label": "D", "text": "to illustrate that storms 70 years ago were just as dangerous as the storms of today"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-5-u06-a": {"additionalAnswers": {"07": ["a", "The sardine industry’s collapse warns what may happen to bluefin without wise management.", [22, 24]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [124], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u06-a-c-q07", "number": "7", "prompt": "Why does the author discuss the decline of the sardine industry?", "choices": [{"id": "a", "label": "A", "text": "to warn that bluefin could face a similar fate"}, {"id": "b", "label": "B", "text": "to explain that the cause of their decline remains unknown"}, {"id": "c", "label": "C", "text": "to show that research done 60 years ago is no longer relevant"}, {"id": "d", "label": "D", "text": "to give hope of bringing back fish populations after overfishing"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-5-u06-b": {"additionalAnswers": {"07": ["b", "In this historical account the northern white rhino has only two females left; the po‘ouli is already extinct.", [14, 15]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [133], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u06-b-c-q07", "number": "7", "prompt": "In the historical situation described by the passage, which animal faces the greatest risk of becoming extinct?", "choices": [{"id": "a", "label": "A", "text": "the panda"}, {"id": "b", "label": "B", "text": "the northern white rhino"}, {"id": "c", "label": "C", "text": "the po’ouli"}, {"id": "d", "label": "D", "text": "the Kihansi spray toad"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-5-u07-a": {"additionalAnswers": {"07": ["d", "Donoghue’s work has enabled Hutchinson to control a robot arm and drink from a cup.", [16, 18]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [145], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u07-a-c-q07", "number": "7", "prompt": "According to the writer, which researcher is the farthest along in finding practical ways to use recent brain research?", "choices": [{"id": "a", "label": "A", "text": "Van Wedeen"}, {"id": "b", "label": "B", "text": "Jeff Lichtman"}, {"id": "c", "label": "C", "text": "Karl Deisseroth"}, {"id": "d", "label": "D", "text": "John Donoghue"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["slab,1", "slab,"], ["interfaces 9", "interfaces"], ["t ric ky", "tricky"], ["My Contr ibution to Scienc e", "My Contribution to Science"]]},
+    "rc-level-5-u07-b": {"additionalAnswers": {"07": ["a", "The arm can grip but lacks normal pressure feedback, so Kitts cannot judge the force squeezing the cup.", [18]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [153], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u07-b-c-q07", "number": "7", "prompt": "Why does the author imply that Kitts’s paper coffee cup went “pop”?", "choices": [{"id": "a", "label": "A", "text": "did not know how hard she was squeezing the cup"}, {"id": "b", "label": "B", "text": "could not feel how hot the coffee was"}, {"id": "c", "label": "C", "text": "did not realize how full the cup was"}, {"id": "d", "label": "D", "text": "could not tell that the cup was already empty"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["em b edded", "embedded"], ["assi gn ed", "assigned"]]},
+    "rc-level-5-u08-b": {"additionalAnswers": {"07": ["b", "Humans can divide labor without physical castes because they are flexible and intelligent.", [20]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [173], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u08-b-c-q07", "number": "7", "prompt": "According to Wilson, how are humans unique?", "choices": [{"id": "a", "label": "A", "text": "We are the most warlike of all the creatures on the Earth."}, {"id": "b", "label": "B", "text": "We have division of labor but no biological castes."}, {"id": "c", "label": "C", "text": "We have a strong effect on other species with which we share territory."}, {"id": "d", "label": "D", "text": "We are the only social creatures that do not form colonies."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["somebody could chuck you out.", "somebody could chuck you out. The idea is that these lines are going to find it advantageous to develop sterile castes for maintaining and protecting the colony."], ["NG:", "Interviewer:"]]},
+    "rc-level-5-u09-a": {"additionalAnswers": {"07": ["a", "His completed masterpieces would preserve his fame long after his death.", [19]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [186], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u09-a-c-q07", "number": "7", "prompt": "What does “He had no way to know that the few magnificent works he did complete would alone make his name immortal” mean?", "choices": [{"id": "a", "label": "A", "text": "Leonardo could not predict that the few great works he finished would be enough to make him famous for years to come."}, {"id": "b", "label": "B", "text": "Leonardo could not decide which of the works he produced were best and would make him famous after his death."}, {"id": "c", "label": "C", "text": "At the end of his career, Leonardo had no way to be certain how many of his great works were still in existence."}, {"id": "d", "label": "D", "text": "Although he produced many great works, Leonardo would be surprised to know that only a few are still famous."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["Shakespeare a clever wordsmith.", "Shakespeare a clever wordsmith. He was a true genius, recognized in his own time and idolized in ours."], ["Bir th of a Genius", "Birth of a Genius"], ["Ear ly Mas ter wor ks", "Early Masterworks"], ["Batt le of the Giants", "Battle of the Giants"]]},
+    "rc-level-5-u09-b": {"additionalAnswers": {"07": ["d", "Fayyad predicts voice and handwriting recognition will bypass keyboards regardless of writing system.", [17]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [195], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u09-b-c-q07", "number": "7", "prompt": "Which opinion would Usama Fayyad most likely agree with?", "choices": [{"id": "a", "label": "A", "text": "A new type of keyboard now under development will soon make it easier to enter information on computers."}, {"id": "b", "label": "B", "text": "The Chinese should develop a special writing system that can be used more easily with computers."}, {"id": "c", "label": "C", "text": "In China, computers may one day be replaced with a new generation of technology."}, {"id": "d", "label": "D", "text": "New technology will allow us to enter data on computers in various languages, without using a keyboard."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["OF Joel", "Joel"]]},
+    "rc-level-5-u10-a": {"additionalAnswers": {"07": ["a", "The opening was in March 2013. The 26-galaxy study happened the year before; transporters and the computer were part of earlier setup.", [13, 14]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [208], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u10-a-c-q07", "number": "7", "prompt": "Which of these events happened most recently?", "choices": [{"id": "a", "label": "A", "text": "The installation site was officially opened."}, {"id": "b", "label": "B", "text": "Two transporters were brought to the installation site."}, {"id": "c", "label": "C", "text": "A massive supercomputer was installed at the installation site."}, {"id": "d", "label": "D", "text": "ALMA was used to view 26 distant galaxies."}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-5-u11-a": {"additionalAnswers": {"07": ["d", "The author calls the defeat by the Christian knights a surprise.", [19]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [230], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u11-a-c-q07", "number": "7", "prompt": "What does the author say about the siege of Malta?", "choices": [{"id": "a", "label": "A", "text": "It was considered Süleyman’s most brilliant campaign."}, {"id": "b", "label": "B", "text": "It was the final battle in which Süleyman fought."}, {"id": "c", "label": "C", "text": "The siege did not last as long as Süleyman had predicted."}, {"id": "d", "label": "D", "text": "Jean Parisot de la Valette’s victory there was unexpected."}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-5-u11-b": {"additionalAnswers": {"07": ["c", "The article calls the Alhambra Spain’s most visited site, not its least visited.", [18]]}, "sourceCheck": {"file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88", "questionPdfPages": [241], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; printed references adapted to the app."], "additionalQuestions": [{"id": "rc-level-5-u11-b-c-q07", "number": "7", "prompt": "Which statement about the Alhambra is NOT true?", "choices": [{"id": "a", "label": "A", "text": "Nasrid rulers lived there."}, {"id": "b", "label": "B", "text": "There are quotations and poems in Arabic on the walls."}, {"id": "c", "label": "C", "text": "It is the least visited site in Spain."}, {"id": "d", "label": "D", "text": "It had been vandalized and neglected over the years."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["al-Khwarizmi;5", "al-Khwarizmi;"]]},
+    "rc-level-4-u01-a": {"additionalAnswers": {"05": ["d", "The comparison contrasts creative uses of images with ordinary, everyday uses.", [10]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [12], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u01-a-c-q05", "number": "5", "prompt": "When discussing a visual language, what does the author mean by “there will be those who produce poetry and those who make shopping lists”?", "choices": [{"id": "a", "label": "A", "text": "It will be most useful for shopping and for writing beautiful poetry."}, {"id": "b", "label": "B", "text": "It will be better because it can be used for a variety of things."}, {"id": "c", "label": "C", "text": "Visual language has certain limitations compared to written language."}, {"id": "d", "label": "D", "text": "Some people will use it for everyday things, and others for more creative things."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["capture unguarded moments.", "capture unguarded moments. The Internet also allows photojournalists to avoid traditional media. They can now act as their own publishers—reaching huge audiences via social media sites such as Instagram. A photograph taken in New York can get a response from someone in Lagos within a second of being uploaded."]]},
+    "rc-level-4-u01-b": {"additionalAnswers": {"05": ["d", "Griffiths says knowing a person as an individual makes it impossible to hate their whole group.", [12]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [20], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u01-b-c-q05", "number": "5", "prompt": "According to Griffiths, what has life as a photographer taught her?", "choices": [{"id": "a", "label": "A", "text": "that language is essential for communication"}, {"id": "b", "label": "B", "text": "that most people have very different hopes and fears"}, {"id": "c", "label": "C", "text": "that expressing an opinion is as important as listening"}, {"id": "d", "label": "D", "text": "that it is important to get to know people as individuals"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-4-u02-a": {"additionalAnswers": {"05": ["d", "The light attracts larger predators that can eat the animal threatening the light-producing organism.", [9]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [31], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u02-a-c-q05", "number": "5", "prompt": "What is meant by the “burglar alarm” effect?", "choices": [{"id": "a", "label": "A", "text": "Light allows predators to spot their prey in total darkness."}, {"id": "b", "label": "B", "text": "A sudden flash of light startles predators, allowing their prey to escape."}, {"id": "c", "label": "C", "text": "When lit up, tiny organisms such as dinoflagellates can swim faster."}, {"id": "d", "label": "D", "text": "Organisms produce light, which attracts the predators of their predators."}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-4-u02-b": {"additionalAnswers": {"05": ["d", "The conservation effort contrasts positively with the threats described immediately before it.", [14]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [38], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u02-b-c-q05", "number": "5", "prompt": "Before which sentence would “However, there may be some good news for the birds” fit best?", "choices": [{"id": "a", "label": "A", "text": "“These brilliantly colored birds of paradise are among the most beautiful creatures on Earth.”"}, {"id": "b", "label": "B", "text": "The discussion of how the birds split into distinct species."}, {"id": "c", "label": "C", "text": "“There are more serious threats to the birds, however.”"}, {"id": "d", "label": "D", "text": "“David Mitchell, a conservationist, is relying on the help of local villagers to record where the birds display and what they eat.”"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-4-u03-a": {"additionalAnswers": {"05": ["b", "Trained farmers can serve as examples whose sanitary practices other growers adopt.", [12]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [48], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u03-a-c-q05", "number": "5", "prompt": "What does Carmela Velazquez mean by “The farmers we’ve trained will become models for all our growers”?", "choices": [{"id": "a", "label": "A", "text": "The farmers will go on TV to talk about what they learned from her."}, {"id": "b", "label": "B", "text": "More farmers will adopt the habits that were taught to the trained farmers."}, {"id": "c", "label": "C", "text": "Both farmers and growers will now work together to assure food safety."}, {"id": "d", "label": "D", "text": "Farmers need to listen to the growers to learn and decide what works for them."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["O157:H,", "O157:H7,"], ["recall 5", "recall"], ["food poisoning from salmonella.", "food poisoning from salmonella. Using PulseNet, the CDC identified 79 patients in 13 states who were infected with the same type of salmonella bacteria."], ["fe asible", "feasible"]]},
+    "rc-level-4-u03-b": {"additionalAnswers": {"05": ["a", "The conclusion says careful testing and sound judgment could allow benefits while avoiding dangers.", [13]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [56], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u03-b-c-q05", "number": "5", "prompt": "What is the main idea of the final paragraph?", "choices": [{"id": "a", "label": "A", "text": "With care, the potential of biotech foods could possibly be realized."}, {"id": "b", "label": "B", "text": "The risks of biotech foods seem to outweigh any possible benefits."}, {"id": "c", "label": "C", "text": "The world has already seen great advances due to biotech foods."}, {"id": "d", "label": "D", "text": "Biotech food development has been slowed by the many risks involved."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["malnourished,” 6", "malnourished,”"], ["defi ciency", "deficiency"], ["Q: W h at’s nex t?", "Q: What’s next?"]]},
+    "rc-level-4-u04-a": {"additionalAnswers": {"05": ["d", "The article names Velcro, not Stickybot, as the truly famous product.", [13]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [67], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u04-a-c-q05", "number": "5", "prompt": "Which of these statements about biomimetics is NOT true?", "choices": [{"id": "a", "label": "A", "text": "Parker hopes to create a water-collection device inspired by the thorny devil."}, {"id": "b", "label": "B", "text": "Studying humpback whale fins may be useful for improving wind turbines."}, {"id": "c", "label": "C", "text": "The body of a certain fish has inspired a car design."}, {"id": "d", "label": "D", "text": "Stickybot is perhaps the most famous biomimetic creation so far."}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-4-u04-b": {"additionalAnswers": {"05": ["a", "“Them” refers to the dreamers and pioneers introduced at the end of the opening paragraph.", [1]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [74], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u04-b-c-q05", "number": "5", "prompt": "After which part of the passage would “Thanks to them, the world of high-tech textiles is an exciting place to be these days” fit best?", "choices": [{"id": "a", "label": "A", "text": "The opening paragraph introducing Soza and other dreamers and pioneers."}, {"id": "b", "label": "B", "text": "The paragraph about natural fibers, nylon and polymers."}, {"id": "c", "label": "C", "text": "The description of nearly invisible military uniforms."}, {"id": "d", "label": "D", "text": "The final quotation about turning science fiction into scientific fact."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["fan tasies", "fantasies"], ["fo rthcoming", "forthcoming"], ["vibrations; 1", "vibrations;"], ["MP player", "MP3 player"], ["f raction", "fraction"], ["fo resee", "foresee"]]},
+    "rc-level-4-u05-a": {"additionalAnswers": {"05": ["d", "“Perhaps” introduces the coastal migration route as a proposed explanation rather than an established fact.", [13]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [84], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u05-a-c-q05", "number": "5", "prompt": "Which statement is a theory, not a fact according to the passage?", "choices": [{"id": "a", "label": "A", "text": "Mutations are easiest to find in mtDNA and in the Y chromosome."}, {"id": "b", "label": "B", "text": "The majority of DNA is the same for humans across the world."}, {"id": "c", "label": "C", "text": "The bodies found at Lake Mungo are tens of thousands of years old."}, {"id": "d", "label": "D", "text": "Humans traveled along the coast of a land bridge between Siberia and Alaska."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["trace trace", "trace"], ["Early human migration routes 2 I ndigenous people or things belong to the country in which they are found, rather than coming there or being brought there from another country.", ""], ["indigenous 2", "indigenous"]]},
+    "rc-level-4-u05-b": {"additionalAnswers": {"05": ["a", "The passage says they were not forced to leave; they wanted to discover what lay beyond the horizon.", [13]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [92], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u05-b-c-q05", "number": "5", "prompt": "What does Irwin mean by “they wanted to go and see what was over the horizon”?", "choices": [{"id": "a", "label": "A", "text": "The Lapita were motivated by a curiosity about new places."}, {"id": "b", "label": "B", "text": "The Lapita hoped for greater security in faraway places."}, {"id": "c", "label": "C", "text": "The Lapita desired better living conditions on other islands."}, {"id": "d", "label": "D", "text": "The Lapita needed to find food and fresh water overseas."}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-4-u06-a": {"additionalAnswers": {"05": ["a", "Khanna describes technology as the real future of money.", [11]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [102], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u06-a-c-q05", "number": "5", "prompt": "Who is most likely to agree that physical money will be replaced in the near future?", "choices": [{"id": "a", "label": "A", "text": "Parag Khanna"}, {"id": "b", "label": "B", "text": "Glyn Davies"}, {"id": "c", "label": "C", "text": "Kabir Sehgal"}, {"id": "d", "label": "D", "text": "Lloyd Thomas"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-4-u06-b": {"additionalAnswers": {"05": ["a", "Bitcoin is likened to an early vehicle; a jet represents a more sophisticated future currency using the same engine.", [10]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [110], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u06-b-c-q05", "number": "5", "prompt": "In the comparison between blockchain and an engine, what would a supersonic jet represent?", "choices": [{"id": "a", "label": "A", "text": "an advanced form of virtual currency"}, {"id": "b", "label": "B", "text": "a new type of blockchain network"}, {"id": "c", "label": "C", "text": "one of today’s cryptocurrencies"}, {"id": "d", "label": "D", "text": "a different way to mine Bitcoins"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-4-u07-a": {"additionalAnswers": {"05": ["d", "“It” refers to psychological cooperation, expressed by the closing advice to love one’s neighbor.", [12]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [120], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u07-a-c-q05", "number": "5", "prompt": "After which sentence would “One day, it could even save your life” fit best?", "choices": [{"id": "a", "label": "A", "text": "“What’s more, the good effects lasted long afterward.”"}, {"id": "b", "label": "B", "text": "“They no longer saw those around them as fellow pilgrims, but rather as competitors for seats on a train.”"}, {"id": "c", "label": "C", "text": "“The stampede was an example of what can happen when the psychological cooperation of a crowd breaks down.”"}, {"id": "d", "label": "D", "text": "“In other words, ‘Love thy neighbor.’”"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-4-u07-b": {"additionalAnswers": {"05": ["b", "The inserted sentence explains how the people meant by “whom we meet” are changing.", [7]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [128], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u07-b-c-q05", "number": "5", "prompt": "After which sentence would “Today it may include more virtual, social media friends than physical ones” fit best?", "choices": [{"id": "a", "label": "A", "text": "The sentence immediately before “But the ‘whom’ in the expression ‘whom we meet’ has been changing.”"}, {"id": "b", "label": "B", "text": "“But the ‘whom’ in the expression ‘whom we meet’ has been changing.”"}, {"id": "c", "label": "C", "text": "“We may receive more information now from online sources than from physical social experiences.”"}, {"id": "d", "label": "D", "text": "“We may hear more announcements from 24-hour news outlets than from conversations with other humans.”"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["belligerent 3", "belligerent"], ["bullying 6", "bullying"]]},
+    "rc-level-4-u08-a": {"additionalAnswers": {"05": ["d", "This is an inference: his emphasis on an aristocratic ancestor and the article’s closing discussion of entertainment suggest the story gives his family distinction. The passage does not prove that the ancestor killed Napoleon.", [13, 16]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [139], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u08-a-c-q05", "number": "5", "prompt": "Which inference best explains François de Candé-Montholon’s apparent pride in his ancestor’s alleged role in Napoleon’s death?", "choices": [{"id": "a", "label": "A", "text": "because he has a personal dislike of Napoleon"}, {"id": "b", "label": "B", "text": "because by murdering Napoleon, his ancestor became an aristocrat"}, {"id": "c", "label": "C", "text": "because he solved the mystery of Napoleon’s death on his own"}, {"id": "d", "label": "D", "text": "because it makes his family seem more important and interesting"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["autopsy 1", "autopsy"], ["ulcer,2", "ulcer,"], ["royalists,4", "royalists,"], ["hold up 7", "hold up"]]},
+    "rc-level-4-u08-b": {"additionalAnswers": {"05": ["d", "Poklis contrasts the planning required for poisoning with the faster, more direct use of a gun.", [13]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [146], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u08-b-c-q05", "number": "5", "prompt": "According to Poklis, why don’t more Americans use poison to kill?", "choices": [{"id": "a", "label": "A", "text": "It’s very difficult to find poison in the United States."}, {"id": "b", "label": "B", "text": "Most Americans don’t understand how poison works."}, {"id": "c", "label": "C", "text": "Most poisons are very expensive."}, {"id": "d", "label": "D", "text": "Using a gun to kill is faster and more direct."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["fermentation 1", "fermentation"]]},
+    "rc-level-4-u09-a": {"additionalAnswers": {"05": ["b", "The source sidebar defines the Scottish Ten as a project making digital copies of cultural sites.", [13]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [156], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u09-a-c-q05", "number": "5", "prompt": "According to the source sidebar, what is the Scottish Ten?", "choices": [{"id": "a", "label": "A", "text": "the top 10 most visited historical sites in Scotland"}, {"id": "b", "label": "B", "text": "a project to digitally preserve cultural sites"}, {"id": "c", "label": "C", "text": "a team of 10 people working to preserve cultural sites"}, {"id": "d", "label": "D", "text": "a type of technology used to scan monuments"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["3-Ddigital", "3-D digital"], ["lintels 6", "lintels"]], "extraParagraphs": ["Source sidebar — The Scottish Ten: The expedition to Rani ki Vav is part of the Scottish Ten—a digital preservation project, initiated by the government in Scotland, which aims to produce 3-D digital copies of 10 cultural sites. The Scottish Ten includes the following UNESCO World Heritage Sites: Rani ki Vav (India); Mount Rushmore (U.S.A.); Eastern Qing Tombs (China); Sydney Opera House (Australia); Nagasaki Giant Cantilever Crane (Japan); New Lanark, Neolithic Orkney, St. Kilda, Edinburgh, and Antonine Wall (all in Scotland)."]},
+    "rc-level-4-u09-b": {"additionalAnswers": {"05": ["c", "The team saw unafraid animals, public spaces and animal-shaped sculptures—not animal-shaped buildings.", [11, 13, 14]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [164], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u09-b-c-q05", "number": "5", "prompt": "Which of the following did the team NOT observe in the T1 valley?", "choices": [{"id": "a", "label": "A", "text": "flat areas once used as public spaces"}, {"id": "b", "label": "B", "text": "animals that were not scared of humans"}, {"id": "c", "label": "C", "text": "large buildings shaped like animals"}, {"id": "d", "label": "D", "text": "well-preserved stone sculptures"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-4-u10-a": {"additionalAnswers": {"05": ["d", "Passarino credits genes, environment and chance rather than genetics alone.", [10]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [174], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u10-a-c-q05", "number": "5", "prompt": "Which statement would Giuseppe Passarino probably agree with the most?", "choices": [{"id": "a", "label": "A", "text": "The answer to why centenarians live so long lies in genetics."}, {"id": "b", "label": "B", "text": "Basically, there are two types of genes: good and bad."}, {"id": "c", "label": "C", "text": "There will likely be fewer centenarians in Calabria in the future."}, {"id": "d", "label": "D", "text": "Genetics, the environment, and luck all affect how long you live."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["cellular 1", "cellular"]]},
+    "rc-level-4-u10-b": {"additionalAnswers": {"05": ["c", "Family bonds, church socializing and the Okinawan support network are shared social strengths.", [3, 8, 16]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [182], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u10-b-c-q05", "number": "5", "prompt": "Which statement is true about Sardinians, Adventists, and Okinawans?", "choices": [{"id": "a", "label": "A", "text": "Climate is an important factor in their longevity."}, {"id": "b", "label": "B", "text": "Most of their food is homegrown."}, {"id": "c", "label": "C", "text": "They have strong friendships and family relationships."}, {"id": "d", "label": "D", "text": "They drink red wine in moderation."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["suntanned 4", "suntanned"], ["mat 5", "mat"]]},
+    "rc-level-4-u11-a": {"additionalAnswers": {"05": ["b", "Postel contrasts hopes for new technology with the large practical benefits of conserving water.", [12]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [192], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u11-a-c-q05", "number": "5", "prompt": "What does Sandra Postel mean by “water conservation is where the big gains are to be made”?", "choices": [{"id": "a", "label": "A", "text": "Water conservation is an opportunity for large profits for businesses."}, {"id": "b", "label": "B", "text": "Water conservation is the most effective method to address water shortages."}, {"id": "c", "label": "C", "text": "Water conservation technology is still in need of many improvements."}, {"id": "d", "label": "D", "text": "Water conservation is required by law in order to ensure large gains."}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-4-u11-b": {"additionalAnswers": {"05": ["b", "The text mentions size, cost and business opportunities, but never says anyone can operate a microfactory.", [10, 11, 12]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [198], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u11-b-c-q05", "number": "5", "prompt": "Which of these is NOT mentioned as a possible benefit of microfactories?", "choices": [{"id": "a", "label": "A", "text": "They are small in size."}, {"id": "b", "label": "B", "text": "They can be operated by anyone."}, {"id": "c", "label": "C", "text": "They are not very expensive."}, {"id": "d", "label": "D", "text": "They can help create jobs."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["are thrown in a nearby lagoon.", "are thrown in a nearby lagoon. The next day, the rain will wash them into the ocean."]]},
+    "rc-level-4-u12-a": {"additionalAnswers": {"05": ["a", "The article says life can develop differently through chance, so other living worlds need not have Earth’s chlorophyll-bearing plants.", [13, 16]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [208], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u12-a-c-q05", "number": "5", "prompt": "The author implies that on some exoplanets, .", "choices": [{"id": "a", "label": "A", "text": "life may have evolved without chlorophyll-bearing plants"}, {"id": "b", "label": "B", "text": "chlorophyll-bearing plants would not produce a “red edge”"}, {"id": "c", "label": "C", "text": "atmospheric methane and oxygen may produce a “red edge”"}, {"id": "d", "label": "D", "text": "life will be similar to that on Earth if it originated at the same time"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["orbiting 1", "orbiting"], ["mini-eclipses 3", "mini-eclipses"], ["chlorophyll 5-containing", "chlorophyll-containing"], ["asteroids 6", "asteroids"], ["L i f e—B u t Not as W e K n ow I t?", ""]]},
+    "rc-level-4-u12-b": {"additionalAnswers": {"05": ["d", "A rotating surface makes landing and maintaining contact difficult, which undermines pushing from the surface.", [12]]}, "sourceCheck": {"file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26", "questionPdfPages": [216], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered main MCQ from full source; printed paragraph references adapted for the app."], "additionalQuestions": [{"id": "rc-level-4-u12-b-c-q05", "number": "5", "prompt": "Which method of deflection would not work well on a rotating asteroid?", "choices": [{"id": "a", "label": "A", "text": "exploding a nuclear bomb nearby"}, {"id": "b", "label": "B", "text": "hitting it with a spacecraft"}, {"id": "c", "label": "C", "text": "pulling it using gravity"}, {"id": "d", "label": "D", "text": "landing on it and pushing it"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["shifts 3", "shifts"]]},
+    "rc-level-3-u01-a": {"additionalAnswers": {"05": ["d", "School attendance and responsibility show how soccer helps young people participate in society.", [9]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [12], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u01-a-c-q05", "number": "5", "prompt": "What is the main idea of the last paragraph?", "choices": [{"id": "a", "label": "A", "text": "More schools in Africa are opening soccer clubs."}, {"id": "b", "label": "B", "text": "Soccer helps people get better grades in school."}, {"id": "c", "label": "C", "text": "Older soccer players are passing on their skills to younger ones."}, {"id": "d", "label": "D", "text": "Soccer helps develop young people as members of society."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["B.C.e.", "B.C.E."]]},
+    "rc-level-3-u01-b": {"additionalAnswers": {"05": ["b", "Louganis trains repeatedly but uses humor to avoid overthinking under pressure.", [10]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [18], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u01-b-c-q05", "number": "5", "prompt": "What statement would diver Greg Louganis probably agree with?", "choices": [{"id": "a", "label": "A", "text": "Athletes cannot perform well unless they are under pressure."}, {"id": "b", "label": "B", "text": "It’s important to practice and train hard, but not take things too seriously."}, {"id": "c", "label": "C", "text": "A professional athlete should think carefully about each movement."}, {"id": "d", "label": "D", "text": "It’s important to joke with your teammates before you perform any sport."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["ground AN and", "ground and"], ["compliment 2 me", "compliment me"]]},
+    "rc-level-3-u02-a": {"additionalAnswers": {"05": ["b", "The passage says that more colorful Huli men are considered more attractive.", [10]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [28], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u02-a-c-q05", "number": "5", "prompt": "What determines the beauty of a Huli man in Papua New Guinea?", "choices": [{"id": "a", "label": "A", "text": "how young he is"}, {"id": "b", "label": "B", "text": "his colorful makeup"}, {"id": "c", "label": "C", "text": "his strength"}, {"id": "d", "label": "D", "text": "the size of his mask"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["crossed eyes 1", "crossed eyes"], ["surgery 3—", "surgery—"], ["A Chinese opera star carefully applies her makeup. ", ""], ["masculine 4—", "masculine—"]]},
+    "rc-level-3-u02-b": {"additionalAnswers": {"05": ["c", "Henna fades and disappears, so the claim that it is permanent is false.", [8]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [34], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u02-b-c-q05", "number": "5", "prompt": "What is NOT true about henna designs?", "choices": [{"id": "a", "label": "A", "text": "They are used to celebrate religious holidays."}, {"id": "b", "label": "B", "text": "Women decorate their skin with them."}, {"id": "c", "label": "C", "text": "They are permanent."}, {"id": "d", "label": "D", "text": "They are made with plants."}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-3-u03-a": {"additionalAnswers": {"05": ["c", "The team measures Tee Vee and examines her teeth, fur and baby to check their condition.", [14]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [44], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u03-a-c-q05", "number": "5", "prompt": "Why does de Villiers capture Tee Vee?", "choices": [{"id": "a", "label": "A", "text": "to see if she had her baby"}, {"id": "b", "label": "B", "text": "to attach a signaling device to her"}, {"id": "c", "label": "C", "text": "to check on her condition"}, {"id": "d", "label": "D", "text": "to take her to an animal hospital"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["TO It’s", "It’s"], ["Over two centuries ago, about ten million koalas lived in forests on the east coast of Australia. Eucalyptus leaves—their primary food source—were plentiful. By the start of this century, nearly two-thirds of the forests had been cleared, leaving fewer than 80,000 koalas left in the wild. ", ""]], "prompts": {"04": "According to Deidré de Villiers, what is the main thing that suburban areas must do to protect koalas?"}},
+    "rc-level-3-u03-b": {"additionalAnswers": {"05": ["c", "Selling wool products brings income to herder communities and raises the women’s status.", [9]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [52], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u03-b-c-q05", "number": "5", "prompt": "Why does earning money through Snow Leopard Enterprises raise the Mongolian women’s status?", "choices": [{"id": "a", "label": "A", "text": "They can encourage their neighbors."}, {"id": "b", "label": "B", "text": "They are saving money for the snow leopards."}, {"id": "c", "label": "C", "text": "They are earning money for the community."}, {"id": "d", "label": "D", "text": "They are living higher up in the mountain."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["elusive 1 cats", "elusive cats"], ["When hunting, snow leopards have been known to leap more than nine meters, six times their body length. ", ""], ["Snow leopards are most active at dawn or dusk, but are rarely seen in the wild. ", ""]]},
+    "rc-level-3-u04-a": {"additionalAnswers": {"05": ["c", "People near both volcanoes offer gifts and ask for protection.", [6, 10]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [61], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u04-a-c-q05", "number": "5", "prompt": "Which statement is true about both Mount Fuji and El Popo?", "choices": [{"id": "a", "label": "A", "text": "They have both erupted recently."}, {"id": "b", "label": "B", "text": "They are both less than 100 kilometers from a very large city."}, {"id": "c", "label": "C", "text": "Locals present gifts to both volcanoes for protection."}, {"id": "d", "label": "D", "text": "They both provide rich soil used for producing coffee."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["T o appease 2", "To appease"], ["V aldés", "Valdés"]]},
+    "rc-level-3-u04-b": {"additionalAnswers": {"05": ["a", "The conclusion hopes future research and warning systems will prevent loss of life.", [9]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [68], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u04-b-c-q05", "number": "5", "prompt": "What is the main idea of the final paragraph?", "choices": [{"id": "a", "label": "A", "text": "Further research will likely help us avoid loss of life in the future."}, {"id": "b", "label": "B", "text": "Earthquake research has had a long and successful history."}, {"id": "c", "label": "C", "text": "Several kinds of warning systems have been designed to predict earthquakes."}, {"id": "d", "label": "D", "text": "It is unlikely we will be able to predict the Earth’s movement accurately."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["slips 1 just", "slips just"], ["scale 2 hit", "scale hit"], ["T o do this", "To do this"]]},
+    "rc-level-3-u05-a": {"additionalAnswers": {"05": ["b", "The article says the separating ground is most evident in the Thingvellir Valley.", [10]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [77], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u05-a-c-q05", "number": "5", "prompt": "Where is the mid-Atlantic fault most noticeable?", "choices": [{"id": "a", "label": "A", "text": "Reykjavík"}, {"id": "b", "label": "B", "text": "Thingvellir Valley"}, {"id": "c", "label": "C", "text": "the Blue Lagoon"}, {"id": "d", "label": "D", "text": "Geysir"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["Iceland is famous for its impressive natural attractions, such as the Blue Lagoon thermal lake, as well as its lively capital city, Reykjavík. ", ""], ["northern lights 2", "northern lights"], ["check out 4", "check out"]]},
+    "rc-level-3-u05-b": {"additionalAnswers": {"05": ["b", "The next paragraph identifies Praia do Leão as the beach saved for last.", [11]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [84], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u05-b-c-q05", "number": "5", "prompt": "In “I leave the best one for last”, what does “the best one” refer to?", "choices": [{"id": "a", "label": "A", "text": "the collection of Fernando beaches"}, {"id": "b", "label": "B", "text": "Praia do Leão"}, {"id": "c", "label": "C", "text": "the pale blue water"}, {"id": "d", "label": "D", "text": "the marine life"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["hammocks 5", "hammocks"], ["Frigatebirds fly over a beach landscape in Fernando de Noronha, Brazil. ", ""], ["marine 6 life", "marine life"]]},
+    "rc-level-3-u06-a": {"additionalAnswers": {"05": ["a", "The sentence follows the introduction of people who rely on caffeine for energy; “it” refers to caffeine.", [1]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [93], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u06-a-c-q05", "number": "5", "prompt": "Where would “Many say they couldn’t live without it” fit best?", "choices": [{"id": "a", "label": "A", "text": "After the opening paragraph ending “one of humankind’s oldest stimulants: caffeine.”"}, {"id": "b", "label": "B", "text": "After “there is no proof that caffeine actually causes these diseases.”"}, {"id": "c", "label": "C", "text": "After the discussion ending “including certain types of cancer.”"}, {"id": "d", "label": "D", "text": "After the quotation ending “you don’t want to continue.”"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["Over two billion cups of coffee are consumed worldwide every day. ", ""], ["oil,1", "oil,"], ["stimulants: 2", "stimulants:"], ["mood-altering 5", "mood-altering"], ["T o ", "To "], ["when consumed in moderation. Furthermore,", "when consumed in moderation. This means having one or two small cups of coffee (about 300 milligrams of caffeine) per day, for example. Furthermore,"]]},
+    "rc-level-3-u06-b": {"additionalAnswers": {"05": ["a", "Enjoying natural details without concentrating allows the brain to rest.", [12]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [100], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u06-b-c-q05", "number": "5", "prompt": "In “This allows our brains to rest”, what does “This” refer to?", "choices": [{"id": "a", "label": "A", "text": "enjoying nature"}, {"id": "b", "label": "B", "text": "becoming stressed"}, {"id": "c", "label": "C", "text": "concentrating"}, {"id": "d", "label": "D", "text": "memorizing"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["at zero cost,” Kaplan says.", "at zero cost,” Kaplan says. “It exists: it’s called ‘interacting with nature.’”"]]},
+    "rc-level-3-u07-a": {"additionalAnswers": {"05": ["a", "The question asks whether any single alternative energy source can solve the problems by itself.", [11]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [109], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u07-a-c-q05", "number": "5", "prompt": "Which question is closest in meaning to “In the end, are any of these sources alone the answer to our current energy problems?”", "choices": [{"id": "a", "label": "A", "text": "Is there an energy source that can solve all of our energy problems on its own?"}, {"id": "b", "label": "B", "text": "Can our current energy problems be solved by making sure we stop burning fossil fuel?"}, {"id": "c", "label": "C", "text": "Can we solve our energy problems by using all the alternative energy sources together?"}, {"id": "d", "label": "D", "text": "Is finding an alternate to fossil fuels the only way to solve our energy problems?"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["energy surplus.", "energy surplus. However, most systems are still decades away from making this a reality."], ["solar Wind turbines on Pillar Mountain, Kodiak, Alaska power", "solar power"]]},
+    "rc-level-3-u07-b": {"additionalAnswers": {"05": ["a", "The preceding sentence names the government, whose further aim is the smallest ecological footprint.", [8]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [116], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u07-b-c-q05", "number": "5", "prompt": "In “It also wants to have the smallest ecological footprint”, what does “It” refer to?", "choices": [{"id": "a", "label": "A", "text": "Dubai’s government"}, {"id": "b", "label": "B", "text": "solar energy production"}, {"id": "c", "label": "C", "text": "the Sustainable City"}, {"id": "d", "label": "D", "text": "the indoor ski resort"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["CO 2", "CO₂"], ["close-knit 2", "close-knit"], ["reflective 3", "reflective"], ["the 1 heat", "the heat"]], "prompts": {"04": "Which feature of green buildings is NOT specifically mentioned in relation to Dubai’s Sustainable City?"}},
+    "rc-level-3-u08-a": {"additionalAnswers": {"05": ["c", "A park is an example of the local governments’ beautification projects.", [6]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [126], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u08-a-c-q05", "number": "5", "prompt": "After which sentence would “The city of Yangzhou, for example, has created a beautiful park near its waterfront” fit best?", "choices": [{"id": "a", "label": "A", "text": "“Importantly, the Grand Canal continues to provide a vital cultural and economic link for modern China.”"}, {"id": "b", "label": "B", "text": "“Peking duck ... and the Peking opera ... were both brought north via the canal.”"}, {"id": "c", "label": "C", "text": "“In addition, local governments—eager to increase tourism and real estate development—are beautifying areas along the canal.”"}, {"id": "d", "label": "D", "text": "“The hope now is that the Grand Canal ... will continue to link north and south China for centuries to come.”"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-3-u08-b": {"additionalAnswers": {"05": ["a", "The conclusion weighs hopes against risks and says only time will tell whether the changes are positive.", [9]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [132], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u08-b-c-q05", "number": "5", "prompt": "What would be the best heading for the final paragraph?", "choices": [{"id": "a", "label": "A", "text": "A Positive Future?"}, {"id": "b", "label": "B", "text": "Say No to Highways"}, {"id": "c", "label": "C", "text": "Completing the Highway"}, {"id": "d", "label": "D", "text": "An End to Poverty"}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-3-u09-a": {"additionalAnswers": {"05": ["b", "Bailenson calls VR a major change in media but says people will remain the same humans.", [13]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [142], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u09-a-c-q05", "number": "5", "prompt": "What is Bailenson’s main point in the final paragraph?", "choices": [{"id": "a", "label": "A", "text": "Although VR technology is improving, other media will still be important."}, {"id": "b", "label": "B", "text": "VR is a major change, but it will not fundamentally change who we are."}, {"id": "c", "label": "C", "text": "It will take several years before people’s lives are really affected by VR."}, {"id": "d", "label": "D", "text": "VR’s impact is significant, but many people in the world will not notice it."}], "answer": null, "answerText": null, "explanation": null}]},
+    "rc-level-3-u09-b": {"additionalAnswers": {"05": ["b", "“Swarms” suggests large numbers of drones flying over forests.", [9]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [148], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u09-b-c-q05", "number": "5", "prompt": "Which phrase is closest in meaning to “swarms” in “swarms of drones flying over forests”?", "choices": [{"id": "a", "label": "A", "text": "new types"}, {"id": "b", "label": "B", "text": "large numbers"}, {"id": "c", "label": "C", "text": "small groups"}, {"id": "d", "label": "D", "text": "different kinds"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["In Malawi, drones are used to transport blood and other medical samples from villages to city hospitals. ", ""], ["poachers 2", "poachers"]]},
+    "rc-level-3-u10-a": {"additionalAnswers": {"05": ["a", "The group taught meditation and relaxation shifted toward activity in the left, happier frontal cortex.", [10]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [157], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u10-a-c-q05", "number": "5", "prompt": "According to researcher Richard Davidson, what helps people shift away fr om a negative state of mind?", "choices": [{"id": "a", "label": "A", "text": "meditation and relaxation"}, {"id": "b", "label": "B", "text": "memory-retention techniques"}, {"id": "c", "label": "C", "text": "changing facial expressions"}, {"id": "d", "label": "D", "text": "being conscious of underlying emotions"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["A hearing specialist studies the brain’s electrical activity as a participant performs music. ", ""], ["T o answer", "To answer"]]},
+    "rc-level-3-u10-b": {"additionalAnswers": {"05": ["a", "The passage explicitly says parrots, great apes and humans live long lives in complex societies.", [6]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [164], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u10-b-c-q05", "number": "5", "prompt": "What do parrots and primates have in common?", "choices": [{"id": "a", "label": "A", "text": "They both live a long time in complex societies."}, {"id": "b", "label": "B", "text": "They both learn to use tools while in captivity."}, {"id": "c", "label": "C", "text": "They both teach new human words to their young."}, {"id": "d", "label": "D", "text": "Neither likes to participate in or be part of a group."}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["flock,” 5", "flock,”"], ["Kanzi, a bonobo, has learned the meaning of over 150 symbols. Examples of cognitive skills include remembering, thinking, and reasoning. Alex, an African gray parrot, had a large vocabulary and was able to answer questions about his understanding of the world.", ""]]},
+    "rc-level-3-u11-a": {"additionalAnswers": {"05": ["d", "“The question” refers to the immediately preceding question about why van Gogh took his own life.", [10]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [174], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u11-a-c-q05", "number": "5", "prompt": "After which sentence would “The question, like so many others in van Gogh’s life, remains unanswered” fit best?", "choices": [{"id": "a", "label": "A", "text": "“In the spring of 1889, he was sent to a mental hospital in Saint-Rémy, a town near Arles.”"}, {"id": "b", "label": "B", "text": "“Working on my pictures ... is almost a necessity for my recovery.”"}, {"id": "c", "label": "C", "text": "“Until his death, however, he was unable to sell a single one; today, those paintings would be worth more than a billion U.S. dollars.”"}, {"id": "d", "label": "D", "text": "“What caused him to take his own life—his lack of financial success, mental illness, loneliness?”"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["The Starry Night, painted in June 1889 ", ""]]},
+    "rc-level-3-u11-b": {"additionalAnswers": {"05": ["a", "Maloof posted the photos online, where worldwide viewers saw them and many went viral.", [14]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [182], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u11-b-c-q05", "number": "5", "prompt": "How did Vivian Maier first become internationally famous?", "choices": [{"id": "a", "label": "A", "text": "after a collector shared her photos online"}, {"id": "b", "label": "B", "text": "when she starred in a major Hollywood movie"}, {"id": "c", "label": "C", "text": "when she attended a major art show in New York"}, {"id": "d", "label": "D", "text": "after her photos were published in a Chicago newspaper"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["In 1995, Tarsila’s Abaporu was sold at auction for $1.4 million, making it the most valuable painting ever by a Brazilian artist.", ""], ["In recent years, the artistic achievements of two 20th-century pioneers have been brought to a global audience. A Cuca (1924). “I want to be the painter of my country,” Tarsila wrote. ", ""], ["In 2018, a major new exhibition", "In recent years, the artistic achievements of two 20th-century pioneers have been brought to a global audience. In 2018, a major new exhibition"], ["A negative image reflects viewers at a Vivien Maier exhibition.", ""], ["A street scene by Vivien Maier, on display at a Los Angeles gallery ", ""]]},
+    "rc-level-3-u12-a": {"additionalAnswers": {"05": ["a", "Williams recalls fearing a fall while climbing the arm toward the solar array and reassuring herself.", [10]]}, "sourceCheck": {"file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725", "questionPdfPages": [191], "scope": "Recovered MCQ passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted main MCQ from full source; page/paragraph references adapted to quoted text."], "additionalQuestions": [{"id": "rc-level-3-u12-a-c-q05", "number": "5", "prompt": "What would Sunita Williams say was the most challenging aspect of her first spacewalk?", "choices": [{"id": "a", "label": "A", "text": "the fear of falling from the solar array"}, {"id": "b", "label": "B", "text": "the poor visibility through her helmet"}, {"id": "c", "label": "C", "text": "the confusion caused by the northern lights"}, {"id": "d", "label": "D", "text": "the difficulty of fixing the solar panels"}], "answer": null, "answerText": null, "explanation": null}], "textRepairs": [["choke 2", "choke"], ["grounded 5", "grounded"], ["NG:", "Interviewer:"], ["SW:", "Sunita Williams:"]]},
+    "rc-level-2-u01-a": {"additionalQuestions": [{"id": "rc-level-2-u01-a-c-q05", "number": "5", "prompt": "Which of the following statements about sugar is NOT true?", "choices": [{"id": "a", "label": "A", "text": "Our bodies are able to store sugar as fat."}, {"id": "b", "label": "B", "text": "We need very little sugar to survive."}, {"id": "c", "label": "C", "text": "Early humans ate more sugar than we do today."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "Early humans had little sugar; the passage contrasts this with modern abundance.", [3, 4]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [10], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."]},
+    "rc-level-2-u02-a": {"additionalQuestions": [{"id": "rc-level-2-u02-a-c-q05", "number": "5", "prompt": "In the final sentence, what does ‘goes both ways’ mean?", "choices": [{"id": "a", "label": "A", "text": "moves in many directions"}, {"id": "b", "label": "B", "text": "is similar for both"}, {"id": "c", "label": "C", "text": "increases quickly in size"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "Both the researchers and the whale show curiosity about the other species.", [7, 8]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [26], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."]},
+    "rc-level-2-u02-b": {"additionalQuestions": [{"id": "rc-level-2-u02-b-c-q05", "number": "5", "prompt": "Which of the following is an example of conformist bias ?", "choices": [{"id": "a", "label": "A", "text": "A student memorizes dates for a history exam."}, {"id": "b", "label": "B", "text": "A pet learns to do a trick because its owner rewards it r egularly."}, {"id": "c", "label": "C", "text": "A new slang word becomes popular with a group of teenagers."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "Learning what is common in a group is conformist bias, like adopting popular slang.", [3]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [32], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["A swamp sparrow in Delaware, United States, sings its traditional song. THE 1,000- YEAR ", ""], ["set list 1", "set list"], ["scientists call conformist bias.", "scientists call conformist bias. Until recently, this learning ability was thought to be special only to humans."]]},
+    "rc-level-2-u03-a": {"additionalQuestions": [{"id": "rc-level-2-u03-a-c-q05", "number": "5", "prompt": "What did scientists discover by analyzing King Tut’s DNA?", "choices": [{"id": "a", "label": "A", "text": "He suffered from a bone disease."}, {"id": "b", "label": "B", "text": "He had an infection in his leg."}, {"id": "c", "label": "C", "text": "He had a brother and a sister."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["a", "The DNA analysis revealed a bone disease and flat feet.", [6]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [42], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["T ut’s", "Tut’s"], ["disco vered", "discovered"], ["Tutankhamen’s tomb was decorated with colorful paintings of gods and goddesses. ", ""]]},
+    "rc-level-2-u03-b": {"additionalQuestions": [{"id": "rc-level-2-u03-b-c-q05", "number": "5", "prompt": "In ‘opening the door to others’, what does ‘opening the door to’ mean?", "choices": [{"id": "a", "label": "A", "text": "allowing for the possibility of"}, {"id": "b", "label": "B", "text": "disproving the idea of"}, {"id": "c", "label": "C", "text": "providing a reason for"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["a", "New research allows other explanations to be considered.", [10]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [48], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["Carbon dating 1", "Carbon dating"], ["copper 2", "copper"], ["exposure,” 4", "exposure,”"], ["Some said he was a lost farmer or shepherd.", "Some said he was a lost farmer or shepherd. Others thought he was killed in a religious ceremony."], ["In his last moments, the Iceman, Ötzi, lay in the cold, alone.", ""], ["There his body stayed for thousands of years. ", ""]]},
+    "rc-level-2-u04-a": {"additionalQuestions": [{"id": "rc-level-2-u04-a-c-q05", "number": "5", "prompt": "Why does the author mention Al Sadu?", "choices": [{"id": "a", "label": "A", "text": "to show that traditional weaving is still popular in Bedouin culture"}, {"id": "b", "label": "B", "text": "to give an example of an intangible item that could soon disappear"}, {"id": "c", "label": "C", "text": "to show how the UNESCO list is already achieving success"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "Al Sadu is practised mainly by a declining number of older women.", [7, 8]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [57], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["A performance of The Legend of the White Snake by the China National Peking Opera Company ", ""], ["henna 2", "henna"]]},
+    "rc-level-2-u04-b": {"additionalQuestions": [{"id": "rc-level-2-u04-b-c-q05", "number": "5", "prompt": "What does ‘endure suffering’ mean in Master Hu’s explanation of eating bitterness?", "choices": [{"id": "a", "label": "A", "text": "stop the suffering"}, {"id": "b", "label": "B", "text": "make someone suffer"}, {"id": "c", "label": "C", "text": "survive the suffering"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "Eating bitterness is explained as bearing or surviving hardship.", [7]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [62], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["T o master", "To master"]]},
+    "rc-level-2-u05-a": {"additionalQuestions": [{"id": "rc-level-2-u05-a-c-q05", "number": "5", "prompt": "Why does the author mention a UNESCO World Heritage Site?", "choices": [{"id": "a", "label": "A", "text": "to persuade the reader that the Jurassic Coast is in need of protection"}, {"id": "b", "label": "B", "text": "to give an example of how important Mary Anning’s discoveries are to the world"}, {"id": "c", "label": "C", "text": "to show how southern England has the most important fossil finds in the world"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "The protected coast and museum displays illustrate the lasting importance of Anning’s discoveries.", [6, 7]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [72], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["Mary Anning with her dog, Tray. Her life inspired the famous tongue twister: “She sells sea shells on the seashore.” ", ""]]},
+    "rc-level-2-u05-b": {"additionalQuestions": [{"id": "rc-level-2-u05-b-c-q05", "number": "5", "prompt": "Why does Hurum mention “scratch-off lottery tickets”?", "choices": [{"id": "a", "label": "A", "text": "to give an example of how much money the expeditions cost"}, {"id": "b", "label": "B", "text": "to describe how lucky he feels to work as a paleontologist"}, {"id": "c", "label": "C", "text": "to explain that you need luck to find the most amazing discoveries"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "The lottery comparison stresses the chance of a particularly valuable discovery.", [7, 8]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [78], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["Jørn Hurum on expedition ", ""]]},
+    "rc-level-2-u06-a": {"additionalQuestions": [{"id": "rc-level-2-u06-a-c-q05", "number": "5", "prompt": "Which sentence best expresses the main idea of the final paragraph?", "choices": [{"id": "a", "label": "A", "text": "Governments around the world are working to save coral reefs."}, {"id": "b", "label": "B", "text": "There is hope because conservationists have already saved many reefs."}, {"id": "c", "label": "C", "text": "With our help, coral reefs can continue to survive."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "Conservation can give reefs a chance to recover and survive.", [9]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [88], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."]},
+    "rc-level-2-u06-b": {"additionalQuestions": [{"id": "rc-level-2-u06-b-c-q05", "number": "5", "prompt": "Which statement is a fact and not speculation?", "choices": [{"id": "a", "label": "A", "text": "Great whites are not able to see well."}, {"id": "b", "label": "B", "text": "Great whites bite to get information."}, {"id": "c", "label": "C", "text": "Great whites eat seals and sea lions."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "Seal hunting is described directly; poor sight and information gathering are proposed explanations.", [6, 7]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [94], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["surfboard,1", "surfboard,"], ["lightning 2", "lightning"], ["Divers in the Caribbean Sea study a large great white shark from the safety of their diving cage. Great whites can be found in seas all over the world. In some places, such as Australia and South Africa, they are protected. ", ""]]},
+    "rc-level-2-u07-b": {"additionalQuestions": [{"id": "rc-level-2-u07-b-c-q05", "number": "5", "prompt": "What does Annie Buzantian suggest people do when buying a perfume?", "choices": [{"id": "a", "label": "A", "text": "Try it before you buy it."}, {"id": "b", "label": "B", "text": "Buy different perfumes for different days."}, {"id": "c", "label": "C", "text": "Buy the best perfume that you can afford."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["a", "Buzantian says you cannot judge a perfume properly until you wear it.", [6]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [110], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["OF To make a good perfume, scientists work with scent experts to find and mix the right scents. ", ""], ["synthetic 1", "synthetic"], ["in the nearby Louvre Museum.", "in the nearby Louvre Museum. Salespeople are dressed smartly in black, and each type of perfume is sold in a distinctively shaped bottle. In perfume sales, the emphasis is on presentation at least as much as on the product."], ["designed to create hype.", "designed to create hype. Even sports celebrities—like baseball star Derek Jeter—are creating their own fragrance brands."]]},
+    "rc-level-2-u08-a": {"additionalQuestions": [{"id": "rc-level-2-u08-a-c-q05", "number": "5", "prompt": "In the final sentence, ‘It was probably the single greatest contribution …’, what does ‘It’ refer to?", "choices": [{"id": "a", "label": "A", "text": "a book"}, {"id": "b", "label": "B", "text": "culture"}, {"id": "c", "label": "C", "text": "Marco Polo’s journey"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["a", "The immediately preceding sentence introduces the book he completed.", [6]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [119], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["A statue of Marco Polo in Zhenglan Banner, China, close to where Polo is thought to have met Mongol leader Kublai Khan ", ""]]},
+    "rc-level-2-u08-b": {"additionalQuestions": [{"id": "rc-level-2-u08-b-c-q05", "number": "5", "prompt": "The writer of this passage most likely thinks that Ibn Battuta’s journey .", "choices": [{"id": "a", "label": "A", "text": "was inspired by Marco Polo’s travels"}, {"id": "b", "label": "B", "text": "was common for people of that time"}, {"id": "c", "label": "C", "text": "should be more well known today"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "The writer praises his travels, notes limited recognition and welcomes the translated account.", [1, 2, 5]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [124], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["Scattering 4", "Scattering"]]},
+    "rc-level-2-u09-a": {"additionalQuestions": [{"id": "rc-level-2-u09-a-c-q05", "number": "5", "prompt": "Which of the following would be the best heading for the last paragraph?", "choices": [{"id": "a", "label": "A", "text": "An Independent Brain"}, {"id": "b", "label": "B", "text": "The Rewards of Friendship"}, {"id": "c", "label": "C", "text": "The Parents’ Role"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["a", "The conclusion links impulses to independence and leaving parental care.", [7, 8]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [133], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["However, a still-developing brain does this clumsily.", "However, a still-developing brain does this clumsily. The result, scientists claim, is the unpredictable behavior seen in teenagers."]]},
+    "rc-level-2-u09-b": {"additionalQuestions": [{"id": "rc-level-2-u09-b-c-q05", "number": "5", "prompt": "In ‘vastly different people’, what does ‘vastly’ mean?", "choices": [{"id": "a", "label": "A", "text": "unfortunately"}, {"id": "b", "label": "B", "text": "interestingly"}, {"id": "c", "label": "C", "text": "extremely"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "Vastly different means extremely different.", [5]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [138], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["Placed side by side, the Jim twins’ faces (Lewis on the left, Springer on the right) are so alike that they seem to make a single face. ", ""], ["Mother Nature 2", "Mother Nature"]]},
+    "rc-level-2-u10-a": {"additionalQuestions": [{"id": "rc-level-2-u10-a-c-q05", "number": "5", "prompt": "What would be the best heading for the final paragraph?", "choices": [{"id": "a", "label": "A", "text": "What Can We Do?"}, {"id": "b", "label": "B", "text": "What Is the Cause?"}, {"id": "c", "label": "C", "text": "Who Is to Blame?"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["a", "The conclusion asks how to avoid the consequences and recommends action.", [7, 8]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [147], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."]},
+    "rc-level-2-u10-b": {"additionalQuestions": [{"id": "rc-level-2-u10-b-c-q05", "number": "5", "prompt": "Why does the author introduce Ilannguaq Egede near the end of the article?", "choices": [{"id": "a", "label": "A", "text": "there are no good jobs available in small towns in Greenland"}, {"id": "b", "label": "B", "text": "not everyone is preparing to move away from small settlements in Greenland"}, {"id": "c", "label": "C", "text": "at least one person still wants to be a traditional hunter or fisher"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "Egede is presented as an exception who chose to move to and remain in a small settlement.", [8, 9, 10]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [154], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["anthropologist,2", "anthropologist,"], ["conservative,” 3", "conservative,”"], ["Niaqornat Uummannaq When Albert Lukassen was young, he could hunt by dogsled on Uummannaq’s frozen waters until June.", ""], ["This photo shows him there in April. ", ""]]},
+    "rc-level-2-u11-a": {"additionalQuestions": [{"id": "rc-level-2-u11-a-c-q05", "number": "5", "prompt": "Which of the following is an example of “motivated reasoning”?", "choices": [{"id": "a", "label": "A", "text": "You are not sure a story on social media is true, so you search online for more information."}, {"id": "b", "label": "B", "text": "You post a message online that gives your opinion about a news story."}, {"id": "c", "label": "C", "text": "You don’t believe a negative story about a soccer player because he plays for your favorite team."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "Motivated reasoning favors information consistent with existing preferences.", [6]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [163], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["A 3-Dstreet painting in Dún Laoghaire, Ireland, creates an amazing illusion. ", ""], ["scientist 1", "scientist"], ["helium 2", "helium"], ["crooked,”4", "crooked,”"], ["consensus.” 5", "consensus.”"]]},
+    "rc-level-2-u11-b": {"additionalQuestions": [{"id": "rc-level-2-u11-b-c-q05", "number": "5", "prompt": "Which statement best summarizes Ariely’s conclusion about why people place limits on lying?", "choices": [{"id": "a", "label": "A", "text": "Stealing office equipment is more common than stealing money."}, {"id": "b", "label": "B", "text": "Most people in a society believe themselves to be honest."}, {"id": "c", "label": "C", "text": "We learn from society what kind of lies are acceptable."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "The conclusion says society influences how much lying people can justify.", [8, 9, 10]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [168], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["T o find", "To find"], ["They were then asked to destroy their answer sheets in a shredder.", "They were then asked to destroy their answer sheets in a shredder. After reporting their own test scores, they were paid accordingly."]]},
+    "rc-level-2-u12-a": {"additionalQuestions": [{"id": "rc-level-2-u12-a-c-q05", "number": "5", "prompt": "What did Yves Rossy accomplish?", "choices": [{"id": "a", "label": "A", "text": "He invented a type of flying that doesn’t use wings."}, {"id": "b", "label": "B", "text": "He invented wings with engines that a person can wear."}, {"id": "c", "label": "C", "text": "He flew a hang glider from France to England."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "Rossy invented wearable wings with four small engines.", [8, 9]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [178], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["A hang gliding enthusiast in Japan enjoys a view of Mount Fuji. by Nancy Shute Yves Rossy’s two-meter-long wings allow him to fly at speeds of around 200 kilometers an hour. ", ""], ["pigeon 1", "pigeon"], ["eagle,2", "eagle,"]]},
+    "rc-level-2-u12-b": {"additionalQuestions": [{"id": "rc-level-2-u12-b-c-q05", "number": "5", "prompt": "What is the purpose of the last paragraph?", "choices": [{"id": "a", "label": "A", "text": "to explain how a Ukrainian team rescued García-Dils’s team"}, {"id": "b", "label": "B", "text": "to describe how excited the team felt when they finished their descent"}, {"id": "c", "label": "C", "text": "to explain that cavers will likely reach greater depths in the future"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "New depth records and the final line show that exploration continues.", [8, 9]]}, "sourceCheck": {"file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c", "questionPdfPages": [184], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: recovered omitted source MCQ; quoted references replace printed paragraph letters."], "textRepairs": [["inverted 2", "inverted"], ["Expedition members pose outside the entrance to Krubera Cave.", ""]]},
+    "rc-level-2-u01-b": {"textRepairs": [["T o feed", "To feed"]]},
+    "rc-level-2-u07-a": {"textRepairs": [["delicate 1", "delicate"], ["Auction houses sell items to the customers who offer the highest price. NetherlandsAalsmeer, the heart of the global flower trade, processes 20 million flowers every day. ", ""], ["T o others", "To others"]]},
+    "rc-level-1-u01-a": {"additionalQuestions": [{"id": "rc-level-1-u01-a-c-q05", "number": "5", "prompt": "Why do dolphins sometimes help fishermen?", "choices": [{"id": "a", "label": "A", "text": "Dolphins are kind animals."}, {"id": "b", "label": "B", "text": "The dolphins can get food that way."}, {"id": "c", "label": "C", "text": "The fishermen ask the dolphins for help."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "Dolphins eat fish escaping from the fishermen’s nets.", [5, 6]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [10], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."]},
+    "rc-level-1-u01-b": {"additionalQuestions": [{"id": "rc-level-1-u01-b-c-q05", "number": "5", "prompt": "In ‘Many predators want to eat them—and they can eat them whole’, who does ‘they’ refer to?", "choices": [{"id": "a", "label": "A", "text": "octopuses"}, {"id": "b", "label": "B", "text": "bones"}, {"id": "c", "label": "C", "text": "predators"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "The predators can eat octopuses whole.", [5]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [16], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."]},
+    "rc-level-1-u02-a": {"additionalQuestions": [{"id": "rc-level-1-u02-a-c-q05", "number": "5", "prompt": "Which statement would Gregg most likely agree with?", "choices": [{"id": "a", "label": "A", "text": "When you travel, only stay in hotels or with people you know."}, {"id": "b", "label": "B", "text": "Bring a lot of things on your trip so you don’t have to buy anything."}, {"id": "c", "label": "C", "text": "When abroad, learn how to say “thank you” in the local language."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "Gregg recommends being polite, which includes thanking people.", [5, 6]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [25], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [["In Guatemala, Brooks Allen and Gregg Bleakney cycled through Tikal National Park. ", ""], ["T o pay", "To pay"], ["ruins,2", "ruins,"]]},
+    "rc-level-1-u02-b": {"additionalQuestions": [{"id": "rc-level-1-u02-b-c-q05", "number": "5", "prompt": "Which sentence is true about land diving?", "choices": [{"id": "a", "label": "A", "text": "It was first called “bungee jumping.”"}, {"id": "b", "label": "B", "text": "It is less popular today than in the past."}, {"id": "c", "label": "C", "text": "It is a traditional activity in Vanuatu."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "Land diving is described as an ancient local tradition.", [4]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [30], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [["But did you know that bungee jumping", "Most people are familiar with bungee jumping. But did you know that bungee jumping"]]},
+    "rc-level-1-u03-a": {"additionalQuestions": [{"id": "rc-level-1-u03-a-c-q05", "number": "5", "prompt": "Which of these can we definitely say about Jymmin machines?", "choices": [{"id": "a", "label": "A", "text": "People exercised better using the machines because they had more control."}, {"id": "b", "label": "B", "text": "People using the machines could make the music go faster or slower."}, {"id": "c", "label": "C", "text": "The machines are useful in treating depression."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "Control of the music’s speed is stated; the other options turn suggestions into proven conclusions.", [8]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [39], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [["motivates 1", "motivates"], ["Bruno Mars is a Grammy Award-winning singer, songwriter, and producer.", ""]]},
+    "rc-level-1-u03-b": {"additionalQuestions": [{"id": "rc-level-1-u03-b-c-q05", "number": "5", "prompt": "How does Gottfried Schlaug help stroke patients speak?", "choices": [{"id": "a", "label": "A", "text": "by playing music for them"}, {"id": "b", "label": "B", "text": "by getting them to sing words"}, {"id": "c", "label": "C", "text": "by teaching them to play instruments"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "Singing words helped patients eventually speak.", [5]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [44], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [["stroke 1", "stroke"], ["activate 2", "activate"]]},
+    "rc-level-1-u04-a": {"additionalQuestions": [{"id": "rc-level-1-u04-a-c-q05", "number": "5", "prompt": "Why does Shostak predict in this historical passage that contact could occur within the following 20 years?", "choices": [{"id": "a", "label": "A", "text": "We will have better technology to receive their messages."}, {"id": "b", "label": "B", "text": "Bigger telescopes will identify more planets like Earth."}, {"id": "c", "label": "C", "text": "Intelligent life will finally receive messages that we send to them."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["a", "Shostak says the tools needed to receive messages are improving.", [5, 6]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [53], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."]},
+    "rc-level-1-u04-b": {"additionalQuestions": [{"id": "rc-level-1-u04-b-c-q02", "number": "2", "prompt": "In Hawking’s quote ‘our future should be safe’, who does ‘our’ refer to?", "choices": [{"id": "a", "label": "A", "text": "scientists’"}, {"id": "b", "label": "B", "text": "humans’"}, {"id": "c", "label": "C", "text": "colonies’"}], "answer": null, "answerText": null, "explanation": null}, {"id": "rc-level-1-u04-b-c-q05", "number": "5", "prompt": "What does First stop: the moon mean in the last sentence?", "choices": [{"id": "a", "label": "A", "text": "Everybody wants to visit the moon first."}, {"id": "b", "label": "B", "text": "All spaceships to other planets have to stop at the moon first."}, {"id": "c", "label": "C", "text": "The first human colony in space will likely be on the moon."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"02": ["b", "Hawking is talking about the survival of humans.", [1]], "05": ["c", "The moon is presented as the initial settlement before more distant planets.", [1, 2, 7]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [58], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [["lunar 2", "lunar"]]},
+    "rc-level-1-u05-a": {"additionalQuestions": [{"id": "rc-level-1-u05-a-c-q05", "number": "5", "prompt": "Which statement would the writer probably agree with?", "choices": [{"id": "a", "label": "A", "text": "A top global city needs to be strong in several areas."}, {"id": "b", "label": "B", "text": "The Global Cities Index will probably list the same top cities 10 years from now."}, {"id": "c", "label": "C", "text": "Tomorrow’s global cities will probably be less powerful than today’s."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["a", "The highest-ranked cities are strong in all five listed areas.", [3, 4]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [67], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."]},
+    "rc-level-1-u05-b": {"additionalQuestions": [{"id": "rc-level-1-u05-b-c-q05", "number": "5", "prompt": "The author’s suggestion in the last sentence is directed to .", "choices": [{"id": "a", "label": "A", "text": "immigrants in general"}, {"id": "b", "label": "B", "text": "the nikkei"}, {"id": "c", "label": "C", "text": "tourists"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "The suggestion addresses people travelling through Brazil or Japan.", [6]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [72], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."]},
+    "rc-level-1-u06-a": {"additionalQuestions": [{"id": "rc-level-1-u06-a-c-q05", "number": "5", "prompt": "Why does Liittschwager call the organisms ‘little gems’?", "choices": [{"id": "a", "label": "A", "text": "He thinks they are valuable and precious."}, {"id": "b", "label": "B", "text": "They are very difficult for him to see."}, {"id": "c", "label": "C", "text": "The organisms look like small stones."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["a", "The metaphor compares the organisms to valuable little treasures.", [6]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [81], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [["gems,” 3", "gems,”"]]},
+    "rc-level-1-u06-b": {"additionalQuestions": [{"id": "rc-level-1-u06-b-c-q05", "number": "5", "prompt": "The nine-spotted ladybug seen in New York.", "choices": [{"id": "a", "label": "A", "text": "has never been"}, {"id": "b", "label": "B", "text": "can sometimes be"}, {"id": "c", "label": "C", "text": "is often"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "Priolo photographed one in New York; it is rare rather than extinct.", [9]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [86], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."]},
+    "rc-level-1-u07-a": {"additionalQuestions": [{"id": "rc-level-1-u07-a-c-q05", "number": "5", "prompt": "According to this passage, what happened about 66 million years ago?", "choices": [{"id": "a", "label": "A", "text": "Some dinosaurs started to fly."}, {"id": "b", "label": "B", "text": "The first humans appeared on Earth."}, {"id": "c", "label": "C", "text": "The last dinosaurs died out."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "The historical passage states that dinosaurs disappeared about 66 million years ago.", [6, 7]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [95], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [["A Was T. rex", "Was T. rex"], ["warm-or cold-blooded", "warm- or cold-blooded"]]},
+    "rc-level-1-u07-b": {"additionalQuestions": [{"id": "rc-level-1-u07-b-c-q05", "number": "5", "prompt": "Why does Darla Zelenitsky say it’s “also sad in a way”?", "choices": [{"id": "a", "label": "A", "text": "Deinocheirus does not look the way she thought it would."}, {"id": "b", "label": "B", "text": "It was interesting to imagine what Deinocheirus looked like."}, {"id": "c", "label": "C", "text": "Someone else solved the mystery of Deinocheirus, not her."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "She says scientists like mystery and the mystery has now gone.", [6]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [100], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."]},
+    "rc-level-1-u08-a": {"additionalQuestions": [{"id": "rc-level-1-u08-a-c-q05", "number": "5", "prompt": "Which of these is true about the Grimms’ stories?", "choices": [{"id": "a", "label": "A", "text": "The early stories were written mainly for children."}, {"id": "b", "label": "B", "text": "Both the early stories and the later versions contained morals."}, {"id": "c", "label": "C", "text": "The early stories had a lot of drawings."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "The later versions still had morals like the early tales.", [4]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [107], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."]},
+    "rc-level-1-u08-b": {"additionalQuestions": [{"id": "rc-level-1-u08-b-c-q03", "number": "3", "prompt": "What does ‘He could not take back his words’ mean in the story?", "choices": [{"id": "a", "label": "A", "text": "He could not remember what he had said."}, {"id": "b", "label": "B", "text": "He had already said the words, so it was too late."}, {"id": "c", "label": "C", "text": "He could not think of the right thing to say."}], "answer": null, "answerText": null, "explanation": null}, {"id": "rc-level-1-u08-b-c-q05", "number": "5", "prompt": "What lesson or moral is taught in this story?", "choices": [{"id": "a", "label": "A", "text": "Your parents know what is best for you."}, {"id": "b", "label": "B", "text": "Think carefully about what you say."}, {"id": "c", "label": "C", "text": "Work hard and you will be happy."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"03": ["b", "The father had already spoken the wish and could not undo it.", [3, 4]], "05": ["b", "The father’s angry words have consequences he cannot undo.", [2, 3, 4]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [112], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [["misfortune 1", "misfortune"], ["T o enter", "To enter"], ["accidentally 2", "accidentally"]]},
+    "rc-level-1-u09-a": {"additionalQuestions": [{"id": "rc-level-1-u09-a-c-q05", "number": "5", "prompt": "Farmer says ‘New meteorites are in demand’. What does he mean?", "choices": [{"id": "a", "label": "A", "text": "New meteorites are easily available to collectors."}, {"id": "b", "label": "B", "text": "New meteorites are very useful to collectors."}, {"id": "c", "label": "C", "text": "New meteorites are popular among collectors."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "Collectors regularly call him and new finds sell quickly.", [8]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [121], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."]},
+    "rc-level-1-u09-b": {"additionalQuestions": [{"id": "rc-level-1-u09-b-c-q05", "number": "5", "prompt": "In Alexi Tishin’s opinion, why do people become smokejumpers?", "choices": [{"id": "a", "label": "A", "text": "for the money"}, {"id": "b", "label": "B", "text": "for the excitement"}, {"id": "c", "label": "C", "text": "to help their country"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "He describes love of jumping, firefighting and forest life, not money or patriotism.", [5]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [126], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [[" 3 Objects such as chairs, tables, and beds are referred to as furniture.", ""]]},
+    "rc-level-1-u10-a": {"additionalQuestions": [{"id": "rc-level-1-u10-a-c-q05", "number": "5", "prompt": "Which statement would Rong Bo probably agree with?", "choices": [{"id": "a", "label": "A", "text": "The soldiers should be left the way they were found."}, {"id": "b", "label": "B", "text": "Artists should be able to paint the soldiers any color they want."}, {"id": "c", "label": "C", "text": "We should try to restore the army’s original colors."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "Rong identifies reapplying the original colors as the next challenge.", [6]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [135], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [["terracotta 2", "terracotta"]]},
+    "rc-level-1-u10-b": {"additionalQuestions": [{"id": "rc-level-1-u10-b-c-q05", "number": "5", "prompt": "What can we infer about the people who wrote Friends of Khufu on a wall?", "choices": [{"id": "a", "label": "A", "text": "They were looking for new friends."}, {"id": "b", "label": "B", "text": "They were pleased with their work."}, {"id": "c", "label": "C", "text": "They got into trouble for writing on the wall."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "The workers were proud of the national project.", [6, 7]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [140], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [["slaves 1", "slaves"]]},
+    "rc-level-1-u11-a": {"choices": {"05": {"a": "8.1 billion kilograms of plastic waste goes into the sea every year from coastal regions.", "b": "The plastic waste in the ocean hurts sea animals and can even kill them.", "c": "Scientists will have a clear understanding of the ocean’s plastic problem in 5 to 10 years’ time."}}, "prompts": {"05": "Which of these can we definitely say about ocean plastic?"}, "additionalAnswers": {"05": ["b", "Harm and death are reported as effects; the numeric total and future understanding are estimates.", [3, 4]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [149], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."]},
+    "rc-level-1-u11-b": {"additionalQuestions": [{"id": "rc-level-1-u11-b-c-q05", "number": "5", "prompt": "In ‘They also want to tax plastic take-out containers’, who does ‘They’ refer to?", "choices": [{"id": "a", "label": "A", "text": "plastic-free areas"}, {"id": "b", "label": "B", "text": "supermarkets"}, {"id": "c", "label": "C", "text": "U.K. leaders"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["c", "The preceding sentence identifies leaders in the United Kingdom.", [7]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [154], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."]},
+    "rc-level-1-u12-a": {"additionalQuestions": [{"id": "rc-level-1-u12-a-c-q05", "number": "5", "prompt": "Which statement would Conrad Anker probably agree with?", "choices": [{"id": "a", "label": "A", "text": "Both Mallory and Irvine reached the mountain’s summit."}, {"id": "b", "label": "B", "text": "Mallory and Irvine got close, but didn’t reach the top."}, {"id": "c", "label": "C", "text": "Irvine probably reached the top, but not Mallory."}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "Anker argues that poor equipment and the lack of frostbite indicate they turned back.", [4, 5, 6]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [163], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [["CThe world’s highest mountain: Mount Everest (Qomolangma) ", ""]]},
+    "rc-level-1-u12-b": {"additionalQuestions": [{"id": "rc-level-1-u12-b-c-q05", "number": "5", "prompt": "When Earhart says ‘When I go …’, what does ‘go’ mean?", "choices": [{"id": "a", "label": "A", "text": "fly"}, {"id": "b", "label": "B", "text": "die"}, {"id": "c", "label": "C", "text": "leave"}], "answer": null, "answerText": null, "explanation": null}], "additionalAnswers": {"05": ["b", "Earhart’s final quote expresses how she would prefer to die.", [7]]}, "sourceCheck": {"file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf", "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9", "questionPdfPages": [168], "scope": "Recovered main MCQs passage-checked; final source layout comparison remains pending."}, "notes": ["2026-09-19: restored omitted main MCQs from the complete source; quoted references replace unavailable printed paragraph/line labels."], "textRepairs": [["uninhabited 1", "uninhabited"], ["detect 2", "detect"]]},
+    "rc-foundation-u01-b": {
+      "textRepairs": [
+        [
+          "Long ago, the Greek writer Plato wrote about Atlantis—an island that disappeared into the sea. ",
+          ""
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u01-b-c-q05",
+          "number": "5",
+          "prompt": "Which sentence is closest in meaning to ‘there is not a piece of solid evidence’ for a real Atlantis?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "There is only one reason to believe the Atlantis story is true."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "The story of Atlantis is made up of many small pieces."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "There is nothing to make us believe the Atlantis story is true."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "c",
+          "Ellis says there is no solid evidence for a real Atlantis.",
+          [
+            5
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          16
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u02-a": {
+      "textRepairs": [
+        [
+          "“I know I have a special stomach,” says Takeru Kobayashi. ",
+          ""
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u02-a-c-q05",
+          "number": "5",
+          "prompt": "Which of the following would Takeru Kobayashi most likely say?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "“Competitive eating is just a fun hobby for me. Winning isn’t important.”"
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "“I see competitive eating as a sport, and I always try my best.”"
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "“Eating so much food is unhealthy. Eating competitions should be stopped.”"
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "b",
+          "Kobayashi says food fighters think of themselves as athletes.",
+          [
+            7
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          25
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u02-b": {
+      "textRepairs": [
+        [
+          "Anandita Dutta Tamuly eats a tray full of Naga Jolokia, or “ghost peppers.” ",
+          ""
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u02-b-c-q05",
+          "number": "5",
+          "prompt": "What does Tamuly mean by ‘I barely notice them now’?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "I usually don’t eat hot chilies anymore."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "I feel the heat of the chilies even more."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "I almost don’t feel the heat of the chilies."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "c",
+          "Tamuly has become used to the heat of the chilies.",
+          [
+            6
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          30
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u03-b": {
+      "textRepairs": [
+        [
+          "Joel Sartore prepares to take a photo of a frill-necked lizard. ",
+          ""
+        ],
+        [
+          "T o get into",
+          "To get into"
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u03-b-c-q05",
+          "number": "5",
+          "prompt": "What is the main idea of the final advice beginning ‘But be a photographer for the right reasons’?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "You should try to see people in different ways."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "If you work hard, you can make money as a photographer."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "You should ask yourself why you want to be a photographer."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "c",
+          "The final advice asks readers to examine their reasons for becoming a photographer.",
+          [
+            7
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          44
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u04-a": {
+      "textRepairs": [
+        [
+          "robot,1",
+          "robot,"
+        ],
+        [
+          "protection,”3",
+          "protection,”"
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u04-a-c-q05",
+          "number": "5",
+          "prompt": "Which statement would Ballard probably agree with?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "People should not remove anything from the Titanic."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "Lights and cameras will hurt the remains of the Titanic."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "The Titanic wreck should be moved out of the water completely."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "a",
+          "Ballard disagrees with removing objects and wants people to see the wreck without taking things.",
+          [
+            7,
+            8
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          53
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u04-b": {
+      "textRepairs": [
+        [
+          "Corey Jaskolski In 2001",
+          "In 2001"
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u04-b-c-q05",
+          "number": "5",
+          "prompt": "In ‘Over a thousand people fell here’, what does ‘fell’ mean?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "died"
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "dropped"
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "tripped"
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "a",
+          "The next clause says their bodies disappeared, so ‘fell’ means died here.",
+          [
+            6
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          58
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u05-a": {
+      "textRepairs": [
+        [
+          "Bacteria are very small living things. Some bacteria, such as E. coli, can be dangerous to humans.",
+          ""
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u05-a-c-q05",
+          "number": "5",
+          "prompt": "What advice would Dr. Besser probably agree with?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "Never drink apple juice from a supermarket. You should make it yourself."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "Stay away from animals that live near trees. They will make you sick."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "Don’t eat fruit straight from the ground. Wash the fruit before you eat it."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "c",
+          "Unwashed apples and unheated juice were the source of the dangerous bacteria.",
+          [
+            6,
+            7
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          65
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u06-b": {
+      "textRepairs": [
+        [
+          "Many plants produce nectar, a liquid that insects feed on.",
+          ""
+        ]
+      ]
+    },
+    "rc-foundation-u07-b": {
+      "textRepairs": [
+        [
+          "Square is clearly gray.",
+          "Square 1 is clearly gray."
+        ],
+        [
+          "squares and 2",
+          "squares 1 and 2"
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u07-b-c-q05",
+          "number": "5",
+          "prompt": "Which of these is an optical illusion?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "hearing a voice in your head that isn’t there"
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "seeing water on a road when it’s not really there"
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "looking up at a strange cloud and noticing its shape"
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "b",
+          "An optical illusion concerns sight and makes something look different from reality.",
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          98
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u08-a": {
+      "textRepairs": [
+        [
+          "A family of emperor penguins—mother, father, and baby—stands close together to keep warm. ",
+          ""
+        ]
+      ]
+    },
+    "rc-foundation-u08-b": {
+      "textRepairs": [
+        [
+          "hilarious!”3",
+          "hilarious!”"
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u08-b-c-q05",
+          "number": "5",
+          "prompt": "What is the main idea of the final ‘Animal Laughter’ section?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "Dogs talk to each other, so they seem to be funnier than most animals."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "Dogs can make a sound like a laugh, so they may have a sense of humor."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "Dogs cannot communicate as well as other animals."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "b",
+          "The special play sound is compared to laughter and offered as a possible clue to humor.",
+          [
+            6,
+            7
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          112
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u09-a": {
+      "textRepairs": [
+        [
+          "IN Often called",
+          "Often called"
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u09-a-c-q05",
+          "number": "5",
+          "prompt": "What is the main idea of the final section beginning ‘The love story between Shah Jahan and his wife ended sadly’?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "The best time to visit the Taj Mahal is in the early morning."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "Today, the Taj Mahal continues to express Shah Jahan’s love."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "The Taj Mahal looks very different from modern buildings."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "b",
+          "The monument to their love still stands and attracts visitors.",
+          [
+            5,
+            6
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          120
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u09-b": {
+      "textRepairs": [
+        [
+          "cathedral,1",
+          "cathedral,"
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u09-b-c-q05",
+          "number": "5",
+          "prompt": "Why don’t we fully understand how the dome was built?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "Brunelleschi didn’t leave any pictures of his design."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "It is covered in concrete and therefore difficult to study."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "The dome has been rebuilt many times over the years."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "a",
+          "Brunelleschi left no pictures of his design.",
+          [
+            5
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          126
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u10-a": {
+      "textRepairs": [
+        [
+          "Trees bend as Hurricane Irma hits Florida, United States, in 2017. ",
+          ""
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u10-a-c-q05",
+          "number": "5",
+          "prompt": "Which of the following statements would Oppenheimer probably agree with?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "It is too late to stop global warming."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "Stop global warming, and the weather will get better."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "Extreme weather is not caused by global warming."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "b",
+          "He calls for stopping further warming and preparing for extreme weather.",
+          [
+            5,
+            6,
+            7
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          135
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout.",
+        "Q5 option B narrowed to Oppenheimer’s actual recommendation; avoiding a promise that stopping warming immediately fixes the weather."
+      ],
+      "choiceText": {
+        "05": {
+          "b": "We should limit further global warming and prepare for extreme weather."
+        }
+      }
+    },
+    "rc-foundation-u10-b": {
+      "textRepairs": [
+        [
+          "A tornado of fire is formed by strong winds in a forest fire. ",
+          ""
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u10-b-c-q05",
+          "number": "5",
+          "prompt": "What is NOT true about the skeletons found at Lake Roopkund?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "They were discovered in 1942."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "They were thousands of years old."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "They showed no signs of injury."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "c",
+          "Many skulls had holes, so the remains did show injuries.",
+          [
+            5
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          140
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout.",
+        "Q5 option B clarified from ‘thousands of years old’ to ‘about a thousand years old’, matching the source passage and avoiding two apparently incorrect choices."
+      ],
+      "choiceText": {
+        "05": {
+          "b": "They were about a thousand years old."
+        }
+      }
+    },
+    "rc-foundation-u12-a": {
+      "textRepairs": [
+        [
+          "elderly,1",
+          "elderly,"
+        ],
+        [
+          "Social robots like Sophia can show emotions. Boston Dynamics’ Atlas robot is the same height and weight as an average human. ",
+          ""
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u12-a-c-q05",
+          "number": "5",
+          "prompt": "Why was the snake-bot created?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "to help scientists learn more about real snakes"
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "as a toy for young children"
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "to help study other planets"
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "c",
+          "The robot snakes might help scientists look for life on Mars.",
+          [
+            5
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          163
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u12-b": {
+      "textRepairs": [
+        [
+          "IN 2045? Companies like Volkswagen are already designing self-driving cars. ",
+          ""
+        ]
+      ],
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u12-b-c-q05",
+          "number": "5",
+          "prompt": "In the breakfast scene, what says ‘Don’t drink that!’?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "the milk"
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "the fridge"
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "the drone"
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "b",
+          "The fridge detects that the milk is old and warns the user.",
+          [
+            5
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          168
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-level-5-u12-b": {
+      "textRepairs": [
+        [
+          "p roc eeded t o",
+          "proceeded to"
+        ]
+      ],
+      "choiceText": {
+        "01": {
+          "a": "The conflict between indigenous people and those of European ancestry."
+        }
+      },
+      "editorialNote": {
+        "en": "This historical textbook passage leaves the investment firm unnamed and does not specify the percentage increment in its lithium-demand projection. Those source ambiguities are preserved, and the numerical projection question is not scored.",
+        "zh": "这篇历史教材文章未写明投资公司的名称，也未明确锂需求预测所用的百分比增量。此处保留原文的不确定之处，不对相关数字推算题计分。"
+      },
+      "excluded": {
+        "05": "Complete textbook page 260 visually confirms that the investment firm is unnamed and the percentage increment is unspecified. Question 5 on page 263 assumes a one-percentage-point increment that the passage does not state. Withheld, not inferred."
+      },
+      "notes": [
+        "2026-09-19: checked the complete textbook pages 259, 260 and 262 and question page 263. The unclear investment-firm attribution and percentage wording are in the original printed source, not missing extraction. Original historical numbers preserved; Q5 remains withheld with a bilingual note. Full-page render 260 inspected."
+      ]
+    },
+    "rc-foundation-u01-a": {
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u01-a-c-q04",
+          "number": "4",
+          "prompt": "In ‘All possibilities should be considered’, what does ‘considered’ mean?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "explained in detail"
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "thought about carefully"
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "chosen from a list"
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "04": [
+          "b",
+          "Considering possibilities means thinking about them carefully.",
+          [
+            4
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          11
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u03-a": {
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u03-a-c-q05",
+          "number": "5",
+          "prompt": "In ‘And I stress yours’, what does ‘stress’ mean?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "a feeling you have when your life is difficult"
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "to make it clear that something is important"
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "to introduce a new idea or opinion"
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "b",
+          "The writer emphasizes that readers should focus on their own goals.",
+          [
+            6,
+            7
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          38
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u05-b": {
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u05-b-c-q05",
+          "number": "5",
+          "prompt": "What are the most important clues that the investigator finds?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "fingerprints and a hair"
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "shoeprints and tire marks"
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "an item of clothing"
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "a",
+          "The text calls body clues the most important and gives fingerprints and a hair as examples.",
+          [
+            5,
+            6
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          70
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u06-a": {
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u06-a-c-q05",
+          "number": "5",
+          "prompt": "Which statement best summarizes Finkbeiner’s final quote about current world leaders?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "It will be easier to make changes when today’s young people have more power."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "Young people today need to push those in power to make changes."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "Today’s world leaders are a good example for younger generations to follow."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "b",
+          "He says there is no time to wait for his generation and calls for pressure on current leaders.",
+          [
+            4,
+            5
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          78
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u07-a": {
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u07-a-c-q05",
+          "number": "5",
+          "prompt": "According to the passage, which of these sentences is true?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "If you dream you’re wearing pajamas, something embarrassing probably happened to you."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "If you dream you’re flying, this is probably a difficult time in your life."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "If you dream you didn’t study for a test, you’re probably not getting enough sleep at night."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "a",
+          "The passage associates the pajamas dream with an embarrassing event; this is the article’s suggestion, not a diagnosis.",
+          [
+            4
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          92
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u11-a": {
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u11-a-c-q05",
+          "number": "5",
+          "prompt": "How did Lyuba die?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "She was attacked by another animal."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "Hunters killed her."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "She died when she fell."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "c",
+          "The passage says Lyuba fell and died near a muddy river.",
+          [
+            5
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          148
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    },
+    "rc-foundation-u11-b": {
+      "additionalQuestions": [
+        {
+          "id": "rc-foundation-u11-b-c-q05",
+          "number": "5",
+          "prompt": "Why did the fish not have a chance to get away from Thalassomedon?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "A",
+              "text": "The fish were not as fast as Thalassomedon."
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "text": "Thalassomedon attacked the fish from above."
+            },
+            {
+              "id": "c",
+              "label": "C",
+              "text": "The fish didn’t see Thalassomedon as it came near."
+            }
+          ],
+          "answer": null,
+          "answerText": null,
+          "explanation": null
+        }
+      ],
+      "additionalAnswers": {
+        "05": [
+          "c",
+          "The body stayed hidden in dark water while the neck approached the fish.",
+          [
+            4,
+            5
+          ]
+        ]
+      },
+      "sourceCheck": {
+        "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632",
+        "questionPdfPages": [
+          154
+        ],
+        "scope": "Recovered main MCQ checked against the article; not a complete book sign-off."
+      },
+      "notes": [
+        "2026-09-19: restored an omitted main MCQ from the complete textbook. Printed paragraph references replaced with quoted phrases where needed for the app layout."
+      ]
+    }
+  }
+}

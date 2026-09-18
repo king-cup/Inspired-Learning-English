@@ -133,7 +133,7 @@ Keep the v1.10 book-to-article menus, in-flow definitions, left-positioned home 
 
 Guided sessions and spelling reuse the shared header, ruled progress bar, action buttons and feedback notes. Spelling fields fill the available width and have a minimum height of 48px. Plan dates use native date/time controls, not a custom calendar. Long titles and bilingual recovery copy wrap within the screen.
 
-Source charts sit outside passage paragraphs, with captions and an explicit enlarge action. Enlarged charts scroll inside a keyboard-focusable viewport, never by widening the whole page. The renderer is implemented; the restored source content remains draft until the editorial gate passes.
+The 1.10.2 release uses passage-only comprehension. No diagrams or source charts are shown or downloaded; questions needing those visuals are explicitly excluded. Keep the page focused on prose and selectable comprehension questions. The earlier chart renderer is dormant, not a requirement to add diagrams back.
 
 ## Elevation & Depth
 
@@ -157,9 +157,9 @@ Square corners and the original black ruled headers, two-pixel reading frames an
 - Guided learning identifies the list and step, introduces audio and self-confirmed repetition, then provides four interleaved retrieval rounds. Use the existing feedback surfaces; completion is not a claim of permanent mastery.
 - Spelling practice shows a five-word checkpoint. Vocabulary Test offers MCQ, spelling or mixed across the selected list; answers stay unmarked until submission. A one-word list disables formats that need distractors and explains why.
 - Recovery notes use the existing error tint and `role="alert"`. A failed guided save offers **Retry saving progress** while keeping the current step in memory; unreadable plans offer **Retry opening plan** without overwriting stored data. Do not show a saved/completed state when saving has failed.
-- A required chart still loading or failing blocks comprehension submission and supplies a retry. Do not grade visual-evidence questions while hiding their source chart.
+- Only passage-supported MCQ and selectable True / False / Not Given questions are graded. Diagram-dependent and ambiguous questions remain in the editorial audit, not on the student page.
 - Global focus uses an ink outline with offset; spelling fields and chart viewports use their existing two-pixel focus variant. State changes also use text and disabled/pressed semantics, not colour alone.
-- The preview notice and permanent bilingual Settings log identify unfinished content. The preview Android label/package are separate from the student app; Android continues to suppress the iOS Home Screen reminder.
+- The 1.10.2 notice and permanent bilingual Settings log describe the published reading keys and learning functions. Missing example sentences/translations remain identified honestly. The full Android release uses the existing student package and signing key; the earlier preview remains separate. Android suppresses the iOS Home Screen reminder.
 - The company leaf assets under `icons/` are preexisting supplied assets, not newly generated images. Keep their original pixels; the small home-link affordance remains functional.
 
 ## Do's and Don'ts

@@ -10,10 +10,20 @@ import copy
 import hashlib
 import json
 import re
+import subprocess
 from pathlib import Path
 from reading_passage_cleanup import cleanup, typography
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def load_source():
+    data = json.loads((ROOT / 'reading-content.json').read_text())
+    if data.get('answerAuditVersion'):
+        # Keep the audit reproducible after publication without duplicating the corpus.
+        scope = json.loads((ROOT / 'tools/reading-release-scope.json').read_text())
+        data = json.loads(subprocess.check_output(['git', 'show', scope['inputCommit'] + ':reading-content.json'], cwd=ROOT))
+    return data
 
 
 def load_review():
@@ -23,6 +33,32 @@ def load_review():
         # A full source restoration replaces that article's earlier decisions:
         # old paragraph indices and missing-source exclusions must not leak in.
         review['articles'].update(json.loads(restorations.read_text())['articles'])
+    followup = ROOT / 'tools/reading-source-followup.json'
+    if followup.exists():
+        for ident, update in json.loads(followup.read_text())['articles'].items():
+            decision = review['articles'][ident]
+            for key, value in update.items():
+                if isinstance(value, dict):
+                    decision.setdefault(key, {}).update(value)
+                elif isinstance(value, list):
+                    decision.setdefault(key, []).extend(value)
+                else:
+                    decision[key] = value
+    scope_path = ROOT / 'tools/reading-release-scope.json'
+    if scope_path.exists():
+        scope = json.loads(scope_path.read_text())
+        review['passageCleanupComplete'] = scope['passageCleanupComplete']
+        for ident, record in scope['articles'].items():
+            decision = review['articles'][ident]
+            decision['figures'] = []
+            for number, reason in record.get('withheld', {}).items():
+                decision.get('answers', {}).pop(number, None)
+                decision.get('additionalAnswers', {}).pop(number, None)
+                decision.setdefault('excluded', {})[number] = reason
+            decision.setdefault('textRepairs', []).extend(record.get('textRepairs', []))
+            if record.get('omitExtraParagraphs'):
+                decision['extraParagraphs'] = []
+            decision['sourceVerification'] = record
     return review
 
 
@@ -58,7 +94,7 @@ def apply(data, review):
         for number, value in decision.get('appendParagraph', {}).items():
             paragraphs[int(number) - 1] += value
         paragraphs.extend(decision.get('extraParagraphs', []))
-        paragraphs, origin_map = cleanup(article['id'], paragraphs)
+        paragraphs, origin_map = cleanup(article['id'], paragraphs, decision.get('textRepairs', []))
         article['paragraphs'] = paragraphs
         article['wordCount'] = len(re.findall(r"\b[\w]+(?:['’-][\w]+)*\b", ' '.join(paragraphs)))
         article['readingMinutes'] = max(1, round(article['wordCount'] / 180))
@@ -125,11 +161,17 @@ def apply(data, review):
                      evidenceParagraphs=evidence, evidenceFigures=figure_evidence, answerProvenance='passage-reviewed-generated')
             kept.append(q)
         article['comprehension'].update(questions=kept, instructions='Choose the best answer. For statement questions, select True, False, or Not Given when offered.')
+        source_review = decision.get('sourceVerification', {})
+        kept_numbers = {q['id'].rsplit('q', 1)[1] for q in kept}
+        for number in source_review.get('mainQuestionNumbers', []):
+            if number not in kept_numbers and number not in source_review.get('withheld', {}):
+                errors.append(f"{article['id']}: source question {number} has no release decision")
         article['answerAuditVersion'] = 1
         reports.append({'id': article['id'], 'title': article['title'], 'keyed': len(kept),
                         'excluded': excluded, 'notes': decision.get('notes', []),
                         'passageChanged': original['paragraphs'] != paragraphs,
                         'sourceRestoration': decision.get('source'),
+                        'sourceVerification': decision.get('sourceVerification'),
                         'recoveredQuestions': len(decision.get('additionalQuestions', [])),
                         'sourceSHA256': hashlib.sha256(json.dumps(original, ensure_ascii=False, sort_keys=True).encode()).hexdigest()})
     return result, reports, errors
@@ -140,10 +182,8 @@ def main():
     parser.add_argument('--check', action='store_true')
     parser.add_argument('--preview', action='store_true', help='Write an explicitly non-published draft under .impeccable/review for local QA only.')
     args = parser.parse_args()
-    data = json.loads((ROOT / 'reading-content.json').read_text())
+    data = load_source()
     review = load_review()
-    if data.get('answerAuditVersion'):
-        raise SystemExit('Already applied. Restore the pre-audit input before regenerating; do not apply twice.')
     result, reports, errors = apply(data, review)
     pending = [a['id'] for a in data['articles'] if a['id'] not in review['articles']]
     summary = {'reviewed': len(reports), 'total': len(data['articles']),

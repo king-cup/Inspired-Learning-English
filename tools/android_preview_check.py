@@ -12,7 +12,8 @@ with zipfile.ZipFile(apk) as archive:
     names = archive.namelist()
     prefix = 'assets/web/'
     manifest = json.loads(archive.read(prefix + 'android-release-manifest.json'))
-    assert manifest['release'] == '1.10.2-preview'
+    expected = re.search(r"APP_VERSION = '([^']+)'", (root / 'js/data.js').read_text()).group(1)
+    assert manifest['release'] == expected
     for item in manifest['assets']:
         data = archive.read(prefix + item['path'])
         assert len(data) == item['bytes'], item['path']
@@ -26,11 +27,13 @@ with zipfile.ZipFile(apk) as archive:
     reading = json.loads(archive.read(prefix + 'reading-content.json'))
     assert reading == json.loads((root / 'reading-content.json').read_text())
     assert not reading.get('editorialDraft')
-    assert not reading.get('answerAuditVersion'), 'This checkpoint deliberately excludes the draft keys'
+    assert reading.get('answerAuditVersion') == 1
+    assert all(not a.get('figures') for a in reading['articles'])
+    assert sum(len(a['comprehension']['questions']) for a in reading['articles']) == 891
     assert json.loads(archive.read(prefix + 'release-policy.json'))['enabled'] is False
     clips = json.loads(archive.read(prefix + 'audio-index.json'))
     assert all(prefix + 'audio/' + slug + '.m4a' in names for slug in clips)
     assert len(clips) == 5364
     assert 'InspiredEnglishAndroid' in archive.read(prefix + 'js/main.js').decode()
-    print(f'PASS: {manifest["files"]} asset hashes; {len(clips)} word clips; no reading recordings, duplicate packs, signing secrets or draft reading keys.')
+    print(f'PASS: {manifest["files"]} asset hashes; {len(clips)} word clips; 891 reading keys; no reading recordings, duplicate packs, signing secrets or draft content.')
 print(f'APK: {apk.stat().st_size / 1048576:.2f} MiB; SHA-256 {hashlib.sha256(apk.read_bytes()).hexdigest()}')

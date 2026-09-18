@@ -1,7 +1,7 @@
 """Small regression check: complete answer counts must not bypass source blockers."""
 import json
 from pathlib import Path
-from apply_reading_answers import apply, load_review, publication_blockers
+from apply_reading_answers import apply, load_source, load_review, publication_blockers
 
 review = {'articles': {'sample': {'notes': ['BLOCKER: missing source page']}}}
 assert len(publication_blockers(review)) == 2
@@ -10,18 +10,18 @@ assert len(publication_blockers(review)) == 1
 review['articles']['sample']['notes'] = ['Source restored and evidence rechecked.']
 assert publication_blockers(review) == []
 root = Path(__file__).resolve().parents[1]
-result, reports, errors = apply(json.loads((root / 'reading-content.json').read_text()), load_review())
+result, reports, errors = apply(load_source(), load_review())
 assert not errors, errors
 articles = {a['id']: a for a in result['articles']}
 space = articles['rc-level-3-u12-b']
 runner = articles['rc-level-5-u02-a']
 energy = articles['rc-level-5-u05-a']
 assert len(space['paragraphs']) == 6 and space['paragraphs'][0].startswith('Although we have sent')
-assert [q['answer'] for q in space['comprehension']['questions']] == ['b', 'c', 'b', 'a', 'd', 'f', 'f', 'ng', 't', 't', 't']
+assert [q['answer'] for q in space['comprehension']['questions']] == ['b', 'c', 'b', 'a', 'd']
 assert len(runner['paragraphs']) == 14 and '166 kilometers!' in runner['paragraphs'][-1]
 assert [q['answer'] for q in runner['comprehension']['questions']] == ['b', 'b', 'c', 'a', 'd', 'b', 'c']
 assert len(energy['paragraphs']) == 18
-assert [q['answer'] for q in energy['comprehension']['questions']] == ['b', 'c', 'a', 'd', 'd', 'd']
+assert [q['answer'] for q in energy['comprehension']['questions']] == ['b', 'c', 'a', 'd', 'd']
 for a in [space, energy]:
     for figure in a['figures']:
         assert (root / figure['path']).is_file()
@@ -49,8 +49,14 @@ assert [q['answer'] for q in gold['comprehension']['questions']] == ['b', 'd', '
 assert 'especially stressful' in ' '.join(gold['paragraphs'])
 assert 'As if in tribute, she has hung' in ' '.join(gold['paragraphs'])
 for article in result['articles']:
+    assert not article['figures']
     for q in article['comprehension']['questions']:
         assert q['choices'] and q['answer'] in {c['id'] for c in q['choices']}
-        assert q['evidenceParagraphs'] or q['evidenceFigures']
-assert sum(len(a['comprehension']['questions']) for a in result['articles']) == 766
+        assert q['evidenceParagraphs'] and not q['evidenceFigures']
+        assert q['type'] in ('multiple-choice', 'true-false', 'true-false-not-given')
+assert sum(len(a['comprehension']['questions']) for a in result['articles']) == 891
+# A disappearing source question must fail the audit, not reduce the total silently.
+broken = load_review()
+broken['articles']['rc-foundation-u01-a']['sourceVerification']['mainQuestionNumbers'].append('99')
+assert any('source question 99' in error for error in apply(load_source(), broken)[2])
 print('Reading publication gate checks passed.')

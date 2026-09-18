@@ -19,8 +19,8 @@
   "wpmMin": 143.87449027603512,
   "wpmMax": 159.50840686115586,
   "wpmAverage": 150.46,
-  "questionsWithAnswerKeys": 12148,
-  "questionsWithoutAnswerKeys": 2316,
+  "questionsWithAnswerKeys": 13039,
+  "questionsWithoutAnswerKeys": 1272,
   "middleSchoolByGradeAndSection": {
     "7": {
       "mcq": 126,

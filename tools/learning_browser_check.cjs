@@ -19,8 +19,8 @@ async function main() {
       const context = await browser.newContext({ viewport: { width, height }, serviceWorkers: 'block' });
       await context.addInitScript(lang => {
         localStorage.setItem('vd.profile.v1', JSON.stringify({ name: 'Learning QA', lang, onboarded: true }));
-        localStorage.setItem('ie.tutorial.1.10.1', 'done');
-        localStorage.setItem('ie.releaseNotice.1.10.1', 'seen');
+        localStorage.setItem('ie.tutorial.1.10.2', 'done');
+        localStorage.setItem('ie.releaseNotice.1.10.2', 'seen');
         localStorage.setItem('ie.releaseNotice.1.10.2-preview', 'seen');
         Object.defineProperty(navigator, 'standalone', { value: true });
       }, lang);

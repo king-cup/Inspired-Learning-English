@@ -111,7 +111,7 @@ export function render(root) {
 
     // --- vocabulary updates (v1.03 §4) -------------------------------------
     root.append(vocabBox(t));
-    const log = h('details.box.mt.release-log', null, h('summary', { style: { padding: '14px', cursor: 'pointer', minHeight: '44px' } }, p.lang === 'zh' ? '更新与修复记录 · 1.04–1.10.1' : 'Updates & fixes · 1.04–1.10.1'));
+    const log = h('details.box.mt.release-log', null, h('summary', { style: { padding: '14px', cursor: 'pointer', minHeight: '44px' } }, p.lang === 'zh' ? '更新与修复记录 · 1.04–1.10.2' : 'Updates & fixes · 1.04–1.10.2'));
     log.append(h('div', { style: { padding: '0 14px 14px' } }, releaseLog()));
     root.append(log);
 

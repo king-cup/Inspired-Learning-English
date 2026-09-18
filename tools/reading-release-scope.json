@@ -1,0 +1,1888 @@
+{
+  "schemaVersion": 1,
+  "inputCommit": "8e4b083793e772baec8befbd8f00bbbfb30d576b",
+  "scope": "Passage-only MCQ and selectable T/F/NG. No diagrams, chart-dependent questions, written responses or extra exercises. Generated editorial keys, not publisher keys.",
+  "passageCleanupComplete": true,
+  "reviewedAt": "2026-09-19",
+  "books": {
+    "level-1": {
+      "file": "Reading Explorer 1 (Third Edition) (David Bohlke, Nancy Douglas) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+      "sha256": "16169907bc888fdb066374e56945c421846847ac6ca97e31617cf5cb63044ba9"
+    },
+    "level-2": {
+      "file": "Reading Explorer 2 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+      "sha256": "8eda8f2b52dfdaa1f15b53fedff0553bef0ac49136848c9ad7df641eab66c63c"
+    },
+    "level-3": {
+      "file": "Reading Explorer 3 (Third Edition) (Nancy Douglas, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+      "sha256": "669c6241733da680352ee8252566fd44d51119758a06a8f46a51a1b2e2555725"
+    },
+    "level-4": {
+      "file": "Reading Explorer 4 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+      "sha256": "2c4a6fef3f46ccb8e5d5de2ef7ab5edf59652c2c7d08da6750a2066537d3ac26"
+    },
+    "level-5": {
+      "file": "Reading Explorer 5 (Third Edition) (Paul Macintyre, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+      "sha256": "88d677639bb91644c43d379ff63254ab0628abf7a097cf3f796662e894bb4b88"
+    },
+    "foundation": {
+      "file": "Reading Explorer Foundations (Third Edition) (Becky Tarver - Chase, David Bohlke) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+      "sha256": "98720c9d62927df0f9f45621e1f804df4d558fefa02c2f58305aab17fef57632"
+    }
+  },
+  "articles": {
+    "rc-foundation-u01-a": {
+      "book": "foundation",
+      "questionPage": 11,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {
+        "05": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions."
+      }
+    },
+    "rc-foundation-u01-b": {
+      "book": "foundation",
+      "questionPage": 16,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {},
+      "textRepairs": [
+        [
+          "evidence”3",
+          "evidence”"
+        ]
+      ]
+    },
+    "rc-foundation-u02-a": {
+      "book": "foundation",
+      "questionPage": 25,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {},
+      "textRepairs": [
+        [
+          "legend,2",
+          "legend,"
+        ],
+        [
+          "The current champion of the contest",
+          "The champion at the time of the article (2018)"
+        ]
+      ]
+    },
+    "rc-foundation-u02-b": {
+      "book": "foundation",
+      "questionPage": 30,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u03-a": {
+      "book": "foundation",
+      "questionPage": 38,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u03-b": {
+      "book": "foundation",
+      "questionPage": 44,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u04-a": {
+      "book": "foundation",
+      "questionPage": 53,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u04-b": {
+      "book": "foundation",
+      "questionPage": 58,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u05-a": {
+      "book": "foundation",
+      "questionPage": 65,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u05-b": {
+      "book": "foundation",
+      "questionPage": 70,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u06-a": {
+      "book": "foundation",
+      "questionPage": 78,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u06-b": {
+      "book": "foundation",
+      "questionPage": 84,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {
+        "05": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions."
+      }
+    },
+    "rc-foundation-u07-a": {
+      "book": "foundation",
+      "questionPage": 92,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u07-b": {
+      "book": "foundation",
+      "questionPage": 98,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {},
+      "textRepairs": [
+        [
+          "Look at these optical illusions and compare what you see with what your classmates see. ",
+          ""
+        ]
+      ]
+    },
+    "rc-foundation-u08-a": {
+      "book": "foundation",
+      "questionPage": 107,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {
+        "05": "Withheld: August hatching to December independence does not uniquely support the printed five/nine/twelve-month options."
+      }
+    },
+    "rc-foundation-u08-b": {
+      "book": "foundation",
+      "questionPage": 112,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u09-a": {
+      "book": "foundation",
+      "questionPage": 120,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u09-b": {
+      "book": "foundation",
+      "questionPage": 126,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u10-a": {
+      "book": "foundation",
+      "questionPage": 135,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u10-b": {
+      "book": "foundation",
+      "questionPage": 140,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u11-a": {
+      "book": "foundation",
+      "questionPage": 148,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u11-b": {
+      "book": "foundation",
+      "questionPage": 154,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u12-a": {
+      "book": "foundation",
+      "questionPage": 163,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-foundation-u12-b": {
+      "book": "foundation",
+      "questionPage": 168,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u01-a": {
+      "book": "level-1",
+      "questionPage": 10,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u01-b": {
+      "book": "level-1",
+      "questionPage": 16,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u02-a": {
+      "book": "level-1",
+      "questionPage": 25,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u02-b": {
+      "book": "level-1",
+      "questionPage": 30,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u03-a": {
+      "book": "level-1",
+      "questionPage": 39,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u03-b": {
+      "book": "level-1",
+      "questionPage": 44,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u04-a": {
+      "book": "level-1",
+      "questionPage": 53,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u04-b": {
+      "book": "level-1",
+      "questionPage": 58,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u05-a": {
+      "book": "level-1",
+      "questionPage": 67,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u05-b": {
+      "book": "level-1",
+      "questionPage": 72,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u06-a": {
+      "book": "level-1",
+      "questionPage": 81,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u06-b": {
+      "book": "level-1",
+      "questionPage": 86,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u07-a": {
+      "book": "level-1",
+      "questionPage": 95,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u07-b": {
+      "book": "level-1",
+      "questionPage": 100,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u08-a": {
+      "book": "level-1",
+      "questionPage": 107,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u08-b": {
+      "book": "level-1",
+      "questionPage": 112,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u09-a": {
+      "book": "level-1",
+      "questionPage": 121,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u09-b": {
+      "book": "level-1",
+      "questionPage": 126,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u10-a": {
+      "book": "level-1",
+      "questionPage": 135,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u10-b": {
+      "book": "level-1",
+      "questionPage": 140,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u11-a": {
+      "book": "level-1",
+      "questionPage": 149,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u11-b": {
+      "book": "level-1",
+      "questionPage": 154,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u12-a": {
+      "book": "level-1",
+      "questionPage": 163,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-1-u12-b": {
+      "book": "level-1",
+      "questionPage": 168,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u01-a": {
+      "book": "level-2",
+      "questionPage": 10,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u01-b": {
+      "book": "level-2",
+      "questionPage": 16,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {
+        "05": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions."
+      }
+    },
+    "rc-level-2-u02-a": {
+      "book": "level-2",
+      "questionPage": 26,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u02-b": {
+      "book": "level-2",
+      "questionPage": 32,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u03-a": {
+      "book": "level-2",
+      "questionPage": 42,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u03-b": {
+      "book": "level-2",
+      "questionPage": 48,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u04-a": {
+      "book": "level-2",
+      "questionPage": 57,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u04-b": {
+      "book": "level-2",
+      "questionPage": 62,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u05-a": {
+      "book": "level-2",
+      "questionPage": 72,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u05-b": {
+      "book": "level-2",
+      "questionPage": 78,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u06-a": {
+      "book": "level-2",
+      "questionPage": 88,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u06-b": {
+      "book": "level-2",
+      "questionPage": 94,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u07-a": {
+      "book": "level-2",
+      "questionPage": 104,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {
+        "05": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions."
+      }
+    },
+    "rc-level-2-u07-b": {
+      "book": "level-2",
+      "questionPage": 110,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u08-a": {
+      "book": "level-2",
+      "questionPage": 119,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u08-b": {
+      "book": "level-2",
+      "questionPage": 124,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u09-a": {
+      "book": "level-2",
+      "questionPage": 133,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u09-b": {
+      "book": "level-2",
+      "questionPage": 138,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u10-a": {
+      "book": "level-2",
+      "questionPage": 147,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u10-b": {
+      "book": "level-2",
+      "questionPage": 154,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u11-a": {
+      "book": "level-2",
+      "questionPage": 163,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u11-b": {
+      "book": "level-2",
+      "questionPage": 168,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u12-a": {
+      "book": "level-2",
+      "questionPage": 178,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-2-u12-b": {
+      "book": "level-2",
+      "questionPage": 184,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {},
+      "textRepairs": [
+        [
+          "Like climbers making their way up that famous peak,",
+          "Like mountain climbers making their way upward,"
+        ]
+      ]
+    },
+    "rc-level-3-u01-a": {
+      "book": "level-3",
+      "questionPage": 12,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u01-b": {
+      "book": "level-3",
+      "questionPage": 18,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u02-a": {
+      "book": "level-3",
+      "questionPage": 28,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u02-b": {
+      "book": "level-3",
+      "questionPage": 34,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u03-a": {
+      "book": "level-3",
+      "questionPage": 44,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u03-b": {
+      "book": "level-3",
+      "questionPage": 52,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u04-a": {
+      "book": "level-3",
+      "questionPage": 61,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u04-b": {
+      "book": "level-3",
+      "questionPage": 68,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u05-a": {
+      "book": "level-3",
+      "questionPage": 77,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u05-b": {
+      "book": "level-3",
+      "questionPage": 84,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u06-a": {
+      "book": "level-3",
+      "questionPage": 93,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u06-b": {
+      "book": "level-3",
+      "questionPage": 100,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u07-a": {
+      "book": "level-3",
+      "questionPage": 109,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u07-b": {
+      "book": "level-3",
+      "questionPage": 116,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u08-a": {
+      "book": "level-3",
+      "questionPage": 126,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u08-b": {
+      "book": "level-3",
+      "questionPage": 132,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u09-a": {
+      "book": "level-3",
+      "questionPage": 142,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u09-b": {
+      "book": "level-3",
+      "questionPage": 148,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u10-a": {
+      "book": "level-3",
+      "questionPage": 157,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u10-b": {
+      "book": "level-3",
+      "questionPage": 164,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u11-a": {
+      "book": "level-3",
+      "questionPage": 174,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u11-b": {
+      "book": "level-3",
+      "questionPage": 182,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u12-a": {
+      "book": "level-3",
+      "questionPage": 191,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-3-u12-b": {
+      "book": "level-3",
+      "questionPage": 198,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {
+        "06": "Excluded from passage-only release: requires a visual or separate sidebar.",
+        "07": "Excluded from passage-only release: requires a visual or separate sidebar.",
+        "08": "Excluded from passage-only release: requires a visual or separate sidebar.",
+        "09": "Excluded from passage-only release: requires a visual or separate sidebar.",
+        "10": "Excluded from passage-only release: requires a visual or separate sidebar.",
+        "11": "Excluded from passage-only release: requires a visual or separate sidebar."
+      }
+    },
+    "rc-level-4-u01-a": {
+      "book": "level-4",
+      "questionPage": 12,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u01-b": {
+      "book": "level-4",
+      "questionPage": 20,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u02-a": {
+      "book": "level-4",
+      "questionPage": 31,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u02-b": {
+      "book": "level-4",
+      "questionPage": 38,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u03-a": {
+      "book": "level-4",
+      "questionPage": 48,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u03-b": {
+      "book": "level-4",
+      "questionPage": 56,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u04-a": {
+      "book": "level-4",
+      "questionPage": 67,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u04-b": {
+      "book": "level-4",
+      "questionPage": 74,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u05-a": {
+      "book": "level-4",
+      "questionPage": 84,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u05-b": {
+      "book": "level-4",
+      "questionPage": 92,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u06-a": {
+      "book": "level-4",
+      "questionPage": 102,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u06-b": {
+      "book": "level-4",
+      "questionPage": 110,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u07-a": {
+      "book": "level-4",
+      "questionPage": 120,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u07-b": {
+      "book": "level-4",
+      "questionPage": 128,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u08-a": {
+      "book": "level-4",
+      "questionPage": 139,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u08-b": {
+      "book": "level-4",
+      "questionPage": 146,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u09-a": {
+      "book": "level-4",
+      "questionPage": 156,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {
+        "05": "Excluded from passage-only release: requires a visual or separate sidebar."
+      },
+      "textRepairs": [
+        [
+          "fi rsthand",
+          "firsthand"
+        ]
+      ],
+      "omitExtraParagraphs": true
+    },
+    "rc-level-4-u09-b": {
+      "book": "level-4",
+      "questionPage": 164,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u10-a": {
+      "book": "level-4",
+      "questionPage": 174,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u10-b": {
+      "book": "level-4",
+      "questionPage": 182,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u11-a": {
+      "book": "level-4",
+      "questionPage": 192,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u11-b": {
+      "book": "level-4",
+      "questionPage": 198,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-4-u12-a": {
+      "book": "level-4",
+      "questionPage": 208,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {
+        "03": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions."
+      }
+    },
+    "rc-level-4-u12-b": {
+      "book": "level-4",
+      "questionPage": 216,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u01-a": {
+      "book": "level-5",
+      "questionPage": 14,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u01-b": {
+      "book": "level-5",
+      "questionPage": 23,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u02-a": {
+      "book": "level-5",
+      "questionPage": 35,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u02-b": {
+      "book": "level-5",
+      "questionPage": 45,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u03-a": {
+      "book": "level-5",
+      "questionPage": 58,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u03-b": {
+      "book": "level-5",
+      "questionPage": 67,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {
+        "04": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions.",
+        "07": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions."
+      }
+    },
+    "rc-level-5-u04-a": {
+      "book": "level-5",
+      "questionPage": 80,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u04-b": {
+      "book": "level-5",
+      "questionPage": 89,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {
+        "03": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions.",
+        "04": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions."
+      }
+    },
+    "rc-level-5-u05-a": {
+      "book": "level-5",
+      "questionPage": 102,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {
+        "07": "Excluded from passage-only release: requires a visual or separate sidebar.",
+        "06": "Withheld: the source confirms conflicting CO2 figures and comparisons."
+      }
+    },
+    "rc-level-5-u05-b": {
+      "book": "level-5",
+      "questionPage": 111,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {
+        "05": "Withheld: quoted sunny Freiburg does not unambiguously establish the intended inference.",
+        "07": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions."
+      }
+    },
+    "rc-level-5-u06-a": {
+      "book": "level-5",
+      "questionPage": 124,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u06-b": {
+      "book": "level-5",
+      "questionPage": 133,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {
+        "05": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions."
+      }
+    },
+    "rc-level-5-u07-a": {
+      "book": "level-5",
+      "questionPage": 145,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u07-b": {
+      "book": "level-5",
+      "questionPage": 153,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u08-a": {
+      "book": "level-5",
+      "questionPage": 165,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {
+        "07": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions."
+      }
+    },
+    "rc-level-5-u08-b": {
+      "book": "level-5",
+      "questionPage": 173,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u09-a": {
+      "book": "level-5",
+      "questionPage": 186,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u09-b": {
+      "book": "level-5",
+      "questionPage": 195,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u10-a": {
+      "book": "level-5",
+      "questionPage": 208,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u10-b": {
+      "book": "level-5",
+      "questionPage": 217,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {
+        "07": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions."
+      }
+    },
+    "rc-level-5-u11-a": {
+      "book": "level-5",
+      "questionPage": 230,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u11-b": {
+      "book": "level-5",
+      "questionPage": 241,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u12-a": {
+      "book": "level-5",
+      "questionPage": 254,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {}
+    },
+    "rc-level-5-u12-b": {
+      "book": "level-5",
+      "questionPage": 263,
+      "mainQuestionNumbers": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "withheld": {
+        "05": "Withheld: the printed lithium estimate lacks the percentage-point basis needed for this calculation.",
+        "07": "Not included: requires a diagram or source-layout context; release keeps the supported passage questions."
+      }
+    }
+  }
+}

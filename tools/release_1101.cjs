@@ -12,7 +12,7 @@ async function main() {
       const context = await browser.newContext({viewport:{width,height},hasTouch:true,userAgent:android?'Mozilla/5.0 InspiredEnglishAndroid/1.10.1':undefined});
       await context.addInitScript(({lang})=>{
         if (!localStorage.getItem('vd.profile.v1')) localStorage.setItem('vd.profile.v1',JSON.stringify({name:'UpgradeStudent',lang,onboarded:true}));
-        localStorage.setItem('ie.tutorial.1.10.1','done');
+        localStorage.setItem('ie.tutorial.1.10.2','done');
         Object.defineProperty(navigator,'standalone',{value:true});
       },{lang});
       const page=await context.newPage(); const errors=[];
@@ -30,7 +30,7 @@ async function main() {
       assert.equal(await page.getByRole('dialog').count(),0);
       assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('vd.profile.v1')).name),'UpgradeStudent');
       await go('#/settings'); await page.locator('.release-log summary').click();
-      assert.equal(await page.locator('.release-log h2').count(),6);
+      assert.equal(await page.locator('.release-log h2').count(),8);
       for (const color of ['red','green','blue','yellow','purple','pink','brown','black','teal']) {
         await page.locator(`[data-highlight-color=${color}]`).click();
         assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('vd.profile.v1')).highlightColor),color);

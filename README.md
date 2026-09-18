@@ -1,5 +1,7 @@
 # Inspired English — learner app
 
+Current release: **1.10.2**. See [release notes and known limits](RELEASE-1.10.2.md). Reading comprehension is passage-only: 144 articles and 891 supported keys, without diagrams. The full Android package uses the original application ID and signing key.
+
 This folder is the canonical learner application. iPhone and iPad run it as an
 installable PWA; Android v1.10 packages the same audited web release inside the
 WebView shell in `../Vocab Drill Student App/`.

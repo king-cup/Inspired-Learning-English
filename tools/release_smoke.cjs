@@ -16,8 +16,8 @@ async function main() {
       const context = await browser.newContext({ viewport: { width, height }, hasTouch: true, isMobile: width < 760, userAgent: android ? 'Mozilla/5.0 InspiredEnglishAndroid/1.10' : undefined });
       await context.addInitScript(({lang,android}) => {
         if (!localStorage.getItem('vd.profile.v1')) localStorage.setItem('vd.profile.v1', JSON.stringify({ name:'Student', lang, onboarded:true, inverted:false, cardsReversed:false }));
-        localStorage.setItem('ie.tutorial.1.10.1','done');
-        localStorage.setItem('ie.releaseNotice.1.10.1','seen');
+        localStorage.setItem('ie.tutorial.1.10.2','done');
+        localStorage.setItem('ie.releaseNotice.1.10.2','seen');
         if (!android) Object.defineProperty(navigator, 'standalone', { value: true });
       }, {lang,android});
       const page = await context.newPage();
@@ -26,6 +26,7 @@ async function main() {
       const go = async route => {
         console.log(name, route);
         await page.goto(BASE + '/' + route, {waitUntil:'networkidle'});
+        if (await page.getByRole('dialog').count()) await page.getByRole('dialog').getByRole('button').first().click();
         await page.locator('main button').first().waitFor({state:'attached'});
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, name + route + ': overflow');
         assert.equal(await page.locator('#tabwarn').isVisible(), false, 'install banner');
@@ -61,9 +62,9 @@ async function main() {
       assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('ie.curriculum.v2')).encounters.length),1);
       // Touch double tap must behave like the desktop gesture.
       await term.tap(); await term.tap(); assert.equal(await page.locator('.inline-definition').count(),1);
-      // Submission, retry and next preserve progress and don't fabricate a key.
+      // Audited keys produce a score; next/restart preserve progress.
       await page.locator('[data-section=comp] > button').click();
-      assert.equal(await page.locator('.article-results .note').count(),1);
+      assert.match(await page.locator('.article-results').innerText(), /0%/);
       await page.locator('.article-results .btn.wide').click();
       await page.waitForURL('**/#/reading/rc-foundation-u01-b/study');
       await page.waitForFunction(() => localStorage.getItem('ie.lastRoute') === '#/reading/rc-foundation-u01-b/study');
@@ -98,7 +99,7 @@ async function main() {
         assert.ok(await page.locator('.opt.right').count());
         await go('#/u/'+first+'/test');
         await page.locator('.stack .block').first().click();
-        for (let i=0; i<10; i++) { await page.locator('.opt').first().click(); assert.equal(await page.locator('.opt.right,.opt.wrong').count(),0); await page.locator('.test-nav .navbtn').last().click(); }
+        for (let i=0; i<read('vocab.json').data[first].length; i++) { await page.locator('.opt').first().click(); assert.equal(await page.locator('.opt.right,.opt.wrong').count(),0); await page.locator('.test-nav .navbtn').last().click(); }
         await page.locator('.grade-block,.grade,.score').first().waitFor({state:'attached'}).catch(()=>page.getByRole('button',{name:/done/i}).waitFor());
         await go('#/memory');
         await page.getByRole('button',{name:'Review due items',exact:true}).click();
@@ -111,7 +112,7 @@ async function main() {
           const backup = S.exportBackup(); const count = C.get().encounters.length;
           return { valid:S.validateBackup(backup).ok, schema:JSON.parse(backup).schema, restored:S.importBackup(backup).ok, count, after:C.get().encounters.length, invalid:S.validateBackup('{"progress":{"words":{},"units":{}},"curriculum":[]}').ok };
         });
-        assert.equal(saved.schema,2); assert.equal(saved.valid,true); assert.equal(saved.restored,true); assert.equal(saved.count,saved.after); assert.equal(saved.invalid,false);
+        assert.equal(saved.schema,3); assert.equal(saved.valid,true); assert.equal(saved.restored,true); assert.equal(saved.count,saved.after); assert.equal(saved.invalid,false);
       }
       assert.deepEqual(errors,[],name+' errors');
       checks.push(name+': routes, layout, definitions, undo/history, submissions, next article and restart passed');

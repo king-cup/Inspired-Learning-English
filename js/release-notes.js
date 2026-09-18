@@ -5,6 +5,14 @@ import { h, clear, button, openDialog } from './ui.js';
 const KEY = `ie.releaseNotice.${APP_VERSION}`;
 let dismissed = false;
 export const releases = [
+  ['1.10.2', '2026-09-19', [
+    ['Reading Explorer now includes 144 cleaned passages and 891 passage-supported answer keys. Multiple-choice and selectable True / False / Not Given questions are scored. Diagram-dependent, written-response and ambiguous questions are omitted.', 'Reading Explorer 更新为 144 篇清理后的文章、891 道有原文依据的答案。选择题及可点击的判断题可自动评分；不收录依赖图表、书面回答或有歧义的题目。'],
+    ['Added five-word spelling practice and full-list tests in Multiple Choice, Fill in the blank or Mixed formats.', '新增每五词反馈的拼写练习，以及覆盖整张词表的选择题、填空题和混合测试。'],
+    ['Guided learning supports your actual class deadline, including one-day plans, review and four retrieval rounds per word. Pronunciation is self-confirmed; there is no speech recognition.', '引导学习按实际上课时间安排，支持一天计划、复习及每词四轮回忆练习。跟读由学生自行确认，暂不识别语音。'],
+    ['Added resumable learning, guided-plan backups, save-retry messages and timestamped local history. The tutorial and Settings log are available in English and Chinese.', '新增学习续接、引导计划备份、保存重试提示和带时间戳的本地记录。指南和设置更新记录均提供中英文。'],
+    ['Existing recordings and the original visual style are unchanged. Android includes vocabulary audio; reading audio remains optional. Back up your progress before updating.', '保留现有录音与原有视觉风格。安卓内置词汇发音，阅读音频仍按需下载。更新前请备份进度。'],
+    ['Content still being expanded: 118 vocabulary entries lack English examples, and whole-sentence Chinese translations are not supplied yet. Chinese word meanings remain available. This release does not claim those additions are complete.', '仍待补充：118 条词汇缺少英语例句，整句中文翻译暂未提供；中文词义保留。本版未将这些内容标为已完成。'],
+  ]],
   ['1.10.2-preview', '2026-09-19', [
     ['Preview for testing, not a finished student release. The live PWA is unchanged; the Android preview installs separately.', '测试预览版，并非正式学生版本。线上 PWA 保持不变，安卓预览版独立安装。'],
     ['Try guided learning with a class deadline, five-word spelling practice, and full-list Multiple Choice, Fill in the blank or Mixed tests. One-day plans include all new words; longer plans include review.', '可试用按上课时间安排的引导学习、每五词反馈的拼写练习，以及整词表选择题、填空题或混合测试。一天计划当天学习全部新词，多日计划包含复习。'],
@@ -58,7 +66,7 @@ export function content() {
       ...[['en','English'],['zh','中文']].map(([code,label]) => button(label, { variant:'thin', ariaPressed:lang === code, onClick:() => { lang = code; paint(); host.querySelector('[aria-pressed="true"]').focus(); } }))));
     host.append(h('p', null, zh ? `从 1.04 到 ${APP_VERSION} 的已知变化，依据已记录的版本历史。` : `Known changes from 1.04 through ${APP_VERSION}, based on recorded release history.`));
     for (const [version,date,items] of releases) host.append(h('h2', null, version), h('p.release-date', null, date), h('ul', null, ...items.map(row => h('li', null, row[zh ? 1 : 0]))));
-    host.append(h('p', null, zh ? '重要说明：Reading Explorer 暂无核实的理解题答案，提交后请老师批阅，不会生成虚构分数。高中阅读题库尚未上线；记忆宫殿重设计仍待规划。记录仅存本机，重装或换设备前请备份。' : 'Important: Reading Explorer has no verified comprehension answer keys; submissions need teacher review, not invented scores. High-school reading content is not yet available; the Memory Palace redesign remains planned. Progress is local—back up before reinstalling or changing devices.'));
+    host.append(h('p', null, zh ? '重要说明：阅读答案依据原文编审，并非出版社答案册。高中阅读题库尚未上线；记忆宫殿重设计仍待规划。记录仅存本机，重装或换设备前请备份。' : 'Important: Reading keys are editorial judgments supported by the passages, not a publisher answer sheet. High-school reading content is not yet available; the Memory Palace redesign remains planned. Progress is local—back up before reinstalling or changing devices.'));
   }
   paint(); return host;
 }

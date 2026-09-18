@@ -7,8 +7,8 @@ async function main() {
     const context = await browser.newContext({ viewport: { width: 834, height: 1194 } });
     await context.addInitScript(() => {
       localStorage.setItem('vd.profile.v1', JSON.stringify({ name: 'Offline QA', lang: 'en', onboarded: true }));
-      localStorage.setItem('ie.tutorial.1.10.1', 'done');
-      localStorage.setItem('ie.releaseNotice.1.10.1', 'seen');
+      localStorage.setItem('ie.tutorial.1.10.2', 'done');
+      localStorage.setItem('ie.releaseNotice.1.10.2', 'seen');
       localStorage.setItem('ie.releaseNotice.1.10.2-preview', 'seen');
       Object.defineProperty(navigator, 'standalone', { value: true });
     });
@@ -20,11 +20,11 @@ async function main() {
     await page.locator('#class-deadline').waitFor();
     const shell = await page.evaluate(async () => {
       await navigator.serviceWorker.ready;
-      const name = (await caches.keys()).find(k => k === 'vd-shell-v18-preview');
+      const name = (await caches.keys()).find(k => k === 'vd-shell-v19');
       const cache = await caches.open(name);
       return { name, paths: (await cache.keys()).map(r => new URL(r.url).pathname) };
     });
-    assert.equal(shell.name, 'vd-shell-v18-preview');
+    assert.equal(shell.name, 'vd-shell-v19');
     for (const file of ['js/activity.js', 'js/guided-plan.js', 'js/screens/guided.js']) assert(shell.paths.includes('/' + file));
     await context.setOffline(true);
     await page.close(); page = await context.newPage(); watch(page);

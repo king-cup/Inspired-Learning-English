@@ -1,5 +1,7 @@
 # Inspired English 1.10.2 preview checkpoint
 
+Historical checkpoint. Superseded by the later passage-only 1.10.2 release described in [RELEASE-1.10.2.md](RELEASE-1.10.2.md). The old preview limitations and delivery status below describe that checkpoint, not the current build.
+
 Peter explicitly chose **checkpoint push + preview APK** on 19 September 2026. This is not a student release and must not be merged into the production branch as if the remaining audit were complete.
 
 ## Delivery boundary

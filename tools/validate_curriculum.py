@@ -59,7 +59,7 @@ def main() -> None:
             errors.append(f"{article.get('id')}: duplicated narration paragraph")
         if re.search(r"\b(?:NGM STAFF|ADAPTED WITH PERMISSION)\b|\bUnit\s+\d+\s*[AB]\b", article.get("narration", ""), re.I):
             errors.append(f"{article.get('id')}: source credit or page marker leaked into narration")
-        if not re.search(r"[.!?][\"'’”)]?$", " ".join(article.get("paragraphs", []))):
+        if not re.search(r"[.!?][\"'’”)]*$", " ".join(article.get("paragraphs", []))):
             errors.append(f"{article.get('id')}: article does not end with complete prose")
         if article.get("reading") not in {"A", "B"} or not 1 <= article.get("unit", 0) <= 12:
             errors.append(f"{article.get('id')}: broken ordering")

@@ -21,7 +21,7 @@
 // v11: stable headers/navigation, refreshed cloze sources, HSE advanced practice.
 // v12: full 608-passage cloze bank, flash-free cloze routes, HSE Packages 7–8.
 // v13: v1.09 reading library, middle-school sections, and Memory Palace.
-const SHELL = 'vd-shell-v18-preview'; // Non-production 1.10.2 checkpoint.
+const SHELL = 'vd-shell-v19'; // 1.10.2: passage-only keys and guided learning.
 
 const PRECACHE = [
   './',
@@ -37,9 +37,6 @@ const PRECACHE = [
   'cloze.json',
   'advanced-practice.json',
   'reading-content.json',
-  'reading-figures/re3-12b-missions-1.jpg',
-  'reading-figures/re3-12b-missions-2.jpg',
-  'reading-figures/re5-5a-traveler.jpg',
   'reading-audio-manifest.json',
   'middle-school.json',
   'passage-glossary.json',

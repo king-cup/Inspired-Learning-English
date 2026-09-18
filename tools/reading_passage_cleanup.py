@@ -94,7 +94,7 @@ REPLACEMENTS = {
 }
 
 
-def cleanup(article_id, paragraphs):
+def cleanup(article_id, paragraphs, final_repairs=()):
     rows = [{'text': text, 'origins': [i]} for i, text in enumerate(paragraphs, 1)]
     def replace(old, new):
         found = False
@@ -250,14 +250,20 @@ def cleanup(article_id, paragraphs):
 
     # Repair only typographic spacing, not vocabulary or factual claims.
     output, origin_map = [], {}
+    matched = set()
     for row in rows:
         value = re.sub(r'\s+', ' ', row['text']).strip()
         for heading in HEADINGS:
             value = value.replace(heading, '')
         value = typography(value)
+        for index, (old, new) in enumerate(final_repairs):
+            if old in value:
+                value = value.replace(old, new).strip()
+                matched.add(index)
         if not value:
             continue
         output.append(value)
         for origin in row['origins']:
             origin_map.setdefault(origin, []).append(len(output))
+    assert len(matched) == len(final_repairs), (article_id, 'unmatched source repair', set(range(len(final_repairs))) - matched)
     return output, origin_map
